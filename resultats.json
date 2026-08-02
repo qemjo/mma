@@ -1,0 +1,1460 @@
+[
+  {
+    "combattant": "Noah Gugnon",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Milos Janicic",
+    "evenement": "UFC Fight Night 283 - Medic vs. Rodriguez",
+    "date": "2026-08-01",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Axel Sola",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ismael Bonfim",
+    "evenement": "UFC Fight Night 282 - Ankalaev vs. Guskov",
+    "date": "2026-07-25",
+    "methode": "Submission (Brabo Choke)"
+  },
+  {
+    "combattant": "Yazid Chouchane",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Ramazan Ragimov",
+    "evenement": "UAE Warriors 72 - Chopurov vs. McLaren",
+    "date": "2026-07-23",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Benoit Saint Denis",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Paddy Pimblett",
+    "evenement": "UFC 329 - McGregor vs. Holloway 2",
+    "date": "2026-07-11",
+    "methode": "Technical Submission (Peruvian Necktie)"
+  },
+  {
+    "combattant": "Mickael Groguhe",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Da Woon Jung",
+    "evenement": "Top FC 22 - Top Fighting Championship 22",
+    "date": "2026-07-11",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Nell Ariano",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Norbert Pietrzak",
+    "evenement": "CW 209 - Cage Warriors 209: Newcastle",
+    "date": "2026-07-04",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Jordan Zebo",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Andre Fialho",
+    "evenement": "Ares 42 - Zebo vs. Fialho",
+    "date": "2026-07-03",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Souheil Kaouchen",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Kacper Wrobel",
+    "evenement": "KSW 119 - Kaczmarczyk vs. Brichta",
+    "date": "2026-06-20",
+    "methode": "TKO (Elbows and Punches)"
+  },
+  {
+    "combattant": "Ciryl Gane",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Alex Pereira",
+    "evenement": "UFC White House - Freedom 250: Topuria vs. Gaethje",
+    "date": "2026-06-14",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Damien Lapilus",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ryan Eren Agbo",
+    "evenement": "HXMMA 45 - Hexagone MMA 45",
+    "date": "2026-06-12",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Fares Ziam",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Tom Nolan",
+    "evenement": "UFC Fight Night 278 - Muhammad vs. Bonfim",
+    "date": "2026-06-06",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Moktar Benkaci",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Dastan Amangeldy",
+    "evenement": "Oktagon MMA - Oktagon 89: Severino vs. Zhumagulov",
+    "date": "2026-06-06",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Brice Picaud",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Lasha Abramishvili",
+    "evenement": "Brave CF 106 - Brave Combat Federation 106 / WFC 30",
+    "date": "2026-06-06",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Wilson Varela",
+    "drapeau": "cv",
+    "resultat": "loss",
+    "adversaire": "Davy Gallon",
+    "evenement": "HXMMA 44 - Hexagone MMA 44",
+    "date": "2026-05-29",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Romain Debienne",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Oualy Tandia",
+    "evenement": "HXMMA 44 - Hexagone MMA 44",
+    "date": "2026-05-29",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Davy Gallon",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Wilson Varela",
+    "evenement": "HXMMA 44 - Hexagone MMA 44",
+    "date": "2026-05-29",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Ylies Djiroun",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Salah Eddine Hamli",
+    "evenement": "Professional Fighters League - PFL MENA 9: Pride of Arabia",
+    "date": "2026-05-24",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Mehdi Saadi",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Mohammad Yahya",
+    "evenement": "Professional Fighters League - PFL MENA 9: Pride of Arabia",
+    "date": "2026-05-24",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Taylor Lapilus",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Jake Hadley",
+    "evenement": "Professional Fighters League - PFL Brussels: Habirora vs. Henderson",
+    "date": "2026-05-23",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Asael Adjoudj",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Keisuke Sasu",
+    "evenement": "Professional Fighters League - PFL Brussels: Habirora vs. Henderson",
+    "date": "2026-05-23",
+    "methode": "KO (Head Kick and Punches)"
+  },
+  {
+    "combattant": "Adam Meskini",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Keweny Lopes",
+    "evenement": "Professional Fighters League - PFL Brussels: Habirora vs. Henderson",
+    "date": "2026-05-23",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Baris Adiguzel",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Gustavo Oliveira",
+    "evenement": "Professional Fighters League - PFL Brussels: Habirora vs. Henderson",
+    "date": "2026-05-23",
+    "methode": "Submission (Ninja Choke)"
+  },
+  {
+    "combattant": "Patrick Habirora",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Benson Henderson",
+    "evenement": "Professional Fighters League - PFL Brussels: Habirora vs. Henderson",
+    "date": "2026-05-23",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Khamzat Abaev",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Luca Poclit",
+    "evenement": "Professional Fighters League - PFL Brussels: Habirora vs. Henderson",
+    "date": "2026-05-23",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Movsar Ibragimov",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Shane Campbell",
+    "evenement": "Professional Fighters League - PFL Brussels: Habirora vs. Henderson",
+    "date": "2026-05-23",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Boris Atangana",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Jared Gooden",
+    "evenement": "Professional Fighters League - PFL Brussels: Habirora vs. Henderson",
+    "date": "2026-05-23",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Salahdine Parnasse",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Kenneth Cross",
+    "evenement": "Most Valuable Promotions - Rousey vs. Carano",
+    "date": "2026-05-16",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Francis Ngannou",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Philipe Lins",
+    "evenement": "Most Valuable Promotions - Rousey vs. Carano",
+    "date": "2026-05-16",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Aymard Guih",
+    "drapeau": "ci",
+    "resultat": "loss",
+    "adversaire": "Marian Ziolkowski",
+    "evenement": "KSW 118 - Kuberski vs. Michalski",
+    "date": "2026-05-16",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "William Gomis",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Pat Sabatini",
+    "evenement": "UFC 328 - Chimaev vs. Strickland",
+    "date": "2026-05-09",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Romain Debienne",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Adam Jankowski",
+    "evenement": "HXMMA - Hexagone MMA Series 4",
+    "date": "2026-04-25",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Mathys Duragrin",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Heimo Gregorio",
+    "evenement": "HXMMA - Hexagone MMA Series 4",
+    "date": "2026-04-25",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Hugo Deux",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Welisson Paiva",
+    "evenement": "KSW 117 - Pawlak vs. Khalidov",
+    "date": "2026-04-18",
+    "methode": "TKO (Elbows)"
+  },
+  {
+    "combattant": "Alex Lohore",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Rhys McKee",
+    "evenement": "Professional Fighters League - PFL Belfast: Kelly vs. Wilson",
+    "date": "2026-04-16",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Matthieu Letho Duclos",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ilian Bouafia",
+    "evenement": "HXMMA 43 - Hexagone MMA 43",
+    "date": "2026-04-11",
+    "methode": "TKO (Leg Injury)"
+  },
+  {
+    "combattant": "Ilian Bouafia",
+    "drapeau": "dz",
+    "resultat": "loss",
+    "adversaire": "Matthieu Letho Duclos",
+    "evenement": "HXMMA 43 - Hexagone MMA 43",
+    "date": "2026-04-11",
+    "methode": "TKO (Leg Injury)"
+  },
+  {
+    "combattant": "Donovan Desmae",
+    "drapeau": "be",
+    "resultat": "loss",
+    "adversaire": "Melvin van Suijdam",
+    "evenement": "LFL 22 - Levels Fight League 22",
+    "date": "2026-04-11",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Alexis Nicolas",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Jack Woodard",
+    "evenement": "Ares 40 - Begai vs. Diakhate 2",
+    "date": "2026-04-10",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Jason Ponet",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ibrahima Mane",
+    "evenement": "Ares 39 - Jbalia vs. Diatta",
+    "date": "2026-04-03",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Noah Gugnon",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Bruno Matos de Sousa",
+    "evenement": "Ares 39 - Jbalia vs. Diatta",
+    "date": "2026-04-03",
+    "methode": "TKO (Elbows and Punches)"
+  },
+  {
+    "combattant": "Fabacary Diatta",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ghassen Jbalia",
+    "evenement": "Ares 39 - Jbalia vs. Diatta",
+    "date": "2026-04-03",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Yves Landu",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Artem Bachun",
+    "evenement": "Fight Nights 135 - Popov vs. Magomedov",
+    "date": "2026-03-28",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Losene Keita",
+    "drapeau": "be",
+    "resultat": "loss",
+    "adversaire": "Nathaniel Wood",
+    "evenement": "UFC Fight Night 270 - Evloev vs. Murphy",
+    "date": "2026-03-21",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Axel Sola",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Mason Jones",
+    "evenement": "UFC Fight Night 270 - Evloev vs. Murphy",
+    "date": "2026-03-21",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Mathys Duragrin",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Ignacio Campos",
+    "evenement": "Professional Fighters League - PFL Madrid: Van Steenis vs. Edwards 2",
+    "date": "2026-03-20",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Oumar Sy",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Ion Cutelaba",
+    "evenement": "UFC Fight Night 269 - Emmett vs. Vallejos",
+    "date": "2026-03-14",
+    "methode": "Submission (Guillotine Choke)"
+  },
+  {
+    "combattant": "Eva Dourthe",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ewelina Wozniak",
+    "evenement": "KSW 116 - Bartosinski vs. Fleminas",
+    "date": "2026-03-14",
+    "methode": "Submission (Armbar)"
+  },
+  {
+    "combattant": "Bolaji Oki",
+    "drapeau": "be",
+    "resultat": "loss",
+    "adversaire": "Manoel Sousa",
+    "evenement": "UFC Fight Night 269 - Emmett vs. Vallejos",
+    "date": "2026-03-14",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Anthony Morel",
+    "drapeau": "re",
+    "resultat": "win",
+    "adversaire": "Paul-Emmanuel Gnaze",
+    "evenement": "HXMMA 41 - Hexagone MMA 41",
+    "date": "2026-03-06",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Davy Gallon",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Mathias Poiron",
+    "evenement": "HXMMA 40 - Hexagone MMA 40",
+    "date": "2026-02-28",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Nora Cornolle",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Joselyne Edwards",
+    "evenement": "UFC Fight Night 267 - Strickland vs. Hernandez",
+    "date": "2026-02-21",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Alioune Nahaye",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Lukasz Charzewski",
+    "evenement": "KSW 115 - Przybysz vs. Yakymenko",
+    "date": "2026-02-21",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Taylor Lapilus",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Kasum Kasumov",
+    "evenement": "Professional Fighters League - PFL Dubai: Nurmagomedov vs. Davis",
+    "date": "2026-02-07",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Abdoul Abdouraguimov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Kendly St. Louis",
+    "evenement": "Professional Fighters League - PFL Dubai: Nurmagomedov vs. Davis",
+    "date": "2026-02-07",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Amin Ayoub",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Makkasharip Zaynukov",
+    "evenement": "Professional Fighters League - PFL Dubai: Nurmagomedov vs. Davis",
+    "date": "2026-02-07",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Ilian Bouafia",
+    "drapeau": "dz",
+    "resultat": "win",
+    "adversaire": "Leon Krajacic",
+    "evenement": "HXMMA 39 - Hexagone MMA 39",
+    "date": "2026-02-06",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Benoit Saint Denis",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Dan Hooker",
+    "evenement": "UFC 325 - Volkanovski vs. Lopes 2",
+    "date": "2026-01-31",
+    "methode": "TKO (Elbows and Punches)"
+  },
+  {
+    "combattant": "Jorick Montagnac",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Emilio Quissua",
+    "evenement": "Oktagon MMA - Oktagon 83: Samsonidse vs. Machaev",
+    "date": "2026-01-31",
+    "methode": "TKO (Knee Injury)"
+  },
+  {
+    "combattant": "Sofiane Boukichou",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Gadzhi Abdulkadirov",
+    "evenement": "UAE Warriors 67 - Machado vs. Breese",
+    "date": "2026-01-31",
+    "methode": "TKO (Knee and Punches)"
+  },
+  {
+    "combattant": "Jordan Zebo",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ramazan Mustafaev",
+    "evenement": "Ares 38 - Zebo vs. Mustafaev",
+    "date": "2026-01-30",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Zakaria Hamou",
+    "drapeau": "fr",
+    "resultat": "nc",
+    "adversaire": "Abubakar Khasiev",
+    "evenement": "Ares 38 - Zebo vs. Mustafaev",
+    "date": "2026-01-30",
+    "methode": "No Contest (Accidental Knee to Groin)"
+  },
+  {
+    "combattant": "Salahdine Parnasse",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Marcin Held",
+    "evenement": "KSW 114 - Parnasse vs. Held",
+    "date": "2026-01-17",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Amaury Wako-Zabo",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Viktor Cervinsky",
+    "evenement": "KSW 114 - Parnasse vs. Held",
+    "date": "2026-01-17",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Ylies Djiroun",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Antonio Roberto",
+    "evenement": "Ares 37 - Augen vs. Shiguemoto 2",
+    "date": "2026-01-09",
+    "methode": "Submission (Guillotine Choke)"
+  },
+  {
+    "combattant": "Jason Ponet",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Zhenyang Zhang",
+    "evenement": "Zhenhua Hero - Fight League",
+    "date": "2025-12-27",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Laid Zerhouni",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Pawel Pawlak",
+    "evenement": "KSW 113 - Bartosinski vs. Tulshaev",
+    "date": "2025-12-20",
+    "methode": "Submission (Kneebar)"
+  },
+  {
+    "combattant": "Souheil Kaouchen",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Krzysztof Geburek",
+    "evenement": "KSW 113 - Bartosinski vs. Tulshaev",
+    "date": "2025-12-20",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Morgan Charriere",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Melquizael Costa",
+    "evenement": "UFC on ESPN 73 - Royval vs. Kape",
+    "date": "2025-12-13",
+    "methode": "KO (Head Kick)"
+  },
+  {
+    "combattant": "Kevin Jousset",
+    "drapeau": "nz",
+    "resultat": "loss",
+    "adversaire": "Patrick Habirora",
+    "evenement": "Professional Fighters League - PFL Lyon - Europe 2025 Finals",
+    "date": "2025-12-13",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Baris Adiguzel",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Dean Garnett",
+    "evenement": "Professional Fighters League - PFL Lyon - Europe 2025 Finals",
+    "date": "2025-12-13",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Patrick Habirora",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Kevin Jousset",
+    "evenement": "Professional Fighters League - PFL Lyon - Europe 2025 Finals",
+    "date": "2025-12-13",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Movsar Ibragimov",
+    "drapeau": "be",
+    "resultat": "loss",
+    "adversaire": "Gustavo Oliveira",
+    "evenement": "Professional Fighters League - PFL Lyon - Europe 2025 Finals",
+    "date": "2025-12-13",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Boris Atangana",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Guilherme Soares",
+    "evenement": "Professional Fighters League - PFL Lyon - Europe 2025 Finals",
+    "date": "2025-12-13",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Fares Ziam",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Nazim Sadykhov",
+    "evenement": "UFC 323 - Dvalishvili vs. Yan 2",
+    "date": "2025-12-06",
+    "methode": "TKO (Elbows and Punches)"
+  },
+  {
+    "combattant": "Nicolas Leblond",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Shajidul Haque",
+    "evenement": "CW 199 - Cage Warriors 199: Newcastle",
+    "date": "2025-12-06",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Yanis Ghemmouri",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Islam Reda",
+    "evenement": "Professional Fighters League - PFL MENA 4: 2025 Finals",
+    "date": "2025-12-05",
+    "methode": "Submission (Anaconda Choke)"
+  },
+  {
+    "combattant": "Donovan Desmae",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Marko Bojkovic",
+    "evenement": "FNC 25 - Batur vs. Kita",
+    "date": "2025-11-29",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Yassine Boughanem",
+    "drapeau": "ma",
+    "resultat": "win",
+    "adversaire": "David Karp",
+    "evenement": "FAF 3 - In Octogon",
+    "date": "2025-11-29",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Nell Ariano",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Riku Urholin",
+    "evenement": "CW 197 - Cage Warriors 197: Unplugged",
+    "date": "2025-11-21",
+    "methode": "TKO (Elbows and Punches)"
+  },
+  {
+    "combattant": "Wilson Varela",
+    "drapeau": "cv",
+    "resultat": "loss",
+    "adversaire": "Valeriu Mircea",
+    "evenement": "KSW 112 - Kaczmarczyk vs. Soldaev",
+    "date": "2025-11-15",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Hugo Deux",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Wojciech Kawa",
+    "evenement": "KSW 112 - Kaczmarczyk vs. Soldaev",
+    "date": "2025-11-15",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Youssef Boughanem",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Anthony Zeidan",
+    "evenement": "Brave CF 101 - Brave Combat Federation 101",
+    "date": "2025-11-09",
+    "methode": "TKO (Knee to the Body)"
+  },
+  {
+    "combattant": "Anthony Morel",
+    "drapeau": "re",
+    "resultat": "win",
+    "adversaire": "Wade Henderson",
+    "evenement": "GFTC 004 - International",
+    "date": "2025-11-08",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Matthieu Letho Duclos",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Moacir Rocha",
+    "evenement": "HXMMA 36 - Hexagone MMA 36",
+    "date": "2025-11-07",
+    "methode": "KO (Knee and Punch)"
+  },
+  {
+    "combattant": "Ciryl Gane",
+    "drapeau": "fr",
+    "resultat": "nc",
+    "adversaire": "Tom Aspinall",
+    "evenement": "UFC 321 - Aspinall vs. Gane",
+    "date": "2025-10-25",
+    "methode": "No Contest (Accidental Eye Poke)"
+  },
+  {
+    "combattant": "Sofiane Bouafia",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Danil Khatchoukaev",
+    "evenement": "Striker MMA - Striker 8",
+    "date": "2025-10-25",
+    "methode": "TKO"
+  },
+  {
+    "combattant": "Manon Fiorot",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Jasmine Jasudavicius",
+    "evenement": "UFC Fight Night 262 - De Ridder vs. Allen",
+    "date": "2025-10-18",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Baysangur Chamsoudinov",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Jordan Zebo",
+    "evenement": "Ares 35 - Baki vs. Zebo",
+    "date": "2025-10-18",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Damien Lapilus",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Pedro Carvalho",
+    "evenement": "WNC 3 - Warriors Night Championship 3",
+    "date": "2025-10-18",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Alfan Rocher Labes",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Tobiasz Le",
+    "evenement": "KSW 111 - De Fries vs. Vojcak",
+    "date": "2025-10-18",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Aboubakar Younousov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Gustavo Lopez",
+    "evenement": "Ares 35 - Baki vs. Zebo",
+    "date": "2025-10-18",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Turpal Younousov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Jefferson Almeida",
+    "evenement": "Ares 35 - Baki vs. Zebo",
+    "date": "2025-10-18",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Yassine Boughanem",
+    "drapeau": "ma",
+    "resultat": "win",
+    "adversaire": "Deivis Colinas",
+    "evenement": "WNC 3 - Warriors Night Championship 3",
+    "date": "2025-10-18",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Jorick Montagnac",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Mateusz Duczmal",
+    "evenement": "Oktagon MMA - Oktagon 77: Engizek vs. Humburger",
+    "date": "2025-10-04",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Gregory Babene",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Jarrah Al-Silawi",
+    "evenement": "Professional Fighters League - PFL Road to Dubai Champions Series 3: Nurmagomedov vs. Hughes 2",
+    "date": "2025-10-03",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Yanis Ghemmouri",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Izzeddine Al Derbani",
+    "evenement": "Professional Fighters League - PFL MENA 3: 2025 Semifinals",
+    "date": "2025-09-27",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Moktar Benkaci",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Nawras Abzakh",
+    "evenement": "Professional Fighters League - PFL MENA 3: 2025 Semifinals",
+    "date": "2025-09-27",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Amin Ayoub",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Keweny Lopes",
+    "evenement": "Professional Fighters League - PFL Europe 3: 2025 Playoffs",
+    "date": "2025-09-26",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Bourama Camara",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Mathieu Chaumont",
+    "evenement": "HXMMA 35 - Hexagone MMA 35",
+    "date": "2025-09-26",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Nassourdine Imavov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Caio Borralho",
+    "evenement": "UFC Fight Night 258 - Imavov vs. Borralho",
+    "date": "2025-09-06",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "William Gomis",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Robert Ruchala",
+    "evenement": "UFC Fight Night 258 - Imavov vs. Borralho",
+    "date": "2025-09-06",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Oumar Sy",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Brendson Ribeiro",
+    "evenement": "UFC Fight Night 258 - Imavov vs. Borralho",
+    "date": "2025-09-06",
+    "methode": "TKO (Elbows and Punches)"
+  },
+  {
+    "combattant": "Dimitry Solimeis",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Oskar Lang",
+    "evenement": "MMA Galla - Vol. 26",
+    "date": "2025-09-06",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Bolaji Oki",
+    "drapeau": "be",
+    "resultat": "loss",
+    "adversaire": "Mason Jones",
+    "evenement": "UFC Fight Night 258 - Imavov vs. Borralho",
+    "date": "2025-09-06",
+    "methode": "TKO (Elbows)"
+  },
+  {
+    "combattant": "Nora Cornolle",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Karol Rosa",
+    "evenement": "UFC on ESPN 71 - Taira vs. Park",
+    "date": "2025-08-02",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Asael Adjoudj",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Yves Landu",
+    "evenement": "Professional Fighters League - 2025 PFL World Tournament 8: Finals",
+    "date": "2025-08-01",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Yves Landu",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Asael Adjoudj",
+    "evenement": "Professional Fighters League - 2025 PFL World Tournament 8: Finals",
+    "date": "2025-08-01",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Mickael Groguhe",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Maxwell Djantou Nana",
+    "evenement": "Professional Fighters League - PFL Road to Dubai Champions Series 2 & PFL Africa 2025 First Round",
+    "date": "2025-07-19",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Morgan Charriere",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Nate Landwehr",
+    "evenement": "UFC on ESPN 70 - Lewis vs. Teixeira",
+    "date": "2025-07-12",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Brice Picaud",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Lasha Abramishvili",
+    "evenement": "Brave CF 97 - Brave Combat Federation 97",
+    "date": "2025-07-12",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Sofiane Bouafia",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Plamen Penchev",
+    "evenement": "Brave CF 97 - Brave Combat Federation 97",
+    "date": "2025-07-12",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Adam Meskini",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Tiziano Ferranti",
+    "evenement": "Professional Fighters League - PFL Europe 2: 2025 First Round",
+    "date": "2025-07-05",
+    "methode": "TKO (Knee and Punches)"
+  },
+  {
+    "combattant": "Mahio Campanella",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Matiss Zaharovs",
+    "evenement": "Professional Fighters League - PFL Europe 2: 2025 First Round",
+    "date": "2025-07-05",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Khamzat Abaev",
+    "drapeau": "be",
+    "resultat": "loss",
+    "adversaire": "Chequina Noso Pedro",
+    "evenement": "Professional Fighters League - PFL Europe 2: 2025 First Round",
+    "date": "2025-07-05",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Mansour Barnaoui",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Archie Colgan",
+    "evenement": "Professional Fighters League - 2025 PFL World Tournament 6: Semifinals",
+    "date": "2025-06-20",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Zakaria Hamou",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Hudson Melo",
+    "evenement": "HXMMA 30 - Hexagone MMA 30",
+    "date": "2025-06-07",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Anthony Dizy",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Banjougou Sidibe",
+    "evenement": "HXMMA 30 - Hexagone MMA 30",
+    "date": "2025-06-07",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Nicolas Leblond",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Mateus Brauns",
+    "evenement": "CW 189 - Cage Warriors 189: Rome",
+    "date": "2025-05-31",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Alex Lohore",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Mansur Abdurzakov",
+    "evenement": "Brave CF 94 - Brave Combat Federation 94",
+    "date": "2025-05-17",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Youssef Boughanem",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Dimitris  Moirotsos",
+    "evenement": "Brave CF 94 - Brave Combat Federation 94",
+    "date": "2025-05-17",
+    "methode": "TKO (Retirement)"
+  },
+  {
+    "combattant": "Baysangur Chamsoudinov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Thiago Lima",
+    "evenement": "Ares 30 - Chamsoudinov vs. Lima",
+    "date": "2025-05-16",
+    "methode": "TKO (Submission to Punches)"
+  },
+  {
+    "combattant": "Manon Fiorot",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Valentina Shevchenko",
+    "evenement": "UFC 315 - Muhammad vs. Della Maddalena",
+    "date": "2025-05-10",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Laid Zerhouni",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Damian Janikowski",
+    "evenement": "KSW 106 - Parnasse vs. Ziolkowski",
+    "date": "2025-05-10",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Amaury Wako-Zabo",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Kacper Fornalski",
+    "evenement": "KSW 106 - Parnasse vs. Ziolkowski",
+    "date": "2025-05-10",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Alioune Nahaye",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Piotr Kacprzak",
+    "evenement": "KSW 106 - Parnasse vs. Ziolkowski",
+    "date": "2025-05-10",
+    "methode": "TKO (Knee to the Body and Punches)"
+  },
+  {
+    "combattant": "Mickael Lebout",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Amin Ayoub",
+    "evenement": "KSW 106 - Parnasse vs. Ziolkowski",
+    "date": "2025-05-10",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Aymard Guih",
+    "drapeau": "ci",
+    "resultat": "loss",
+    "adversaire": "Mateusz Makarowski",
+    "evenement": "KSW 106 - Parnasse vs. Ziolkowski",
+    "date": "2025-05-10",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Eva Dourthe",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Mallory Martin",
+    "evenement": "Oktagon MMA - Oktagon 70: Kristofic vs. Humburger",
+    "date": "2025-04-26",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Paul Dena",
+    "drapeau": "mx",
+    "resultat": "win",
+    "adversaire": "Brianna Montoya",
+    "evenement": "FAMM / APMMA - 2025 San Luis Potosi MMA Championship",
+    "date": "2025-03-01",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Alfan Rocher Labes",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Oleksii Polishchuk",
+    "evenement": "KSW 103 - Brichta vs. Charzewski",
+    "date": "2025-02-21",
+    "methode": "Submission (Triangle Armbar)"
+  },
+  {
+    "combattant": "Aboubakar Younousov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Maycon Alcino",
+    "evenement": "Ares 29 - Younousov vs. Alcino",
+    "date": "2025-02-14",
+    "methode": "KO (Spinning Back Elbow)"
+  },
+  {
+    "combattant": "Kevin Jousset",
+    "drapeau": "nz",
+    "resultat": "loss",
+    "adversaire": "Jonathan Micallef",
+    "evenement": "UFC 312 - Du Plessis vs. Strickland 2",
+    "date": "2025-02-08",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Nassourdine Imavov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Israel Adesanya",
+    "evenement": "UFC Fight Night 250 - Adesanya vs. Imavov",
+    "date": "2025-02-01",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Bourama Camara",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Joelson Nascimento",
+    "evenement": "HXMMA 24 - Hexagone MMA 24",
+    "date": "2025-02-01",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Yazid Chouchane",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Danillo Santos",
+    "evenement": "Ares 28 - Sola vs. Caio",
+    "date": "2025-01-18",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Sofiane Boukichou",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Kenzo Soares",
+    "evenement": "Ares 28 - Sola vs. Caio",
+    "date": "2025-01-18",
+    "methode": "Submission (Kimura)"
+  },
+  {
+    "combattant": "Losene Keita",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Ronald Paradeiser",
+    "evenement": "Oktagon MMA - Oktagon 65: Paradeiser vs. Keita 2",
+    "date": "2024-12-29",
+    "methode": "TKO (Elbow and Punches)"
+  },
+  {
+    "combattant": "Ramzan Jembiev",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "El Hadji Ndiaye",
+    "evenement": "KSW 101 - Le Classique: Parnasse vs. Varela",
+    "date": "2024-12-20",
+    "methode": "TKO (Elbows and Punches)"
+  },
+  {
+    "combattant": "Mickael Lebout",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Romain Debienne",
+    "evenement": "KSW 101 - Le Classique: Parnasse vs. Varela",
+    "date": "2024-12-20",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Abdoul Abdouraguimov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Laureano Staropoli",
+    "evenement": "Professional Fighters League - PFL Europe 4: 2024 Finals",
+    "date": "2024-12-14",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Mahio Campanella",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ezzoubair Bouarsa",
+    "evenement": "Professional Fighters League - PFL Europe 4: 2024 Finals",
+    "date": "2024-12-14",
+    "methode": "Technical Submission (Arm-Triangle Choke)"
+  },
+  {
+    "combattant": "Atilla Kobas",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Salvo Giudice",
+    "evenement": "Professional Fighters League - PFL Europe 4: 2024 Finals",
+    "date": "2024-12-14",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Dimitry Solimeis",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Antero dos Santos",
+    "evenement": "The King of Fighters 10 - KOF 10",
+    "date": "2024-11-30",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Mansour Barnaoui",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Alfie Davis",
+    "evenement": "Professional Fighters League - 2024 Season PFL Championships & PFL MENA 2024 Finals",
+    "date": "2024-11-29",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Atilla Kobas",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Assis Silva",
+    "evenement": "CFB 1 - Cage Fight Beaumont",
+    "date": "2024-11-02",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Francis Ngannou",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Renan Ferreira",
+    "evenement": "PFL Super Fights - Battle of the Giants: Brace for Impact",
+    "date": "2024-10-19",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Youcef Ouabbas",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Mohammad Alaqraa",
+    "evenement": "Professional Fighters League - PFL MENA 2: 2024 Regular Season",
+    "date": "2024-07-12",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Anthony Dizy",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "David-Tonatiuh Crol",
+    "evenement": "HXMMA 16 - Hexagone MMA 16",
+    "date": "2024-05-24",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Cedric Doumbe",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Jaleel Willis",
+    "evenement": "Bellator Champions Series Paris - Mix vs. Magomedov 2",
+    "date": "2024-05-17",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Gregory Babene",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Costello van Steenis",
+    "evenement": "Bellator Champions Series Paris - Mix vs. Magomedov 2",
+    "date": "2024-05-17",
+    "methode": "Submission (Shoulder Choke)"
+  },
+  {
+    "combattant": "Thibault Gouti",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Archie Colgan",
+    "evenement": "Bellator Champions Series Paris - Mix vs. Magomedov 2",
+    "date": "2024-05-17",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Cedric Doumbe",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Baissangour Chamsoudinov",
+    "evenement": "Professional Fighters League - PFL Europe 1: 2024 Regular Season",
+    "date": "2024-03-07",
+    "methode": "TKO (Toe Injury)"
+  },
+  {
+    "combattant": "Mehdi Saadi",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Jalal Al Daja",
+    "evenement": "UAE Warriors 47 - Arabia 13",
+    "date": "2024-01-21",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Ramzan Jembiev",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Isai Ramos",
+    "evenement": "KSW 90 - Wrzosek vs. Vitasovic",
+    "date": "2024-01-20",
+    "methode": "Submission (Armbar)"
+  },
+  {
+    "combattant": "Dylan Salvador",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Carls John de Tomas",
+    "evenement": "UAE Warriors 46 - Da Silva vs. Kamavov",
+    "date": "2024-01-20",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Turpal Younousov",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Axel Sola",
+    "evenement": "Ares 18 - Shiguemoto vs. Augen",
+    "date": "2023-12-15",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Anthony Salamone",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Jakob Nedoh",
+    "evenement": "Professional Fighters League - PFL Europe 3: 2023 Playoffs",
+    "date": "2023-09-30",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Dylan Salvador",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Bolaji Oki",
+    "evenement": "Dana White's Contender Series - Contender Series 2023: Week 4",
+    "date": "2023-08-29",
+    "methode": "TKO (Punch to the Body)"
+  },
+  {
+    "combattant": "Thibault Gouti",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Kane Mousah",
+    "evenement": "Bellator 296 - Mousasi vs. Edwards",
+    "date": "2023-05-12",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Fabacary Diatta",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Keir Harvie",
+    "evenement": "Bellator 296 - Mousasi vs. Edwards",
+    "date": "2023-05-12",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Anthony Salamone",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Daniel Ladero Gartner",
+    "evenement": "Professional Fighters League - PFL Europe 1: 2023 Regular Season",
+    "date": "2023-03-25",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Youcef Ouabbas",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Matthieu Letho Duclos",
+    "evenement": "Bellator 280 - Bader vs. Kongo 2",
+    "date": "2022-05-06",
+    "methode": "TKO (Punches)"
+  }
+]

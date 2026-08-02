@@ -1,0 +1,31 @@
+{
+  "Ares 43": {
+    "chaine": "",
+    "heure": ""
+  },
+  "Ares 45": {
+    "chaine": "Canal +",
+    "heure": ""
+  },
+  "Brave CF 108": {
+    "chaine": "",
+    "heure": ""
+  },
+  "HXMMA 48": {
+    "chaine": "",
+    "heure": ""
+  },
+  "Professional Fighters League": {
+    "chaine": "",
+    "heure": ""
+  },
+  "UFC Fight Night 287": {
+    "chaine": "Rmc Sport 1",
+    "heure": ""
+  },
+  "UFC Fight Night 288": {
+    "chaine": "",
+    "heure": ""
+  },
+  "_aide": "Remplis heure (ex: 21:00) et chaine (ex: RMC Sport) pour chaque evenement, puis relance generer_site.py. Laisse vide si inconnu."
+}
