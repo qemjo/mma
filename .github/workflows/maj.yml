@@ -1,0 +1,45 @@
+name: Mise a jour quotidienne
+
+on:
+  schedule:
+    # 06h00 UTC, soit 08h00 en France l'ete
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  maj:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer les bibliotheques
+        run: pip install requests beautifulsoup4
+
+      - name: Recuperer les combats sur Sherdog
+        run: python mma_tracker.py
+
+      - name: Fabriquer la page
+        run: python generer_site.py
+
+      - name: Publier les changements
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add index.html combats.json resultats.json annulations.json fighters.json infos.json
+          if git diff --staged --quiet; then
+            echo "Aucun changement aujourd'hui."
+          else
+            git commit -m "Mise a jour automatique du $(date +'%d/%m/%Y')"
+            git push
+          fi
