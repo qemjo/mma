@@ -156,6 +156,32 @@ MOIS_SHERDOG = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
                 "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12}
 
 
+ESSAIS = 3
+ATTENTES = [5, 15, 30]   # secondes avant chaque nouvelle tentative
+
+
+def recuperer(url, params=None):
+    """Va chercher une page, en reessayant si le reseau flanche.
+
+    Renvoie la soupe HTML, ou None si la page reste inaccessible.
+    """
+    for tentative in range(ESSAIS):
+        try:
+            reponse = requests.get(url, params=params, headers=HEADERS,
+                                   timeout=45)
+            reponse.raise_for_status()
+            return BeautifulSoup(reponse.text, "html.parser")
+        except requests.RequestException as erreur:
+            if tentative < ESSAIS - 1:
+                attente = ATTENTES[tentative]
+                print(f"   reseau capricieux ({type(erreur).__name__}), "
+                      f"nouvelle tentative dans {attente}s")
+                time.sleep(attente)
+            else:
+                print(f"   echec apres {ESSAIS} tentatives : {url}")
+    return None
+
+
 def normaliser(texte):
     """Minuscules, sans accents ni tirets, espaces reduits. Sert a comparer les noms."""
     decompose = unicodedata.normalize("NFD", texte)
@@ -179,13 +205,9 @@ def sauver_cache(cache):
 
 def resultats_recherche(terme):
     """Renvoie la liste (nom, adresse) des fiches trouvees pour un terme."""
-    reponse = requests.get(
-        BASE + "/stats/fightfinder",
-        params={"SearchTxt": terme},
-        headers=HEADERS,
-        timeout=30,
-    )
-    soup = BeautifulSoup(reponse.text, "html.parser")
+    soup = recuperer(BASE + "/stats/fightfinder", {"SearchTxt": terme})
+    if soup is None:
+        return []
 
     trouves = []
     for tableau in soup.select("table.fightfinder_result"):
@@ -290,8 +312,9 @@ def lire_historique(soup, nom_suivi, drapeau, limite=2):
 def lire_combat_a_venir(url, nom_suivi):
     """Lit le bloc Upcoming Fights d'une fiche combattant."""
     chemin_suivi = url.replace(BASE, "")
-    reponse = requests.get(url, headers=HEADERS, timeout=30)
-    soup = BeautifulSoup(reponse.text, "html.parser")
+    soup = recuperer(url)
+    if soup is None:
+        return "ERREUR", []
 
     # Nationalite : Sherdog affiche un drapeau en haut de la fiche,
     # dont le nom de fichier contient le code pays (ex: fr.png)
@@ -367,12 +390,10 @@ def lire_drapeau(url):
         return ""
     if url in _drapeaux:
         return _drapeaux[url]
-    try:
-        reponse = requests.get(url, headers=HEADERS, timeout=30)
-    except requests.RequestException:
+    soup = recuperer(url)
+    if soup is None:
         _drapeaux[url] = ""
         return ""
-    soup = BeautifulSoup(reponse.text, "html.parser")
     img = soup.select_one('img[src*="img/flags/big/"]')
     code = ""
     if img and img.get("src"):
@@ -398,11 +419,9 @@ def detecter_titres(resultats, cache):
 
     print("\nVerification des combats de titre...")
     for lien in liens:
-        try:
-            reponse = requests.get(lien, headers=HEADERS, timeout=30)
-        except requests.RequestException:
+        soup = recuperer(lien)
+        if soup is None:
             continue
-        soup = BeautifulSoup(reponse.text, "html.parser")
         time.sleep(PAUSE)
 
         for c in resultats:
@@ -537,6 +556,17 @@ def main():
     resultats = []
     recents = []
     introuvables = []
+    inaccessibles = []
+
+    # passe precedente : sert de filet si un combattant devient injoignable
+    anciens = []
+    if os.path.exists("combats.json"):
+        try:
+            with open("combats.json", encoding="utf-8") as f:
+                anciens = json.load(f)
+        except ValueError:
+            anciens = []
+    par_nom = {c.get("combattant"): c for c in anciens}
 
     total = len(COMBATTANTS)
     for numero, nom in enumerate(COMBATTANTS, start=1):
@@ -559,7 +589,16 @@ def main():
         time.sleep(PAUSE)
         recents.extend(historique)
 
-        if combat:
+        if combat == "ERREUR":
+            # fiche injoignable : on garde ce qu'on savait la fois d'avant
+            inaccessibles.append(nom)
+            ancien = par_nom.get(nom)
+            if ancien:
+                print("   injoignable, on garde la donnee precedente")
+                resultats.append(ancien)
+            else:
+                print("   injoignable")
+        elif combat:
             print(f"   {combat['date']} vs {combat['adversaire']}")
             resultats.append(combat)
         else:
@@ -568,13 +607,9 @@ def main():
     detecter_titres(resultats, cache)
 
     print("\nComparaison avec la passe precedente...")
-    anciens = []
-    if os.path.exists("combats.json"):
-        try:
-            with open("combats.json", encoding="utf-8") as f:
-                anciens = json.load(f)
-        except ValueError:
-            anciens = []
+    if inaccessibles:
+        # une panne reseau ne doit pas etre prise pour une annulation
+        print("   comparaison prudente : des fiches etaient injoignables")
     detecter_changements(anciens, resultats)
 
     recents.sort(key=lambda c: c.get("date", ""), reverse=True)
@@ -598,6 +633,8 @@ def main():
     print(f"{len(resultats)} combat(s) trouve(s) sur {len(COMBATTANTS)} combattants")
     if introuvables:
         print("Fiches non trouvees :", ", ".join(introuvables))
+    if inaccessibles:
+        print("Fiches injoignables cette fois :", ", ".join(inaccessibles))
     print("Details enregistres dans combats.json")
     print("Derniers resultats dans resultats.json, "
           "changements dans annulations.json")
