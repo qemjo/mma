@@ -81,6 +81,15 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Paul Denis Navero",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Anzor Baybatyrov",
+    "evenement": "HXMMA 45 - Hexagone MMA 45",
+    "date": "2026-06-12",
+    "methode": "KO (Punch)"
+  },
+  {
     "combattant": "Damien Lapilus",
     "drapeau": "fr",
     "resultat": "win",
@@ -88,6 +97,15 @@
     "evenement": "HXMMA 45 - Hexagone MMA 45",
     "date": "2026-06-12",
     "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Anzor Baybatyrov",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Paul Denis Navero",
+    "evenement": "HXMMA 45 - Hexagone MMA 45",
+    "date": "2026-06-12",
+    "methode": "KO (Punch)"
   },
   {
     "combattant": "Fares Ziam",
@@ -333,6 +351,15 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Souhil Arezki",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Maximilien Vallot",
+    "evenement": "HXMMA 43 - Hexagone MMA 43",
+    "date": "2026-04-11",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Alexis Nicolas",
     "drapeau": "fr",
     "resultat": "win",
@@ -369,6 +396,15 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Jimmy Vienot",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Mario Gagliardi",
+    "evenement": "Ares 39 - Jbalia vs. Diatta",
+    "date": "2026-04-03",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Yves Landu",
     "drapeau": "fr",
     "resultat": "loss",
@@ -376,6 +412,15 @@
     "evenement": "Fight Nights 135 - Popov vs. Magomedov",
     "date": "2026-03-28",
     "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Anzor Baybatyrov",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Thyago Silva Nascimento",
+    "evenement": "La Nuit des Combattants - Boxing and MMA",
+    "date": "2026-03-28",
+    "methode": "TKO"
   },
   {
     "combattant": "Losene Keita",
@@ -504,6 +549,15 @@
     "methode": "Submission (Rear-Naked Choke)"
   },
   {
+    "combattant": "Souhil Arezki",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Rafael Gemaque",
+    "evenement": "HXMMA 39 - Hexagone MMA 39",
+    "date": "2026-02-06",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Benoit Saint Denis",
     "drapeau": "fr",
     "resultat": "win",
@@ -567,6 +621,15 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Paul Denis Navero",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Leonardo Paulo Santos",
+    "evenement": "HXMMA 37 - Hexagone MMA 37",
+    "date": "2026-01-09",
+    "methode": "KO (Punch)"
+  },
+  {
     "combattant": "Ylies Djiroun",
     "drapeau": "fr",
     "resultat": "win",
@@ -574,6 +637,15 @@
     "evenement": "Ares 37 - Augen vs. Shiguemoto 2",
     "date": "2026-01-09",
     "methode": "Submission (Guillotine Choke)"
+  },
+  {
+    "combattant": "Moustapha Aida",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Andrey Tyshchenko",
+    "evenement": "Ares 37 - Augen vs. Shiguemoto 2",
+    "date": "2026-01-09",
+    "methode": "TKO (Foot Injury)"
   },
   {
     "combattant": "Jason Ponet",
@@ -655,6 +727,15 @@
     "evenement": "Professional Fighters League - PFL Lyon - Europe 2025 Finals",
     "date": "2025-12-13",
     "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Jimmy Vienot",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Alessio D'Auria",
+    "evenement": "Ares 36 - Jbalia vs. Sabirov",
+    "date": "2025-12-13",
+    "methode": "KO (Punch)"
   },
   {
     "combattant": "Fares Ziam",
@@ -1152,15 +1233,6 @@
     "methode": "Decision (Unanimous)"
   },
   {
-    "combattant": "Paul Dena",
-    "drapeau": "mx",
-    "resultat": "win",
-    "adversaire": "Brianna Montoya",
-    "evenement": "FAMM / APMMA - 2025 San Luis Potosi MMA Championship",
-    "date": "2025-03-01",
-    "methode": "Decision (Unanimous)"
-  },
-  {
     "combattant": "Alfan Rocher Labes",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1323,6 +1395,15 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Daguir Imavov",
+    "drapeau": "fr",
+    "resultat": "draw",
+    "adversaire": "Axel Sola",
+    "evenement": "Ares 22 - Sola vs. Imavov",
+    "date": "2024-06-14",
+    "methode": "Decision (Majority)"
+  },
+  {
     "combattant": "Anthony Dizy",
     "drapeau": "fr",
     "resultat": "win",
@@ -1404,6 +1485,15 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Moustapha Aida",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Aboubakar Younousov",
+    "evenement": "Ares 17 - Aida vs. Younousov",
+    "date": "2023-11-17",
+    "methode": "KO (Spinning Back Elbow)"
+  },
+  {
     "combattant": "Anthony Salamone",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1420,6 +1510,15 @@
     "evenement": "Dana White's Contender Series - Contender Series 2023: Week 4",
     "date": "2023-08-29",
     "methode": "TKO (Punch to the Body)"
+  },
+  {
+    "combattant": "Daguir Imavov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Geraldo de Freitas Jr.",
+    "evenement": "Ares 16 - Chamsoudinov vs. Escudero",
+    "date": "2023-06-23",
+    "methode": "KO (Punches)"
   },
   {
     "combattant": "Thibault Gouti",
@@ -1449,6 +1548,15 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Alan Baudot",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Josh Parisian",
+    "evenement": "UFC on ESPN 38 - Tsarukyan vs. Gamrot",
+    "date": "2022-06-25",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Youcef Ouabbas",
     "drapeau": "fr",
     "resultat": "win",
@@ -1456,5 +1564,14 @@
     "evenement": "Bellator 280 - Bader vs. Kongo 2",
     "date": "2022-05-06",
     "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Alan Baudot",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Parker Porter",
+    "evenement": "UFC Fight Night 201 - Walker vs. Hill",
+    "date": "2022-02-19",
+    "methode": "Decision (Unanimous)"
   }
 ]
