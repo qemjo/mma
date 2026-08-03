@@ -40,7 +40,7 @@ COMBATTANTS = [
     "Mansour Barnaoui",
     "Asael Adjoudj",
     "Baysangur Chamsoudinov",
-    "Paul Dena",
+    "Paul Denis Navero",
     "Abdoul Abdouraguimov",
     "Jordan Zebo",
     "Axel Sola",
@@ -105,6 +105,12 @@ COMBATTANTS = [
     "Donovan Desmae",
     "Youssef Boughanem",
     "Yassine Boughanem",
+    "Jimmy Vienot",
+    "Moustapha Aida",
+    "Daguir Imavov",
+    "Anzor Baybatyrov",
+    "Souhil Arezki",
+    "Alan Baudot",
 ]
 
 # ---------------------------------------------------------------
@@ -116,6 +122,12 @@ FICHES_MANUELLES = {
     "Benoit Saint Denis": "https://www.sherdog.com/fighter/Benoit-St-Denis-317103",
     "Baysangur Chamsoudinov": "https://www.sherdog.com/fighter/Baissangour-Chamsoudinov-340851",
     "Damien Lapilus": "https://www.sherdog.com/fighter/Damien-Lapilus-87477",
+    "Paul Denis Navero": "https://www.sherdog.com/fighter/Paul-Denis-Navero-408149",
+    "Jimmy Vienot": "https://www.sherdog.com/fighter/Jimmy-Vienot-391216",
+    "Moustapha Aida": "https://www.sherdog.com/fighter/Moustapha-Aida-250043",
+    "Daguir Imavov": "https://www.sherdog.com/fighter/Daguir-Imavov-131617",
+    "Souhil Arezki": "https://www.sherdog.com/fighter/Souhil-Arezki-395375",
+    "Alan Baudot": "https://www.sherdog.com/fighter/Alan-Baudot-138183",
 }
 
 BASE = "https://www.sherdog.com"
@@ -132,10 +144,12 @@ HEADERS = {
 }
 
 
+# Attention a l'ordre : les libelles les plus longs d'abord, sinon
+# "Welterweight" serait trouve a l'interieur de "Light Heavyweight".
 CATEGORIES_POIDS = [
-    "Light Heavyweight", "Heavyweight", "Middleweight", "Welterweight",
-    "Lightweight", "Featherweight", "Bantamweight", "Flyweight",
-    "Strawweight", "Atomweight", "Catchweight",
+    "Light Heavyweight", "Super Heavyweight", "Heavyweight",
+    "Middleweight", "Welterweight", "Featherweight", "Bantamweight",
+    "Lightweight", "Flyweight", "Strawweight", "Atomweight", "Catchweight",
 ]
 
 MOIS_SHERDOG = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
@@ -331,6 +345,8 @@ def lire_combat_a_venir(url, nom_suivi):
         "record_suivi": record_suivi,
         "titre": False,
         "categorie": "",
+        "ordre": 500,
+        "drapeau_adversaire": "",
         "adversaire": adversaire,
         "record_adversaire": record_adversaire,
         "evenement": evenement,
@@ -340,6 +356,30 @@ def lire_combat_a_venir(url, nom_suivi):
     }
 
     return combat, historique
+
+
+_drapeaux = {}
+
+
+def lire_drapeau(url):
+    """Nationalite d'un combattant, lue une seule fois par adresse."""
+    if not url:
+        return ""
+    if url in _drapeaux:
+        return _drapeaux[url]
+    try:
+        reponse = requests.get(url, headers=HEADERS, timeout=30)
+    except requests.RequestException:
+        _drapeaux[url] = ""
+        return ""
+    soup = BeautifulSoup(reponse.text, "html.parser")
+    img = soup.select_one('img[src*="img/flags/big/"]')
+    code = ""
+    if img and img.get("src"):
+        code = img["src"].rsplit("/", 1)[-1].split(".")[0].lower()
+    _drapeaux[url] = code
+    time.sleep(PAUSE)
+    return code
 
 
 def detecter_titres(resultats, cache):
@@ -378,22 +418,45 @@ def detecter_titres(resultats, cache):
             if el is None:
                 continue
 
-            # On remonte les conteneurs autour du lien : si l'un d'eux
-            # (de taille raisonnable) contient TITLE FIGHT, c'est un combat
-            # de titre. La limite de taille evite de matcher toute la page.
-            for parent in el.parents:
-                texte = parent.get_text(" ", strip=True) if parent else ""
-                if len(texte) > 3000:
+            # Il faut regarder UNIQUEMENT le combat concerne, sinon la
+            # mention TITLE FIGHT de la tete d'affiche deteint sur toute
+            # la carte.
+            ligne = el.find_parent("tr")
+            if ligne is not None:
+                # combattant de sous-carte : sa ligne du tableau suffit
+                texte = ligne.get_text(" ", strip=True)
+                # Sherdog numerote les combats, le plus grand numero etant
+                # le plus haut de la carte, juste sous la tete d'affiche
+                cellules = ligne.select("td")
+                if cellules and cellules[0].get_text(strip=True).isdigit():
+                    c["ordre"] = 1000 - int(cellules[0].get_text(strip=True))
+                # sinon on garde la valeur neutre : ni en haut ni en bas
+            else:
+                # tete d'affiche : on remonte juste assez pour attraper
+                # son encadre, sans deborder sur le reste de la page
+                # tete d'affiche : elle passe en premier
+                c["ordre"] = 0
+                texte = ""
+                for parent in el.parents:
+                    candidat = parent.get_text(" ", strip=True) if parent else ""
+                    if len(candidat) > 500:
+                        break
+                    texte = candidat
+
+            for poids in CATEGORIES_POIDS:
+                if poids in texte:
+                    c["categorie"] = poids
                     break
-                if not c.get("categorie"):
-                    for poids in CATEGORIES_POIDS:
-                        if poids in texte:
-                            c["categorie"] = poids
-                            break
-                if "TITLE FIGHT" in texte:
-                    c["titre"] = True
-                    print(f"   ceinture en jeu : {c['combattant']}")
-                    break
+
+            if "TITLE FIGHT" in texte:
+                c["titre"] = True
+                print(f"   ceinture en jeu : {c['combattant']}")
+
+    # drapeaux des adversaires : une requete par adversaire concerne
+    print("\nNationalite des adversaires...")
+    for c in resultats:
+        if c.get("url_adversaire") and not c.get("drapeau_adversaire"):
+            c["drapeau_adversaire"] = lire_drapeau(c["url_adversaire"])
 
 
 def detecter_changements(anciens, nouveaux):

@@ -65,6 +65,8 @@ ORGAS = [
     ("one fc", "one", "ONE"),
     ("bkfc", "bkfc", "BKFC"),
     ("brave", "brave", "BRAVE CF"),
+    ("uae warriors", "uaew", "UAE WARRIORS"),
+    ("uaew", "uaew", "UAE WARRIORS"),
 ]
 
 CEINTURE = (
@@ -95,6 +97,21 @@ def charger_json(nom):
         return "ERREUR"
 
 
+# ---------------------------------------------------------------
+# Noms raccourcis a l'affichage. La recherche sur Sherdog continue
+# d'utiliser le nom complet, seul l'affichage change.
+#     "Nom dans ma liste": "Nom affiche sur le site",
+# ---------------------------------------------------------------
+NOMS_AFFICHES = {
+    "Baysangur Chamsoudinov": "Baki",
+    "Paul Denis Navero": "Paul Dena",
+}
+
+
+def nom_affiche(nom):
+    return NOMS_AFFICHES.get(nom, nom)
+
+
 def normaliser(texte):
     """Minuscules, sans accents ni tirets. Sert a comparer les noms."""
     decompose = unicodedata.normalize("NFD", texte)
@@ -115,10 +132,20 @@ def echapper(texte):
                  .replace(">", "&gt;"))
 
 
+# Sherdog utilise quelques codes qui ne sont pas des codes pays officiels,
+# notamment pour les nations britanniques. Le service de drapeaux les
+# connait sous une autre forme.
+CODES_DRAPEAU = {
+    "en": "gb-eng",   # Angleterre
+    "wa": "gb-wls",   # pays de Galles
+}
+
+
 def drapeau_html(iso):
     if not iso:
         return ""
-    return (f'<img class="flag" src="https://flagcdn.com/h20/{iso}.png" '
+    code = CODES_DRAPEAU.get(iso, iso)
+    return (f'<img class="flag" src="https://flagcdn.com/h20/{code}.png" '
             f'alt="" loading="lazy">')
 
 
@@ -169,6 +196,93 @@ def ville_depuis_lieu(lieu):
     return lieu
 
 
+# Surface visuelle visee pour tous les logos, en pixels carres.
+# Un logo tres allonge sera donc moins haut qu'un logo compact,
+# pour qu'ils occupent tous la meme place a l'oeil.
+SURFACE_LOGO = 900
+HAUTEUR_MIN, HAUTEUR_MAX = 14, 28
+
+# Ajustement manuel si un logo parait trop gros ou trop petit malgre tout
+# (1.0 = pas de correction). Exemple : "brave": 0.9
+CORRECTION_LOGO = {
+    "ares": 1.3,   # beaucoup de vide interne : parait petit sinon
+}
+
+# Logos qui restent lisibles en couleur sur fond sombre : ils reprennent
+# leurs couleurs d'origine quand l'evenement est deplie. Les autres restent
+# en blanc, faute de quoi ils disparaitraient (versions entierement noires).
+LOGOS_COULEUR = {"ufc", "oktagon", "pfl", "brave", "ksw", "ares", "hexagone"}
+
+_cache_logos = {}
+
+
+def _dimensions(chemin):
+    """Largeur et hauteur d'une image, PNG, WEBP ou SVG, sans bibliotheque."""
+    try:
+        with open(chemin, "rb") as f:
+            debut = f.read(4096)
+    except OSError:
+        return None
+
+    if debut[:8] == b"\x89PNG\r\n\x1a\n":
+        import struct
+        largeur, hauteur = struct.unpack(">II", debut[16:24])
+        return largeur, hauteur
+
+    if debut[:4] == b"RIFF" and debut[8:12] == b"WEBP":
+        forme = debut[12:16]
+        try:
+            if forme == b"VP8 ":
+                largeur = int.from_bytes(debut[26:28], "little") & 0x3FFF
+                hauteur = int.from_bytes(debut[28:30], "little") & 0x3FFF
+                return largeur, hauteur
+            if forme == b"VP8L":
+                bits = int.from_bytes(debut[21:25], "little")
+                return (bits & 0x3FFF) + 1, ((bits >> 14) & 0x3FFF) + 1
+            if forme == b"VP8X":
+                largeur = int.from_bytes(debut[24:27], "little") + 1
+                hauteur = int.from_bytes(debut[27:30], "little") + 1
+                return largeur, hauteur
+        except (IndexError, ValueError):
+            return None
+        return None
+
+    # SVG : viewBox, sinon attributs width et height
+    texte = debut.decode("utf-8", "ignore")
+    m = re.search(r'viewBox\s*=\s*"[\d.eE+-]+[ ,]+[\d.eE+-]+[ ,]+'
+                  r'([\d.eE+-]+)[ ,]+([\d.eE+-]+)"', texte)
+    if m:
+        try:
+            return float(m.group(1)), float(m.group(2))
+        except ValueError:
+            return None
+    l = re.search(r'\bwidth\s*=\s*"([\d.]+)', texte)
+    h = re.search(r'\bheight\s*=\s*"([\d.]+)', texte)
+    if l and h:
+        return float(l.group(1)), float(h.group(1))
+    return None
+
+
+def hauteur_logo(fichier, chemin):
+    """Hauteur d'affichage pour que tous les logos aient la meme presence."""
+    if fichier in _cache_logos:
+        return _cache_logos[fichier]
+
+    taille = _dimensions(chemin)
+    if not taille or taille[1] <= 0:
+        hauteur = 22
+    else:
+        largeur, haut = taille
+        ratio = largeur / haut
+        # surface = hauteur x (hauteur x ratio)  ->  hauteur = racine(S / ratio)
+        hauteur = (SURFACE_LOGO / ratio) ** 0.5
+        hauteur *= CORRECTION_LOGO.get(fichier, 1.0)
+        hauteur = max(HAUTEUR_MIN, min(HAUTEUR_MAX, hauteur))
+
+    _cache_logos[fichier] = round(hauteur, 1)
+    return _cache_logos[fichier]
+
+
 def orga_de(evenement):
     nom = evenement.lower()
     for mot, fichier, libelle in ORGAS:
@@ -177,13 +291,21 @@ def orga_de(evenement):
     return "mma", "MMA"
 
 
-def logo_orga(evenement):
+def logo_orga(evenement, classe="ev__logo"):
     fichier, libelle = orga_de(evenement)
     for ext in ("svg", "png", "webp"):
         chemin = f"logos/{fichier}.{ext}"
         if os.path.exists(chemin):
-            return f'<img class="ev__logo" src="{chemin}" alt="{libelle}">'
-    return f'<span class="ev__badge">{libelle}</span>'
+            h = hauteur_logo(fichier, chemin)
+            if classe != "ev__logo":
+                h = round(h * 0.62, 1)
+            couleur = (' data-couleur="1"'
+                       if classe == "ev__logo" and fichier in LOGOS_COULEUR
+                       else "")
+            return (f'<img class="{classe}" src="{chemin}" alt="{libelle}"'
+                    f'{couleur} style="height:{h}px">')
+    classe_badge = "ev__badge" if classe == "ev__logo" else "rl__sigle"
+    return f'<span class="{classe_badge}">{libelle}</span>'
 
 
 def chip_compte(date_iso):
@@ -338,7 +460,10 @@ def fusionner_duels(combats):
                 absorbes.add(j)
                 a = dict(a)
                 a["adversaire_suivi"] = combats[j]["combattant"]
-                a["drapeau_adversaire"] = combats[j].get("drapeau", "")
+                a["drapeau_adversaire"] = (combats[j].get("drapeau")
+                                           or a.get("drapeau_adversaire", ""))
+                a["ordre"] = min(a.get("ordre", 500),
+                                 combats[j].get("ordre", 500))
                 break
         gardes.append(a)
 
@@ -350,6 +475,11 @@ def grouper(combats):
     for c in combats:
         cle = (c.get("date", ""), c.get("evenement", ""), c.get("lieu", ""))
         evenements.setdefault(cle, []).append(c)
+
+    # dans un evenement, la tete d'affiche d'abord, puis la carte
+    # de haut en bas ; a defaut on garde l'ordre de collecte
+    for liste in evenements.values():
+        liste.sort(key=lambda c: (c.get("ordre", 500), c.get("combattant", "")))
 
     mois = {}
     for (d, evenement, lieu), liste in sorted(evenements.items()):
@@ -474,6 +604,10 @@ CSS = """
     cursor: pointer;
     list-style: none;
     transition: border-color 0.15s, background 0.15s;
+    /* garde le bloc incline sur une couche stable : sans cela le texte
+       penche est recalcule a chaque survol et semble trembler */
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   /* barre ouverte : plus claire, reliee a son panneau */
@@ -524,12 +658,18 @@ CSS = """
   summary.ev__bar > .ck:nth-child(6) { justify-content: flex-end; }
 
   .ev__logo {
-    height: 24px;
     width: auto;
     max-width: 106px;
     object-fit: contain;
     filter: brightness(0) invert(1);
     opacity: 0.92;
+    transition: filter 0.18s, opacity 0.18s;
+  }
+
+  /* evenement deplie : les logos qui le supportent reprennent leurs couleurs */
+  details[open] > summary.ev__bar .ev__logo[data-couleur="1"] {
+    filter: none;
+    opacity: 1;
   }
 
   .ev__badge {
@@ -598,8 +738,6 @@ CSS = """
     transition: transform 0.15s;
   }
 
-  summary.ev__bar:hover .ev__chev { transform: scale(1.25); }
-  details[open] > summary.ev__bar:hover .ev__chev { transform: rotate(90deg) scale(1.25); }
 
   details[open] .ev__chev { transform: rotate(90deg); }
 
@@ -616,30 +754,61 @@ CSS = """
 
   .fight {
     display: grid;
-    grid-template-columns: 92px 1fr auto 1fr;
+    /* La categorie et la ceinture sont positionnees par-dessus la ligne :
+       elles ne participent pas au calcul des largeurs, donc les deux
+       colonnes de noms restent strictement egales et le VS est au centre. */
+    position: relative;
+    display: flex;
     align-items: center;
-    gap: 0.9rem;
     background: #131318;
     border: 1px solid #3a3a45;
     border-radius: 10px;
-    padding: 0.5rem 1.2rem;
+    padding: 0.5rem 292px;
     margin: 0 0 0.55rem;
     transform: skew(-8deg);
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
-  .fight .ck:nth-child(2) { justify-content: flex-end; text-align: right; }
+  .fight > .ck:nth-child(1),
+  .fight > .ck:nth-child(2) {
+    position: absolute;
+    top: 50%;
+    transform: skew(8deg) translateY(-50%);
+  }
 
-  .fight__col { display: flex; flex-direction: column; min-width: 0; }
+  .fight > .ck:nth-child(1) { left: 1.2rem; max-width: 112px; }
+  .fight > .ck:nth-child(2) { left: 9rem; max-width: 140px; overflow: hidden; }
 
-  .fight .ck:nth-child(2) .fight__col { align-items: flex-end; }
+  .fight > .ck:nth-child(3) { flex: 1 1 0; min-width: 0; }
+  .fight > .ck:nth-child(4) { flex: none; }
+  .fight > .ck:nth-child(5) { flex: 1 1 0; min-width: 0; }
+
+  .fight > .ck:nth-child(3) { justify-content: flex-end; text-align: right; }
+
+  .fight__col {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .fight .ck:nth-child(3) .fight__col { text-align: right; }
 
   .fight__nom {
+    display: block;
+    width: 100%;
     font-family: Oswald, sans-serif;
     font-weight: 500;
     font-size: 0.98rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
     color: var(--blanc);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
   }
 
   .fight__nom--suivi { font-weight: 700; }
@@ -673,6 +842,24 @@ CSS = """
   }
 
   .belt { flex: none; }
+
+  .fight__titre {
+    font-family: Oswald, sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.09em;
+    color: var(--or);
+  }
+
+  .fight__titre-bloc {
+    justify-content: flex-start;
+    gap: 0.35rem;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  /* un peu d'air entre les noms et la pastille VS */
+  .fight > .ck:nth-child(3) { padding-right: 0.55rem; }
+  .fight > .ck:nth-child(5) { padding-left: 0.55rem; }
 
   .ev__foot {
     display: flex;
@@ -724,10 +911,9 @@ CSS = """
 
     .fight { grid-template-columns: 1fr; gap: 0.35rem; padding: 0.6rem 0.9rem; }
     .fight .ck:nth-child(2) { justify-content: flex-start; text-align: left; }
-    .fight .ck:nth-child(2) .fight__col { align-items: flex-start; }
+    .fight .ck:nth-child(2) .fight__col { text-align: left; }
     .fight__vs { justify-self: start; }
     .fight__cat { flex-direction: row; }
-    .jchip { display: none; }
     .rl { grid-template-columns: 46px 18px 1fr; }
     .rl__meth, .rl__ev { display: none; }
     .outils { margin-top: 1.2rem; }
@@ -754,11 +940,12 @@ CSS = """
 
   /* ---- categorie de poids ---- */
   .fight__cat {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 0.25rem;
+    justify-content: flex-start;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
     font-family: Oswald, sans-serif;
     font-size: 0.66rem;
     letter-spacing: 0.08em;
@@ -827,7 +1014,6 @@ CSS = """
   summary.recap__bar::-webkit-details-marker { display: none; }
   summary.recap__bar:hover { color: var(--blanc); border-color: var(--or); }
 
-  .recap__nb { color: var(--or); font-weight: 700; }
   .recap__chev { color: var(--or); font-size: 0.7rem; transition: transform 0.15s; }
   details[open] > .recap__bar .recap__chev { transform: rotate(90deg); }
 
@@ -895,8 +1081,25 @@ CSS = """
   }
 
   .rl__ev {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+  }
+
+  .rl__logo {
+    width: auto;
+    max-width: 66px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.55;
+  }
+
+  .rl__sigle {
+    font-family: Oswald, sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
     color: #6a6a74;
-    font-size: 0.72rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -911,6 +1114,139 @@ CSS = """
   a.rl__lien:hover, a.rl__lien:focus {
     color: var(--or);
     border-bottom-color: var(--or);
+  }
+
+  /* ================= AFFINAGE MOBILE ================= */
+  @media (max-width: 860px) {
+    body { padding: 0 0.7rem 3rem; }
+
+    header.top { padding: 1.6rem 0 1rem; }
+    h1 { font-size: clamp(1.4rem, 6.5vw, 2rem); }
+    .sub { font-size: 0.76rem; margin-top: 0.5rem; }
+
+    .outils { margin: 1rem 0 0.3rem; }
+    .outils__recherche { padding: 0.5rem 0.9rem; font-size: 0.82rem; }
+
+    .mois { margin: 1.1rem 0 0.45rem; gap: 0.6rem; }
+    .mois__titre { font-size: 0.78rem; letter-spacing: 0.1em; }
+
+    /* --- barre evenement : 2 rangees --- */
+    /* le logo disparait : le nom de l'evenement dit deja l'organisation */
+    details.ev { margin-bottom: 0.5rem; }
+
+    summary.ev__bar {
+      grid-template-columns: 62px minmax(0, 1fr) auto 14px;
+      gap: 0.3rem 0.55rem;
+      padding: 0.5rem 0.7rem;
+      border-radius: 9px;
+    }
+
+    summary.ev__bar > .ck:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
+    summary.ev__bar > .ck:nth-child(3) { grid-area: 1 / 2 / 2 / 3; }
+    summary.ev__bar > .ck:nth-child(6) { grid-area: 1 / 3 / 2 / 4;
+                                         display: flex; }
+    summary.ev__bar > .ck:nth-child(7) { grid-area: 1 / 4 / 2 / 5; }
+    summary.ev__bar > .ck:nth-child(4) { grid-area: 2 / 1 / 3 / 2; }
+    summary.ev__bar > .ck:nth-child(5) { grid-area: 2 / 2 / 3 / 5; }
+    summary.ev__bar > .ck:nth-child(2) { display: none; }
+
+    .jchip { display: inline-block; font-size: 0.6rem; padding: 0.12rem 0.4rem; }
+
+    .ev__date { font-size: 0.78rem; padding: 0.24rem 0.3rem; border-radius: 6px; }
+
+    .ev__nom {
+      font-size: 0.92rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .ev__ville { font-size: 0.68rem; }
+    .ev__chev { font-size: 0.8rem; }
+
+    /* AVEC : une seule ligne, pointilles si trop long */
+    .ev__avec { font-size: 0.7rem; }
+    .ev__avec-txt {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* --- volet deplie : les deux noms cote a cote --- */
+    .ev__body { padding: 0.5rem 0.55rem 0.3rem; border-radius: 8px; }
+
+    .fight {
+      padding: 1.85rem 0.6rem 0.55rem;
+      margin-bottom: 0.45rem;
+    }
+
+    /* categorie a gauche, ceinture centree, toutes deux au-dessus des noms */
+    .fight > .ck:nth-child(1) {
+      top: 0.5rem;
+      left: 0.6rem;
+      transform: none;
+      max-width: 45%;
+    }
+
+    .fight > .ck:nth-child(2) {
+      top: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .fight > .ck:nth-child(3) { padding-right: 0.35rem; }
+    .fight > .ck:nth-child(5) { padding-left: 0.35rem; }
+
+    .fight__cat { font-size: 0.58rem; gap: 0.3rem; }
+    .fight__titre { font-size: 0.53rem; }
+
+    /* texte reduit pour que les deux noms tiennent chacun sur une ligne */
+    .fight__nom {
+      font-size: 0.76rem;
+      letter-spacing: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .fight__col { max-width: 100%; }
+    .fight__rec { font-size: 0.6rem; }
+    .fight__vs { font-size: 0.55rem; padding: 0.14rem 0.32rem; }
+    .flag { height: 11px; }
+    .belt { width: 20px; height: 8px; }
+
+    .ev__foot { padding: 0.1rem 0.2rem 0.35rem; font-size: 0.66rem; }
+
+    /* --- derniers resultats --- */
+    .recap { margin-top: 1.2rem; }
+    summary.recap__bar { font-size: 0.74rem; padding: 0.4rem 1rem; }
+    .recap__body { padding: 0.2rem 0.6rem; }
+
+    .rl {
+      grid-template-columns: 44px 18px minmax(0, 1fr) 46px;
+      gap: 0.15rem 0.45rem;
+      padding: 0.45rem 0.1rem;
+      font-size: 0.74rem;
+    }
+
+    .rl > .rl__date { grid-area: 1 / 1 / 2 / 2; }
+    .rl > .rl__badge { grid-area: 1 / 2 / 2 / 3; }
+    .rl > .rl__nom { grid-area: 1 / 3 / 2 / 4; }
+    .rl > .rl__meth { grid-area: 2 / 3 / 3 / 4; display: block; }
+    .rl > .rl__ev { grid-area: 1 / 4 / 3 / 5; }
+
+    .rl__nom { white-space: normal; font-size: 0.8rem; line-height: 1.2; }
+    .rl__nom em { font-size: 0.7rem; }
+    .rl__meth { font-size: 0.66rem; white-space: normal; }
+    .rl__logo { max-width: 44px; }
+  }
+
+  /* tres petits ecrans : on serre encore un peu */
+  @media (max-width: 400px) {
+    .fight__nom { font-size: 0.7rem; }
+    .fight__rec { font-size: 0.56rem; }
+    .ev__nom { font-size: 0.86rem; }
   }
 """
 
@@ -941,9 +1277,9 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
     for c in ev["combats"]:
         if c.get("annule"):
             continue
-        noms.append(echapper(c["combattant"]))
+        noms.append(echapper(nom_affiche(c["combattant"])))
         if c.get("adversaire_suivi"):
-            noms.append(echapper(c["adversaire_suivi"]))
+            noms.append(echapper(nom_affiche(c["adversaire_suivi"])))
     noms_avec = ", ".join(noms)
 
     lien = ev["combats"][0].get("lien_evenement", "")
@@ -951,8 +1287,10 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
     tous_noms = []
     for c in ev["combats"]:
         tous_noms.append(normaliser(c["combattant"]))
-        tous_noms.append(normaliser(c.get("adversaire_suivi")
-                                    or c.get("adversaire", "")))
+        tous_noms.append(normaliser(nom_affiche(c["combattant"])))
+        autre = c.get("adversaire_suivi") or c.get("adversaire", "")
+        tous_noms.append(normaliser(autre))
+        tous_noms.append(normaliser(nom_affiche(autre)))
     noms_data = "|".join(n for n in tous_noms if n)
 
     jtxt = chip_compte(ev["date"])
@@ -961,14 +1299,15 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
 
     lignes = []
     for c in ev["combats"]:
-        nom = echapper(c["combattant"])
+        nom = echapper(nom_affiche(c["combattant"]))
         flag = drapeau_html(c.get("drapeau", ""))
         url = fiches.get(c["combattant"], "")
         if url:
             lien_nom = (f'<a class="fight__nom fight__nom--suivi" href="{url}" '
-                        f'target="_blank" rel="noopener">{nom}</a>')
+                        f'target="_blank" rel="noopener" data-complet="{nom}">{nom}</a>')
         else:
-            lien_nom = f'<span class="fight__nom fight__nom--suivi">{nom}</span>'
+            lien_nom = (f'<span class="fight__nom fight__nom--suivi" '
+                        f'data-complet="{nom}">{nom}</span>')
 
         rec_suivi = echapper(nettoyer_record(c.get("record_suivi", "")))
         rec_adv = echapper(nettoyer_record(c.get("record_adversaire", "")))
@@ -977,18 +1316,25 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
 
         annule = bool(c.get("annule"))
         belt = "" if annule else (CEINTURE if c.get("titre") else "")
+        titre_txt = ('<span class="fight__titre">CEINTURE EN JEU</span>'
+                     if belt else "")
 
         # Si l'adversaire fait aussi partie de la liste suivie, on affiche
         # son nom tel qu'on l'ecrit, son drapeau, et on le rend cliquable.
-        nom_adv = c.get("adversaire_suivi") or c["adversaire"]
+        nom_adv = (nom_affiche(c["adversaire_suivi"])
+                   if c.get("adversaire_suivi") else c["adversaire"])
         url_adv = fiches.get(c.get("adversaire_suivi", ""), "")
         flag_adv = drapeau_html(c.get("drapeau_adversaire", ""))
         classe_adv = "fight__nom fight__nom--suivi" if url_adv else "fight__nom"
         if url_adv:
             bloc_adv = (f'<a class="{classe_adv}" href="{url_adv}" '
-                        f'target="_blank" rel="noopener">{echapper(nom_adv)}</a>')
+                        f'target="_blank" rel="noopener" '
+                        f'data-complet="{echapper(nom_adv)}">'
+                        f'{echapper(nom_adv)}</a>')
         else:
-            bloc_adv = f'<span class="{classe_adv}">{echapper(nom_adv)}</span>'
+            bloc_adv = (f'<span class="{classe_adv}" '
+                        f'data-complet="{echapper(nom_adv)}">'
+                        f'{echapper(nom_adv)}</span>')
 
         cat = echapper(c.get("categorie", ""))
         chip_rep = ""
@@ -1003,9 +1349,10 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
         lignes.append(f"""
         <div class="{classe_fight}">
           <span class="ck fight__cat">{cat}{chip_rep}</span>
-          <span class="ck">{belt}{flag}<span class="fight__col">{lien_nom}{rec_suivi_html}</span></span>
+          <span class="ck fight__titre-bloc">{belt}{titre_txt}</span>
+          <span class="ck">{flag}<span class="fight__col">{lien_nom}{rec_suivi_html}</span></span>
           <span class="ck">{vs}</span>
-          <span class="ck"><span class="fight__col">{bloc_adv}{rec_adv_html}</span>{flag_adv}{belt}</span>
+          <span class="ck"><span class="fight__col">{bloc_adv}{rec_adv_html}</span>{flag_adv}</span>
         </div>""")
 
     lien_html = ""
@@ -1031,9 +1378,9 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
       <summary class="ev__bar">
         <span class="ck"><span class="ev__date">{date_txt}</span></span>
         <span class="ck">{logo_orga(ev["evenement"])}</span>
-        <span class="ck"><span class="ev__nom">{echapper(nom_evenement(ev["evenement"], lien))}</span></span>
-        <span class="ck">{flag_event}<span class="ev__ville">{ville}</span></span>
-        <span class="ck ev__avec"><span class="ev__avec-txt">
+        <span class="ck"><span class="ev__nom" data-complet="{echapper(nom_evenement(ev["evenement"], lien))}">{echapper(nom_evenement(ev["evenement"], lien))}</span></span>
+        <span class="ck" title="{echapper(ev["lieu"])}">{flag_event}<span class="ev__ville">{ville}</span></span>
+        <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="{noms_avec}">
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">{noms_avec}</span>
         </span></span>
@@ -1074,7 +1421,7 @@ def module_resultats(resultats, fiches):
             dtxt = f"{j.day:02d} {MOIS_COURT[j.month - 1]}"
         except ValueError:
             dtxt = ""
-        nom = echapper(r.get("combattant", ""))
+        nom = echapper(nom_affiche(r.get("combattant", "")))
         url = fiches.get(r.get("combattant", ""), "")
         nom_html = (f'<a class="rl__lien" href="{url}" target="_blank" '
                     f'rel="noopener">{nom}</a>') if url else nom
@@ -1083,15 +1430,14 @@ def module_resultats(resultats, fiches):
       <div class="rl">
         <span class="rl__date">{dtxt}</span>
         {badge}
-        <span class="rl__nom">{nom_html} <em>vs {echapper(r.get("adversaire", ""))}</em></span>
-        <span class="rl__meth">{echapper(r.get("methode", ""))}</span>
-        <span class="rl__ev">{echapper(nom_evenement(r.get("evenement", "")))}</span>
+        <span class="rl__nom" data-complet="{nom} vs {echapper(r.get("adversaire", ""))}">{nom_html} <em>vs {echapper(r.get("adversaire", ""))}</em></span>
+        <span class="rl__meth" data-complet="{echapper(r.get("methode", ""))}">{echapper(r.get("methode", ""))}</span>
+        <span class="rl__ev" title="{echapper(nom_evenement(r.get("evenement", "")))}">{logo_orga(r.get("evenement", ""), "rl__logo")}</span>
       </div>""")
 
     return f"""
   <details class="recap">
     <summary class="recap__bar">DERNIERS RÉSULTATS
-      <span class="recap__nb">{len(recents)}</span>
       <span class="recap__chev">&#9656;</span></summary>
     <div class="recap__body">{"".join(lignes)}
     </div>
@@ -1116,6 +1462,24 @@ JS = r"""
             .replace(/[-'.]/g, " ").replace(/\s+/g, " ").trim();
   }
   var champ = document.getElementById("recherche");
+
+  // Infobulle seulement sur les textes reellement coupes.
+  // On mesure au moment ou la souris arrive dessus : a cet instant les
+  // polices sont chargees, le volet est ouvert, la mesure est fiable.
+  document.addEventListener("mouseover", function (ev) {
+    var el = ev.target.closest ? ev.target.closest("[data-complet]") : null;
+    if (!el) return;
+    var deborde = el.scrollWidth > el.clientWidth + 1;
+    if (!deborde && el.parentElement) {
+      deborde = el.scrollWidth > el.parentElement.clientWidth + 1;
+    }
+    if (deborde) {
+      el.setAttribute("title", el.dataset.complet);
+    } else {
+      el.removeAttribute("title");
+    }
+  }, true);
+
   if (!champ) return;
 
   champ.addEventListener("input", function () {
@@ -1201,7 +1565,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 """
 
 
-VERSION = 15
+VERSION = 41
 
 
 def main():
