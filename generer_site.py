@@ -44,8 +44,9 @@ PAYS_ISO = {
 
 # (mot cherche dans le nom de l'evenement, fichier logo, libelle de secours)
 ORGAS = [
-    ("contender series", "dwcs", "CONTENDER SERIES"),
-    ("dana white", "dwcs", "CONTENDER SERIES"),
+    ("contender series", "dwcs", "Contender Series"),
+    ("dana white", "dwcs", "Contender Series"),
+    ("dwcs", "dwcs", "Contender Series"),
     ("road to ufc", "ufc", "ROAD TO UFC"),
     ("ufc", "ufc", "UFC"),
     ("ksw", "ksw", "KSW"),
@@ -205,7 +206,7 @@ HAUTEUR_MIN, HAUTEUR_MAX = 14, 28
 # Ajustement manuel si un logo parait trop gros ou trop petit malgre tout
 # (1.0 = pas de correction). Exemple : "brave": 0.9
 CORRECTION_LOGO = {
-    "ares": 1.3,   # beaucoup de vide interne : parait petit sinon
+    "ares": 1.1,   # beaucoup de vide interne : parait petit sinon
 }
 
 # Logos qui restent lisibles en couleur sur fond sombre : ils reprennent
@@ -328,7 +329,7 @@ def chip_compte(date_iso):
 RACCOURCIS = {
     "professional fighters league": "PFL",
     "pfl challenger series": "PFL CHALLENGER SERIES",
-    "dana white's contender series": "CONTENDER SERIES",
+    "dana white's contender series": "Contender Series",
     "brave combat federation": "BRAVE CF",
     "one fighting championship": "ONE",
     "one championship": "ONE",
@@ -368,18 +369,30 @@ def nom_depuis_lien(lien):
 def nettoyer_nom(texte):
     """Sigle a la place du nom a rallonge, pas de doublon, pas d'affiche."""
     resultat = " ".join(texte.split())
+    # apostrophes courbes ramenees a la forme droite, pour que les
+    # raccourcis ci-dessous s'appliquent quelle que soit la graphie
+    resultat = resultat.replace("\u2019", "'")
 
     # 1. nom d'organisation a rallonge -> sigle, ou qu'il apparaisse
     for long, court in RACCOURCIS.items():
-        resultat = re.sub(r"\b" + re.escape(long) + r"\b", court,
+        motif = re.escape(long).replace("'", "['\u2019]?")
+        resultat = re.sub(r"\b" + motif + r"\b", court,
                           resultat, flags=re.IGNORECASE)
 
-    # 2. mots doubles ("PFL PFL Tampa" quand l'organisation precede son sigle)
-    mots = []
-    for m in resultat.split():
-        if mots and mots[-1].lower().strip(":") == m.lower().strip(":"):
-            continue
-        mots.append(m)
+    # 2. groupes de mots repetes cote a cote. Sherdog colle souvent le nom
+    #    de l'organisation devant le nom de l'evenement, ce qui donne
+    #    "Contender Series Contender Series 2026" ou "PFL PFL Tampa".
+    mots = resultat.split()
+    for longueur in range(4, 0, -1):
+        i = 0
+        while i + 2 * longueur <= len(mots):
+            gauche = [m.lower().strip(":,") for m in mots[i:i + longueur]]
+            droite = [m.lower().strip(":,")
+                      for m in mots[i + longueur:i + 2 * longueur]]
+            if gauche == droite:
+                del mots[i:i + longueur]
+            else:
+                i += 1
     resultat = " ".join(mots).strip(" :-")
 
     # 3. on retire l'affiche ("... : Untel vs Untel"), redondante ici
@@ -391,6 +404,21 @@ def nettoyer_nom(texte):
                 break
 
     return resultat
+
+
+def nom_evenement_court(nom):
+    """Version raccourcie pour les petits ecrans : on coupe a l'annee.
+
+    "PFL MENA 11 2026 Semifinals" -> "PFL MENA 11"
+    """
+    mots = nom.split()
+    for i, mot in enumerate(mots):
+        if i > 0 and re.fullmatch(r"(19|20)\d{2}", mot.strip(":,-")):
+            court = " ".join(mots[:i]).strip(" :-")
+            if court:
+                return court
+            break
+    return nom
 
 
 def nom_evenement(evenement, lien=""):
@@ -546,7 +574,7 @@ CSS = """
 
   .wrap { max-width: 1080px; margin: 0 auto; }
 
-  header.top { padding: 2.6rem 0 1.6rem; text-align: center; }
+  header.top { padding: 2.6rem 0 0.8rem; text-align: center; }
 
   h1 {
     font-family: Oswald, sans-serif;
@@ -694,6 +722,8 @@ CSS = """
     text-overflow: ellipsis;
   }
 
+  .nom-court { display: none; }
+
   .ev__ville {
     font-family: Oswald, sans-serif;
     font-size: 0.85rem;
@@ -721,6 +751,14 @@ CSS = """
   }
 
   .ev__avec-label { color: var(--or); font-weight: 700; }
+
+  /* surlignage des lettres tapees dans la recherche */
+  mark.trouve {
+    background: var(--or);
+    color: var(--sombre);
+    border-radius: 2px;
+    padding: 0 0.1em;
+  }
 
   .ev__avec-noms {
     color: var(--blanc);
@@ -993,7 +1031,7 @@ CSS = """
   .outils__recherche::placeholder { color: #6a6a74; }
 
   /* ---- derniers resultats ---- */
-  details.recap { max-width: 800px; margin: 1.8rem auto 0; }
+  details.recap { max-width: 800px; margin: 0.9rem auto 0; }
 
   summary.recap__bar {
     display: flex;
@@ -1120,7 +1158,7 @@ CSS = """
   @media (max-width: 860px) {
     body { padding: 0 0.7rem 3rem; }
 
-    header.top { padding: 1.6rem 0 1rem; }
+    header.top { padding: 1.6rem 0 0.5rem; }
     h1 { font-size: clamp(1.4rem, 6.5vw, 2rem); }
     .sub { font-size: 0.76rem; margin-top: 0.5rem; }
 
@@ -1135,7 +1173,7 @@ CSS = """
     details.ev { margin-bottom: 0.5rem; }
 
     summary.ev__bar {
-      grid-template-columns: 62px minmax(0, 1fr) auto 14px;
+      grid-template-columns: 62px minmax(0, 1fr) auto auto 14px;
       gap: 0.3rem 0.55rem;
       padding: 0.5rem 0.7rem;
       border-radius: 9px;
@@ -1143,12 +1181,21 @@ CSS = """
 
     summary.ev__bar > .ck:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
     summary.ev__bar > .ck:nth-child(3) { grid-area: 1 / 2 / 2 / 3; }
-    summary.ev__bar > .ck:nth-child(6) { grid-area: 1 / 3 / 2 / 4;
+    summary.ev__bar > .ck:nth-child(2) { grid-area: 1 / 3 / 2 / 4;
+                                         display: flex;
+                                         justify-content: flex-start; }
+    summary.ev__bar > .ck:nth-child(6) { grid-area: 1 / 4 / 2 / 5;
                                          display: flex; }
-    summary.ev__bar > .ck:nth-child(7) { grid-area: 1 / 4 / 2 / 5; }
+    summary.ev__bar > .ck:nth-child(7) { grid-area: 1 / 5 / 2 / 6; }
     summary.ev__bar > .ck:nth-child(4) { grid-area: 2 / 1 / 3 / 2; }
-    summary.ev__bar > .ck:nth-child(5) { grid-area: 2 / 2 / 3 / 5; }
-    summary.ev__bar > .ck:nth-child(2) { display: none; }
+    summary.ev__bar > .ck:nth-child(5) { grid-area: 2 / 2 / 3 / 6; }
+
+    /* max-height plafonne la hauteur fixee sur chaque logo */
+    .ev__logo { max-height: 15px; max-width: 50px; }
+    .ev__badge { font-size: 0.55rem; padding: 0.1rem 0.3rem; }
+
+    .nom-long { display: none; }
+    .nom-court { display: inline; }
 
     .jchip { display: inline-block; font-size: 0.6rem; padding: 0.12rem 0.4rem; }
 
@@ -1219,7 +1266,7 @@ CSS = """
     .ev__foot { padding: 0.1rem 0.2rem 0.35rem; font-size: 0.66rem; }
 
     /* --- derniers resultats --- */
-    .recap { margin-top: 1.2rem; }
+    .recap { margin-top: 0.6rem; }
     summary.recap__bar { font-size: 0.74rem; padding: 0.4rem 1rem; }
     .recap__body { padding: 0.2rem 0.6rem; }
 
@@ -1283,6 +1330,15 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
     noms_avec = ", ".join(noms)
 
     lien = ev["combats"][0].get("lien_evenement", "")
+
+    nom_ev = echapper(nom_evenement(ev["evenement"], lien))
+    nom_ev_court = echapper(nom_evenement_court(nom_evenement(ev["evenement"], lien)))
+    if nom_ev_court != nom_ev:
+        bloc_nom = (f'<span class="nom-long">{nom_ev}</span>'
+                    f'<span class="nom-court">{nom_ev_court}</span>')
+    else:
+        bloc_nom = nom_ev
+
     orga_cle, _ = orga_de(ev["evenement"])
     tous_noms = []
     for c in ev["combats"]:
@@ -1378,7 +1434,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
       <summary class="ev__bar">
         <span class="ck"><span class="ev__date">{date_txt}</span></span>
         <span class="ck">{logo_orga(ev["evenement"])}</span>
-        <span class="ck"><span class="ev__nom" data-complet="{echapper(nom_evenement(ev["evenement"], lien))}">{echapper(nom_evenement(ev["evenement"], lien))}</span></span>
+        <span class="ck"><span class="ev__nom" data-complet="{nom_ev}">{bloc_nom}</span></span>
         <span class="ck" title="{echapper(ev["lieu"])}">{flag_event}<span class="ev__ville">{ville}</span></span>
         <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="{noms_avec}">
           <span class="ev__avec-label">AVEC&nbsp;: </span>
@@ -1482,6 +1538,78 @@ JS = r"""
 
   if (!champ) return;
 
+  // Normalise caractere par caractere, en gardant la correspondance avec
+  // le texte d'origine : indispensable pour surligner au bon endroit
+  // quand la recherche ignore les accents.
+  function normAvecIndex(texte) {
+    var sortie = "", index = [];
+    for (var i = 0; i < texte.length; i++) {
+      var c = texte[i].toLowerCase()
+                      .normalize("NFD")
+                      .replace(/[\u0300-\u036f]/g, "")
+                      .replace(/[-'.\u2019]/g, " ");
+      for (var j = 0; j < c.length; j++) {
+        sortie += c[j];
+        index.push(i);
+      }
+    }
+    return { texte: sortie, index: index };
+  }
+
+  var A_SURLIGNER = ".ev__avec-noms, .fight__nom, .rl__nom";
+
+  function surligner(q) {
+    document.querySelectorAll(A_SURLIGNER).forEach(function (el) {
+      if (el.dataset.brut === undefined) {
+        el.dataset.brut = el.innerHTML;
+      }
+      if (!q) {
+        el.innerHTML = el.dataset.brut;
+        return;
+      }
+
+      // on travaille sur le texte seul, puis on reinjecte le balisage
+      var brut = el.dataset.brut;
+      var sansBalises = document.createElement("div");
+      sansBalises.innerHTML = brut;
+
+      var noeuds = [];
+      (function parcourir(n) {
+        for (var i = 0; i < n.childNodes.length; i++) {
+          var enfant = n.childNodes[i];
+          if (enfant.nodeType === 3) { noeuds.push(enfant); }
+          else { parcourir(enfant); }
+        }
+      })(sansBalises);
+
+      noeuds.forEach(function (noeud) {
+        var t = noeud.nodeValue;
+        var n = normAvecIndex(t);
+        var pos = n.texte.indexOf(q);
+        if (pos === -1) return;
+
+        var morceaux = document.createDocumentFragment();
+        var curseur = 0;
+        while (pos !== -1) {
+          var debut = n.index[pos];
+          var fin = n.index[pos + q.length - 1] + 1;
+          morceaux.appendChild(
+            document.createTextNode(t.slice(curseur, debut)));
+          var m = document.createElement("mark");
+          m.className = "trouve";
+          m.textContent = t.slice(debut, fin);
+          morceaux.appendChild(m);
+          curseur = fin;
+          pos = n.texte.indexOf(q, pos + q.length);
+        }
+        morceaux.appendChild(document.createTextNode(t.slice(curseur)));
+        noeud.parentNode.replaceChild(morceaux, noeud);
+      });
+
+      el.innerHTML = sansBalises.innerHTML;
+    });
+  }
+
   champ.addEventListener("input", function () {
     var q = norm(champ.value || "");
     document.querySelectorAll("details.ev").forEach(function (ev) {
@@ -1493,6 +1621,7 @@ JS = r"""
       var un = sec.querySelector("details.ev:not([style*='display: none'])");
       sec.style.display = un ? "" : "none";
     });
+    surligner(q);
   });
 })();
 </script>"""
@@ -1565,7 +1694,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 """
 
 
-VERSION = 41
+VERSION = 47
 
 
 def main():
@@ -1619,6 +1748,21 @@ def main():
     print("infos.json mis a jour : remplis heure et chaine puis relance-moi.")
     if not os.path.isdir("logos"):
         print("Dossier logos/ absent : badges texte utilises en attendant.")
+    else:
+        # deux fichiers pour un meme logo : le svg gagne, ce qui peut
+        # laisser une vieille version en place sans qu'on le remarque
+        vus = {}
+        for f in sorted(os.listdir("logos")):
+            base, _, ext = f.rpartition(".")
+            if ext in ("svg", "png", "webp"):
+                vus.setdefault(base, []).append(f)
+        ordre = {"svg": 0, "png": 1, "webp": 2}
+        for base, fichiers in vus.items():
+            if len(fichiers) > 1:
+                gagnant = min(fichiers, key=lambda f: ordre[f.rpartition(".")[2]])
+                print(f"ATTENTION : plusieurs fichiers pour {base} "
+                      f"({', '.join(fichiers)}). C'est {gagnant} qui est "
+                      f"utilise, supprime les autres.")
     if not os.path.exists("fond.jpg"):
         print("fond.jpg absent : fond texture simple utilise.")
 
