@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MMA Radar//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-10-24-hxmma-48@mmaradar.fr
+DTSTAMP:20260804T200506Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:HXMMA 48
+LOCATION:Zenith Paris - La Villette\, Paris\, France
+DESCRIPTION:Samba Sima vs Leopold Goi\nTurpal Younousov vs Mikail Bayram\n
+ Pierre Manzo vs Alex Hue\nArnaud Prigent vs Ibrahim Diallo\nhttps://www.s
+ herdog.com/events/HXMMA-48-Hexagone-MMA-48-113686
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:C'est aujourd'hui
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

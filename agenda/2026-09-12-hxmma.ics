@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MMA Radar//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-09-12-hxmma@mmaradar.fr
+DTSTAMP:20260804T200506Z
+DTSTART;VALUE=DATE:20260912
+DTEND;VALUE=DATE:20260913
+SUMMARY:HXMMA
+LOCATION:Rouen\, Normandy\, France
+DESCRIPTION:Anzor Baybatyrov vs Bozidar Trivunovic\nSouhil Arezki vs Zelim
+ khan Umarov\nAlan Baudot vs Mamadou Lamine Sene\nhttps://www.sherdog.com/
+ events/HXMMA-Hexagone-MMA-Series-5-113782
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:C'est aujourd'hui
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

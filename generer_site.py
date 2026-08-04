@@ -16,7 +16,7 @@ import json
 import os
 import re
 import unicodedata
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 
 MOIS_COURT = ["JANV", "FEVR", "MARS", "AVR", "MAI", "JUIN",
               "JUIL", "AOUT", "SEPT", "OCT", "NOV", "DEC"]
@@ -70,6 +70,15 @@ ORGAS = [
     ("uaew", "uaew", "UAE WARRIORS"),
 ]
 
+ICONE_AGENDA = (
+    '<svg viewBox="0 0 20 20" width="15" height="15" fill="none" '
+    'stroke="currentColor" stroke-width="1.7" stroke-linecap="round" '
+    'aria-hidden="true">'
+    '<rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/>'
+    '<path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/>'
+    '<path d="M10 11v4"/><path d="M8 13h4"/></svg>'
+)
+
 CEINTURE = (
     '<svg class="belt" viewBox="0 0 36 14" width="26" height="10" '
     'aria-hidden="true">'
@@ -120,6 +129,124 @@ def normaliser(texte):
     for signe in "-'\u2019.":
         sans_accent = sans_accent.replace(signe, " ")
     return " ".join(sans_accent.lower().split())
+
+
+def decalage_paris(jour):
+    """Decalage horaire de Paris ce jour-la, en heures (1 en hiver, 2 en ete).
+
+    L'heure d'ete court du dernier dimanche de mars au dernier dimanche
+    d'octobre. On le calcule sans dependance exterieure.
+    """
+    def dernier_dimanche(annee, mois):
+        j = date(annee, mois, 31)
+        return j - timedelta(days=(j.weekday() + 1) % 7)
+
+    debut = dernier_dimanche(jour.year, 3)
+    fin = dernier_dimanche(jour.year, 10)
+    return 2 if debut <= jour < fin else 1
+
+
+def _ics_echapper(texte):
+    return (texte.replace("\\", "\\\\").replace(";", "\\;")
+                 .replace(",", "\\,").replace("\n", "\\n"))
+
+
+def _ics_plier(ligne):
+    """Le format calendrier limite les lignes a 75 octets."""
+    octets = ligne.encode("utf-8")
+    if len(octets) <= 75:
+        return ligne
+    morceaux, courant = [], b""
+    for o in octets:
+        octet = bytes([o])
+        if len(courant) + 1 > 74:
+            morceaux.append(courant)
+            courant = b" "
+        courant += octet
+    morceaux.append(courant)
+    return "\r\n".join(m.decode("utf-8", "ignore") for m in morceaux)
+
+
+def fichier_agenda(ev, infos, fiches):
+    """Ecrit un fichier calendrier pour un evenement, renvoie son chemin."""
+    try:
+        jour = datetime.strptime(ev["date"], "%Y-%m-%d").date()
+    except ValueError:
+        return ""
+
+    lien = ev["combats"][0].get("lien_evenement", "")
+    titre = nom_evenement(ev["evenement"], lien)
+
+    diff = infos.get(ev["evenement"], {})
+    heure = (diff.get("heure") or "").strip()
+
+    lignes = ["BEGIN:VCALENDAR", "VERSION:2.0",
+              "PRODID:-//MMA Radar//FR", "CALSCALE:GREGORIAN",
+              "BEGIN:VEVENT"]
+
+    cle = f"{ev['date']}-{normaliser(titre).replace(' ', '-')}"
+    lignes.append(f"UID:{cle}@mmaradar.fr")
+    lignes.append("DTSTAMP:" + datetime.now(timezone.utc)
+                  .strftime("%Y%m%dT%H%M%SZ"))
+
+    if re.fullmatch(r"\d{1,2}[:hH]\d{2}", heure):
+        h, m = re.split(r"[:hH]", heure)
+        depart = datetime(jour.year, jour.month, jour.day, int(h), int(m))
+        depart -= timedelta(hours=decalage_paris(jour))   # vers l'heure UTC
+        fin = depart + timedelta(hours=3)
+        lignes.append("DTSTART:" + depart.strftime("%Y%m%dT%H%M%SZ"))
+        lignes.append("DTEND:" + fin.strftime("%Y%m%dT%H%M%SZ"))
+        rappel = "-PT1H"
+        texte_rappel = "Le combat commence dans une heure"
+    else:
+        lignes.append("DTSTART;VALUE=DATE:" + jour.strftime("%Y%m%d"))
+        lignes.append("DTEND;VALUE=DATE:"
+                      + (jour + timedelta(days=1)).strftime("%Y%m%d"))
+        rappel = "PT9H"
+        texte_rappel = "C'est aujourd'hui"
+
+    lignes.append("SUMMARY:" + _ics_echapper(titre))
+    if ev.get("lieu"):
+        lignes.append("LOCATION:" + _ics_echapper(ev["lieu"]))
+
+    details = []
+    for c in ev["combats"]:
+        if c.get("annule"):
+            continue
+        adv = c.get("adversaire_suivi") or c.get("adversaire", "")
+        details.append(f"{nom_affiche(c['combattant'])} vs {nom_affiche(adv)}")
+    if diff.get("chaine"):
+        details.append("Diffusion : " + diff["chaine"])
+    if lien:
+        details.append(lien)
+    if details:
+        lignes.append("DESCRIPTION:" + _ics_echapper("\n".join(details)))
+
+    lignes += ["BEGIN:VALARM", "ACTION:DISPLAY",
+               "DESCRIPTION:" + _ics_echapper(texte_rappel),
+               "TRIGGER:" + rappel, "END:VALARM",
+               "END:VEVENT", "END:VCALENDAR"]
+
+    os.makedirs("agenda", exist_ok=True)
+    nom_fichier = re.sub(r"[^a-z0-9]+", "-", cle.lower()).strip("-") + ".ics"
+    chemin = os.path.join("agenda", nom_fichier)
+    with open(chemin, "w", encoding="utf-8", newline="") as f:
+        f.write("\r\n".join(_ics_plier(l) for l in lignes) + "\r\n")
+    return chemin.replace("\\", "/")
+
+
+def identifiant_combat(c):
+    """Cle stable d'un combat, qui survit a la regeneration du site.
+
+    On s'appuie sur les adresses Sherdog des deux combattants : elles ne
+    changent jamais, contrairement aux noms ou aux dates.
+    """
+    def bout(url):
+        return url.rstrip("/").rsplit("/", 1)[-1] if url else ""
+
+    a = bout(c.get("url_suivi", "")) or normaliser(c.get("combattant", ""))
+    b = bout(c.get("url_adversaire", "")) or normaliser(c.get("adversaire", ""))
+    return "|".join(sorted([a, b]))
 
 
 def nettoyer_record(record):
@@ -585,7 +712,12 @@ CSS = """
     margin: 0;
   }
 
-  h1 em { color: var(--or); font-style: normal; }
+  h1 em {
+    color: var(--or);
+    font-style: normal;
+    /* insecable : la coupure tombe apres "combats", pas apres "des" */
+    white-space: nowrap;
+  }
 
   .sub { color: var(--gris); font-size: 0.85rem; margin: 0.7rem 0 0; }
 
@@ -801,7 +933,7 @@ CSS = """
     background: #131318;
     border: 1px solid #3a3a45;
     border-radius: 10px;
-    padding: 0.5rem 292px;
+    padding: 0.5rem 168px;
     margin: 0 0 0.55rem;
     transform: skew(-8deg);
     will-change: transform;
@@ -815,8 +947,8 @@ CSS = """
     transform: skew(8deg) translateY(-50%);
   }
 
-  .fight > .ck:nth-child(1) { left: 1.2rem; max-width: 112px; }
-  .fight > .ck:nth-child(2) { left: 9rem; max-width: 140px; overflow: hidden; }
+  .fight > .ck:nth-child(1) { left: 1.1rem; max-width: 108px; }
+  .fight > .ck:nth-child(2) { left: 8.3rem; max-width: 34px; overflow: hidden; }
 
   .fight > .ck:nth-child(3) { flex: 1 1 0; min-width: 0; }
   .fight > .ck:nth-child(4) { flex: none; }
@@ -914,11 +1046,93 @@ CSS = """
   .ev__foot a { color: var(--gris); text-decoration: none; }
   .ev__foot a:hover, .ev__foot a:focus { color: var(--or); }
 
+  .ev__actions { display: flex; gap: 1.1rem; align-items: center; }
+
+  .ev__foot a.ev__ics {
+    display: flex;
+    align-items: center;
+    color: var(--or);
+    opacity: 0.72;
+    transition: opacity 0.15s;
+  }
+
+  .ev__foot a.ev__ics:hover,
+  .ev__foot a.ev__ics:focus { color: var(--or); opacity: 1; }
+
   .ev__diffusion { color: var(--gris); }
 
   .flag { height: 14px; border-radius: 2px; flex: none; }
 
   .empty { color: var(--gris); text-align: center; margin: 3rem 0; }
+
+  /* ---- invitation a installer l'application ---- */
+  .install {
+    position: fixed;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    max-width: calc(100% - 1.6rem);
+    padding: 0.6rem 0.7rem 0.6rem 1.1rem;
+    background: var(--bar-clair);
+    border: 1px solid var(--or);
+    border-radius: 999px;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.55);
+    font-size: 0.82rem;
+  }
+
+  .install[hidden] { display: none; }
+
+  .install__txt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .install__txt b { color: var(--or); }
+
+  .install__oui {
+    flex: none;
+    font-family: Oswald, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sombre);
+    background: var(--or);
+    border: none;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+  }
+
+  .install__non {
+    flex: none;
+    background: none;
+    border: none;
+    color: var(--gris);
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0.2rem;
+  }
+
+  .install__non:hover { color: var(--blanc); }
+
+  @media (max-width: 560px) {
+    .install { font-size: 0.74rem; gap: 0.6rem; padding-left: 0.9rem; }
+    .install__oui { font-size: 0.68rem; padding: 0.35rem 0.7rem; }
+  }
+
+  footer p { margin: 0.35rem 0; }
+
+  footer a {
+    color: var(--gris);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(242, 193, 78, 0.4);
+  }
+
+  footer a:hover, footer a:focus {
+    color: var(--or);
+    border-bottom-color: var(--or);
+  }
 
   footer {
     margin-top: 3.5rem;
@@ -1222,10 +1436,14 @@ CSS = """
     /* --- volet deplie : les deux noms cote a cote --- */
     .ev__body { padding: 0.5rem 0.55rem 0.3rem; border-radius: 8px; }
 
+    .duel { margin-bottom: 0.45rem; }
+
     .fight {
       padding: 1.85rem 0.6rem 0.55rem;
-      margin-bottom: 0.45rem;
     }
+
+    .vote { margin: 0 0.6rem 0.5rem; height: 18px; }
+    .vote__cote { font-size: 0.6rem; }
 
     /* categorie a gauche, ceinture centree, toutes deux au-dessus des noms */
     .fight > .ck:nth-child(1) {
@@ -1263,7 +1481,14 @@ CSS = """
     .flag { height: 11px; }
     .belt { width: 20px; height: 8px; }
 
-    .ev__foot { padding: 0.1rem 0.2rem 0.35rem; font-size: 0.66rem; }
+    .ev__foot {
+      padding: 0.1rem 0.2rem 0.35rem;
+      font-size: 0.62rem;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .ev__actions { gap: 0.8rem; }
 
     /* --- derniers resultats --- */
     .recap { margin-top: 0.6rem; }
@@ -1309,7 +1534,7 @@ CSS_FOND = """
 """
 
 
-def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
+def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
     try:
         jour = datetime.strptime(ev["date"], "%Y-%m-%d").date()
         date_txt = f"{jour.day:02d} {MOIS_COURT[jour.month - 1]}"
@@ -1372,8 +1597,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
 
         annule = bool(c.get("annule"))
         belt = "" if annule else (CEINTURE if c.get("titre") else "")
-        titre_txt = ('<span class="fight__titre">CEINTURE EN JEU</span>'
-                     if belt else "")
+        titre_txt = ""   # l'icone ceinture parle d'elle-meme
 
         # Si l'adversaire fait aussi partie de la liste suivie, on affiche
         # son nom tel qu'on l'ecrit, son drapeau, et on le rend cliquable.
@@ -1402,19 +1626,38 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
         vs = ('<span class="fight__vs fight__vs--annule">ANNULÉ</span>'
               if annule else '<span class="fight__vs">VS</span>')
 
+        barre = ""
+        if VOTES_ACTIFS and not annule:
+            barre = f"""
+          <div class="vote" data-combat="{identifiant_combat(c)}">
+            <button class="vote__cote vote__cote--g" data-cote="g" type="button"
+                    aria-label="Voter pour {nom}"><span class="vote__pct"></span></button>
+            <button class="vote__cote vote__cote--d" data-cote="d" type="button"
+                    aria-label="Voter pour {echapper(nom_adv)}"><span class="vote__pct"></span></button>
+          </div>"""
+
         lignes.append(f"""
+        <div class="duel">
         <div class="{classe_fight}">
           <span class="ck fight__cat">{cat}{chip_rep}</span>
           <span class="ck fight__titre-bloc">{belt}{titre_txt}</span>
           <span class="ck">{flag}<span class="fight__col">{lien_nom}{rec_suivi_html}</span></span>
           <span class="ck">{vs}</span>
           <span class="ck"><span class="fight__col">{bloc_adv}{rec_adv_html}</span>{flag_adv}</span>
+        </div>{barre}
         </div>""")
 
     lien_html = ""
     if lien:
         lien_html = (f'<a href="{lien}" target="_blank" rel="noopener">'
                      f'Carte complète &rarr;</a>')
+
+    lien_agenda = ""
+    if agenda:
+        lien_agenda = (f'<a class="ev__ics" href="{agenda}" download '
+                       f'title="Ajouter cet évènement à mon agenda" '
+                       f'aria-label="Ajouter cet évènement à mon agenda">'
+                       f'{ICONE_AGENDA}</a>')
 
     diff = infos.get(ev["evenement"], {})
     morceaux = []
@@ -1446,7 +1689,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date):
       <div class="ev__body">{"".join(lignes)}
         <div class="ev__foot">
           {gauche}
-          {lien_html}
+          <span class="ev__actions">{lien_agenda}{lien_html}</span>
         </div>
       </div>
     </details>"""
@@ -1556,6 +1799,130 @@ JS = r"""
     return { texte: sortie, index: index };
   }
 
+  // ---------- installation sur l'ecran d'accueil ----------
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    });
+  }
+
+  (function () {
+    var bandeau = document.getElementById("install");
+    if (!bandeau) return;
+
+    var refuse = false;
+    try { refuse = localStorage.getItem("install-refuse") === "1"; } catch (e) {}
+
+    // deja installe : on ne propose rien
+    var installe = window.matchMedia("(display-mode: standalone)").matches
+      || window.navigator.standalone === true;
+    if (installe || refuse) return;
+
+    var invite = null;
+
+    window.addEventListener("beforeinstallprompt", function (ev) {
+      ev.preventDefault();
+      invite = ev;
+      bandeau.hidden = false;
+    });
+
+    // Sur iPhone, le navigateur ne propose rien : l'installation passe
+    // par le bouton de partage. On explique au lieu d'un bouton inutile.
+    var iOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    if (iOS) {
+      bandeau.querySelector(".install__txt").innerHTML =
+        "<b>MMA Radar</b> : Partager, puis Sur l'écran d'accueil";
+      bandeau.querySelector(".install__oui").hidden = true;
+      bandeau.hidden = false;
+    }
+
+    document.getElementById("install-oui").addEventListener("click", function () {
+      if (!invite) return;
+      invite.prompt();
+      invite = null;
+      bandeau.hidden = true;
+    });
+
+    document.getElementById("install-non").addEventListener("click", function () {
+      bandeau.hidden = true;
+      try { localStorage.setItem("install-refuse", "1"); } catch (e) {}
+    });
+
+    window.addEventListener("appinstalled", function () {
+      bandeau.hidden = true;
+    });
+  })();
+
+  // ---------- pronostics (mode demonstration) ----------
+  // Les votes restent dans le navigateur du visiteur. Les compteurs de
+  // depart sont simules a partir de l'identifiant du combat, pour que la
+  // barre ait l'air vivante pendant les essais.
+  var VOTES_MINI = 10;   // sous ce total, on n'affiche pas de pourcentage
+
+  function graine(texte) {
+    var h = 0;
+    for (var i = 0; i < texte.length; i++) {
+      h = (h * 31 + texte.charCodeAt(i)) % 100000;
+    }
+    return h;
+  }
+
+  function comptes(id) {
+    var enregistre = null;
+    try { enregistre = localStorage.getItem("pronostic:" + id); } catch (e) {}
+    if (enregistre) {
+      try { return JSON.parse(enregistre); } catch (e) {}
+    }
+    var g = graine(id);
+    return { g: 6 + (g % 47), d: 6 + ((g >> 3) % 41), moi: null };
+  }
+
+  function enregistrer(id, etat) {
+    try { localStorage.setItem("pronostic:" + id, JSON.stringify(etat)); }
+    catch (e) {}
+  }
+
+  function afficher(bloc, etat) {
+    var total = etat.g + etat.d;
+    var gauche = bloc.querySelector(".vote__cote--g");
+    var droite = bloc.querySelector(".vote__cote--d");
+    var pg = total ? Math.round((etat.g / total) * 100) : 50;
+    var pd = 100 - pg;
+
+    gauche.style.width = pg + "%";
+    droite.style.width = pd + "%";
+
+    var assez = total >= VOTES_MINI;
+    gauche.querySelector(".vote__pct").textContent = assez ? pg + "%" : "";
+    droite.querySelector(".vote__pct").textContent = assez ? pd + "%" : "";
+
+    bloc.classList.toggle("vote--fait", !!etat.moi);
+    gauche.classList.toggle("vote__cote--choisi", etat.moi === "g");
+    droite.classList.toggle("vote__cote--choisi", etat.moi === "d");
+
+    bloc.title = etat.moi
+      ? "Ton pronostic est enregistre"
+      : (assez ? total + " pronostics" : "Sois le premier a pronostiquer");
+  }
+
+  document.querySelectorAll(".vote").forEach(function (bloc) {
+    var id = bloc.dataset.combat;
+    afficher(bloc, comptes(id));
+
+    bloc.addEventListener("click", function (ev) {
+      var bouton = ev.target.closest(".vote__cote");
+      if (!bouton) return;
+      var cote = bouton.dataset.cote;
+      var etat = comptes(id);
+      if (etat.moi === cote) return;          // deja vote de ce cote
+      if (etat.moi) { etat[etat.moi] -= 1; }  // changement d'avis
+      etat[cote] += 1;
+      etat.moi = cote;
+      enregistrer(id, etat);
+      afficher(bloc, etat);
+    });
+  });
+
   var A_SURLIGNER = ".ev__avec-noms, .fight__nom, .rl__nom";
 
   function surligner(q) {
@@ -1610,13 +1977,29 @@ JS = r"""
     });
   }
 
+  // Une recherche est une vue temporaire : en vidant le champ, on rend
+  // la page telle qu'elle etait, y compris les volets deja ouverts.
+  var etatAvant = null;
+
   champ.addEventListener("input", function () {
     var q = norm(champ.value || "");
-    document.querySelectorAll("details.ev").forEach(function (ev) {
+    var volets = document.querySelectorAll("details.ev");
+
+    if (q && etatAvant === null) {
+      etatAvant = new Map();
+      volets.forEach(function (ev) { etatAvant.set(ev, ev.open); });
+    }
+
+    volets.forEach(function (ev) {
       var visible = !q || norm(ev.dataset.noms || "").indexOf(q) !== -1;
       ev.style.display = visible ? "" : "none";
       if (q) ev.open = visible;
     });
+
+    if (!q && etatAvant) {
+      volets.forEach(function (ev) { ev.open = etatAvant.get(ev) === true; });
+      etatAvant = null;
+    }
     document.querySelectorAll("main section").forEach(function (sec) {
       var un = sec.querySelector("details.ev:not([style*='display: none'])");
       sec.style.display = un ? "" : "none";
@@ -1642,8 +2025,9 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
         nom_mois, annee = libelle_mois(cle)
         blocs = []
         for ev in evenements:
+            chemin = fichier_agenda(ev, infos, fiches)
             blocs.append(bloc_evenement(ev, fiches, infos, False,
-                                        prochaine_date))
+                                        prochaine_date, chemin))
         sections.append(f"""
   <section>
     <div class="mois">
@@ -1665,18 +2049,11 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MMA Radar &mdash; Prochains combats des francophones</title>
-<meta name="description" content="Le calendrier des prochains combats des combattants francophones de MMA : UFC, PFL, ARES, KSW, Hexagone et les autres. Dates, adversaires, villes et diffusion.">
-
-<!-- apercu lors d'un partage de lien -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="MMA Radar">
-<meta property="og:title" content="MMA Radar &mdash; Prochains combats des francophones">
-<meta property="og:description" content="Toutes les dates des prochains combats des combattants francophones de MMA, mises a jour chaque jour.">
-<meta property="og:url" content="https://mmaradar.fr/">
-<meta property="og:image" content="https://mmaradar.fr/icones/icone-512.png">
-<meta name="twitter:card" content="summary">
-
+<title>Prochains combats des francophones en MMA</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MMA Radar">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="icones/icone.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="icones/icone-32.png">
@@ -1699,8 +2076,16 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
   <main>{"".join(sections)}
   </main>
 
+  <div class="install" id="install" hidden>
+    <span class="install__txt"><b>MMA Radar</b> sur ton écran d'accueil</span>
+    <button class="install__oui" id="install-oui" type="button">Installer</button>
+    <button class="install__non" id="install-non" type="button"
+            aria-label="Fermer">&times;</button>
+  </div>
+
   <footer>
-    Données issues de Sherdog. Les cartes évoluent, vérifie avant de bloquer ta soirée.
+    <p>Données issues de Sherdog. Les cartes évoluent, vérifie avant de bloquer ta soirée.</p>
+    <p><a href="mailto:contact@mmaradar.fr">contact@mmaradar.fr</a></p>
   </footer>
 
 </div>
@@ -1710,11 +2095,114 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 """
 
 
-VERSION = 49
+# Barre de pronostics. En mode demonstration, les votes restent dans le
+# navigateur du visiteur : rien n'est partage. A basculer sur un vrai
+# service le jour ou on le mettra en place.
+VOTES_ACTIFS = False
+VOTES_DEMO = True
+
+VERSION = 58
+
+
+def ecrire_manifeste():
+    """Decrit l'application pour les telephones."""
+    manifeste = {
+        "name": "MMA Radar",
+        "short_name": "MMA Radar",
+        "description": "Les prochains combats des combattants francophones.",
+        "start_url": "./",
+        "scope": "./",
+        "display": "standalone",
+        "orientation": "portrait",
+        "lang": "fr",
+        "background_color": "#0a0a0c",
+        "theme_color": "#0f0f13",
+        "icons": [
+            {"src": "icones/icone-192.png", "sizes": "192x192",
+             "type": "image/png", "purpose": "any"},
+            {"src": "icones/icone-512.png", "sizes": "512x512",
+             "type": "image/png", "purpose": "any"},
+            {"src": "icones/icone-512.png", "sizes": "512x512",
+             "type": "image/png", "purpose": "maskable"},
+        ],
+    }
+    with open("manifest.webmanifest", "w", encoding="utf-8") as f:
+        json.dump(manifeste, f, ensure_ascii=False, indent=2)
+
+
+def ecrire_service_worker():
+    """Cache hors ligne. Le numero de version force le renouvellement.
+
+    Regle d'or : la page et les donnees passent d'abord par le reseau,
+    pour ne jamais afficher un calendrier perime. Seules les images et
+    les polices sont servies depuis le cache.
+    """
+    contenu = """// Genere automatiquement par generer_site.py
+const CACHE = "mmaradar-vVERSION_ICI";
+const SOCLE = ["./", "./index.html", "./fond.jpg",
+               "./icones/icone-192.png", "./icones/icone-512.png"];
+
+self.addEventListener("install", function (e) {
+  e.waitUntil(
+    caches.open(CACHE)
+      .then(function (c) { return c.addAll(SOCLE).catch(function () {}); })
+      .then(function () { return self.skipWaiting(); })
+  );
+});
+
+self.addEventListener("activate", function (e) {
+  e.waitUntil(
+    caches.keys().then(function (cles) {
+      return Promise.all(cles.map(function (k) {
+        if (k !== CACHE) { return caches.delete(k); }
+      }));
+    }).then(function () { return self.clients.claim(); })
+  );
+});
+
+self.addEventListener("fetch", function (e) {
+  const req = e.request;
+  if (req.method !== "GET") { return; }
+
+  const url = new URL(req.url);
+  const donnee = req.mode === "navigate"
+    || url.pathname.endsWith(".html")
+    || url.pathname.endsWith(".json")
+    || url.pathname.endsWith(".ics");
+
+  if (donnee) {
+    // reseau d'abord : le calendrier doit toujours etre a jour
+    e.respondWith(
+      fetch(req).then(function (rep) {
+        const copie = rep.clone();
+        caches.open(CACHE).then(function (c) { c.put(req, copie); });
+        return rep;
+      }).catch(function () { return caches.match(req); })
+    );
+    return;
+  }
+
+  // images, icones, polices : cache d'abord, mise a jour en arriere-plan
+  e.respondWith(
+    caches.match(req).then(function (garde) {
+      const reseau = fetch(req).then(function (rep) {
+        const copie = rep.clone();
+        caches.open(CACHE).then(function (c) { c.put(req, copie); });
+        return rep;
+      }).catch(function () { return garde; });
+      return garde || reseau;
+    })
+  );
+});
+""".replace("VERSION_ICI", str(VERSION))
+    with open("sw.js", "w", encoding="utf-8") as f:
+        f.write(contenu)
 
 
 def main():
     print(f"generer_site v{VERSION}")
+    ecrire_manifeste()
+    ecrire_service_worker()
     combats = charger_json("combats.json")
     if combats is None:
         print("combats.json introuvable. Lance d'abord mma_tracker.py")
@@ -1725,6 +2213,13 @@ def main():
 
     fiches = charger_json("fighters.json")
     fiches = {} if fiches in (None, "ERREUR") else fiches
+
+    # on repart d'un dossier agenda propre : les evenements passes
+    # ou renommes ne doivent pas y trainer
+    if os.path.isdir("agenda"):
+        for f in os.listdir("agenda"):
+            if f.endswith(".ics"):
+                os.remove(os.path.join("agenda", f))
 
     resultats_recents = charger_json("resultats.json")
     if resultats_recents in (None, "ERREUR"):
