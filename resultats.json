@@ -9,6 +9,15 @@
     "methode": "Submission (Rear-Naked Choke)"
   },
   {
+    "combattant": "Moustapha Diakhate",
+    "drapeau": "sn",
+    "resultat": "win",
+    "adversaire": "Darryl King Walker",
+    "evenement": "Professional Fighters League - PFL New York: Nurmagomedov vs. Colgan",
+    "date": "2026-07-31",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Axel Sola",
     "drapeau": "fr",
     "resultat": "win",
@@ -43,6 +52,15 @@
     "evenement": "Top FC 22 - Top Fighting Championship 22",
     "date": "2026-07-11",
     "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Wissame Akhmouch",
+    "drapeau": "ma",
+    "resultat": "loss",
+    "adversaire": "Abdelkrim Zouad",
+    "evenement": "Professional Fighters League - PFL MENA 10: Saudi Arabia",
+    "date": "2026-07-10",
+    "methode": "Submission (Face Crank)"
   },
   {
     "combattant": "Nell Ariano",
@@ -81,6 +99,15 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Arthur Demonceaux",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Luis Duvan Rincon",
+    "evenement": "AEC 19 - Arena Elite Championship 19",
+    "date": "2026-06-13",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Paul Denis Navero",
     "drapeau": "fr",
     "resultat": "loss",
@@ -106,6 +133,24 @@
     "evenement": "HXMMA 45 - Hexagone MMA 45",
     "date": "2026-06-12",
     "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Samba Sima",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Leonardo de Oliveira Barbosa",
+    "evenement": "HXMMA 45 - Hexagone MMA 45",
+    "date": "2026-06-12",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Allan Landouzy",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Abdul Hussainkhil",
+    "evenement": "HXMMA 45 - Hexagone MMA 45",
+    "date": "2026-06-12",
+    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Fares Ziam",
@@ -135,6 +180,33 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Benoit Prigent",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Abdoulaye Dione",
+    "evenement": "Ares 41 - Dasuyev vs. Soumah",
+    "date": "2026-06-06",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Alvi Dasuyev",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Mohamed Soumah",
+    "evenement": "Ares 41 - Dasuyev vs. Soumah",
+    "date": "2026-06-06",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Walid Masmoudi",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Magomed-Giri Umarkhadzhiev",
+    "evenement": "Ares 41 - Dasuyev vs. Soumah",
+    "date": "2026-06-06",
+    "methode": "Decision (Split)"
+  },
+  {
     "combattant": "Wilson Varela",
     "drapeau": "cv",
     "resultat": "loss",
@@ -160,6 +232,24 @@
     "evenement": "HXMMA 44 - Hexagone MMA 44",
     "date": "2026-05-29",
     "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Theo Ulrich",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Nicolae Bivol",
+    "evenement": "HXMMA 44 - Hexagone MMA 44",
+    "date": "2026-05-29",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Oualy Tandia",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Romain Debienne",
+    "evenement": "HXMMA 44 - Hexagone MMA 44",
+    "date": "2026-05-29",
+    "methode": "KO (Punches)"
   },
   {
     "combattant": "Ylies Djiroun",
@@ -279,6 +369,15 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Oumar Kane",
+    "drapeau": "sn",
+    "resultat": "loss",
+    "adversaire": "Anatoly Malykhin",
+    "evenement": "One Championship - One Friday Fights 154",
+    "date": "2026-05-15",
+    "methode": "KO (Punches)"
+  },
+  {
     "combattant": "William Gomis",
     "drapeau": "fr",
     "resultat": "loss",
@@ -286,6 +385,15 @@
     "evenement": "UFC 328 - Chimaev vs. Strickland",
     "date": "2026-05-09",
     "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Alou Camara",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Shakhbulat Abuev",
+    "evenement": "Lions FC 12 - Lions Fighting Championship 12",
+    "date": "2026-05-01",
+    "methode": "Technical Submission (Arm-Triangle Choke)"
   },
   {
     "combattant": "Romain Debienne",
@@ -304,6 +412,15 @@
     "evenement": "HXMMA - Hexagone MMA Series 4",
     "date": "2026-04-25",
     "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Alexandra Tekenah",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Jenethzareth McTurk",
+    "evenement": "HXMMA - Hexagone MMA Series 4",
+    "date": "2026-04-25",
+    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Hugo Deux",
@@ -360,6 +477,24 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Anthony Nantois",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Kevin Tchoupa Domgmo",
+    "evenement": "Duel Fighting 6 - Albertville",
+    "date": "2026-04-11",
+    "methode": "Submission"
+  },
+  {
+    "combattant": "Bafode Gassama",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Lajos Papp",
+    "evenement": "HXMMA 43 - Hexagone MMA 43",
+    "date": "2026-04-11",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Alexis Nicolas",
     "drapeau": "fr",
     "resultat": "win",
@@ -367,6 +502,33 @@
     "evenement": "Ares 40 - Begai vs. Diakhate 2",
     "date": "2026-04-10",
     "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Modibo Diakite",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Rayan Lessa",
+    "evenement": "Ares 40 - Begai vs. Diakhate 2",
+    "date": "2026-04-10",
+    "methode": "TKO (Submission to Slam)"
+  },
+  {
+    "combattant": "Moustapha Diakhate",
+    "drapeau": "sn",
+    "resultat": "win",
+    "adversaire": "Paulin Begai",
+    "evenement": "Ares 40 - Begai vs. Diakhate 2",
+    "date": "2026-04-10",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Walid Masmoudi",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Craig McGrattan",
+    "evenement": "Ares 40 - Begai vs. Diakhate 2",
+    "date": "2026-04-10",
+    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Jason Ponet",
@@ -402,6 +564,24 @@
     "adversaire": "Mario Gagliardi",
     "evenement": "Ares 39 - Jbalia vs. Diatta",
     "date": "2026-04-03",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Jade Jorand",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Adriana Fusini",
+    "evenement": "Ares 39 - Jbalia vs. Diatta",
+    "date": "2026-04-03",
+    "methode": "TKO (Head Kick and Punches)"
+  },
+  {
+    "combattant": "Arnaud Prigent",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Alan Cordeiro de Jesus",
+    "evenement": "HXMMA - Hexagone MMA Series 3",
+    "date": "2026-04-02",
     "methode": "Decision (Unanimous)"
   },
   {
@@ -486,6 +666,24 @@
     "methode": "KO (Punch)"
   },
   {
+    "combattant": "Mathilde Aschenbrenner",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Diana Muzychenko",
+    "evenement": "HXMMA 41 - Hexagone MMA 41",
+    "date": "2026-03-06",
+    "methode": "Submission (Peruvian Necktie)"
+  },
+  {
+    "combattant": "Allan Landouzy",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Anass Mehraz",
+    "evenement": "HXMMA 41 - Hexagone MMA 41",
+    "date": "2026-03-06",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
     "combattant": "Davy Gallon",
     "drapeau": "fr",
     "resultat": "win",
@@ -493,6 +691,15 @@
     "evenement": "HXMMA 40 - Hexagone MMA 40",
     "date": "2026-02-28",
     "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Leopold Goi",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Romero Reis",
+    "evenement": "HXMMA 40 - Hexagone MMA 40",
+    "date": "2026-02-28",
+    "methode": "TKO (Flying Knee)"
   },
   {
     "combattant": "Nora Cornolle",
@@ -511,6 +718,15 @@
     "evenement": "KSW 115 - Przybysz vs. Yakymenko",
     "date": "2026-02-21",
     "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Mehdi Ben Lakhdhar",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Agshin Babaev",
+    "evenement": "AEC 18 - Arena Elite Championship 18",
+    "date": "2026-02-14",
+    "methode": "TKO (Injury)"
   },
   {
     "combattant": "Taylor Lapilus",
@@ -558,6 +774,15 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Arnaud Prigent",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Magomed Abdulaev",
+    "evenement": "HXMMA 39 - Hexagone MMA 39",
+    "date": "2026-02-06",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Benoit Saint Denis",
     "drapeau": "fr",
     "resultat": "win",
@@ -603,6 +828,15 @@
     "methode": "No Contest (Accidental Knee to Groin)"
   },
   {
+    "combattant": "Pierre Manzo",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Nicolas Santos",
+    "evenement": "Ares 38 - Zebo vs. Mustafaev",
+    "date": "2026-01-30",
+    "methode": "Technical Submission (Anaconda Choke)"
+  },
+  {
     "combattant": "Salahdine Parnasse",
     "drapeau": "fr",
     "resultat": "win",
@@ -646,6 +880,33 @@
     "evenement": "Ares 37 - Augen vs. Shiguemoto 2",
     "date": "2026-01-09",
     "methode": "TKO (Foot Injury)"
+  },
+  {
+    "combattant": "Theo Ulrich",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "David Sipra",
+    "evenement": "HXMMA 37 - Hexagone MMA 37",
+    "date": "2026-01-09",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Samba Sima",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Nikolai Makarenko",
+    "evenement": "HXMMA 37 - Hexagone MMA 37",
+    "date": "2026-01-09",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Alexandra Tekenah",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Thalita Soares",
+    "evenement": "HXMMA 37 - Hexagone MMA 37",
+    "date": "2026-01-09",
+    "methode": "KO (Punches)"
   },
   {
     "combattant": "Jason Ponet",
@@ -738,6 +999,42 @@
     "methode": "KO (Punch)"
   },
   {
+    "combattant": "Delphine Benouaich",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Lindsey Payne",
+    "evenement": "Ares 36 - Jbalia vs. Sabirov",
+    "date": "2025-12-13",
+    "methode": "Submission (Guillotine Choke)"
+  },
+  {
+    "combattant": "Vincent del Guerra",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Mailton Azevedo",
+    "evenement": "Super League MMA 7 - To the Next Level",
+    "date": "2025-12-13",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Benoit Prigent",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ulysse Obame Ndong",
+    "evenement": "Ares 36 - Jbalia vs. Sabirov",
+    "date": "2025-12-13",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Alou Camara",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Elie Makongo",
+    "evenement": "Ares 36 - Jbalia vs. Sabirov",
+    "date": "2025-12-13",
+    "methode": "Technical Submission (Guillotine Choke)"
+  },
+  {
     "combattant": "Fares Ziam",
     "drapeau": "fr",
     "resultat": "win",
@@ -781,6 +1078,24 @@
     "evenement": "FAF 3 - In Octogon",
     "date": "2025-11-29",
     "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Alvi Dasuyev",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Kevin Ruart",
+    "evenement": "AEC 16 - Arena Elite Championship 16",
+    "date": "2025-11-29",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Kevin Ruart",
+    "drapeau": "ch",
+    "resultat": "loss",
+    "adversaire": "Alvi Dasuyev",
+    "evenement": "AEC 16 - Arena Elite Championship 16",
+    "date": "2025-11-29",
+    "methode": "TKO (Punches)"
   },
   {
     "combattant": "Nell Ariano",
@@ -918,6 +1233,33 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Pierre Manzo",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Alpha Ly",
+    "evenement": "Ares 35 - Baki vs. Zebo",
+    "date": "2025-10-18",
+    "methode": "Submission (Arm-Triangle Choke)"
+  },
+  {
+    "combattant": "Kevin Ruart",
+    "drapeau": "ch",
+    "resultat": "win",
+    "adversaire": "Neilson Gomes",
+    "evenement": "WNC 3 - Warriors Night Championship 3",
+    "date": "2025-10-18",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Vincent del Guerra",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Veselin Dimitrov",
+    "evenement": "FMMAF - Marseille Fight Night",
+    "date": "2025-10-10",
+    "methode": "KO (Body Kick)"
+  },
+  {
     "combattant": "Jorick Montagnac",
     "drapeau": "fr",
     "resultat": "win",
@@ -972,6 +1314,42 @@
     "methode": "Submission (Rear-Naked Choke)"
   },
   {
+    "combattant": "Bafode Gassama",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Moussa N'diaye",
+    "evenement": "HXMMA 35 - Hexagone MMA 35",
+    "date": "2025-09-26",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Oualy Tandia",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Alix Jeanguillaume",
+    "evenement": "HXMMA 34 - Hexagone MMA 34",
+    "date": "2025-09-19",
+    "methode": "KO (Knee and Punches)"
+  },
+  {
+    "combattant": "Delphine Benouaich",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Ingrid Silva",
+    "evenement": "Ares 34 - Begai vs. Diakhate",
+    "date": "2025-09-13",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Modibo Diakite",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Anatoliy Adzhamyan",
+    "evenement": "Ares 34 - Begai vs. Diakhate",
+    "date": "2025-09-13",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
     "combattant": "Nassourdine Imavov",
     "drapeau": "fr",
     "resultat": "win",
@@ -1015,6 +1393,15 @@
     "evenement": "UFC Fight Night 258 - Imavov vs. Borralho",
     "date": "2025-09-06",
     "methode": "TKO (Elbows)"
+  },
+  {
+    "combattant": "Mathilde Aschenbrenner",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Veronica Grenno Maune",
+    "evenement": "HXMMA 32 - Hexagone MMA 32",
+    "date": "2025-08-10",
+    "methode": "Submission (Armbar)"
   },
   {
     "combattant": "Nora Cornolle",
@@ -1134,6 +1521,15 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Leopold Goi",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ilie Meryacre",
+    "evenement": "HXMMA 30 - Hexagone MMA 30",
+    "date": "2025-06-07",
+    "methode": "KO (Knee to the Body)"
+  },
+  {
     "combattant": "Nicolas Leblond",
     "drapeau": "fr",
     "resultat": "win",
@@ -1168,6 +1564,24 @@
     "evenement": "Ares 30 - Chamsoudinov vs. Lima",
     "date": "2025-05-16",
     "methode": "TKO (Submission to Punches)"
+  },
+  {
+    "combattant": "Wissame Akhmouch",
+    "drapeau": "ma",
+    "resultat": "loss",
+    "adversaire": "Jordan Zebo",
+    "evenement": "Ares 30 - Chamsoudinov vs. Lima",
+    "date": "2025-05-16",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Jacky Jeanne",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Isaac Muluh",
+    "evenement": "Ares 30 - Chamsoudinov vs. Lima",
+    "date": "2025-05-16",
+    "methode": "TKO (Elbows)"
   },
   {
     "combattant": "Manon Fiorot",
@@ -1231,6 +1645,24 @@
     "evenement": "Oktagon MMA - Oktagon 70: Kristofic vs. Humburger",
     "date": "2025-04-26",
     "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Michael Aljarouj",
+    "drapeau": "fr",
+    "resultat": "nc",
+    "adversaire": "Romero Reis",
+    "evenement": "HXMMA 26 - Hexagone MMA 26",
+    "date": "2025-04-12",
+    "methode": "No Contest (Overturned)"
+  },
+  {
+    "combattant": "Nimo Djagbo",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Rayanne Essaidi",
+    "evenement": "HFC 52 - Hard Fighting Championship 52",
+    "date": "2025-02-22",
+    "methode": "TKO"
   },
   {
     "combattant": "Alfan Rocher Labes",
@@ -1368,6 +1800,24 @@
     "methode": "Submission (Rear-Naked Choke)"
   },
   {
+    "combattant": "Michael Aljarouj",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Pedro Nobre",
+    "evenement": "HXMMA 21 - Hexagone MMA 21",
+    "date": "2024-11-23",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Oumar Kane",
+    "drapeau": "sn",
+    "resultat": "win",
+    "adversaire": "Anatoly Malykhin",
+    "evenement": "One Championship - One 169: Bangkok",
+    "date": "2024-11-08",
+    "methode": "Decision (Split)"
+  },
+  {
     "combattant": "Atilla Kobas",
     "drapeau": "fr",
     "resultat": "win",
@@ -1386,6 +1836,15 @@
     "methode": "KO (Punches)"
   },
   {
+    "combattant": "Jacky Jeanne",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Abdul-Rakhman Yakhyaev",
+    "evenement": "Ares 25 - Sola vs. Gagloev",
+    "date": "2024-09-26",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
     "combattant": "Youcef Ouabbas",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1393,6 +1852,15 @@
     "evenement": "Professional Fighters League - PFL MENA 2: 2024 Regular Season",
     "date": "2024-07-12",
     "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Jade Jorand",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Leslie Hernandez",
+    "evenement": "LFA 188 - Sweeney vs. Do Nascimento",
+    "date": "2024-07-12",
+    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Daguir Imavov",
@@ -1447,6 +1915,15 @@
     "evenement": "Professional Fighters League - PFL Europe 1: 2024 Regular Season",
     "date": "2024-03-07",
     "methode": "TKO (Toe Injury)"
+  },
+  {
+    "combattant": "Mehdi Ben Lakhdhar",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Osvald Fedorovic",
+    "evenement": "HXMMA 13 - Hexagone MMA 13",
+    "date": "2024-01-26",
+    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Mehdi Saadi",
@@ -1548,12 +2025,39 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Marvin Caperan",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Benjamin  Donkerwolcke",
+    "evenement": "HFC 39 - Hard Fighting Championship 39",
+    "date": "2023-01-28",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Nimo Djagbo",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Lucas Derail",
+    "evenement": "HFC 39 - Hard Fighting Championship 39",
+    "date": "2023-01-28",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Alan Baudot",
     "drapeau": "fr",
     "resultat": "loss",
     "adversaire": "Josh Parisian",
     "evenement": "UFC on ESPN 38 - Tsarukyan vs. Gamrot",
     "date": "2022-06-25",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Arthur Demonceaux",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ian Entwistle",
+    "evenement": "Ares 6 - Damiani vs. Tulshaev",
+    "date": "2022-05-20",
     "methode": "TKO (Punches)"
   },
   {

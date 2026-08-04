@@ -33,7 +33,7 @@
 
   .wrap { max-width: 1080px; margin: 0 auto; }
 
-  header.top { padding: 2.6rem 0 1.6rem; text-align: center; }
+  header.top { padding: 2.6rem 0 0.8rem; text-align: center; }
 
   h1 {
     font-family: Oswald, sans-serif;
@@ -181,6 +181,8 @@
     text-overflow: ellipsis;
   }
 
+  .nom-court { display: none; }
+
   .ev__ville {
     font-family: Oswald, sans-serif;
     font-size: 0.85rem;
@@ -208,6 +210,14 @@
   }
 
   .ev__avec-label { color: var(--or); font-weight: 700; }
+
+  /* surlignage des lettres tapees dans la recherche */
+  mark.trouve {
+    background: var(--or);
+    color: var(--sombre);
+    border-radius: 2px;
+    padding: 0 0.1em;
+  }
 
   .ev__avec-noms {
     color: var(--blanc);
@@ -480,7 +490,7 @@
   .outils__recherche::placeholder { color: #6a6a74; }
 
   /* ---- derniers resultats ---- */
-  details.recap { max-width: 800px; margin: 1.8rem auto 0; }
+  details.recap { max-width: 800px; margin: 0.9rem auto 0; }
 
   summary.recap__bar {
     display: flex;
@@ -607,7 +617,7 @@
   @media (max-width: 860px) {
     body { padding: 0 0.7rem 3rem; }
 
-    header.top { padding: 1.6rem 0 1rem; }
+    header.top { padding: 1.6rem 0 0.5rem; }
     h1 { font-size: clamp(1.4rem, 6.5vw, 2rem); }
     .sub { font-size: 0.76rem; margin-top: 0.5rem; }
 
@@ -622,7 +632,7 @@
     details.ev { margin-bottom: 0.5rem; }
 
     summary.ev__bar {
-      grid-template-columns: 62px minmax(0, 1fr) auto 14px;
+      grid-template-columns: 62px minmax(0, 1fr) auto auto 14px;
       gap: 0.3rem 0.55rem;
       padding: 0.5rem 0.7rem;
       border-radius: 9px;
@@ -630,12 +640,21 @@
 
     summary.ev__bar > .ck:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
     summary.ev__bar > .ck:nth-child(3) { grid-area: 1 / 2 / 2 / 3; }
-    summary.ev__bar > .ck:nth-child(6) { grid-area: 1 / 3 / 2 / 4;
+    summary.ev__bar > .ck:nth-child(2) { grid-area: 1 / 3 / 2 / 4;
+                                         display: flex;
+                                         justify-content: flex-start; }
+    summary.ev__bar > .ck:nth-child(6) { grid-area: 1 / 4 / 2 / 5;
                                          display: flex; }
-    summary.ev__bar > .ck:nth-child(7) { grid-area: 1 / 4 / 2 / 5; }
+    summary.ev__bar > .ck:nth-child(7) { grid-area: 1 / 5 / 2 / 6; }
     summary.ev__bar > .ck:nth-child(4) { grid-area: 2 / 1 / 3 / 2; }
-    summary.ev__bar > .ck:nth-child(5) { grid-area: 2 / 2 / 3 / 5; }
-    summary.ev__bar > .ck:nth-child(2) { display: none; }
+    summary.ev__bar > .ck:nth-child(5) { grid-area: 2 / 2 / 3 / 6; }
+
+    /* max-height plafonne la hauteur fixee sur chaque logo */
+    .ev__logo { max-height: 15px; max-width: 50px; }
+    .ev__badge { font-size: 0.55rem; padding: 0.1rem 0.3rem; }
+
+    .nom-long { display: none; }
+    .nom-court { display: inline; }
 
     .jchip { display: inline-block; font-size: 0.6rem; padding: 0.12rem 0.4rem; }
 
@@ -706,7 +725,7 @@
     .ev__foot { padding: 0.1rem 0.2rem 0.35rem; font-size: 0.66rem; }
 
     /* --- derniers resultats --- */
-    .recap { margin-top: 1.2rem; }
+    .recap { margin-top: 0.6rem; }
     summary.recap__bar { font-size: 0.74rem; padding: 0.4rem 1rem; }
     .recap__body { padding: 0.2rem 0.6rem; }
 
@@ -751,7 +770,7 @@
 
   <header class="top">
     <h1>Prochains combats <em>des francophones</em></h1>
-    <p class="sub">19 combats annoncés &middot; mis à jour le 4 août 2026</p>
+    <p class="sub">24 combats annoncés &middot; mis à jour le 4 août 2026</p>
   </header>
 
   <details class="recap">
@@ -764,6 +783,13 @@
         <span class="rl__nom" data-complet="Noah Gugnon vs Milos Janicic"><a class="rl__lien" href="https://www.sherdog.com/fighter/Noah-Gugnon-236171" target="_blank" rel="noopener">Noah Gugnon</a> <em>vs Milos Janicic</em></span>
         <span class="rl__meth" data-complet="Submission (Rear-Naked Choke)">Submission (Rear-Naked Choke)</span>
         <span class="rl__ev" title="UFC Fight Night 283"><img class="rl__logo" src="logos/ufc.svg" alt="UFC" style="height:11.0px"></span>
+      </div>
+      <div class="rl">
+        <span class="rl__date">31 JUIL</span>
+        <span class="rl__badge rl__badge--v">V</span>
+        <span class="rl__nom" data-complet="Moustapha Diakhate vs Darryl King Walker"><a class="rl__lien" href="https://www.sherdog.com/fighter/Moustapha-Diakhate-413692" target="_blank" rel="noopener">Moustapha Diakhate</a> <em>vs Darryl King Walker</em></span>
+        <span class="rl__meth" data-complet="TKO (Punches)">TKO (Punches)</span>
+        <span class="rl__ev" title="PFL"><img class="rl__logo" src="logos/pfl.png" alt="PFL" style="height:11.5px"></span>
       </div>
       <div class="rl">
         <span class="rl__date">25 JUIL</span>
@@ -792,6 +818,13 @@
         <span class="rl__nom" data-complet="Mickael Groguhe vs Da Woon Jung"><a class="rl__lien" href="https://www.sherdog.com/fighter/Mickael-Groguhe-393083" target="_blank" rel="noopener">Mickael Groguhe</a> <em>vs Da Woon Jung</em></span>
         <span class="rl__meth" data-complet="TKO (Punches)">TKO (Punches)</span>
         <span class="rl__ev" title="Top FC 22 - Top Fighting Championship 22"><span class="rl__sigle">MMA</span></span>
+      </div>
+      <div class="rl">
+        <span class="rl__date">10 JUIL</span>
+        <span class="rl__badge rl__badge--d">D</span>
+        <span class="rl__nom" data-complet="Wissame Akhmouch vs Abdelkrim Zouad"><a class="rl__lien" href="https://www.sherdog.com/fighter/Wissame-Akhmouch-268781" target="_blank" rel="noopener">Wissame Akhmouch</a> <em>vs Abdelkrim Zouad</em></span>
+        <span class="rl__meth" data-complet="Submission (Face Crank)">Submission (Face Crank)</span>
+        <span class="rl__ev" title="PFL - PFL MENA 10: Saudi Arabia"><img class="rl__logo" src="logos/pfl.png" alt="PFL" style="height:11.5px"></span>
       </div>
     </div>
   </details>
@@ -868,15 +901,15 @@
         </div>
       </div>
     </details>
-    <details class="ev" data-orga="ufc" data-noms="salahdine parnasse|salahdine parnasse|dan hooker|dan hooker|morgan charriere|morgan charriere|felipe lima|felipe lima|oumar sy|oumar sy|modestas bukauskas|modestas bukauskas|losene keita|losene keita|muhammadjon naimov|muhammadjon naimov|nora cornolle|nora cornolle|klaudia sygula|klaudia sygula|matthieu letho duclos|matthieu letho duclos|luis felipe dias|luis felipe dias">
+    <details class="ev" data-orga="ufc" data-noms="salahdine parnasse|salahdine parnasse|dan hooker|dan hooker|morgan charriere|morgan charriere|felipe lima|felipe lima|oumar sy|oumar sy|modestas bukauskas|modestas bukauskas|losene keita|losene keita|muhammadjon naimov|muhammadjon naimov|nora cornolle|nora cornolle|klaudia sygula|klaudia sygula|matthieu letho duclos|matthieu letho duclos|luis felipe dias|luis felipe dias|michael aljarouj|michael aljarouj|fabia sintes|fabia sintes">
       <summary class="ev__bar">
         <span class="ck"><span class="ev__date">05 SEPT</span></span>
         <span class="ck"><img class="ev__logo" src="logos/ufc.svg" alt="UFC" data-couleur="1" style="height:17.7px"></span>
         <span class="ck"><span class="ev__nom" data-complet="UFC Fight Night 287">UFC Fight Night 287</span></span>
         <span class="ck" title="Accor Arena, Paris, France"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="ev__ville">Paris</span></span>
-        <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Salahdine Parnasse, Morgan Charriere, Oumar Sy, Losene Keita, Nora Cornolle, Matthieu Letho Duclos">
+        <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Salahdine Parnasse, Morgan Charriere, Oumar Sy, Losene Keita, Nora Cornolle, Matthieu Letho Duclos, Michael Aljarouj">
           <span class="ev__avec-label">AVEC&nbsp;: </span>
-          <span class="ev__avec-noms">Salahdine Parnasse, Morgan Charriere, Oumar Sy, Losene Keita, Nora Cornolle, Matthieu Letho Duclos</span>
+          <span class="ev__avec-noms">Salahdine Parnasse, Morgan Charriere, Oumar Sy, Losene Keita, Nora Cornolle, Matthieu Letho Duclos, Michael Aljarouj</span>
         </span></span>
         <span class="ck"><span class="jchip">J-32</span></span>
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
@@ -923,6 +956,13 @@
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Matthieu-Letho-Duclos-350789" target="_blank" rel="noopener" data-complet="Matthieu Letho Duclos">Matthieu Letho Duclos</a><span class="fight__rec">10-3-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Luis Felipe Dias">Luis Felipe Dias</span><span class="fight__rec">18-5-0</span></span><img class="flag" src="https://flagcdn.com/h20/br.png" alt="" loading="lazy"></span>
+        </div>
+        <div class="fight">
+          <span class="ck fight__cat">Flyweight</span>
+          <span class="ck fight__titre-bloc"></span>
+          <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Michael-Aljarouj-250049" target="_blank" rel="noopener" data-complet="Michael Aljarouj">Michael Aljarouj</a><span class="fight__rec">13-3-0</span></span></span>
+          <span class="ck"><span class="fight__vs">VS</span></span>
+          <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Fabia Sintes">Fabia Sintes</span><span class="fight__rec">11-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/es.png" alt="" loading="lazy"></span>
         </div>
         <div class="ev__foot">
           <span class="ev__diffusion">Rmc Sport 1</span>
@@ -998,10 +1038,37 @@
         </div>
       </div>
     </details>
+    <details class="ev" data-orga="dwcs" data-noms="alvi dasuyev|alvi dasuyev|jaden ortega|jaden ortega">
+      <summary class="ev__bar">
+        <span class="ck"><span class="ev__date">22 SEPT</span></span>
+        <span class="ck"><img class="ev__logo" src="logos/dwcs.png" alt="Contender Series" style="height:16.5px"></span>
+        <span class="ck"><span class="ev__nom" data-complet="Contender Series 2026 Week 7"><span class="nom-long">Contender Series 2026 Week 7</span><span class="nom-court">Contender Series</span></span></span>
+        <span class="ck" title="Las Vegas, Nevada, United States"><img class="flag" src="https://flagcdn.com/h20/us.png" alt="" loading="lazy"><span class="ev__ville">Las Vegas, NV</span></span>
+        <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Alvi Dasuyev">
+          <span class="ev__avec-label">AVEC&nbsp;: </span>
+          <span class="ev__avec-noms">Alvi Dasuyev</span>
+        </span></span>
+        <span class="ck"><span class="jchip">J-49</span></span>
+        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+      </summary>
+      <div class="ev__body">
+        <div class="fight">
+          <span class="ck fight__cat">Welterweight</span>
+          <span class="ck fight__titre-bloc"></span>
+          <span class="ck"><img class="flag" src="https://flagcdn.com/h20/be.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Alvi-Dasuyev-390836" target="_blank" rel="noopener" data-complet="Alvi Dasuyev">Alvi Dasuyev</a><span class="fight__rec">9-0-0</span></span></span>
+          <span class="ck"><span class="fight__vs">VS</span></span>
+          <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Jaden Ortega">Jaden Ortega</span><span class="fight__rec">6-0-0</span></span><img class="flag" src="https://flagcdn.com/h20/us.png" alt="" loading="lazy"></span>
+        </div>
+        <div class="ev__foot">
+          <span class="ev__diffusion"></span>
+          <a href="https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-7-112633" target="_blank" rel="noopener">Carte complète &rarr;</a>
+        </div>
+      </div>
+    </details>
     <details class="ev" data-orga="ares" data-noms="fabacary diatta|fabacary diatta|josh o connor|josh o connor|alexis nicolas|alexis nicolas|ilyasse drabo|ilyasse drabo|jimmy vienot|jimmy vienot|jan stastny|jan stastny">
       <summary class="ev__bar">
         <span class="ck"><span class="ev__date">25 SEPT</span></span>
-        <span class="ck"><img class="ev__logo" src="logos/ares.png" alt="ARES" data-couleur="1" style="height:25.8px"></span>
+        <span class="ck"><img class="ev__logo" src="logos/ares.png" alt="ARES" data-couleur="1" style="height:21.9px"></span>
         <span class="ck"><span class="ev__nom" data-complet="Ares 43">Ares 43</span></span>
         <span class="ck" title="Adidas Arena, Paris, France"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="ev__ville">Paris</span></span>
         <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Fabacary Diatta, Alexis Nicolas, Jimmy Vienot">
@@ -1050,7 +1117,7 @@
       <summary class="ev__bar">
         <span class="ck"><span class="ev__date">02 OCT</span></span>
         <span class="ck"><img class="ev__logo" src="logos/pfl.png" alt="PFL" data-couleur="1" style="height:18.5px"></span>
-        <span class="ck"><span class="ev__nom" data-complet="PFL MENA 11 2026 Semifinals">PFL MENA 11 2026 Semifinals</span></span>
+        <span class="ck"><span class="ev__nom" data-complet="PFL MENA 11 2026 Semifinals"><span class="nom-long">PFL MENA 11 2026 Semifinals</span><span class="nom-court">PFL MENA 11</span></span></span>
         <span class="ck" title="Riyadh, Saudi Arabia"><img class="flag" src="https://flagcdn.com/h20/sa.png" alt="" loading="lazy"><span class="ev__ville">Riyadh</span></span>
         <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Ylies Djiroun, Mehdi Saadi">
           <span class="ev__avec-label">AVEC&nbsp;: </span>
@@ -1080,26 +1147,47 @@
         </div>
       </div>
     </details>
-    <details class="ev" data-orga="hexagone" data-noms="turpal younousov|turpal younousov|mikail bayram|mikail bayram">
+    <details class="ev" data-orga="hexagone" data-noms="samba sima|samba sima|leopold goi|leopold goi|turpal younousov|turpal younousov|mikail bayram|mikail bayram|pierre manzo|pierre manzo|alex hue|alex hue|arnaud prigent|arnaud prigent|ibrahim diallo|ibrahim diallo">
       <summary class="ev__bar">
         <span class="ck"><span class="ev__date">24 OCT</span></span>
         <span class="ck"><img class="ev__logo" src="logos/hexagone.png" alt="HEXAGONE MMA" data-couleur="1" style="height:28px"></span>
         <span class="ck"><span class="ev__nom" data-complet="HXMMA 48">HXMMA 48</span></span>
         <span class="ck" title="Zenith Paris - La Villette, Paris, France"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="ev__ville">Paris</span></span>
-        <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Turpal Younousov">
+        <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Samba Sima, Leopold Goi, Turpal Younousov, Pierre Manzo, Arnaud Prigent">
           <span class="ev__avec-label">AVEC&nbsp;: </span>
-          <span class="ev__avec-noms">Turpal Younousov</span>
+          <span class="ev__avec-noms">Samba Sima, Leopold Goi, Turpal Younousov, Pierre Manzo, Arnaud Prigent</span>
         </span></span>
         <span class="ck"><span class="jchip">J-81</span></span>
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="fight">
+          <span class="ck fight__cat">Welterweight</span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="fight__titre">CEINTURE EN JEU</span></span>
+          <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Samba-Sima-411650" target="_blank" rel="noopener" data-complet="Samba Sima">Samba Sima</a><span class="fight__rec">4-0-0</span></span></span>
+          <span class="ck"><span class="fight__vs">VS</span></span>
+          <span class="ck"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Leopold-Goi-274915" target="_blank" rel="noopener" data-complet="Leopold Goi">Leopold Goi</a><span class="fight__rec">8-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
+        </div>
+        <div class="fight">
           <span class="ck fight__cat">Lightweight</span>
           <span class="ck fight__titre-bloc"></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Turpal-Younousov-404566" target="_blank" rel="noopener" data-complet="Turpal Younousov">Turpal Younousov</a><span class="fight__rec">5-1-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Mikail Bayram">Mikail Bayram</span><span class="fight__rec">8-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
+        </div>
+        <div class="fight">
+          <span class="ck fight__cat">Welterweight</span>
+          <span class="ck fight__titre-bloc"></span>
+          <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Pierre-Manzo-485824" target="_blank" rel="noopener" data-complet="Pierre Manzo">Pierre Manzo</a><span class="fight__rec">2-0-0</span></span></span>
+          <span class="ck"><span class="fight__vs">VS</span></span>
+          <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Alex Hue">Alex Hue</span><span class="fight__rec">1-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
+        </div>
+        <div class="fight">
+          <span class="ck fight__cat">Featherweight</span>
+          <span class="ck fight__titre-bloc"></span>
+          <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Arnaud-Prigent-399672" target="_blank" rel="noopener" data-complet="Arnaud Prigent">Arnaud Prigent</a><span class="fight__rec">4-1-0</span></span></span>
+          <span class="ck"><span class="fight__vs">VS</span></span>
+          <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Ibrahim Diallo">Ibrahim Diallo</span><span class="fight__rec">4-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/sn.png" alt="" loading="lazy"></span>
         </div>
         <div class="ev__foot">
           <span class="ev__diffusion"></span>
@@ -1117,7 +1205,7 @@
     <details class="ev" data-orga="ares" data-noms="baysangur chamsoudinov|baki|jordan zebo|jordan zebo">
       <summary class="ev__bar">
         <span class="ck"><span class="ev__date">20 NOV</span></span>
-        <span class="ck"><img class="ev__logo" src="logos/ares.png" alt="ARES" data-couleur="1" style="height:25.8px"></span>
+        <span class="ck"><img class="ev__logo" src="logos/ares.png" alt="ARES" data-couleur="1" style="height:21.9px"></span>
         <span class="ck"><span class="ev__nom" data-complet="Ares 45">Ares 45</span></span>
         <span class="ck" title="Adidas Arena, Paris, France"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="ev__ville">Paris</span></span>
         <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Baki, Jordan Zebo">
@@ -1178,6 +1266,78 @@
 
   if (!champ) return;
 
+  // Normalise caractere par caractere, en gardant la correspondance avec
+  // le texte d'origine : indispensable pour surligner au bon endroit
+  // quand la recherche ignore les accents.
+  function normAvecIndex(texte) {
+    var sortie = "", index = [];
+    for (var i = 0; i < texte.length; i++) {
+      var c = texte[i].toLowerCase()
+                      .normalize("NFD")
+                      .replace(/[\u0300-\u036f]/g, "")
+                      .replace(/[-'.\u2019]/g, " ");
+      for (var j = 0; j < c.length; j++) {
+        sortie += c[j];
+        index.push(i);
+      }
+    }
+    return { texte: sortie, index: index };
+  }
+
+  var A_SURLIGNER = ".ev__avec-noms, .fight__nom, .rl__nom";
+
+  function surligner(q) {
+    document.querySelectorAll(A_SURLIGNER).forEach(function (el) {
+      if (el.dataset.brut === undefined) {
+        el.dataset.brut = el.innerHTML;
+      }
+      if (!q) {
+        el.innerHTML = el.dataset.brut;
+        return;
+      }
+
+      // on travaille sur le texte seul, puis on reinjecte le balisage
+      var brut = el.dataset.brut;
+      var sansBalises = document.createElement("div");
+      sansBalises.innerHTML = brut;
+
+      var noeuds = [];
+      (function parcourir(n) {
+        for (var i = 0; i < n.childNodes.length; i++) {
+          var enfant = n.childNodes[i];
+          if (enfant.nodeType === 3) { noeuds.push(enfant); }
+          else { parcourir(enfant); }
+        }
+      })(sansBalises);
+
+      noeuds.forEach(function (noeud) {
+        var t = noeud.nodeValue;
+        var n = normAvecIndex(t);
+        var pos = n.texte.indexOf(q);
+        if (pos === -1) return;
+
+        var morceaux = document.createDocumentFragment();
+        var curseur = 0;
+        while (pos !== -1) {
+          var debut = n.index[pos];
+          var fin = n.index[pos + q.length - 1] + 1;
+          morceaux.appendChild(
+            document.createTextNode(t.slice(curseur, debut)));
+          var m = document.createElement("mark");
+          m.className = "trouve";
+          m.textContent = t.slice(debut, fin);
+          morceaux.appendChild(m);
+          curseur = fin;
+          pos = n.texte.indexOf(q, pos + q.length);
+        }
+        morceaux.appendChild(document.createTextNode(t.slice(curseur)));
+        noeud.parentNode.replaceChild(morceaux, noeud);
+      });
+
+      el.innerHTML = sansBalises.innerHTML;
+    });
+  }
+
   champ.addEventListener("input", function () {
     var q = norm(champ.value || "");
     document.querySelectorAll("details.ev").forEach(function (ev) {
@@ -1189,6 +1349,7 @@
       var un = sec.querySelector("details.ev:not([style*='display: none'])");
       sec.style.display = un ? "" : "none";
     });
+    surligner(q);
   });
 })();
 </script>
