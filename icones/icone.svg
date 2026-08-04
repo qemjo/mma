@@ -1,0 +1,38 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="octo">
+      <polygon points="256,44 406,106 468,256 406,406 256,468 106,406 44,256 106,106"/>
+    </clipPath>
+    <linearGradient id="balayage" x1="256" y1="256" x2="470" y2="150"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2c14e" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f2c14e" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- fond -->
+  <rect width="512" height="512" rx="104" fill="#0f0f13"/>
+
+  <!-- balayage du radar, contenu dans l'octogone -->
+  <g clip-path="url(#octo)">
+    <path d="M256 256 L500 130 L500 300 Z" fill="url(#balayage)"/>
+  </g>
+
+  <!-- cercles de portee -->
+  <circle cx="256" cy="256" r="70" fill="none" stroke="#f2c14e"
+          stroke-opacity="0.28" stroke-width="10"/>
+  <circle cx="256" cy="256" r="135" fill="none" stroke="#f2c14e"
+          stroke-opacity="0.18" stroke-width="10"/>
+
+  <!-- octogone : la cage -->
+  <polygon points="256,44 406,106 468,256 406,406 256,468 106,406 44,256 106,106"
+           fill="none" stroke="#f2c14e" stroke-width="30"
+           stroke-linejoin="round"/>
+
+  <!-- axe de balayage -->
+  <line x1="256" y1="256" x2="452" y2="155" stroke="#f2c14e"
+        stroke-width="22" stroke-linecap="round"/>
+
+  <!-- centre -->
+  <circle cx="256" cy="256" r="34" fill="#f2c14e"/>
+</svg>
