@@ -4,6 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prochains combats des francophones en MMA</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MMA Radar">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="icones/icone.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icones/icone-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icones/icone-180.png">
+<meta name="theme-color" content="#0f0f13">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -44,7 +53,12 @@
     margin: 0;
   }
 
-  h1 em { color: var(--or); font-style: normal; }
+  h1 em {
+    color: var(--or);
+    font-style: normal;
+    /* insecable : la coupure tombe apres "combats", pas apres "des" */
+    white-space: nowrap;
+  }
 
   .sub { color: var(--gris); font-size: 0.85rem; margin: 0.7rem 0 0; }
 
@@ -260,7 +274,7 @@
     background: #131318;
     border: 1px solid #3a3a45;
     border-radius: 10px;
-    padding: 0.5rem 292px;
+    padding: 0.5rem 168px;
     margin: 0 0 0.55rem;
     transform: skew(-8deg);
     will-change: transform;
@@ -274,8 +288,8 @@
     transform: skew(8deg) translateY(-50%);
   }
 
-  .fight > .ck:nth-child(1) { left: 1.2rem; max-width: 112px; }
-  .fight > .ck:nth-child(2) { left: 9rem; max-width: 140px; overflow: hidden; }
+  .fight > .ck:nth-child(1) { left: 1.1rem; max-width: 108px; }
+  .fight > .ck:nth-child(2) { left: 8.3rem; max-width: 34px; overflow: hidden; }
 
   .fight > .ck:nth-child(3) { flex: 1 1 0; min-width: 0; }
   .fight > .ck:nth-child(4) { flex: none; }
@@ -373,11 +387,93 @@
   .ev__foot a { color: var(--gris); text-decoration: none; }
   .ev__foot a:hover, .ev__foot a:focus { color: var(--or); }
 
+  .ev__actions { display: flex; gap: 1.1rem; align-items: center; }
+
+  .ev__foot a.ev__ics {
+    display: flex;
+    align-items: center;
+    color: var(--or);
+    opacity: 0.72;
+    transition: opacity 0.15s;
+  }
+
+  .ev__foot a.ev__ics:hover,
+  .ev__foot a.ev__ics:focus { color: var(--or); opacity: 1; }
+
   .ev__diffusion { color: var(--gris); }
 
   .flag { height: 14px; border-radius: 2px; flex: none; }
 
   .empty { color: var(--gris); text-align: center; margin: 3rem 0; }
+
+  /* ---- invitation a installer l'application ---- */
+  .install {
+    position: fixed;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    max-width: calc(100% - 1.6rem);
+    padding: 0.6rem 0.7rem 0.6rem 1.1rem;
+    background: var(--bar-clair);
+    border: 1px solid var(--or);
+    border-radius: 999px;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.55);
+    font-size: 0.82rem;
+  }
+
+  .install[hidden] { display: none; }
+
+  .install__txt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .install__txt b { color: var(--or); }
+
+  .install__oui {
+    flex: none;
+    font-family: Oswald, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sombre);
+    background: var(--or);
+    border: none;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+  }
+
+  .install__non {
+    flex: none;
+    background: none;
+    border: none;
+    color: var(--gris);
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0.2rem;
+  }
+
+  .install__non:hover { color: var(--blanc); }
+
+  @media (max-width: 560px) {
+    .install { font-size: 0.74rem; gap: 0.6rem; padding-left: 0.9rem; }
+    .install__oui { font-size: 0.68rem; padding: 0.35rem 0.7rem; }
+  }
+
+  footer p { margin: 0.35rem 0; }
+
+  footer a {
+    color: var(--gris);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(242, 193, 78, 0.4);
+  }
+
+  footer a:hover, footer a:focus {
+    color: var(--or);
+    border-bottom-color: var(--or);
+  }
 
   footer {
     margin-top: 3.5rem;
@@ -681,10 +777,14 @@
     /* --- volet deplie : les deux noms cote a cote --- */
     .ev__body { padding: 0.5rem 0.55rem 0.3rem; border-radius: 8px; }
 
+    .duel { margin-bottom: 0.45rem; }
+
     .fight {
       padding: 1.85rem 0.6rem 0.55rem;
-      margin-bottom: 0.45rem;
     }
+
+    .vote { margin: 0 0.6rem 0.5rem; height: 18px; }
+    .vote__cote { font-size: 0.6rem; }
 
     /* categorie a gauche, ceinture centree, toutes deux au-dessus des noms */
     .fight > .ck:nth-child(1) {
@@ -722,7 +822,14 @@
     .flag { height: 11px; }
     .belt { width: 20px; height: 8px; }
 
-    .ev__foot { padding: 0.1rem 0.2rem 0.35rem; font-size: 0.66rem; }
+    .ev__foot {
+      padding: 0.1rem 0.2rem 0.35rem;
+      font-size: 0.62rem;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .ev__actions { gap: 0.8rem; }
 
     /* --- derniers resultats --- */
     .recap { margin-top: 0.6rem; }
@@ -854,6 +961,7 @@
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Bantamweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -861,9 +969,10 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Javid Basharat">Javid Basharat</span><span class="fight__rec">15-2-0</span></span><img class="flag" src="https://flagcdn.com/h20/gb-eng.png" alt="" loading="lazy"></span>
         </div>
+        </div>
         <div class="ev__foot">
           <span class="ev__diffusion"></span>
-          <a href="https://www.sherdog.com/events/Professional-Fighters-League-PFL-Tampa-Cyborg-vs-Vieira-113435" target="_blank" rel="noopener">Carte complète &rarr;</a>
+          <span class="ev__actions"><a class="ev__ics" href="agenda/2026-08-22-pfl-tampa.ics" download title="Ajouter cet évènement à mon agenda" aria-label="Ajouter cet évènement à mon agenda"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/><path d="M10 11v4"/><path d="M8 13h4"/></svg></a><a href="https://www.sherdog.com/events/Professional-Fighters-League-PFL-Tampa-Cyborg-vs-Vieira-113435" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
         </div>
       </div>
     </details>
@@ -888,6 +997,7 @@
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Middleweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -895,9 +1005,10 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Andi Vrtacic">Andi Vrtacic</span><span class="fight__rec">9-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/hr.png" alt="" loading="lazy"></span>
         </div>
+        </div>
         <div class="ev__foot">
           <span class="ev__diffusion"></span>
-          <a href="https://www.sherdog.com/events/Brave-CF-108-Brave-Combat-Federation-108-112724" target="_blank" rel="noopener">Carte complète &rarr;</a>
+          <span class="ev__actions"><a class="ev__ics" href="agenda/2026-09-05-brave-cf-108.ics" download title="Ajouter cet évènement à mon agenda" aria-label="Ajouter cet évènement à mon agenda"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/><path d="M10 11v4"/><path d="M8 13h4"/></svg></a><a href="https://www.sherdog.com/events/Brave-CF-108-Brave-Combat-Federation-108-112724" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
         </div>
       </div>
     </details>
@@ -915,6 +1026,7 @@
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Lightweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -922,6 +1034,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Dan Hooker">Dan Hooker</span><span class="fight__rec">24-14-0</span></span><img class="flag" src="https://flagcdn.com/h20/nz.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Featherweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -929,6 +1043,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Felipe Lima">Felipe Lima</span><span class="fight__rec">14-2-0</span></span><img class="flag" src="https://flagcdn.com/h20/br.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Light Heavyweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -936,6 +1052,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Modestas Bukauskas">Modestas Bukauskas</span><span class="fight__rec">20-7-0</span></span><img class="flag" src="https://flagcdn.com/h20/lt.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Featherweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -943,6 +1061,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Muhammadjon Naimov">Muhammadjon Naimov</span><span class="fight__rec">13-4-0</span></span><img class="flag" src="https://flagcdn.com/h20/tj.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Bantamweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -950,6 +1070,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Klaudia Sygula">Klaudia Sygula</span><span class="fight__rec">8-2-0</span></span><img class="flag" src="https://flagcdn.com/h20/pl.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Middleweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -957,6 +1079,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Luis Felipe Dias">Luis Felipe Dias</span><span class="fight__rec">18-5-0</span></span><img class="flag" src="https://flagcdn.com/h20/br.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Flyweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -964,9 +1088,10 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Fabia Sintes">Fabia Sintes</span><span class="fight__rec">11-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/es.png" alt="" loading="lazy"></span>
         </div>
+        </div>
         <div class="ev__foot">
           <span class="ev__diffusion">Rmc Sport 1</span>
-          <a href="https://www.sherdog.com/events/UFC-Fight-Night-287-Hooker-vs-Parnasse-113189" target="_blank" rel="noopener">Carte complète &rarr;</a>
+          <span class="ev__actions"><a class="ev__ics" href="agenda/2026-09-05-ufc-fight-night-287.ics" download title="Ajouter cet évènement à mon agenda" aria-label="Ajouter cet évènement à mon agenda"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/><path d="M10 11v4"/><path d="M8 13h4"/></svg></a><a href="https://www.sherdog.com/events/UFC-Fight-Night-287-Hooker-vs-Parnasse-113189" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
         </div>
       </div>
     </details>
@@ -984,6 +1109,7 @@
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Featherweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -991,6 +1117,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Bozidar Trivunovic">Bozidar Trivunovic</span><span class="fight__rec">7-2-0</span></span><img class="flag" src="https://flagcdn.com/h20/rs.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Flyweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -998,6 +1126,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Zelimkhan Umarov">Zelimkhan Umarov</span><span class="fight__rec">3-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/ru.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Heavyweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -1005,9 +1135,10 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Mamadou Lamine Sene">Mamadou Lamine Sene</span><span class="fight__rec">7-9-0</span></span><img class="flag" src="https://flagcdn.com/h20/sn.png" alt="" loading="lazy"></span>
         </div>
+        </div>
         <div class="ev__foot">
           <span class="ev__diffusion"></span>
-          <a href="https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-5-113782" target="_blank" rel="noopener">Carte complète &rarr;</a>
+          <span class="ev__actions"><a class="ev__ics" href="agenda/2026-09-12-hxmma.ics" download title="Ajouter cet évènement à mon agenda" aria-label="Ajouter cet évènement à mon agenda"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/><path d="M10 11v4"/><path d="M8 13h4"/></svg></a><a href="https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-5-113782" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
         </div>
       </div>
     </details>
@@ -1025,6 +1156,7 @@
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Flyweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -1032,9 +1164,10 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Alexa Grasso">Alexa Grasso</span><span class="fight__rec">17-5-1</span></span><img class="flag" src="https://flagcdn.com/h20/mx.png" alt="" loading="lazy"></span>
         </div>
+        </div>
         <div class="ev__foot">
           <span class="ev__diffusion"></span>
-          <a href="https://www.sherdog.com/events/UFC-Fight-Night-288-Noche-UFC-4-113632" target="_blank" rel="noopener">Carte complète &rarr;</a>
+          <span class="ev__actions"><a class="ev__ics" href="agenda/2026-09-12-ufc-fight-night-288.ics" download title="Ajouter cet évènement à mon agenda" aria-label="Ajouter cet évènement à mon agenda"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/><path d="M10 11v4"/><path d="M8 13h4"/></svg></a><a href="https://www.sherdog.com/events/UFC-Fight-Night-288-Noche-UFC-4-113632" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
         </div>
       </div>
     </details>
@@ -1052,6 +1185,7 @@
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Welterweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -1059,9 +1193,10 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Jaden Ortega">Jaden Ortega</span><span class="fight__rec">6-0-0</span></span><img class="flag" src="https://flagcdn.com/h20/us.png" alt="" loading="lazy"></span>
         </div>
+        </div>
         <div class="ev__foot">
           <span class="ev__diffusion"></span>
-          <a href="https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-7-112633" target="_blank" rel="noopener">Carte complète &rarr;</a>
+          <span class="ev__actions"><a class="ev__ics" href="agenda/2026-09-22-contender-series-2026-week-7.ics" download title="Ajouter cet évènement à mon agenda" aria-label="Ajouter cet évènement à mon agenda"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/><path d="M10 11v4"/><path d="M8 13h4"/></svg></a><a href="https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-7-112633" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
         </div>
       </div>
     </details>
@@ -1079,13 +1214,16 @@
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Featherweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="fight__titre">CEINTURE EN JEU</span></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Fabacary-Diatta-224141" target="_blank" rel="noopener" data-complet="Fabacary Diatta">Fabacary Diatta</a><span class="fight__rec">10-1-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Josh O'Connor">Josh O'Connor</span><span class="fight__rec">10-0-0</span></span><img class="flag" src="https://flagcdn.com/h20/gb-wls.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Welterweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -1093,6 +1231,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Ilyasse Drabo">Ilyasse Drabo</span><span class="fight__rec">1-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Lightweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -1100,9 +1240,10 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Jan Stastny">Jan Stastny</span><span class="fight__rec">1-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/cz.png" alt="" loading="lazy"></span>
         </div>
+        </div>
         <div class="ev__foot">
           <span class="ev__diffusion"></span>
-          <a href="https://www.sherdog.com/events/Ares-43-OConnor-vs-Diatta-112452" target="_blank" rel="noopener">Carte complète &rarr;</a>
+          <span class="ev__actions"><a class="ev__ics" href="agenda/2026-09-25-ares-43.ics" download title="Ajouter cet évènement à mon agenda" aria-label="Ajouter cet évènement à mon agenda"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/><path d="M10 11v4"/><path d="M8 13h4"/></svg></a><a href="https://www.sherdog.com/events/Ares-43-OConnor-vs-Diatta-112452" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
         </div>
       </div>
     </details>
@@ -1127,6 +1268,7 @@
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Lightweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -1134,6 +1276,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Basel Ahmed Shalaan">Basel Ahmed Shalaan</span><span class="fight__rec">7-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/eg.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Featherweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -1141,9 +1285,10 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Shadi Kabbani">Shadi Kabbani</span><span class="fight__rec">5-0-0</span></span><img class="flag" src="https://flagcdn.com/h20/sy.png" alt="" loading="lazy"></span>
         </div>
+        </div>
         <div class="ev__foot">
           <span class="ev__diffusion"></span>
-          <a href="https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-11-2026-Semifinals-113638" target="_blank" rel="noopener">Carte complète &rarr;</a>
+          <span class="ev__actions"><a class="ev__ics" href="agenda/2026-10-02-pfl-mena-11-2026-semifinals.ics" download title="Ajouter cet évènement à mon agenda" aria-label="Ajouter cet évènement à mon agenda"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/><path d="M10 11v4"/><path d="M8 13h4"/></svg></a><a href="https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-11-2026-Semifinals-113638" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
         </div>
       </div>
     </details>
@@ -1161,13 +1306,16 @@
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Welterweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="fight__titre">CEINTURE EN JEU</span></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Samba-Sima-411650" target="_blank" rel="noopener" data-complet="Samba Sima">Samba Sima</a><span class="fight__rec">4-0-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Leopold-Goi-274915" target="_blank" rel="noopener" data-complet="Leopold Goi">Leopold Goi</a><span class="fight__rec">8-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Lightweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -1175,6 +1323,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Mikail Bayram">Mikail Bayram</span><span class="fight__rec">8-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Welterweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -1182,6 +1332,8 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Alex Hue">Alex Hue</span><span class="fight__rec">1-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
         </div>
+        </div>
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Featherweight</span>
           <span class="ck fight__titre-bloc"></span>
@@ -1189,9 +1341,10 @@
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Ibrahim Diallo">Ibrahim Diallo</span><span class="fight__rec">4-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/sn.png" alt="" loading="lazy"></span>
         </div>
+        </div>
         <div class="ev__foot">
           <span class="ev__diffusion"></span>
-          <a href="https://www.sherdog.com/events/HXMMA-48-Hexagone-MMA-48-113686" target="_blank" rel="noopener">Carte complète &rarr;</a>
+          <span class="ev__actions"><a class="ev__ics" href="agenda/2026-10-24-hxmma-48.ics" download title="Ajouter cet évènement à mon agenda" aria-label="Ajouter cet évènement à mon agenda"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/><path d="M10 11v4"/><path d="M8 13h4"/></svg></a><a href="https://www.sherdog.com/events/HXMMA-48-Hexagone-MMA-48-113686" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
         </div>
       </div>
     </details>
@@ -1216,24 +1369,34 @@
         <span class="ck"><span class="ev__chev">&#9656;</span></span>
       </summary>
       <div class="ev__body">
+        <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Welterweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="fight__titre">CEINTURE EN JEU</span></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Baissangour-Chamsoudinov-340851" target="_blank" rel="noopener" data-complet="Baki">Baki</a><span class="fight__rec">9-1-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Jordan-Zebo-353325" target="_blank" rel="noopener" data-complet="Jordan Zebo">Jordan Zebo</a><span class="fight__rec">11-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
         </div>
+        </div>
         <div class="ev__foot">
           <span class="ev__diffusion">Canal +</span>
-          <a href="https://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-112453" target="_blank" rel="noopener">Carte complète &rarr;</a>
+          <span class="ev__actions"><a class="ev__ics" href="agenda/2026-11-20-ares-45.ics" download title="Ajouter cet évènement à mon agenda" aria-label="Ajouter cet évènement à mon agenda"><svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="4" width="15" height="13.5" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M6.5 2.5v3"/><path d="M13.5 2.5v3"/><path d="M10 11v4"/><path d="M8 13h4"/></svg></a><a href="https://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-112453" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
         </div>
       </div>
     </details>
   </section>
   </main>
 
+  <div class="install" id="install" hidden>
+    <span class="install__txt"><b>MMA Radar</b> sur ton écran d'accueil</span>
+    <button class="install__oui" id="install-oui" type="button">Installer</button>
+    <button class="install__non" id="install-non" type="button"
+            aria-label="Fermer">&times;</button>
+  </div>
+
   <footer>
-    Données issues de Sherdog. Les cartes évoluent, vérifie avant de bloquer ta soirée.
+    <p>Données issues de Sherdog. Les cartes évoluent, vérifie avant de bloquer ta soirée.</p>
+    <p><a href="mailto:contact@mmaradar.fr">contact@mmaradar.fr</a></p>
   </footer>
 
 </div>
@@ -1283,6 +1446,130 @@
     }
     return { texte: sortie, index: index };
   }
+
+  // ---------- installation sur l'ecran d'accueil ----------
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    });
+  }
+
+  (function () {
+    var bandeau = document.getElementById("install");
+    if (!bandeau) return;
+
+    var refuse = false;
+    try { refuse = localStorage.getItem("install-refuse") === "1"; } catch (e) {}
+
+    // deja installe : on ne propose rien
+    var installe = window.matchMedia("(display-mode: standalone)").matches
+      || window.navigator.standalone === true;
+    if (installe || refuse) return;
+
+    var invite = null;
+
+    window.addEventListener("beforeinstallprompt", function (ev) {
+      ev.preventDefault();
+      invite = ev;
+      bandeau.hidden = false;
+    });
+
+    // Sur iPhone, le navigateur ne propose rien : l'installation passe
+    // par le bouton de partage. On explique au lieu d'un bouton inutile.
+    var iOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    if (iOS) {
+      bandeau.querySelector(".install__txt").innerHTML =
+        "<b>MMA Radar</b> : Partager, puis Sur l'écran d'accueil";
+      bandeau.querySelector(".install__oui").hidden = true;
+      bandeau.hidden = false;
+    }
+
+    document.getElementById("install-oui").addEventListener("click", function () {
+      if (!invite) return;
+      invite.prompt();
+      invite = null;
+      bandeau.hidden = true;
+    });
+
+    document.getElementById("install-non").addEventListener("click", function () {
+      bandeau.hidden = true;
+      try { localStorage.setItem("install-refuse", "1"); } catch (e) {}
+    });
+
+    window.addEventListener("appinstalled", function () {
+      bandeau.hidden = true;
+    });
+  })();
+
+  // ---------- pronostics (mode demonstration) ----------
+  // Les votes restent dans le navigateur du visiteur. Les compteurs de
+  // depart sont simules a partir de l'identifiant du combat, pour que la
+  // barre ait l'air vivante pendant les essais.
+  var VOTES_MINI = 10;   // sous ce total, on n'affiche pas de pourcentage
+
+  function graine(texte) {
+    var h = 0;
+    for (var i = 0; i < texte.length; i++) {
+      h = (h * 31 + texte.charCodeAt(i)) % 100000;
+    }
+    return h;
+  }
+
+  function comptes(id) {
+    var enregistre = null;
+    try { enregistre = localStorage.getItem("pronostic:" + id); } catch (e) {}
+    if (enregistre) {
+      try { return JSON.parse(enregistre); } catch (e) {}
+    }
+    var g = graine(id);
+    return { g: 6 + (g % 47), d: 6 + ((g >> 3) % 41), moi: null };
+  }
+
+  function enregistrer(id, etat) {
+    try { localStorage.setItem("pronostic:" + id, JSON.stringify(etat)); }
+    catch (e) {}
+  }
+
+  function afficher(bloc, etat) {
+    var total = etat.g + etat.d;
+    var gauche = bloc.querySelector(".vote__cote--g");
+    var droite = bloc.querySelector(".vote__cote--d");
+    var pg = total ? Math.round((etat.g / total) * 100) : 50;
+    var pd = 100 - pg;
+
+    gauche.style.width = pg + "%";
+    droite.style.width = pd + "%";
+
+    var assez = total >= VOTES_MINI;
+    gauche.querySelector(".vote__pct").textContent = assez ? pg + "%" : "";
+    droite.querySelector(".vote__pct").textContent = assez ? pd + "%" : "";
+
+    bloc.classList.toggle("vote--fait", !!etat.moi);
+    gauche.classList.toggle("vote__cote--choisi", etat.moi === "g");
+    droite.classList.toggle("vote__cote--choisi", etat.moi === "d");
+
+    bloc.title = etat.moi
+      ? "Ton pronostic est enregistre"
+      : (assez ? total + " pronostics" : "Sois le premier a pronostiquer");
+  }
+
+  document.querySelectorAll(".vote").forEach(function (bloc) {
+    var id = bloc.dataset.combat;
+    afficher(bloc, comptes(id));
+
+    bloc.addEventListener("click", function (ev) {
+      var bouton = ev.target.closest(".vote__cote");
+      if (!bouton) return;
+      var cote = bouton.dataset.cote;
+      var etat = comptes(id);
+      if (etat.moi === cote) return;          // deja vote de ce cote
+      if (etat.moi) { etat[etat.moi] -= 1; }  // changement d'avis
+      etat[cote] += 1;
+      etat.moi = cote;
+      enregistrer(id, etat);
+      afficher(bloc, etat);
+    });
+  });
 
   var A_SURLIGNER = ".ev__avec-noms, .fight__nom, .rl__nom";
 
@@ -1338,13 +1625,29 @@
     });
   }
 
+  // Une recherche est une vue temporaire : en vidant le champ, on rend
+  // la page telle qu'elle etait, y compris les volets deja ouverts.
+  var etatAvant = null;
+
   champ.addEventListener("input", function () {
     var q = norm(champ.value || "");
-    document.querySelectorAll("details.ev").forEach(function (ev) {
+    var volets = document.querySelectorAll("details.ev");
+
+    if (q && etatAvant === null) {
+      etatAvant = new Map();
+      volets.forEach(function (ev) { etatAvant.set(ev, ev.open); });
+    }
+
+    volets.forEach(function (ev) {
       var visible = !q || norm(ev.dataset.noms || "").indexOf(q) !== -1;
       ev.style.display = visible ? "" : "none";
       if (q) ev.open = visible;
     });
+
+    if (!q && etatAvant) {
+      volets.forEach(function (ev) { ev.open = etatAvant.get(ev) === true; });
+      etatAvant = null;
+    }
     document.querySelectorAll("main section").forEach(function (sec) {
       var un = sec.querySelector("details.ev:not([style*='display: none'])");
       sec.style.display = un ? "" : "none";
