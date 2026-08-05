@@ -18,6 +18,15 @@ import re
 import unicodedata
 from datetime import date, datetime, timedelta, timezone
 
+# Identite du site pour Google et pour les partages sur les reseaux.
+# Le titre s'affiche dans les resultats de recherche : environ
+# 60 caracteres, au-dela Google coupe. La description, environ 155.
+SITE_URL = "https://mmaradar.fr"
+SITE_TITRE = "Calendrier MMA francophone : prochains combats | MMA Radar"
+SITE_DESC = ("Les prochains combats des combattants francophones en MMA : "
+             "UFC, PFL, ARES, Hexagone, KSW. Dates, villes et diffusion, "
+             "mis à jour chaque matin.")
+
 MOIS_COURT = ["JANV", "FEVR", "MARS", "AVR", "MAI", "JUIN",
               "JUIL", "AOUT", "SEPT", "OCT", "NOV", "DEC"]
 
@@ -689,9 +698,18 @@ CSS = """
 
   * { box-sizing: border-box; }
 
+  /* La couleur doit habiller aussi la zone reservee par le telephone
+     (barre de navigation gestuelle en bas), sinon elle reste blanche. */
+  html {
+    background-color: var(--noir);
+  }
+
   body {
     margin: 0;
     padding: 0 1.2rem 4rem;
+    padding-left: calc(1.2rem + env(safe-area-inset-left));
+    padding-right: calc(1.2rem + env(safe-area-inset-right));
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
     background-color: var(--noir);
     background-image: repeating-linear-gradient(
       135deg, rgba(255,255,255,0.016) 0 2px, transparent 2px 16px);
@@ -1070,6 +1088,7 @@ CSS = """
     position: fixed;
     left: 50%;
     bottom: 1rem;
+    bottom: calc(1rem + env(safe-area-inset-bottom));
     transform: translateX(-50%);
     z-index: 50;
     display: flex;
@@ -1370,7 +1389,12 @@ CSS = """
 
   /* ================= AFFINAGE MOBILE ================= */
   @media (max-width: 860px) {
-    body { padding: 0 0.7rem 3rem; }
+    body {
+      padding: 0 0.7rem 3rem;
+      padding-left: calc(0.7rem + env(safe-area-inset-left));
+      padding-right: calc(0.7rem + env(safe-area-inset-right));
+      padding-bottom: calc(3rem + env(safe-area-inset-bottom));
+    }
 
     header.top { padding: 1.6rem 0 0.5rem; }
     h1 { font-size: clamp(1.4rem, 6.5vw, 2rem); }
@@ -2010,6 +2034,69 @@ JS = r"""
 </script>"""
 
 
+def donnees_structurees(mois_groupes, infos):
+    """Decrit les evenements dans le langage que Google comprend.
+
+    Invisible sur la page. C'est ce qui permet aux moteurs de savoir
+    qu'il s'agit d'evenements sportifs avec une date et un lieu, et non
+    d'un simple texte.
+    """
+    aujourdhui = date.today().isoformat()
+    blocs = [{
+        "@type": "WebSite",
+        "name": "MMA Radar",
+        "url": SITE_URL + "/",
+        "description": SITE_DESC,
+        "inLanguage": "fr",
+    }]
+
+    for _, evs in mois_groupes:
+        for ev in evs:
+            jour = ev.get("date", "")
+            if len(jour) != 10 or jour < aujourdhui:
+                continue
+
+            info = infos.get(ev.get("evenement", ""), {})
+            if not isinstance(info, dict):
+                info = {}
+            heure = (info.get("heure") or "").strip()
+            debut = f"{jour}T{heure}:00" if re.fullmatch(r"\d\d:\d\d", heure) else jour
+
+            noms = []
+            for c in ev.get("combats", []):
+                if c.get("annule"):
+                    continue
+                for n in (c.get("combattant"), c.get("adversaire")):
+                    if n and n not in noms:
+                        noms.append(n)
+
+            bloc = {
+                "@type": "SportsEvent",
+                "name": ev.get("evenement", ""),
+                "startDate": debut,
+                "url": SITE_URL + "/",
+                "eventStatus": "https://schema.org/EventScheduled",
+                "sport": "Mixed Martial Arts",
+                "competitor": [{"@type": "Person", "name": n} for n in noms],
+            }
+
+            lieu = (ev.get("lieu") or "").strip()
+            if lieu:
+                bloc["location"] = {
+                    "@type": "Place",
+                    "name": lieu.split(",")[0].strip() or lieu,
+                    "address": lieu,
+                }
+            if (info.get("chaine") or "").strip():
+                bloc["description"] = "Diffusion : " + info["chaine"].strip()
+
+            blocs.append(bloc)
+
+    donnees = {"@context": "https://schema.org", "@graph": blocs}
+    texte = json.dumps(donnees, ensure_ascii=False).replace("</", "<\\/")
+    return '\n<script type="application/ld+json">' + texte + "</script>"
+
+
 def construire_html(mois_groupes, fiches, infos, total, resultats):
     maj = date.today()
     date_maj = f"{maj.day} {MOIS_LONG[maj.month - 1].lower()} {maj.year}"
@@ -2048,8 +2135,22 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prochains combats des francophones en MMA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{SITE_TITRE}</title>
+<meta name="description" content="{SITE_DESC}">
+<link rel="canonical" href="{SITE_URL}/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MMA Radar">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="{SITE_TITRE}">
+<meta property="og:description" content="{SITE_DESC}">
+<meta property="og:url" content="{SITE_URL}/">
+<meta property="og:image" content="{SITE_URL}/fond.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{SITE_TITRE}">
+<meta name="twitter:description" content="{SITE_DESC}">
+<meta name="twitter:image" content="{SITE_URL}/fond.jpg">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -2062,7 +2163,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<style>{CSS}{css_fond}</style>
+<style>{CSS}{css_fond}</style>{donnees_structurees(mois_groupes, infos)}
 </head>
 <body>
 <div class="wrap">
@@ -2101,7 +2202,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 58
+VERSION = 60
 
 
 def ecrire_manifeste():
@@ -2199,10 +2300,31 @@ self.addEventListener("fetch", function (e) {
         f.write(contenu)
 
 
+def ecrire_robots_et_sitemap():
+    """Autorise l'indexation et signale la page aux moteurs."""
+    with open("robots.txt", "w", encoding="utf-8") as f:
+        f.write("User-agent: *\n"
+                "Allow: /\n"
+                "\n"
+                f"Sitemap: {SITE_URL}/sitemap.xml\n")
+
+    with open("sitemap.xml", "w", encoding="utf-8") as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
+                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                "  <url>\n"
+                f"    <loc>{SITE_URL}/</loc>\n"
+                f"    <lastmod>{date.today().isoformat()}</lastmod>\n"
+                "    <changefreq>daily</changefreq>\n"
+                "    <priority>1.0</priority>\n"
+                "  </url>\n"
+                "</urlset>\n")
+
+
 def main():
     print(f"generer_site v{VERSION}")
     ecrire_manifeste()
     ecrire_service_worker()
+    ecrire_robots_et_sitemap()
     combats = charger_json("combats.json")
     if combats is None:
         print("combats.json introuvable. Lance d'abord mma_tracker.py")

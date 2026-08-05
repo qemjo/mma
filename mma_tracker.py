@@ -140,6 +140,10 @@ COMBATTANTS = [
     "Kevin Ruart",
     "Leopold Goi",
     "Michael Aljarouj",
+    "Ghiles Oudelha",
+    "Virgil Augen",
+    "Xavier Lessou",
+    "Oceane Samson",
 ]
 
 # ---------------------------------------------------------------
@@ -189,6 +193,10 @@ FICHES_MANUELLES = {
     "Leopold Goi": "https://www.sherdog.com/fighter/Leopold-Goi-274915",
     "Michael Aljarouj": "https://www.sherdog.com/fighter/Michael-Aljarouj-250049",
     "Khamzat Abaev": "https://www.sherdog.com/fighter/Khamzat-Abaev-413927",
+    "Ghiles Oudelha": "https://www.sherdog.com/fighter/Ghiles-Oudelha-191993",
+    "Virgil Augen": "https://www.sherdog.com/fighter/Virgil-Augen-290441",
+    "Xavier Lessou": "https://www.sherdog.com/fighter/Xavier-Lessou-402582",
+    "Oceane Samson": "https://www.sherdog.com/fighter/Oceane-Samson-425132",
 }
 
 BASE = "https://www.sherdog.com"
