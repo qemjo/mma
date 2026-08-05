@@ -37,6 +37,8 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add index.html combats.json resultats.json annulations.json fighters.json infos.json
+          git add robots.txt sitemap.xml manifest.webmanifest sw.js
+          git add -A agenda
           if git diff --staged --quiet; then
             echo "Aucun changement aujourd'hui."
           else
