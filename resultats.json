@@ -36,6 +36,15 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Oceane Samson",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Elene Loladze",
+    "evenement": "UAE Warriors 72 - Chopurov vs. McLaren",
+    "date": "2026-07-23",
+    "methode": "Submission (Guillotine Choke)"
+  },
+  {
     "combattant": "Benoit Saint Denis",
     "drapeau": "fr",
     "resultat": "loss",
@@ -603,6 +612,15 @@
     "methode": "TKO"
   },
   {
+    "combattant": "Oceane Samson",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Maria Rodriguez",
+    "evenement": "HXMMA 42 - Hexagone MMA 42",
+    "date": "2026-03-26",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Losene Keita",
     "drapeau": "be",
     "resultat": "loss",
@@ -907,6 +925,24 @@
     "evenement": "HXMMA 37 - Hexagone MMA 37",
     "date": "2026-01-09",
     "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Virgil Augen",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Henrique Shiguemoto",
+    "evenement": "Ares 37 - Augen vs. Shiguemoto 2",
+    "date": "2026-01-09",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Xavier Lessou",
+    "drapeau": "cm",
+    "resultat": "win",
+    "adversaire": "Moreno Kacapor",
+    "evenement": "Ares 37 - Augen vs. Shiguemoto 2",
+    "date": "2026-01-09",
+    "methode": "Decision (Split)"
   },
   {
     "combattant": "Jason Ponet",
@@ -1503,6 +1539,15 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Ghiles Oudelha",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Axel Sola",
+    "evenement": "Ares 31 - Sola vs. Oudelha",
+    "date": "2025-06-14",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Zakaria Hamou",
     "drapeau": "fr",
     "resultat": "win",
@@ -1728,6 +1773,15 @@
     "methode": "Submission (Kimura)"
   },
   {
+    "combattant": "Xavier Lessou",
+    "drapeau": "cm",
+    "resultat": "win",
+    "adversaire": "Pawel Biernat",
+    "evenement": "Ares 28 - Sola vs. Caio",
+    "date": "2025-01-18",
+    "methode": "Submission (Guillotine Choke)"
+  },
+  {
     "combattant": "Losene Keita",
     "drapeau": "be",
     "resultat": "win",
@@ -1807,6 +1861,24 @@
     "evenement": "HXMMA 21 - Hexagone MMA 21",
     "date": "2024-11-23",
     "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Ghiles Oudelha",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Thomas Glot",
+    "evenement": "Ares 27 - Augen vs. Rocha",
+    "date": "2024-11-23",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Virgil Augen",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Moacir Rocha",
+    "evenement": "Ares 27 - Augen vs. Rocha",
+    "date": "2024-11-23",
+    "methode": "Submission (Armbar)"
   },
   {
     "combattant": "Oumar Kane",
