@@ -686,6 +686,7 @@ def assurer_infos(noms_evenements):
 
 CSS = """
   :root {
+    color-scheme: dark;
     --noir: #0a0a0c;
     --bar: #1b1b21;
     --bar-clair: #232329;
@@ -706,10 +707,10 @@ CSS = """
 
   body {
     margin: 0;
-    padding: 0 1.2rem 4rem;
+    padding: 0 1.2rem 2.6rem;
     padding-left: calc(1.2rem + env(safe-area-inset-left));
     padding-right: calc(1.2rem + env(safe-area-inset-right));
-    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+    padding-bottom: calc(2.6rem + env(safe-area-inset-bottom));
     background-color: var(--noir);
     background-image: repeating-linear-gradient(
       135deg, rgba(255,255,255,0.016) 0 2px, transparent 2px 16px);
@@ -1390,10 +1391,10 @@ CSS = """
   /* ================= AFFINAGE MOBILE ================= */
   @media (max-width: 860px) {
     body {
-      padding: 0 0.7rem 3rem;
+      padding: 0 0.7rem 1.6rem;
       padding-left: calc(0.7rem + env(safe-area-inset-left));
       padding-right: calc(0.7rem + env(safe-area-inset-right));
-      padding-bottom: calc(3rem + env(safe-area-inset-bottom));
+      padding-bottom: calc(1.6rem + env(safe-area-inset-bottom));
     }
 
     header.top { padding: 1.6rem 0 0.5rem; }
@@ -1842,6 +1843,12 @@ JS = r"""
       || window.navigator.standalone === true;
     if (installe || refuse) return;
 
+    // L'installation n'a d'interet que sur telephone : sur ordinateur
+    // le bandeau encombre pour rien.
+    var tactile = window.matchMedia("(pointer: coarse)").matches
+      || /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+    if (!tactile) return;
+
     var invite = null;
 
     window.addEventListener("beforeinstallprompt", function (ev) {
@@ -2160,6 +2167,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 <link rel="icon" type="image/png" sizes="32x32" href="icones/icone-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icones/icone-180.png">
 <meta name="theme-color" content="#0f0f13">
+<meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -2202,7 +2210,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 60
+VERSION = 61
 
 
 def ecrire_manifeste():
