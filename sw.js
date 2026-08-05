@@ -1,5 +1,5 @@
 // Genere automatiquement par generer_site.py
-const CACHE = "mmaradar-v61";
+const CACHE = "mmaradar-v65";
 const SOCLE = ["./", "./index.html", "./fond.jpg",
                "./icones/icone-192.png", "./icones/icone-512.png"];
 

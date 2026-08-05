@@ -2172,6 +2172,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 <link rel="apple-touch-icon" sizes="180x180" href="icones/icone-180.png">
 <meta name="theme-color" content="#0f0f13">
 <meta name="color-scheme" content="dark">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="20e687c1-5629-4138-9b0d-3255669e6390"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -2214,7 +2215,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 64
+VERSION = 65
 
 
 def ecrire_manifeste():
