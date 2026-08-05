@@ -703,6 +703,7 @@ CSS = """
      (barre de navigation gestuelle en bas), sinon elle reste blanche. */
   html {
     background-color: var(--noir);
+    scrollbar-color: var(--bord) var(--noir);
   }
 
   body {
@@ -711,7 +712,7 @@ CSS = """
     padding-left: calc(1.2rem + env(safe-area-inset-left));
     padding-right: calc(1.2rem + env(safe-area-inset-right));
     padding-bottom: calc(2.6rem + env(safe-area-inset-bottom));
-    background-color: var(--noir);
+    background-color: transparent;
     background-image: repeating-linear-gradient(
       135deg, rgba(255,255,255,0.016) 0 2px, transparent 2px 16px);
     color: var(--blanc);
@@ -2215,7 +2216,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 65
+VERSION = 67
 
 
 def ecrire_manifeste():

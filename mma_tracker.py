@@ -144,6 +144,8 @@ COMBATTANTS = [
     "Virgil Augen",
     "Xavier Lessou",
     "Oceane Samson",
+    "Paulin Begai",
+    "Aboubacar Bathily",
 ]
 
 # ---------------------------------------------------------------
@@ -197,6 +199,8 @@ FICHES_MANUELLES = {
     "Virgil Augen": "https://www.sherdog.com/fighter/Virgil-Augen-290441",
     "Xavier Lessou": "https://www.sherdog.com/fighter/Xavier-Lessou-402582",
     "Oceane Samson": "https://www.sherdog.com/fighter/Oceane-Samson-425132",
+    "Paulin Begai": "https://www.sherdog.com/fighter/Paulin-Begai-334051",
+    "Aboubacar Bathily": "https://www.sherdog.com/fighter/Aboubacar-Bathily-218727",
 }
 
 BASE = "https://www.sherdog.com"
