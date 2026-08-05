@@ -1155,7 +1155,7 @@ CSS = """
   }
 
   footer {
-    margin-top: 3.5rem;
+    margin-top: 1.6rem;
     padding-top: 1.4rem;
     border-top: 1px solid #24242c;
     color: #62626c;
@@ -1405,6 +1405,7 @@ CSS = """
     .outils__recherche { padding: 0.5rem 0.9rem; font-size: 0.82rem; }
 
     .mois { margin: 1.1rem 0 0.45rem; gap: 0.6rem; }
+    footer { margin-top: 1rem; }
     .mois__titre { font-size: 0.78rem; letter-spacing: 0.1em; }
 
     /* --- barre evenement : 2 rangees --- */
@@ -2153,11 +2154,14 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 <meta property="og:title" content="{SITE_TITRE}">
 <meta property="og:description" content="{SITE_DESC}">
 <meta property="og:url" content="{SITE_URL}/">
-<meta property="og:image" content="{SITE_URL}/fond.jpg">
+<meta property="og:image" content="{SITE_URL}/partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MMA Radar, le calendrier des combats des francophones">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{SITE_TITRE}">
 <meta name="twitter:description" content="{SITE_DESC}">
-<meta name="twitter:image" content="{SITE_URL}/fond.jpg">
+<meta name="twitter:image" content="{SITE_URL}/partage.jpg">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -2210,7 +2214,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 61
+VERSION = 64
 
 
 def ecrire_manifeste():
