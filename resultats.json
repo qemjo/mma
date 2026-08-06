@@ -540,6 +540,15 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Paulin Begai",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Moustapha Diakhate",
+    "evenement": "Ares 40 - Begai vs. Diakhate 2",
+    "date": "2026-04-10",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Jason Ponet",
     "drapeau": "fr",
     "resultat": "win",
@@ -1071,6 +1080,15 @@
     "methode": "Technical Submission (Guillotine Choke)"
   },
   {
+    "combattant": "Paulin Begai",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Gheorghe Gritko",
+    "evenement": "Ares 36 - Jbalia vs. Sabirov",
+    "date": "2025-12-13",
+    "methode": "TKO (Knee and Punches)"
+  },
+  {
     "combattant": "Fares Ziam",
     "drapeau": "fr",
     "resultat": "win",
@@ -1384,6 +1402,15 @@
     "evenement": "Ares 34 - Begai vs. Diakhate",
     "date": "2025-09-13",
     "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Aboubacar Bathily",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Moreno Kacapor",
+    "evenement": "Ares 34 - Begai vs. Diakhate",
+    "date": "2025-09-13",
+    "methode": "KO (Punches)"
   },
   {
     "combattant": "Nassourdine Imavov",
@@ -1942,6 +1969,15 @@
     "evenement": "Ares 22 - Sola vs. Imavov",
     "date": "2024-06-14",
     "methode": "Decision (Majority)"
+  },
+  {
+    "combattant": "Aboubacar Bathily",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Sofiane Boukichou",
+    "evenement": "Ares 22 - Sola vs. Imavov",
+    "date": "2024-06-14",
+    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Anthony Dizy",

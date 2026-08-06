@@ -323,6 +323,23 @@
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-11-2026-Semifinals-113638"
   },
   {
+    "combattant": "Nell Ariano",
+    "url_suivi": "https://www.sherdog.com/fighter/Nell-Ariano-399649",
+    "url_adversaire": "https://www.sherdog.com/fighter/Ivan-Gnizditskiy-291329",
+    "drapeau": "fr",
+    "record_suivi": "6-0-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Light Heavyweight",
+    "ordre": 0,
+    "drapeau_adversaire": "ru",
+    "adversaire": "Ivan Gnizditskiy",
+    "record_adversaire": "7-0-0 (WIN-LOSS-DRAW)",
+    "evenement": "Dana White's Contender Series",
+    "date": "2026-10-06",
+    "lieu": "Las Vegas, Nevada, United States",
+    "lien_evenement": "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-9-112635"
+  },
+  {
     "combattant": "Turpal Younousov",
     "url_suivi": "https://www.sherdog.com/fighter/Turpal-Younousov-404566",
     "url_adversaire": "https://www.sherdog.com/fighter/Mikail-Bayram-321885",

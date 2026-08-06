@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MMA Radar//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-10-06-contender-series-2026-week-9@mmaradar.fr
+DTSTAMP:20260806T085058Z
+DTSTART;VALUE=DATE:20261006
+DTEND;VALUE=DATE:20261007
+SUMMARY:Contender Series 2026 Week 9
+LOCATION:Las Vegas\, Nevada\, United States
+DESCRIPTION:Nell Ariano vs Ivan Gnizditskiy\nhttps://www.sherdog.com/event
+ s/Dana-Whites-Contender-Series-Contender-Series-2026-Week-9-112635
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:C'est aujourd'hui
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
