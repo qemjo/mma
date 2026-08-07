@@ -252,15 +252,6 @@
     "methode": "Decision (Unanimous)"
   },
   {
-    "combattant": "Oualy Tandia",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Romain Debienne",
-    "evenement": "HXMMA 44 - Hexagone MMA 44",
-    "date": "2026-05-29",
-    "methode": "KO (Punches)"
-  },
-  {
     "combattant": "Ylies Djiroun",
     "drapeau": "fr",
     "resultat": "win",
@@ -1375,15 +1366,6 @@
     "evenement": "HXMMA 35 - Hexagone MMA 35",
     "date": "2025-09-26",
     "methode": "KO (Punches)"
-  },
-  {
-    "combattant": "Oualy Tandia",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Alix Jeanguillaume",
-    "evenement": "HXMMA 34 - Hexagone MMA 34",
-    "date": "2025-09-19",
-    "methode": "KO (Knee and Punches)"
   },
   {
     "combattant": "Delphine Benouaich",
