@@ -4,16 +4,17 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-09-05-ufc-fight-night-287@mmaradar.fr
-DTSTAMP:20260807T073357Z
+DTSTAMP:20260808T070543Z
 DTSTART;VALUE=DATE:20260905
 DTEND;VALUE=DATE:20260906
 SUMMARY:UFC Fight Night 287
 LOCATION:Accor Arena\, Paris\, France
 DESCRIPTION:Salahdine Parnasse vs Dan Hooker\nMorgan Charriere vs Felipe L
- ima\nOumar Sy vs Modestas Bukauskas\nLosene Keita vs Muhammadjon Naimov\n
- Nora Cornolle vs Klaudia Sygula\nMatthieu Letho Duclos vs Luis Felipe Dia
- s\nMichael Aljarouj vs Fabia Sintes\nDiffusion : Rmc Sport 1\nhttps://www
- .sherdog.com/events/UFC-Fight-Night-287-Hooker-vs-Parnasse-113189
+ ima\nOumar Sy vs Modestas Bukauskas\nFares Ziam vs Axel Sola\nLosene Keit
+ a vs Muhammadjon Naimov\nNora Cornolle vs Klaudia Sygula\nMatthieu Letho 
+ Duclos vs Luis Felipe Dias\nMichael Aljarouj vs Fabia Sintes\nDiffusion :
+  Rmc Sport 1\nhttps://www.sherdog.com/events/UFC-Fight-Night-287-Hooker-v
+ s-Parnasse-113189
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui
