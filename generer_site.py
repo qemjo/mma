@@ -226,6 +226,10 @@ def fichier_agenda(ev, infos, fiches):
         details.append(f"{nom_affiche(c['combattant'])} vs {nom_affiche(adv)}")
     if diff.get("chaine"):
         details.append("Diffusion : " + diff["chaine"])
+    if diff.get("prelim"):
+        avant = (diff.get("heure_prelim") or "").strip()
+        details.append("Prelims : " + diff["prelim"]
+                       + (f" ({avant})" if avant else ""))
     if lien:
         details.append(lien)
     if details:
@@ -278,12 +282,13 @@ CODES_DRAPEAU = {
 }
 
 
-def drapeau_html(iso):
+def drapeau_html(iso, titre=""):
     if not iso:
         return ""
     code = CODES_DRAPEAU.get(iso, iso)
+    infobulle = f' title="{echapper(titre)}"' if titre else ""
     return (f'<img class="flag" src="https://flagcdn.com/h20/{code}.png" '
-            f'alt="" loading="lazy">')
+            f'alt="" loading="lazy"{infobulle}>')
 
 
 def pays_depuis_lieu(lieu):
@@ -671,16 +676,47 @@ def assurer_infos(noms_evenements):
         return {}
 
     infos = infos or {}
-    infos.setdefault(
-        "_aide",
-        "Remplis heure (ex: 21:00) et chaine (ex: RMC Sport) pour chaque "
-        "evenement, puis relance generer_site.py. Laisse vide si inconnu.",
+    infos["_aide"] = (
+        "Par evenement : heure (ex: 21:00, garde ce format, il alimente "
+        "aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien "
+        "(adresse de la page de diffusion, facultatif). Seconde ligne "
+        "pour les prelims : heure_prelim (ex: 19:30), prelim (ex: "
+        "Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis "
+        "relance generer_site.py."
     )
     for nom in noms_evenements:
-        infos.setdefault(nom, {"heure": "", "chaine": ""})
+        entree = infos.setdefault(nom, {})
+        if isinstance(entree, dict):
+            for champ in ("heure", "chaine", "lien",
+                          "heure_prelim", "prelim", "lien_prelim"):
+                entree.setdefault(champ, "")
+
+    # Ordre de saisie logique plutot qu'alphabetique : on lit la ligne
+    # principale puis celle des prelims, comme a l'ecran.
+    ordre = ("heure", "chaine", "lien", "heure_prelim", "prelim",
+             "lien_prelim")
+
+    # Les evenements passes sont retires pour que le fichier ne gonfle
+    # pas au fil des mois. Garde-fou : si la liste arrive vide (panne de
+    # Sherdog, fichier tronque), on ne touche a rien.
+    classement = []
+    for nom in noms_evenements:
+        if nom not in classement:
+            classement.append(nom)
+    if not classement:
+        classement = [nom for nom in infos if nom != "_aide"]
+
+    sortie = {"_aide": infos["_aide"]}
+    for nom in classement:
+        entree = infos.get(nom, {})
+        if isinstance(entree, dict):
+            reste = {k: v for k, v in entree.items() if k not in ordre}
+            entree = {c: entree.get(c, "") for c in ordre}
+            entree.update(reste)
+        sortie[nom] = entree
 
     with open("infos.json", "w", encoding="utf-8") as f:
-        json.dump(infos, f, ensure_ascii=False, indent=2, sort_keys=True)
+        json.dump(sortie, f, ensure_ascii=False, indent=2)
     return infos
 
 
@@ -1079,7 +1115,21 @@ CSS = """
   .ev__foot a.ev__ics:hover,
   .ev__foot a.ev__ics:focus { color: var(--or); opacity: 1; }
 
-  .ev__diffusion { color: var(--gris); }
+  .ev__gauche {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 0;
+  }
+
+  .ev__diffusion { color: var(--blanc); }
+
+  .ev__diffusion a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(242, 193, 78, 0.45);
+    text-underline-offset: 2px;
+  }
 
   .flag { height: 14px; border-radius: 2px; flex: none; }
 
@@ -1570,7 +1620,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
 
     ville = echapper(ville_depuis_lieu(ev["lieu"]))
     pays = pays_depuis_lieu(ev["lieu"])
-    flag_event = drapeau_html(PAYS_ISO.get(pays.lower(), ""))
+    flag_event = drapeau_html(PAYS_ISO.get(pays.lower(), ""), ev["lieu"])
 
     noms = []
     for c in ev["combats"]:
@@ -1687,15 +1737,59 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
                        f'{ICONE_AGENDA}</a>')
 
     diff = infos.get(ev["evenement"], {})
-    morceaux = []
-    heure = diff.get("heure", "").strip()
-    chaine = diff.get("chaine", "").strip()
-    if heure:
-        morceaux.append(echapper(heure.replace(":", "h")))
-    if chaine:
-        morceaux.append(echapper(chaine))
-    gauche = (f'<span class="ev__diffusion">'
-              f'{" &middot; ".join(m for m in morceaux if m)}</span>')
+    if not isinstance(diff, dict):
+        diff = {}
+
+    def _lien(texte, adresse):
+        """Rend le texte cliquable seulement si une adresse est fournie."""
+        texte = echapper(texte)
+        adresse = (adresse or "").strip()
+        if adresse.startswith("http"):
+            return (f'<a href="{echapper(adresse)}" target="_blank" '
+                    f'rel="noopener">{texte}</a>')
+        return texte
+
+    def _heure_affichee(valeur):
+        """20:00 devient 20h, 20:30 devient 20h30."""
+        valeur = (valeur or "").strip()
+        if not valeur:
+            return ""
+        texte = valeur.replace(":", "h")
+        return texte[:-2] if texte.endswith("h00") else texte
+
+    def _ligne(heure_brute, texte, adresse):
+        """Une ligne de diffusion : heure, puis chaine cliquable ou non."""
+        texte = (texte or "").strip()
+        if not texte:
+            return ""
+        corps = _lien(texte, adresse)
+        moment = _heure_affichee(heure_brute)
+        return f"{moment}&nbsp;: {corps}" if moment else corps
+
+    ligne_principale = _ligne(diff.get("heure"), diff.get("chaine"),
+                              diff.get("lien"))
+    ligne_prelim = _ligne(diff.get("heure_prelim"), diff.get("prelim"),
+                          diff.get("lien_prelim"))
+
+    def _minutes(valeur):
+        m = re.fullmatch(r"(\d{1,2})[:hH](\d{2})", (valeur or "").strip())
+        return int(m.group(1)) * 60 + int(m.group(2)) if m else None
+
+    # On lit la soiree dans l'ordre : les prelims commencent avant.
+    # Si les deux horaires sont connus et disent le contraire, ils
+    # priment sur cette regle.
+    lignes_diff = [ligne_prelim, ligne_principale]
+    debut_prelim = _minutes(diff.get("heure_prelim"))
+    debut_chaine = _minutes(diff.get("heure"))
+    if (debut_prelim is not None and debut_chaine is not None
+            and debut_prelim > debut_chaine):
+        lignes_diff = [ligne_principale, ligne_prelim]
+    lignes_diff = [l for l in lignes_diff if l]
+
+    diffusion = ""
+    if lignes_diff:
+        diffusion = (f'<span class="ev__diffusion">'
+                     f'{"<br>".join(lignes_diff)}</span>')
 
     attr_ouvert = " open" if ouvert else ""
 
@@ -1705,7 +1799,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
         <span class="ck"><span class="ev__date">{date_txt}</span></span>
         <span class="ck">{logo_orga(ev["evenement"])}</span>
         <span class="ck"><span class="ev__nom" data-complet="{nom_ev}">{bloc_nom}</span></span>
-        <span class="ck" title="{echapper(ev["lieu"])}">{flag_event}<span class="ev__ville">{ville}</span></span>
+        <span class="ck">{flag_event}<span class="ev__ville" title="{echapper(ev["lieu"])}">{ville}</span></span>
         <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="{noms_avec}">
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">{noms_avec}</span>
@@ -1715,8 +1809,8 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
       </summary>
       <div class="ev__body">{"".join(lignes)}
         <div class="ev__foot">
-          {gauche}
-          <span class="ev__actions">{lien_agenda}{lien_html}</span>
+          <span class="ev__gauche">{lien_agenda}{diffusion}</span>
+          <span class="ev__actions">{lien_html}</span>
         </div>
       </div>
     </details>"""
@@ -1859,12 +1953,22 @@ JS = r"""
       bandeau.hidden = false;
     });
 
-    // Sur iPhone, le navigateur ne propose rien : l'installation passe
-    // par le bouton de partage. On explique au lieu d'un bouton inutile.
-    var iOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    // Sur iPhone et iPad, le navigateur ne propose rien : l'installation
+    // passe par le bouton de partage. On explique au lieu d'un bouton
+    // inutile. Depuis iPadOS 13, un iPad se declare comme un Mac : on le
+    // reconnait a son ecran tactile, sinon il n'aurait aucune indication.
+    var iOS = /iphone|ipad|ipod/i.test(navigator.userAgent)
+      || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
     if (iOS) {
       bandeau.querySelector(".install__txt").innerHTML =
-        "<b>MMA Radar</b> : Partager, puis Sur l'écran d'accueil";
+        "<b>MMA Radar</b> sur ton écran d'accueil : "
+        + "<svg viewBox=\"0 0 20 20\" width=\"13\" height=\"13\" fill=\"none\" "
+        + "stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" "
+        + "stroke-linejoin=\"round\" aria-hidden=\"true\" "
+        + "style=\"vertical-align:-2px\">"
+        + "<path d=\"M10 2.6v9\"/><path d=\"M6.8 5.6 10 2.4l3.2 3.2\"/>"
+        + "<path d=\"M5 9.2H3.6v8h12.8v-8H15\"/></svg>"
+        + " puis <b>Sur l'écran d'accueil</b>";
       bandeau.querySelector(".install__oui").hidden = true;
       bandeau.hidden = false;
     }
@@ -2079,15 +2183,29 @@ def donnees_structurees(mois_groupes, infos):
                     if n and n not in noms:
                         noms.append(n)
 
+            interpretes = [{"@type": "Person", "name": n} for n in noms]
+            _, libelle_orga = orga_de(ev.get("evenement", ""))
+
             bloc = {
                 "@type": "SportsEvent",
                 "name": ev.get("evenement", ""),
                 "startDate": debut,
+                "endDate": debut,
                 "url": SITE_URL + "/",
+                "image": SITE_URL + "/partage.jpg",
                 "eventStatus": "https://schema.org/EventScheduled",
+                "eventAttendanceMode":
+                    "https://schema.org/OfflineEventAttendanceMode",
                 "sport": "Mixed Martial Arts",
-                "competitor": [{"@type": "Person", "name": n} for n in noms],
+                "performer": interpretes,
+                "competitor": interpretes,
             }
+
+            if libelle_orga and libelle_orga != "MMA":
+                bloc["organizer"] = {
+                    "@type": "Organization",
+                    "name": libelle_orga,
+                }
 
             lieu = (ev.get("lieu") or "").strip()
             if lieu:
@@ -2096,8 +2214,19 @@ def donnees_structurees(mois_groupes, infos):
                     "name": lieu.split(",")[0].strip() or lieu,
                     "address": lieu,
                 }
-            if (info.get("chaine") or "").strip():
-                bloc["description"] = "Diffusion : " + info["chaine"].strip()
+            chaine = (info.get("chaine") or "").strip()
+            if chaine:
+                bloc["description"] = "Diffusion : " + chaine
+                bloc["publication"] = {
+                    "@type": "BroadcastEvent",
+                    "name": f"{ev.get('evenement', '')} sur {chaine}",
+                    "isLiveBroadcast": True,
+                    "startDate": debut,
+                    "publishedOn": {
+                        "@type": "BroadcastService",
+                        "name": chaine,
+                    },
+                }
 
             blocs.append(bloc)
 
@@ -2216,7 +2345,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 67
+VERSION = 77
 
 
 def ecrire_manifeste():

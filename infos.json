@@ -1,39 +1,75 @@
 {
-  "Ares 43": {
+  "_aide": "Par evenement : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
+  "Professional Fighters League": {
+    "heure": "",
     "chaine": "",
-    "heure": ""
-  },
-  "Ares 45": {
-    "chaine": "Canal +",
-    "heure": ""
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
   },
   "Brave CF 108": {
+    "heure": "",
     "chaine": "",
-    "heure": ""
-  },
-  "Dana White's Contender Series": {
-    "chaine": "",
-    "heure": ""
-  },
-  "HXMMA": {
-    "chaine": "",
-    "heure": ""
-  },
-  "HXMMA 48": {
-    "chaine": "",
-    "heure": ""
-  },
-  "Professional Fighters League": {
-    "chaine": "",
-    "heure": ""
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
   },
   "UFC Fight Night 287": {
+    "heure": "",
     "chaine": "Rmc Sport 1",
-    "heure": ""
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "HXMMA": {
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
   },
   "UFC Fight Night 288": {
+    "heure": "",
     "chaine": "",
-    "heure": ""
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
   },
-  "_aide": "Remplis heure (ex: 21:00) et chaine (ex: RMC Sport) pour chaque evenement, puis relance generer_site.py. Laisse vide si inconnu."
+  "Dana White's Contender Series": {
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "Ares 43": {
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "T",
+    "lien_prelim": ""
+  },
+  "HXMMA 48": {
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "Ares 45": {
+    "heure": "",
+    "chaine": "Canal +",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  }
 }
