@@ -22,10 +22,10 @@ from datetime import date, datetime, timedelta, timezone
 # Le titre s'affiche dans les resultats de recherche : environ
 # 60 caracteres, au-dela Google coupe. La description, environ 155.
 SITE_URL = "https://mmaradar.fr"
-SITE_TITRE = "Calendrier MMA francophone : prochains combats | MMA Radar"
-SITE_DESC = ("Les prochains combats des combattants francophones en MMA : "
-             "UFC, PFL, ARES, Hexagone, KSW. Dates, villes et diffusion, "
-             "mis à jour chaque matin.")
+SITE_TITRE = "Programme et calendrier MMA : prochains combats des Français"
+SITE_DESC = ("Les prochains événements MMA avec des combattants français "
+             "et francophones : UFC, PFL, ARES, Hexagone, KSW. Dates, "
+             "villes, horaires et diffusion.")
 
 MOIS_COURT = ["JANV", "FEVR", "MARS", "AVR", "MAI", "JUIN",
               "JUIL", "AOUT", "SEPT", "OCT", "NOV", "DEC"]
@@ -2345,7 +2345,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 77
+VERSION = 78
 
 
 def ecrire_manifeste():

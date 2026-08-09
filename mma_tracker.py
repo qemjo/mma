@@ -146,6 +146,9 @@ COMBATTANTS = [
     "Oceane Samson",
     "Paulin Begai",
     "Aboubacar Bathily",
+    "Volkan Oezdemir",
+    "Robert Valentin",
+    "Hugo Guillon",
 ]
 
 # ---------------------------------------------------------------
@@ -201,6 +204,9 @@ FICHES_MANUELLES = {
     "Oceane Samson": "https://www.sherdog.com/fighter/Oceane-Samson-425132",
     "Paulin Begai": "https://www.sherdog.com/fighter/Paulin-Begai-334051",
     "Aboubacar Bathily": "https://www.sherdog.com/fighter/Aboubacar-Bathily-218727",
+    "Volkan Oezdemir": "https://www.sherdog.com/fighter/Volkan-Oezdemir-58503",
+    "Robert Valentin": "https://www.sherdog.com/fighter/Robert-Valentin-241133",
+    "Hugo Guillon": "https://www.sherdog.com/fighter/Hugo-Guillon-376012",
 }
 
 BASE = "https://www.sherdog.com"
