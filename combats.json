@@ -255,6 +255,23 @@
     "lien_evenement": "https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-5-113782"
   },
   {
+    "combattant": "Hugo Guillon",
+    "url_suivi": "https://www.sherdog.com/fighter/Hugo-Guillon-376012",
+    "url_adversaire": "https://www.sherdog.com/fighter/Luis-Hernandez-371502",
+    "drapeau": "fr",
+    "record_suivi": "7-1-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Middleweight",
+    "ordre": 999,
+    "drapeau_adversaire": "us",
+    "adversaire": "Luis Hernandez",
+    "record_adversaire": "7-0-0 (WIN-LOSS-DRAW)",
+    "evenement": "Dana White's Contender Series",
+    "date": "2026-09-15",
+    "lieu": "Las Vegas, Nevada, United States",
+    "lien_evenement": "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-6-112632"
+  },
+  {
     "combattant": "Alvi Dasuyev",
     "url_suivi": "https://www.sherdog.com/fighter/Alvi-Dasuyev-390836",
     "url_adversaire": "https://www.sherdog.com/fighter/Jaden-Ortega-410570",

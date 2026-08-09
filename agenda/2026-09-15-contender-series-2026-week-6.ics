@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MMA Radar//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-09-15-contender-series-2026-week-6@mmaradar.fr
+DTSTAMP:20260809T144626Z
+DTSTART;VALUE=DATE:20260915
+DTEND;VALUE=DATE:20260916
+SUMMARY:Contender Series 2026 Week 6
+LOCATION:Las Vegas\, Nevada\, United States
+DESCRIPTION:Hugo Guillon vs Luis Hernandez\nhttps://www.sherdog.com/events
+ /Dana-Whites-Contender-Series-Contender-Series-2026-Week-6-112632
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:C'est aujourd'hui
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

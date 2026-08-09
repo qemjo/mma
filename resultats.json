@@ -9,6 +9,15 @@
     "methode": "Submission (Rear-Naked Choke)"
   },
   {
+    "combattant": "Robert Valentin",
+    "drapeau": "ch",
+    "resultat": "win",
+    "adversaire": "Dusko Todorovic",
+    "evenement": "UFC Fight Night 283 - Medic vs. Rodriguez",
+    "date": "2026-08-01",
+    "methode": "Submission (Guillotine Choke)"
+  },
+  {
     "combattant": "Moustapha Diakhate",
     "drapeau": "sn",
     "resultat": "win",
@@ -439,6 +448,15 @@
     "evenement": "KSW 117 - Pawlak vs. Khalidov",
     "date": "2026-04-18",
     "methode": "TKO (Elbows)"
+  },
+  {
+    "combattant": "Robert Valentin",
+    "drapeau": "ch",
+    "resultat": "win",
+    "adversaire": "Julien Leblanc",
+    "evenement": "UFC Fight Night 273 - Burns vs. Malott",
+    "date": "2026-04-18",
+    "methode": "Submission (Rear-Naked Choke)"
   },
   {
     "combattant": "Alex Lohore",
@@ -1152,6 +1170,15 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Volkan Oezdemir",
+    "drapeau": "ch",
+    "resultat": "win",
+    "adversaire": "Alonzo Menifield",
+    "evenement": "UFC Fight Night 265 - Tsarukyan vs. Hooker",
+    "date": "2025-11-22",
+    "methode": "KO (Knee and Punches)"
+  },
+  {
     "combattant": "Nell Ariano",
     "drapeau": "fr",
     "resultat": "win",
@@ -1177,6 +1204,15 @@
     "evenement": "KSW 112 - Kaczmarczyk vs. Soldaev",
     "date": "2025-11-15",
     "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Hugo Guillon",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Kamil Smetoch",
+    "evenement": "Kingdom Fighting - Kingdom 3: Guillon vs. Smetoch",
+    "date": "2025-11-15",
+    "methode": "TKO (Punches and Elbows)"
   },
   {
     "combattant": "Youssef Boughanem",
@@ -1656,6 +1692,15 @@
     "methode": "TKO (Elbows)"
   },
   {
+    "combattant": "Hugo Guillon",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Vladislav Gutu",
+    "evenement": "Ares 30 - Chamsoudinov vs. Lima",
+    "date": "2025-05-16",
+    "methode": "KO (Head Kick)"
+  },
+  {
     "combattant": "Manon Fiorot",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1906,6 +1951,15 @@
     "evenement": "Ares 27 - Augen vs. Rocha",
     "date": "2024-11-23",
     "methode": "Submission (Armbar)"
+  },
+  {
+    "combattant": "Volkan Oezdemir",
+    "drapeau": "ch",
+    "resultat": "loss",
+    "adversaire": "Carlos Ulberg",
+    "evenement": "UFC Fight Night 248 - Yan vs. Figueiredo",
+    "date": "2024-11-23",
+    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Oumar Kane",
