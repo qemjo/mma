@@ -1,8 +1,8 @@
 {
   "_aide": "Par evenement : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
   "Professional Fighters League": {
-    "heure": "",
-    "chaine": "",
+    "heure": "03:00",
+    "chaine": "RMC Sport 1",
     "lien": "",
     "heure_prelim": "",
     "prelim": "",
