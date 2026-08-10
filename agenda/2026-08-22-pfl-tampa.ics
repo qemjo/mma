@@ -4,17 +4,18 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-08-22-pfl-tampa@mmaradar.fr
-DTSTAMP:20260810T075322Z
-DTSTART;VALUE=DATE:20260822
-DTEND;VALUE=DATE:20260823
+DTSTAMP:20260810T160016Z
+DTSTART:20260822T010000Z
+DTEND:20260822T040000Z
 SUMMARY:PFL Tampa
 LOCATION:Tampa\, Florida\, United States
-DESCRIPTION:Movsar Ibragimov vs Javid Basharat\nhttps://www.sherdog.com/ev
- ents/Professional-Fighters-League-PFL-Tampa-Cyborg-vs-Vieira-113435
+DESCRIPTION:Movsar Ibragimov vs Javid Basharat\nDiffusion : RMC Sport 1\nh
+ ttps://www.sherdog.com/events/Professional-Fighters-League-PFL-Tampa-Cybo
+ rg-vs-Vieira-113435
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:C'est aujourd'hui
-TRIGGER:PT9H
+DESCRIPTION:Le combat commence dans une heure
+TRIGGER:-PT1H
 END:VALARM
 END:VEVENT
 END:VCALENDAR
