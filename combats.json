@@ -210,15 +210,15 @@
     "drapeau": "be",
     "record_suivi": "7-2-0 (WIN-LOSS-DRAW)",
     "titre": false,
-    "categorie": "Featherweight",
+    "categorie": "Heavyweight",
     "ordre": 0,
     "drapeau_adversaire": "rs",
     "adversaire": "Bozidar Trivunovic",
     "record_adversaire": "7-2-0 (WIN-LOSS-DRAW)",
-    "evenement": "HXMMA",
+    "evenement": "HXMMA 46",
     "date": "2026-09-12",
-    "lieu": "Rouen, Normandy, France",
-    "lien_evenement": "https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-5-113782"
+    "lieu": "Zenith de Rouen, Le Grand-Quevilly, France",
+    "lien_evenement": "https://www.sherdog.com/events/HXMMA-46-Hexagone-MMA-46-113782"
   },
   {
     "combattant": "Souhil Arezki",
@@ -232,10 +232,10 @@
     "drapeau_adversaire": "ru",
     "adversaire": "Zelimkhan Umarov",
     "record_adversaire": "3-3-0 (WIN-LOSS-DRAW)",
-    "evenement": "HXMMA",
+    "evenement": "HXMMA 46",
     "date": "2026-09-12",
-    "lieu": "Rouen, Normandy, France",
-    "lien_evenement": "https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-5-113782"
+    "lieu": "Zenith de Rouen, Le Grand-Quevilly, France",
+    "lien_evenement": "https://www.sherdog.com/events/HXMMA-46-Hexagone-MMA-46-113782"
   },
   {
     "combattant": "Alan Baudot",
@@ -249,10 +249,10 @@
     "drapeau_adversaire": "sn",
     "adversaire": "Mamadou Lamine Sene",
     "record_adversaire": "7-9-0 (WIN-LOSS-DRAW)",
-    "evenement": "HXMMA",
+    "evenement": "HXMMA 46",
     "date": "2026-09-12",
-    "lieu": "Rouen, Normandy, France",
-    "lien_evenement": "https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-5-113782"
+    "lieu": "Zenith de Rouen, Le Grand-Quevilly, France",
+    "lien_evenement": "https://www.sherdog.com/events/HXMMA-46-Hexagone-MMA-46-113782"
   },
   {
     "combattant": "Hugo Guillon",
