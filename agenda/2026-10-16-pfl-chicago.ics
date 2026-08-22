@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MMA Radar//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-10-16-pfl-chicago@mmaradar.fr
+DTSTAMP:20260822T064944Z
+DTSTART:20261016T010000Z
+DTEND:20261016T040000Z
+SUMMARY:PFL Chicago
+LOCATION:Chicago\, Illinois\, United States
+DESCRIPTION:Oualy Tandia vs Kendly St. Louis\nDiffusion : RMC Sport 1\nhtt
+ ps://www.sherdog.com/events/Professional-Fighters-League-PFL-Chicago-Carm
+ ouche-vs-Bishop-2-114222
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Le combat commence dans une heure
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

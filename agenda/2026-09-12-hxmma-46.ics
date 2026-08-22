@@ -4,13 +4,13 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-09-12-hxmma-46@mmaradar.fr
-DTSTAMP:20260821T074022Z
+DTSTAMP:20260822T064944Z
 DTSTART;VALUE=DATE:20260912
 DTEND;VALUE=DATE:20260913
 SUMMARY:HXMMA 46
 LOCATION:Zenith de Rouen\, Le Grand-Quevilly\, France
-DESCRIPTION:Anzor Baybatyrov vs Bozidar Trivunovic\nSouhil Arezki vs Zelim
- khan Umarov\nAlan Baudot vs Mamadou Lamine Sene\nhttps://www.sherdog.com/
+DESCRIPTION:Anzor Baybatyrov vs Bozidar Trivunovic\nAlan Baudot vs Mamadou
+  Lamine Sene\nSouhil Arezki vs Zelimkhan Umarov\nhttps://www.sherdog.com/
  events/HXMMA-46-Hexagone-MMA-46-113782
 BEGIN:VALARM
 ACTION:DISPLAY
