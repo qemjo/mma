@@ -1,5 +1,14 @@
 [
   {
+    "combattant": "Movsar Ibragimov",
+    "drapeau": "be",
+    "resultat": "loss",
+    "adversaire": "Javid Basharat",
+    "evenement": "Professional Fighters League - PFL Tampa: Cyborg vs. Vieira",
+    "date": "2026-08-22",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Noah Gugnon",
     "drapeau": "fr",
     "resultat": "win",
@@ -1030,15 +1039,6 @@
     "drapeau": "be",
     "resultat": "win",
     "adversaire": "Kevin Jousset",
-    "evenement": "Professional Fighters League - PFL Lyon - Europe 2025 Finals",
-    "date": "2025-12-13",
-    "methode": "KO (Punches)"
-  },
-  {
-    "combattant": "Movsar Ibragimov",
-    "drapeau": "be",
-    "resultat": "loss",
-    "adversaire": "Gustavo Oliveira",
     "evenement": "Professional Fighters League - PFL Lyon - Europe 2025 Finals",
     "date": "2025-12-13",
     "methode": "KO (Punches)"

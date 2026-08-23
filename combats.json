@@ -1,22 +1,5 @@
 [
   {
-    "combattant": "Movsar Ibragimov",
-    "url_suivi": "https://www.sherdog.com/fighter/Movsar-Ibragimov-389946",
-    "url_adversaire": "https://www.sherdog.com/fighter/Javid-Basharat-222651",
-    "drapeau": "be",
-    "record_suivi": "8-1-0 (WIN-LOSS-DRAW)",
-    "titre": false,
-    "categorie": "Bantamweight",
-    "ordre": 995,
-    "drapeau_adversaire": "af",
-    "adversaire": "Javid Basharat",
-    "record_adversaire": "15-2-0 (WIN-LOSS-DRAW)",
-    "evenement": "Professional Fighters League",
-    "date": "2026-08-22",
-    "lieu": "Tampa, Florida, United States",
-    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Tampa-Cyborg-vs-Vieira-113435"
-  },
-  {
     "combattant": "Salahdine Parnasse",
     "url_suivi": "https://www.sherdog.com/fighter/Salahdine-Parnasse-172169",
     "url_adversaire": "https://www.sherdog.com/fighter/Dan-Hooker-45122",
@@ -422,7 +405,7 @@
     "evenement": "Professional Fighters League",
     "date": "2026-10-16",
     "lieu": "Chicago, Illinois, United States",
-    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Chicago-Carmouche-vs-Bishop-2-114222"
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Chicago-2-Carmouche-vs-Bishop-2-114222"
   },
   {
     "combattant": "Turpal Younousov",
