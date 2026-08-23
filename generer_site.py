@@ -186,7 +186,9 @@ def fichier_agenda(ev, infos, fiches):
     lien = ev["combats"][0].get("lien_evenement", "")
     titre = nom_evenement(ev["evenement"], lien)
 
-    diff = infos.get(ev["evenement"], {})
+    diff = infos.get(cle_infos(ev), {})
+    if not isinstance(diff, dict):
+        diff = {}
     heure = (diff.get("heure") or "").strip()
 
     lignes = ["BEGIN:VCALENDAR", "VERSION:2.0",
@@ -666,8 +668,73 @@ def libelle_mois(cle):
     return MOIS_LONG[int(num) - 1], annee
 
 
-def assurer_infos(noms_evenements):
-    """Charge infos.json et ajoute les evenements manquants a remplir."""
+# Champs de saisie de infos.json, dans l'ordre ou on les lit a l'ecran :
+# la ligne principale, puis celle des prelims.
+CHAMPS_INFOS = ("heure", "chaine", "lien",
+                "heure_prelim", "prelim", "lien_prelim")
+
+# _evenement est reecrit a chaque passage, il ne se saisit pas.
+ORDRE_INFOS = ("_evenement",) + CHAMPS_INFOS
+
+
+def cle_repli(ev):
+    """Cle de secours quand Sherdog ne donne pas l'adresse de la page."""
+    return "|".join([ev.get("date", ""), ev.get("evenement", ""),
+                     ev.get("lieu", "")])
+
+
+def cle_infos(ev):
+    """Cle unique d'un evenement dans infos.json.
+
+    Le nom ne peut pas servir de cle : Sherdog appelle "Professional
+    Fighters League" toutes les cartes PFL, si bien que l'heure saisie
+    pour l'une se reportait sur toutes les autres. L'adresse de la page
+    evenement, elle, est propre a chaque carte.
+    """
+    for c in ev.get("combats", []):
+        lien = (c.get("lien_evenement") or "").strip()
+        if lien:
+            return lien.rstrip("/")
+    return cle_repli(ev)
+
+
+def etiquette_evenement(ev):
+    """Libelle lisible, pose en tete de chaque entree de infos.json.
+
+    Les cles sont des adresses : cette ligne est la pour que tu saches
+    d'un coup d'oeil de quelle soiree il s'agit.
+    """
+    lien = ""
+    for c in ev.get("combats", []):
+        if c.get("lien_evenement"):
+            lien = c["lien_evenement"]
+            break
+
+    nom = nom_evenement(ev.get("evenement", ""), lien)
+    try:
+        j = datetime.strptime(ev.get("date", ""), "%Y-%m-%d").date()
+        jour = f"{j.day:02d}/{j.month:02d}/{j.year}"
+    except ValueError:
+        jour = "date a confirmer"
+
+    ville = ville_depuis_lieu(ev.get("lieu", "")) if ev.get("lieu") else ""
+    return f"{jour} - {nom}" + (f" ({ville})" if ville else "")
+
+
+def _infos_remplies(entree):
+    """Une entree ou tu as saisi quelque chose, par opposition a un gabarit."""
+    if not isinstance(entree, dict):
+        return False
+    return any((entree.get(c) or "").strip() for c in CHAMPS_INFOS)
+
+
+def assurer_infos(evenements):
+    """Charge infos.json et ajoute les evenements manquants a remplir.
+
+    Les entrees sont rangees par cle unique (voir cle_infos), et non plus
+    par nom d'evenement. Les saisies faites sous l'ancienne organisation
+    sont recuperees au premier passage.
+    """
     infos = charger_json("infos.json")
 
     if infos == "ERREUR":
@@ -676,48 +743,97 @@ def assurer_infos(noms_evenements):
         return {}
 
     infos = infos or {}
-    infos["_aide"] = (
-        "Par evenement : heure (ex: 21:00, garde ce format, il alimente "
+
+    # Garde-fou : plus aucun evenement (panne de Sherdog, combats.json
+    # tronque). On laisse le fichier intact plutot que de le vider.
+    if not evenements:
+        print("Aucun evenement : infos.json laisse en l'etat.")
+        return {}
+
+    aide = (
+        "Une entree par evenement, rangee par adresse de sa page Sherdog : "
+        "deux soirees differentes portent parfois le meme nom. Repere-toi "
+        "a la ligne _evenement, reecrite a chaque passage, ne la remplis "
+        "pas. A saisir : heure (ex: 21:00, garde ce format, il alimente "
         "aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien "
         "(adresse de la page de diffusion, facultatif). Seconde ligne "
         "pour les prelims : heure_prelim (ex: 19:30), prelim (ex: "
         "Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis "
         "relance generer_site.py."
     )
-    for nom in noms_evenements:
-        entree = infos.setdefault(nom, {})
-        if isinstance(entree, dict):
-            for champ in ("heure", "chaine", "lien",
-                          "heure_prelim", "prelim", "lien_prelim"):
-                entree.setdefault(champ, "")
 
-    # Ordre de saisie logique plutot qu'alphabetique : on lit la ligne
-    # principale puis celle des prelims, comme a l'ecran.
-    ordre = ("heure", "chaine", "lien", "heure_prelim", "prelim",
-             "lien_prelim")
+    anciennes = {k: v for k, v in infos.items()
+                 if k != "_aide" and isinstance(v, dict)}
 
-    # Les evenements passes sont retires pour que le fichier ne gonfle
-    # pas au fil des mois. Garde-fou : si la liste arrive vide (panne de
-    # Sherdog, fichier tronque), on ne touche a rien.
-    classement = []
-    for nom in noms_evenements:
-        if nom not in classement:
-            classement.append(nom)
-    if not classement:
-        classement = [nom for nom in infos if nom != "_aide"]
+    # Repere de secours : le libelle porte la date, le nom et la ville.
+    # Il permet de retrouver une saisie si Sherdog cesse de donner
+    # l'adresse de la page, et donc si la cle change.
+    par_libelle = {}
+    for k, v in anciennes.items():
+        libelle = (v.get("_evenement") or "").strip()
+        if libelle:
+            par_libelle.setdefault(libelle, k)
 
-    sortie = {"_aide": infos["_aide"]}
-    for nom in classement:
-        entree = infos.get(nom, {})
-        if isinstance(entree, dict):
-            reste = {k: v for k, v in entree.items() if k not in ordre}
-            entree = {c: entree.get(c, "") for c in ordre}
-            entree.update(reste)
-        sortie[nom] = entree
+    prises = set()        # cles anciennes deja attribuees
+    recuperes = []        # pour le compte rendu
+    a_verifier = []       # homonymes : la saisie ne peut aller qu'a un seul
+
+    sortie = {"_aide": aide}
+    for ev in evenements:
+        cle = cle_infos(ev)
+        if cle in sortie:          # deux fois la meme carte
+            continue
+
+        libelle = etiquette_evenement(ev)
+        source = None
+
+        if cle in anciennes:
+            source = cle
+        # l'evenement a perdu son lien Sherdog, ou vient d'en gagner un
+        elif cle_repli(ev) in anciennes:
+            source = cle_repli(ev)
+        elif par_libelle.get(libelle) not in (None, *prises):
+            source = par_libelle[libelle]
+        else:
+            # ancienne organisation : la saisie etait rangee sous le nom.
+            # Le premier evenement de la liste (le plus proche) la
+            # recupere, les homonymes suivants sont signales.
+            nom = ev.get("evenement", "")
+            if _infos_remplies(anciennes.get(nom)):
+                if nom not in prises:
+                    source = nom
+                    recuperes.append(libelle)
+                else:
+                    a_verifier.append(libelle)
+
+        if source is not None:
+            prises.add(source)
+        entree = anciennes.get(source) if source else None
+        entree = dict(entree) if isinstance(entree, dict) else {}
+        reste = {k: v for k, v in entree.items() if k not in ORDRE_INFOS}
+
+        neuve = {"_evenement": libelle}
+        for champ in CHAMPS_INFOS:
+            neuve[champ] = entree.get(champ, "")
+        neuve.update(reste)
+        sortie[cle] = neuve
+
+    if recuperes or a_verifier:
+        try:
+            with open("infos-ancien.json", "w", encoding="utf-8") as f:
+                json.dump(infos, f, ensure_ascii=False, indent=2)
+            print("\ninfos.json reorganise par cle unique.")
+            print("   copie de securite : infos-ancien.json")
+        except OSError:
+            print("\ninfos.json reorganise par cle unique.")
+        for e in recuperes:
+            print(f"   saisie recuperee : {e}")
+        for e in a_verifier:
+            print(f"   A VERIFIER, meme nom Sherdog qu'un autre : {e}")
 
     with open("infos.json", "w", encoding="utf-8") as f:
         json.dump(sortie, f, ensure_ascii=False, indent=2)
-    return infos
+    return sortie
 
 
 CSS = """
@@ -1736,7 +1852,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
                        f'aria-label="Ajouter cet évènement à mon agenda">'
                        f'{ICONE_AGENDA}</a>')
 
-    diff = infos.get(ev["evenement"], {})
+    diff = infos.get(cle_infos(ev), {})
     if not isinstance(diff, dict):
         diff = {}
 
@@ -2169,7 +2285,7 @@ def donnees_structurees(mois_groupes, infos):
             if len(jour) != 10 or jour < aujourdhui:
                 continue
 
-            info = infos.get(ev.get("evenement", ""), {})
+            info = infos.get(cle_infos(ev), {})
             if not isinstance(info, dict):
                 info = {}
             heure = (info.get("heure") or "").strip()
@@ -2345,7 +2461,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 78
+VERSION = 79
 
 
 def ecrire_manifeste():
@@ -2508,8 +2624,8 @@ def main():
 
     combats = fusionner_duels(combats)
     mois_groupes = grouper(combats)
-    noms_evenements = [ev["evenement"] for _, evs in mois_groupes for ev in evs]
-    infos = assurer_infos(noms_evenements)
+    evenements = [ev for _, evs in mois_groupes for ev in evs]
+    infos = assurer_infos(evenements)
 
     total = sum(1 for c in combats if not c.get("annule"))
     html = construire_html(mois_groupes, fiches, infos, total,
