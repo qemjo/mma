@@ -1,6 +1,7 @@
 {
-  "_aide": "Par evenement : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
-  "Brave CF 108": {
+  "_aide": "Une entree par evenement, rangee par adresse de sa page Sherdog : deux soirees differentes portent parfois le meme nom. Repere-toi a la ligne _evenement, reecrite a chaque passage, ne la remplis pas. A saisir : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
+  "https://www.sherdog.com/events/Brave-CF-108-Brave-Combat-Federation-108-112724": {
+    "_evenement": "05/09/2026 - Brave CF 108 (Pula)",
     "heure": "",
     "chaine": "",
     "lien": "",
@@ -8,7 +9,8 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "UFC Fight Night 287": {
+  "https://www.sherdog.com/events/UFC-Fight-Night-287-Hooker-vs-Parnasse-113189": {
+    "_evenement": "05/09/2026 - UFC Fight Night 287 (Paris)",
     "heure": "",
     "chaine": "Rmc Sport 1",
     "lien": "",
@@ -16,7 +18,8 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "HXMMA 46": {
+  "https://www.sherdog.com/events/HXMMA-46-Hexagone-MMA-46-113782": {
+    "_evenement": "12/09/2026 - HXMMA 46 (Le Grand-Quevilly)",
     "heure": "",
     "chaine": "",
     "lien": "",
@@ -24,7 +27,8 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "UFC Fight Night 288": {
+  "https://www.sherdog.com/events/UFC-Fight-Night-288-Noche-UFC-4-113632": {
+    "_evenement": "12/09/2026 - UFC Fight Night 288 (Glendale, AZ)",
     "heure": "",
     "chaine": "",
     "lien": "",
@@ -32,7 +36,8 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "Dana White's Contender Series": {
+  "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-6-112632": {
+    "_evenement": "15/09/2026 - Contender Series 2026 Week 6 (Las Vegas, NV)",
     "heure": "",
     "chaine": "",
     "lien": "",
@@ -40,23 +45,8 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "Ares 43": {
-    "heure": "",
-    "chaine": "",
-    "lien": "",
-    "heure_prelim": "",
-    "prelim": "T",
-    "lien_prelim": ""
-  },
-  "Professional Fighters League": {
-    "heure": "03:00",
-    "chaine": "RMC Sport 1",
-    "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
-  },
-  "HXMMA 48": {
+  "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-7-112633": {
+    "_evenement": "22/09/2026 - Contender Series 2026 Week 7 (Las Vegas, NV)",
     "heure": "",
     "chaine": "",
     "lien": "",
@@ -64,7 +54,53 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "Ares 45": {
+  "https://www.sherdog.com/events/Ares-43-OConnor-vs-Diatta-112452": {
+    "_evenement": "25/09/2026 - Ares 43 (Paris)",
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-11-2026-Semifinals-113638": {
+    "_evenement": "02/10/2026 - PFL MENA 11 2026 Semifinals (Riyadh)",
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-9-112635": {
+    "_evenement": "06/10/2026 - Contender Series 2026 Week 9 (Las Vegas, NV)",
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Chicago-2-Carmouche-vs-Bishop-2-114222": {
+    "_evenement": "16/10/2026 - PFL Chicago 2 (Chicago, IL)",
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "https://www.sherdog.com/events/HXMMA-48-Hexagone-MMA-48-113686": {
+    "_evenement": "24/10/2026 - HXMMA 48 (Paris)",
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "https://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-112453": {
+    "_evenement": "20/11/2026 - Ares 45 (Paris)",
     "heure": "",
     "chaine": "Canal +",
     "lien": "",
@@ -72,7 +108,8 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "HXMMA 49": {
+  "https://www.sherdog.com/events/HXMMA-49-Hexagone-MMA-49-114109": {
+    "_evenement": "27/11/2026 - HXMMA 49 (Cesson-Sevigne)",
     "heure": "",
     "chaine": "",
     "lien": "",
