@@ -2,8 +2,8 @@
   "_aide": "Une entree par evenement, rangee par adresse de sa page Sherdog : deux soirees differentes portent parfois le meme nom. Repere-toi a la ligne _evenement, reecrite a chaque passage, ne la remplis pas. A saisir : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
   "https://www.sherdog.com/events/Brave-CF-108-Brave-Combat-Federation-108-112724": {
     "_evenement": "05/09/2026 - Brave CF 108 (Pula)",
-    "heure": "",
-    "chaine": "",
+    "heure": "20:00",
+    "chaine": "Youtube Brave",
     "lien": "",
     "heure_prelim": "",
     "prelim": "",
@@ -11,12 +11,12 @@
   },
   "https://www.sherdog.com/events/UFC-Fight-Night-287-Hooker-vs-Parnasse-113189": {
     "_evenement": "05/09/2026 - UFC Fight Night 287 (Paris)",
-    "heure": "",
-    "chaine": "Rmc Sport 1",
+    "heure": "20:30",
+    "chaine": "RMC Sport 1",
     "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
+    "heure_prelim": "18:00",
+    "prelim": "Twitch RMC Sport",
+    "lien_prelim": "https://www.twitch.tv/rmcsport"
   },
   "https://www.sherdog.com/events/HXMMA-46-Hexagone-MMA-46-113782": {
     "_evenement": "12/09/2026 - HXMMA 46 (Le Grand-Quevilly)",
