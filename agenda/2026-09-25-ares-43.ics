@@ -4,14 +4,14 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-09-25-ares-43@mmaradar.fr
-DTSTAMP:20260823T065005Z
+DTSTAMP:20260824T071143Z
 DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
 SUMMARY:Ares 43
 LOCATION:Adidas Arena\, Paris\, France
 DESCRIPTION:Fabacary Diatta vs Josh O'Connor\nAlexis Nicolas vs Ilyasse Dr
- abo\nJimmy Vienot vs Jan Stastny\nPrelims : T\nhttps://www.sherdog.com/ev
- ents/Ares-43-OConnor-vs-Diatta-112452
+ abo\nJimmy Vienot vs Jan Stastny\nhttps://www.sherdog.com/events/Ares-43-
+ OConnor-vs-Diatta-112452
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui

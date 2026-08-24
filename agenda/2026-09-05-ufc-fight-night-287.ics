@@ -4,21 +4,22 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-09-05-ufc-fight-night-287@mmaradar.fr
-DTSTAMP:20260823T065005Z
-DTSTART;VALUE=DATE:20260905
-DTEND;VALUE=DATE:20260906
+DTSTAMP:20260824T071143Z
+DTSTART:20260905T183000Z
+DTEND:20260905T213000Z
 SUMMARY:UFC Fight Night 287
 LOCATION:Accor Arena\, Paris\, France
 DESCRIPTION:Salahdine Parnasse vs Dan Hooker\nFares Ziam vs Axel Sola\nMor
  gan Charriere vs Felipe Lima\nOumar Sy vs Modestas Bukauskas\nLosene Keit
  a vs Muhammadjon Naimov\nNora Cornolle vs Klaudia Sygula\nMatthieu Letho 
  Duclos vs Luis Felipe Dias\nMichael Aljarouj vs Fabia Sintes\nDelphine Be
- nouaich vs Sofia Montenegro\nDiffusion : Rmc Sport 1\nhttps://www.sherdog
- .com/events/UFC-Fight-Night-287-Hooker-vs-Parnasse-113189
+ nouaich vs Sofia Montenegro\nDiffusion : RMC Sport 1\nPrelims : Twitch RM
+ C Sport (18:00)\nhttps://www.sherdog.com/events/UFC-Fight-Night-287-Hooke
+ r-vs-Parnasse-113189
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:C'est aujourd'hui
-TRIGGER:PT9H
+DESCRIPTION:Le combat commence dans une heure
+TRIGGER:-PT1H
 END:VALARM
 END:VEVENT
 END:VCALENDAR

@@ -4,18 +4,18 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-10-02-pfl-mena-11-2026-semifinals@mmaradar.fr
-DTSTAMP:20260823T065005Z
-DTSTART:20261002T010000Z
-DTEND:20261002T040000Z
+DTSTAMP:20260824T071143Z
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261003
 SUMMARY:PFL MENA 11 2026 Semifinals
 LOCATION:Riyadh\, Saudi Arabia
 DESCRIPTION:Ylies Djiroun vs Basel Ahmed Shalaan\nMehdi Saadi vs Shadi Kab
- bani\nDiffusion : RMC Sport 1\nhttps://www.sherdog.com/events/Professiona
- l-Fighters-League-PFL-MENA-11-2026-Semifinals-113638
+ bani\nhttps://www.sherdog.com/events/Professional-Fighters-League-PFL-MEN
+ A-11-2026-Semifinals-113638
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Le combat commence dans une heure
-TRIGGER:-PT1H
+DESCRIPTION:C'est aujourd'hui
+TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 END:VCALENDAR

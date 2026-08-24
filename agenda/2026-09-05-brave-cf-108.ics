@@ -4,17 +4,18 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-09-05-brave-cf-108@mmaradar.fr
-DTSTAMP:20260823T065005Z
-DTSTART;VALUE=DATE:20260905
-DTEND;VALUE=DATE:20260906
+DTSTAMP:20260824T071143Z
+DTSTART:20260905T180000Z
+DTEND:20260905T210000Z
 SUMMARY:Brave CF 108
 LOCATION:Pula Arena\, Pula\, Croatia
-DESCRIPTION:Sofiane Bouafia vs Andi Vrtacic\nhttps://www.sherdog.com/event
- s/Brave-CF-108-Brave-Combat-Federation-108-112724
+DESCRIPTION:Sofiane Bouafia vs Andi Vrtacic\nDiffusion : Youtube Brave\nht
+ tps://www.sherdog.com/events/Brave-CF-108-Brave-Combat-Federation-108-112
+ 724
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:C'est aujourd'hui
-TRIGGER:PT9H
+DESCRIPTION:Le combat commence dans une heure
+TRIGGER:-PT1H
 END:VALARM
 END:VEVENT
 END:VCALENDAR
