@@ -391,6 +391,23 @@
     "lien_evenement": "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-9-112635"
   },
   {
+    "combattant": "Laid Zerhouni",
+    "url_suivi": "https://www.sherdog.com/fighter/Laid-Zerhouni-210693",
+    "url_adversaire": "https://www.sherdog.com/fighter/Andrzej-Grzebyk-91921",
+    "drapeau": "fr",
+    "record_suivi": "15-10-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Middleweight",
+    "ordre": 994,
+    "drapeau_adversaire": "pl",
+    "adversaire": "Andrzej Grzebyk",
+    "record_adversaire": "22-9-0 (WIN-LOSS-DRAW)",
+    "evenement": "KSW 122",
+    "date": "2026-10-10",
+    "lieu": "Podpromie Hall, Rzeszow, Poland",
+    "lien_evenement": "https://www.sherdog.com/events/KSW-122-Bartosinski-vs-Masaev-113862"
+  },
+  {
     "combattant": "Oualy Tandia",
     "url_suivi": "https://www.sherdog.com/fighter/Oualy-Tandia-419548",
     "url_adversaire": "https://www.sherdog.com/fighter/Kendly-St-Louis-274039",
@@ -491,6 +508,23 @@
     "date": "2026-10-24",
     "lieu": "Zenith Paris - La Villette, Paris, France",
     "lien_evenement": "https://www.sherdog.com/events/HXMMA-48-Hexagone-MMA-48-113686"
+  },
+  {
+    "combattant": "Youssef Boughanem",
+    "url_suivi": "https://www.sherdog.com/fighter/Youssef-Boughanem-442694",
+    "url_adversaire": "https://www.sherdog.com/fighter/Mohamed-Soumah-401441",
+    "drapeau": "be",
+    "record_suivi": "5-0-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Catchweight",
+    "ordre": 999,
+    "drapeau_adversaire": "fr",
+    "adversaire": "Mohamed Soumah",
+    "record_adversaire": "4-3-0 (WIN-LOSS-DRAW)",
+    "evenement": "Ares 44",
+    "date": "2026-10-31",
+    "lieu": "Zenith of Strasbourg, Strasbourg, France",
+    "lien_evenement": "https://www.sherdog.com/events/Ares-44-Strasbourg-111977"
   },
   {
     "combattant": "Baysangur Chamsoudinov",
