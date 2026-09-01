@@ -4,7 +4,7 @@
     "_evenement": "05/09/2026 - Brave CF 108 (Pula)",
     "heure": "20:00",
     "chaine": "Youtube Brave",
-    "lien": "",
+    "lien": "https://www.youtube.com/watch?v=efn4eep-Cjo",
     "heure_prelim": "",
     "prelim": "",
     "lien_prelim": ""
@@ -12,7 +12,7 @@
   "https://www.sherdog.com/events/UFC-Fight-Night-287-Hooker-vs-Parnasse-113189": {
     "_evenement": "05/09/2026 - UFC Fight Night 287 (Paris)",
     "heure": "20:30",
-    "chaine": "RMC Sport 1",
+    "chaine": "RMC Sport 1 et [RMC+](https://www.rmcplus.fr/)",
     "lien": "",
     "heure_prelim": "18:00",
     "prelim": "Twitch RMC Sport",
@@ -81,15 +81,6 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "https://www.sherdog.com/events/KSW-122-Bartosinski-vs-Masaev-113862": {
-    "_evenement": "10/10/2026 - KSW 122 (Rzeszow)",
-    "heure": "",
-    "chaine": "",
-    "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
-  },
   "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Chicago-2-Carmouche-vs-Bishop-2-114222": {
     "_evenement": "16/10/2026 - PFL Chicago 2 (Chicago, IL)",
     "heure": "",
@@ -101,15 +92,6 @@
   },
   "https://www.sherdog.com/events/HXMMA-48-Hexagone-MMA-48-113686": {
     "_evenement": "24/10/2026 - HXMMA 48 (Paris)",
-    "heure": "",
-    "chaine": "",
-    "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
-  },
-  "https://www.sherdog.com/events/Ares-44-Strasbourg-111977": {
-    "_evenement": "31/10/2026 - Ares 44 (Strasbourg)",
     "heure": "",
     "chaine": "",
     "lien": "",
