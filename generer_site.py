@@ -98,6 +98,17 @@ CEINTURE = (
 )
 
 
+# Dans infos.json, tu peux rendre cliquable une partie seulement du
+# texte, ce qui permet de citer deux diffuseurs sur la meme ligne :
+#     "chaine": "RMC Sport 1 et [RMC+](https://www.rmcplus.fr/)"
+MOTIF_LIEN = re.compile(r"\[([^\[\]]+)\]\((https?://[^\s)]+)\)")
+
+
+def texte_sans_liens(valeur):
+    """'A et [B](https://b.fr)' -> 'A et B'. Pour l'agenda et Google."""
+    return MOTIF_LIEN.sub(lambda m: m.group(1), (valeur or "").strip())
+
+
 def charger_json(nom):
     if not os.path.exists(nom):
         return None
@@ -227,10 +238,10 @@ def fichier_agenda(ev, infos, fiches):
         adv = c.get("adversaire_suivi") or c.get("adversaire", "")
         details.append(f"{nom_affiche(c['combattant'])} vs {nom_affiche(adv)}")
     if diff.get("chaine"):
-        details.append("Diffusion : " + diff["chaine"])
+        details.append("Diffusion : " + texte_sans_liens(diff["chaine"]))
     if diff.get("prelim"):
         avant = (diff.get("heure_prelim") or "").strip()
-        details.append("Prelims : " + diff["prelim"]
+        details.append("Prelims : " + texte_sans_liens(diff["prelim"])
                        + (f" ({avant})" if avant else ""))
     if lien:
         details.append(lien)
@@ -1857,8 +1868,20 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
         diff = {}
 
     def _lien(texte, adresse):
-        """Rend le texte cliquable seulement si une adresse est fournie."""
+        """Rend le texte cliquable. Deux ecritures possibles :
+
+        - "chaine": "RMC Sport 1" + "lien": "https://..."
+          tout le texte est cliquable, comme avant ;
+        - "chaine": "RMC Sport 1 et [RMC+](https://www.rmcplus.fr/)"
+          seul RMC+ l'est, ce qui permet deux diffuseurs sur une ligne.
+        """
         texte = echapper(texte)
+        if MOTIF_LIEN.search(texte):
+            # des liens imbriques seraient invalides : le champ lien
+            # est ignore quand le texte porte deja ses propres adresses
+            return MOTIF_LIEN.sub(
+                lambda m: (f'<a href="{m.group(2)}" target="_blank" '
+                           f'rel="noopener">{m.group(1)}</a>'), texte)
         adresse = (adresse or "").strip()
         if adresse.startswith("http"):
             return (f'<a href="{echapper(adresse)}" target="_blank" '
@@ -2330,7 +2353,7 @@ def donnees_structurees(mois_groupes, infos):
                     "name": lieu.split(",")[0].strip() or lieu,
                     "address": lieu,
                 }
-            chaine = (info.get("chaine") or "").strip()
+            chaine = texte_sans_liens(info.get("chaine"))
             if chaine:
                 bloc["description"] = "Diffusion : " + chaine
                 bloc["publication"] = {
@@ -2461,7 +2484,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 79
+VERSION = 80
 
 
 def ecrire_manifeste():
