@@ -405,7 +405,7 @@
     "evenement": "KSW 122",
     "date": "2026-10-10",
     "lieu": "Podpromie Hall, Rzeszow, Poland",
-    "lien_evenement": "https://www.sherdog.com/events/KSW-122-Bartosinski-vs-Masaev-113862"
+    "lien_evenement": "https://www.sherdog.com/events/KSW-122-Yakymenko-vs-Morelli-113862"
   },
   {
     "combattant": "Oualy Tandia",
@@ -415,7 +415,7 @@
     "record_suivi": "5-0-0 (WIN-LOSS-DRAW)",
     "titre": false,
     "categorie": "Welterweight",
-    "ordre": 998,
+    "ordre": 996,
     "drapeau_adversaire": "us",
     "adversaire": "Kendly St. Louis",
     "record_adversaire": "11-6-0 (WIN-LOSS-DRAW)",
@@ -516,15 +516,15 @@
     "drapeau": "be",
     "record_suivi": "5-0-0 (WIN-LOSS-DRAW)",
     "titre": false,
-    "categorie": "Catchweight",
-    "ordre": 999,
+    "categorie": "Lightweight",
+    "ordre": 0,
     "drapeau_adversaire": "fr",
     "adversaire": "Mohamed Soumah",
     "record_adversaire": "4-3-0 (WIN-LOSS-DRAW)",
     "evenement": "Ares 44",
     "date": "2026-10-31",
     "lieu": "Zenith of Strasbourg, Strasbourg, France",
-    "lien_evenement": "https://www.sherdog.com/events/Ares-44-Strasbourg-111977"
+    "lien_evenement": "https://www.sherdog.com/events/Ares-44-Boughanem-vs-Soumah-111977"
   },
   {
     "combattant": "Baysangur Chamsoudinov",
