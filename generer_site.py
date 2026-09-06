@@ -60,9 +60,9 @@ ORGAS = [
     ("ufc", "ufc", "UFC"),
     ("ksw", "ksw", "KSW"),
     ("ares", "ares", "ARES"),
-    ("hexagone", "hexagone", "HEXAGONE MMA"),
-    ("hxmma", "hexagone", "HEXAGONE MMA"),
-    ("hx mma", "hexagone", "HEXAGONE MMA"),
+    ("hexagone", "hexagone", "Hexagone MMA"),
+    ("hxmma", "hexagone", "Hexagone MMA"),
+    ("hx mma", "hexagone", "Hexagone MMA"),
     ("oktagon", "oktagon", "OKTAGON"),
     ("cage warriors", "cagewarriors", "CAGE WARRIORS"),
     ("professional fighters", "pfl", "PFL"),
@@ -166,6 +166,39 @@ def decalage_paris(jour):
     return 2 if debut <= jour < fin else 1
 
 
+# Une heure saisie avant HEURE_NUIT designe la nuit suivante. Sherdog
+# date les cartes americaines au jour local : un gala du samedi soir a
+# Las Vegas passe chez nous a 4h du matin, donc le dimanche. Tu ecris
+# l'heure sur la ligne du samedi, comme dans un programme tele, et
+# c'est ici qu'on retablit l'instant reel. Aucun gala ne commence a 4h
+# du matin heure francaise le soir annonce : la regle est sans risque.
+# Mets 0 pour la desactiver.
+HEURE_NUIT = 9
+
+
+def instant_utc(date_iso, heure):
+    """Date et heure de Paris -> instant en temps universel.
+
+    Ne sert qu'aux fichiers agenda, qui doivent declencher un rappel au
+    bon moment. La date affichee sur le site, elle, ne bouge pas.
+    """
+    m = re.fullmatch(r"(\d{1,2})[:hH](\d{2})", (heure or "").strip())
+    if not m:
+        return None
+    try:
+        jour = datetime.strptime(date_iso, "%Y-%m-%d").date()
+    except ValueError:
+        return None
+
+    h, mn = int(m.group(1)), int(m.group(2))
+    depart = datetime(jour.year, jour.month, jour.day, h, mn)
+    if h < HEURE_NUIT:
+        depart += timedelta(days=1)
+    # le decalage se lit sur le jour ou l'evenement a lieu, ce qui
+    # couvre les deux nuits de changement d'heure de l'annee
+    return depart - timedelta(hours=decalage_paris(depart.date()))
+
+
 def _ics_echapper(texte):
     return (texte.replace("\\", "\\\\").replace(";", "\\;")
                  .replace(",", "\\,").replace("\n", "\\n"))
@@ -211,10 +244,8 @@ def fichier_agenda(ev, infos, fiches):
     lignes.append("DTSTAMP:" + datetime.now(timezone.utc)
                   .strftime("%Y%m%dT%H%M%SZ"))
 
-    if re.fullmatch(r"\d{1,2}[:hH]\d{2}", heure):
-        h, m = re.split(r"[:hH]", heure)
-        depart = datetime(jour.year, jour.month, jour.day, int(h), int(m))
-        depart -= timedelta(hours=decalage_paris(jour))   # vers l'heure UTC
+    depart = instant_utc(ev["date"], heure)
+    if depart is not None:
         fin = depart + timedelta(hours=3)
         lignes.append("DTSTART:" + depart.strftime("%Y%m%dT%H%M%SZ"))
         lignes.append("DTEND:" + fin.strftime("%Y%m%dT%H%M%SZ"))
@@ -491,6 +522,8 @@ RACCOURCIS = {
     "absolute championship akhmat": "ACA",
     "extreme fighting championship worldwide": "EFC",
     "rizin fighting federation": "RIZIN",
+    "hxmma": "Hexagone MMA",
+    "hx mma": "Hexagone MMA",
 }
 
 
@@ -575,13 +608,19 @@ def nom_evenement_court(nom):
     return nom
 
 
+# Noms qui se suffisent a eux-memes : contrairement a un sigle comme
+# PFL, ils n'ont pas besoin qu'on aille chercher un complement dans
+# l'adresse de la page, ce qui y collerait la ville et rallongerait.
+NOMS_COMPLETS = {"hexagone mma"}
+
+
 def nom_evenement(evenement, lien=""):
     """Nom court et lisible, quel que soit le format renvoye par Sherdog."""
     resultat = nettoyer_nom(evenement)
 
     # S'il ne reste que le sigle, le nom complet est dans l'adresse de la page,
     # qu'il faut nettoyer de la meme facon.
-    sigles = {c.lower() for c in RACCOURCIS.values()}
+    sigles = {c.lower() for c in RACCOURCIS.values()} - NOMS_COMPLETS
     if resultat.lower() in sigles:
         depuis_lien = nettoyer_nom(nom_depuis_lien(lien))
         if depuis_lien and depuis_lien.lower() not in sigles:
@@ -2484,7 +2523,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 80
+VERSION = 83
 
 
 def ecrire_manifeste():
