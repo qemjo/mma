@@ -2,8 +2,10 @@ name: Mise a jour quotidienne
 
 on:
   schedule:
-    # 06h00 UTC, soit 08h00 en France l'ete
-    - cron: "0 6 * * *"
+       # 03h30 UTC vise, mais GitHub retarde les taches planifiees
+    # d'environ 4h30 : on obtient donc 8h UTC en pratique, soit
+    # 10h en France l'ete et 9h l'hiver.
+    - cron: "30 3 * * *"
   workflow_dispatch:
 
 permissions:
