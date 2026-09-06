@@ -1,5 +1,104 @@
 [
   {
+    "combattant": "Salahdine Parnasse",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Dan Hooker",
+    "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "methode": "TKO (Body Kick and Punches)"
+  },
+  {
+    "combattant": "Morgan Charriere",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Felipe Lima",
+    "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Fares Ziam",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Axel Sola",
+    "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Oumar Sy",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Modestas Bukauskas",
+    "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "methode": "TKO (Knee and Punches)"
+  },
+  {
+    "combattant": "Nora Cornolle",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Klaudia Sygula",
+    "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Losene Keita",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Muhammadjon Naimov",
+    "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Matthieu Letho Duclos",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Luis Felipe Dias",
+    "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Axel Sola",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Fares Ziam",
+    "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "methode": "KO (Punch)"
+  },
+  {
+    "combattant": "Sofiane Bouafia",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Andi Vrtacic",
+    "evenement": "Brave CF 108 - Brave Combat Federation 108",
+    "date": "2026-09-05",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Delphine Benouaich",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Sofia Montenegro",
+    "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "methode": "Technical Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Michael Aljarouj",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Fabia Sintes",
+    "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+    "date": "2026-09-05",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Movsar Ibragimov",
     "drapeau": "be",
     "resultat": "loss",
@@ -666,15 +765,6 @@
     "methode": "Decision (Split)"
   },
   {
-    "combattant": "Axel Sola",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Mason Jones",
-    "evenement": "UFC Fight Night 270 - Evloev vs. Murphy",
-    "date": "2026-03-21",
-    "methode": "Decision (Unanimous)"
-  },
-  {
     "combattant": "Mathys Duragrin",
     "drapeau": "fr",
     "resultat": "loss",
@@ -891,15 +981,6 @@
     "methode": "Technical Submission (Anaconda Choke)"
   },
   {
-    "combattant": "Salahdine Parnasse",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Marcin Held",
-    "evenement": "KSW 114 - Parnasse vs. Held",
-    "date": "2026-01-17",
-    "methode": "TKO (Punches)"
-  },
-  {
     "combattant": "Amaury Wako-Zabo",
     "drapeau": "fr",
     "resultat": "win",
@@ -1107,15 +1188,6 @@
     "methode": "TKO (Knee and Punches)"
   },
   {
-    "combattant": "Fares Ziam",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Nazim Sadykhov",
-    "evenement": "UFC 323 - Dvalishvili vs. Yan 2",
-    "date": "2025-12-06",
-    "methode": "TKO (Elbows and Punches)"
-  },
-  {
     "combattant": "Nicolas Leblond",
     "drapeau": "fr",
     "resultat": "win",
@@ -1231,15 +1303,6 @@
     "evenement": "GFTC 004 - International",
     "date": "2025-11-08",
     "methode": "TKO (Punches)"
-  },
-  {
-    "combattant": "Matthieu Letho Duclos",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Moacir Rocha",
-    "evenement": "HXMMA 36 - Hexagone MMA 36",
-    "date": "2025-11-07",
-    "methode": "KO (Knee and Punch)"
   },
   {
     "combattant": "Ciryl Gane",
@@ -1422,15 +1485,6 @@
     "methode": "KO (Knee and Punches)"
   },
   {
-    "combattant": "Delphine Benouaich",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Ingrid Silva",
-    "evenement": "Ares 34 - Begai vs. Diakhate",
-    "date": "2025-09-13",
-    "methode": "Decision (Split)"
-  },
-  {
     "combattant": "Modibo Diakite",
     "drapeau": "fr",
     "resultat": "win",
@@ -1467,15 +1521,6 @@
     "methode": "Decision (Unanimous)"
   },
   {
-    "combattant": "Oumar Sy",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Brendson Ribeiro",
-    "evenement": "UFC Fight Night 258 - Imavov vs. Borralho",
-    "date": "2025-09-06",
-    "methode": "TKO (Elbows and Punches)"
-  },
-  {
     "combattant": "Dimitry Solimeis",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1501,15 +1546,6 @@
     "evenement": "HXMMA 32 - Hexagone MMA 32",
     "date": "2025-08-10",
     "methode": "Submission (Armbar)"
-  },
-  {
-    "combattant": "Nora Cornolle",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Karol Rosa",
-    "evenement": "UFC on ESPN 71 - Taira vs. Park",
-    "date": "2025-08-02",
-    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Asael Adjoudj",
@@ -1539,15 +1575,6 @@
     "methode": "Decision (Unanimous)"
   },
   {
-    "combattant": "Morgan Charriere",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Nate Landwehr",
-    "evenement": "UFC on ESPN 70 - Lewis vs. Teixeira",
-    "date": "2025-07-12",
-    "methode": "KO (Punches)"
-  },
-  {
     "combattant": "Brice Picaud",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1555,15 +1582,6 @@
     "evenement": "Brave CF 97 - Brave Combat Federation 97",
     "date": "2025-07-12",
     "methode": "Submission (Rear-Naked Choke)"
-  },
-  {
-    "combattant": "Sofiane Bouafia",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Plamen Penchev",
-    "evenement": "Brave CF 97 - Brave Combat Federation 97",
-    "date": "2025-07-12",
-    "methode": "KO (Punch)"
   },
   {
     "combattant": "Adam Meskini",
@@ -1854,15 +1872,6 @@
     "methode": "Submission (Guillotine Choke)"
   },
   {
-    "combattant": "Losene Keita",
-    "drapeau": "be",
-    "resultat": "win",
-    "adversaire": "Ronald Paradeiser",
-    "evenement": "Oktagon MMA - Oktagon 65: Paradeiser vs. Keita 2",
-    "date": "2024-12-29",
-    "methode": "TKO (Elbow and Punches)"
-  },
-  {
     "combattant": "Ramzan Jembiev",
     "drapeau": "fr",
     "resultat": "win",
@@ -1924,15 +1933,6 @@
     "evenement": "Professional Fighters League - 2024 Season PFL Championships & PFL MENA 2024 Finals",
     "date": "2024-11-29",
     "methode": "Submission (Rear-Naked Choke)"
-  },
-  {
-    "combattant": "Michael Aljarouj",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Pedro Nobre",
-    "evenement": "HXMMA 21 - Hexagone MMA 21",
-    "date": "2024-11-23",
-    "methode": "KO (Punch)"
   },
   {
     "combattant": "Ghiles Oudelha",
