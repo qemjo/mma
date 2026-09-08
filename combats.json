@@ -177,7 +177,7 @@
     "record_suivi": "7-2-0 (WIN-LOSS-DRAW)",
     "titre": false,
     "categorie": "Featherweight",
-    "ordre": 996,
+    "ordre": 997,
     "drapeau_adversaire": "sy",
     "adversaire": "Shadi Kabbani",
     "record_adversaire": "5-0-0 (WIN-LOSS-DRAW)",
@@ -219,6 +219,23 @@
     "date": "2026-10-10",
     "lieu": "Podpromie Hall, Rzeszow, Poland",
     "lien_evenement": "https://www.sherdog.com/events/KSW-122-Yakymenko-vs-Morelli-113862"
+  },
+  {
+    "combattant": "Yanis Ghemmouri",
+    "url_suivi": "https://www.sherdog.com/fighter/Yanis-Ghemmouri-180745",
+    "url_adversaire": "https://www.sherdog.com/fighter/Taha-Bendaoud-304015",
+    "drapeau": "fr",
+    "record_suivi": "13-4-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Featherweight",
+    "ordre": 991,
+    "drapeau_adversaire": "ca",
+    "adversaire": "Taha Bendaoud",
+    "record_adversaire": "5-2-0 (WIN-LOSS-DRAW)",
+    "evenement": "Professional Fighters League",
+    "date": "2026-10-10",
+    "lieu": "Mohammed V Sports Complex, Casablanca, Morocco",
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Africa-3-2026-Playoffs-113283"
   },
   {
     "combattant": "Laid Zerhouni",
