@@ -3,14 +3,14 @@ VERSION:2.0
 PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:2026-12-12-pfl-lyon@mmaradar.fr
-DTSTAMP:20260910T082632Z
+UID:2026-12-12-pfl-lyon-2026@mmaradar.fr
+DTSTAMP:20260911T082044Z
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
-SUMMARY:PFL Lyon
+SUMMARY:PFL Lyon 2026
 LOCATION:LDLC Arena\, Lyon\, France
 DESCRIPTION:Taylor Lapilus vs Mitchell McKee\nhttps://www.sherdog.com/even
- ts/Professional-Fighters-League-PFL-Lyon-114297
+ ts/Professional-Fighters-League-PFL-Lyon-2026-114297
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui

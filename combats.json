@@ -102,6 +102,23 @@
     "lien_evenement": "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-7-112633"
   },
   {
+    "combattant": "Damien Lapilus",
+    "url_suivi": "https://www.sherdog.com/fighter/Damien-Lapilus-87477",
+    "url_adversaire": "https://www.sherdog.com/fighter/Nicolae-Bivol-397607",
+    "drapeau": "fr",
+    "record_suivi": "23-15-3 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Lightweight",
+    "ordre": 0,
+    "drapeau_adversaire": "md",
+    "adversaire": "Nicolae Bivol",
+    "record_adversaire": "7-3-0 (WIN-LOSS-DRAW)",
+    "evenement": "HXMMA 47",
+    "date": "2026-09-25",
+    "lieu": "Zenith Toulouse Metropole, Toulouse, France",
+    "lien_evenement": "https://www.sherdog.com/events/HXMMA-47-Hexagone-MMA-47-113523"
+  },
+  {
     "combattant": "Alexis Nicolas",
     "url_suivi": "https://www.sherdog.com/fighter/Alexis-Nicolas-441547",
     "url_adversaire": "https://www.sherdog.com/fighter/Ilyasse-Drabo-474121",
@@ -228,7 +245,7 @@
     "record_suivi": "13-4-0 (WIN-LOSS-DRAW)",
     "titre": false,
     "categorie": "Featherweight",
-    "ordre": 991,
+    "ordre": 990,
     "drapeau_adversaire": "ca",
     "adversaire": "Taha Bendaoud",
     "record_adversaire": "5-2-0 (WIN-LOSS-DRAW)",
@@ -262,7 +279,7 @@
     "record_suivi": "5-0-0 (WIN-LOSS-DRAW)",
     "titre": false,
     "categorie": "Welterweight",
-    "ordre": 995,
+    "ordre": 994,
     "drapeau_adversaire": "us",
     "adversaire": "Kendly St. Louis",
     "record_adversaire": "11-6-0 (WIN-LOSS-DRAW)",
@@ -456,6 +473,6 @@
     "evenement": "Professional Fighters League",
     "date": "2026-12-12",
     "lieu": "LDLC Arena, Lyon, France",
-    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-114297"
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-114297"
   }
 ]

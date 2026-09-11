@@ -3,15 +3,14 @@ VERSION:2.0
 PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:2026-09-25-ares-43@mmaradar.fr
+UID:2026-09-25-hexagone-mma-47@mmaradar.fr
 DTSTAMP:20260911T082044Z
 DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
-SUMMARY:Ares 43
-LOCATION:Adidas Arena\, Paris\, France
-DESCRIPTION:Fabacary Diatta vs Josh O'Connor\nAlexis Nicolas vs Ilyasse Dr
- abo\nJimmy Vienot vs Jan Stastny\nhttps://www.sherdog.com/events/Ares-43-
- OConnor-vs-Diatta-112452
+SUMMARY:Hexagone MMA 47
+LOCATION:Zenith Toulouse Metropole\, Toulouse\, France
+DESCRIPTION:Damien Lapilus vs Nicolae Bivol\nhttps://www.sherdog.com/event
+ s/HXMMA-47-Hexagone-MMA-47-113523
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui
