@@ -23,15 +23,15 @@
     "drapeau": "be",
     "record_suivi": "7-2-0 (WIN-LOSS-DRAW)",
     "titre": false,
-    "categorie": "Featherweight",
+    "categorie": "Catchweight",
     "ordre": 0,
     "drapeau_adversaire": "rs",
     "adversaire": "Bozidar Trivunovic",
     "record_adversaire": "7-2-0 (WIN-LOSS-DRAW)",
-    "evenement": "HXMMA 46",
+    "evenement": "HXMMA",
     "date": "2026-09-12",
     "lieu": "Zenith de Rouen, Le Grand-Quevilly, France",
-    "lien_evenement": "https://www.sherdog.com/events/HXMMA-46-Hexagone-MMA-46-113782"
+    "lien_evenement": "https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-5-113782"
   },
   {
     "combattant": "Souhil Arezki",
@@ -45,10 +45,10 @@
     "drapeau_adversaire": "ru",
     "adversaire": "Zelimkhan Umarov",
     "record_adversaire": "3-3-0 (WIN-LOSS-DRAW)",
-    "evenement": "HXMMA 46",
+    "evenement": "HXMMA",
     "date": "2026-09-12",
     "lieu": "Zenith de Rouen, Le Grand-Quevilly, France",
-    "lien_evenement": "https://www.sherdog.com/events/HXMMA-46-Hexagone-MMA-46-113782"
+    "lien_evenement": "https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-5-113782"
   },
   {
     "combattant": "Alan Baudot",
@@ -62,10 +62,10 @@
     "drapeau_adversaire": "sn",
     "adversaire": "Mamadou Lamine Sene",
     "record_adversaire": "7-9-0 (WIN-LOSS-DRAW)",
-    "evenement": "HXMMA 46",
+    "evenement": "HXMMA",
     "date": "2026-09-12",
     "lieu": "Zenith de Rouen, Le Grand-Quevilly, France",
-    "lien_evenement": "https://www.sherdog.com/events/HXMMA-46-Hexagone-MMA-46-113782"
+    "lien_evenement": "https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-5-113782"
   },
   {
     "combattant": "Hugo Guillon",
@@ -380,7 +380,7 @@
     "drapeau": "be",
     "record_suivi": "5-0-0 (WIN-LOSS-DRAW)",
     "titre": false,
-    "categorie": "Lightweight",
+    "categorie": "Catchweight",
     "ordre": 0,
     "drapeau_adversaire": "fr",
     "adversaire": "Mohamed Soumah",
@@ -470,6 +470,23 @@
     "drapeau_adversaire": "us",
     "adversaire": "Mitchell McKee",
     "record_adversaire": "11-0-0 (WIN-LOSS-DRAW)",
+    "evenement": "Professional Fighters League",
+    "date": "2026-12-12",
+    "lieu": "LDLC Arena, Lyon, France",
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-114297"
+  },
+  {
+    "combattant": "Boris Atangana",
+    "url_suivi": "https://www.sherdog.com/fighter/Boris-Mbarga-Atangana-409019",
+    "url_adversaire": "https://www.sherdog.com/fighter/Bryan-Battle-249825",
+    "drapeau": "be",
+    "record_suivi": "9-0-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Middleweight",
+    "ordre": 999,
+    "drapeau_adversaire": "us",
+    "adversaire": "Bryan Battle",
+    "record_adversaire": "13-3-0 (WIN-LOSS-DRAW)",
     "evenement": "Professional Fighters League",
     "date": "2026-12-12",
     "lieu": "LDLC Arena, Lyon, France",
