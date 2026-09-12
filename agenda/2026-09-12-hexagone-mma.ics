@@ -4,18 +4,19 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-09-12-hexagone-mma@mmaradar.fr
-DTSTAMP:20260912T081302Z
-DTSTART;VALUE=DATE:20260912
-DTEND;VALUE=DATE:20260913
+DTSTAMP:20260912T153945Z
+DTSTART:20260912T170000Z
+DTEND:20260912T200000Z
 SUMMARY:Hexagone MMA
 LOCATION:Zenith de Rouen\, Le Grand-Quevilly\, France
 DESCRIPTION:Anzor Baybatyrov vs Bozidar Trivunovic\nAlan Baudot vs Mamadou
-  Lamine Sene\nSouhil Arezki vs Zelimkhan Umarov\nhttps://www.sherdog.com/
- events/HXMMA-Hexagone-MMA-Series-5-113782
+  Lamine Sene\nSouhil Arezki vs Zelimkhan Umarov\nDiffusion : Winamax TV s
+ ur Twitch et YouTube\nhttps://www.sherdog.com/events/HXMMA-Hexagone-MMA-S
+ eries-5-113782
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:C'est aujourd'hui
-TRIGGER:PT9H
+DESCRIPTION:Le combat commence dans une heure
+TRIGGER:-PT1H
 END:VALARM
 END:VEVENT
 END:VCALENDAR
