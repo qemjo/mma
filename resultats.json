@@ -1,5 +1,41 @@
 [
   {
+    "combattant": "Manon Fiorot",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Alexa Grasso",
+    "evenement": "UFC Fight Night 288 - Noche UFC 4",
+    "date": "2026-09-12",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Anzor Baybatyrov",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Bozidar Trivunovic",
+    "evenement": "HXMMA - Hexagone MMA Series 5",
+    "date": "2026-09-12",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Souhil Arezki",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Zelimkhan Umarov",
+    "evenement": "HXMMA - Hexagone MMA Series 5",
+    "date": "2026-09-12",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Alan Baudot",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Mamadou Lamine Sene",
+    "evenement": "HXMMA - Hexagone MMA Series 5",
+    "date": "2026-09-12",
+    "methode": "Decision (Split)"
+  },
+  {
     "combattant": "Salahdine Parnasse",
     "drapeau": "fr",
     "resultat": "win",
@@ -738,15 +774,6 @@
     "methode": "Decision (Unanimous)"
   },
   {
-    "combattant": "Anzor Baybatyrov",
-    "drapeau": "be",
-    "resultat": "win",
-    "adversaire": "Thyago Silva Nascimento",
-    "evenement": "La Nuit des Combattants - Boxing and MMA",
-    "date": "2026-03-28",
-    "methode": "TKO"
-  },
-  {
     "combattant": "Oceane Samson",
     "drapeau": "fr",
     "resultat": "win",
@@ -907,15 +934,6 @@
     "evenement": "HXMMA 39 - Hexagone MMA 39",
     "date": "2026-02-06",
     "methode": "Submission (Rear-Naked Choke)"
-  },
-  {
-    "combattant": "Souhil Arezki",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Rafael Gemaque",
-    "evenement": "HXMMA 39 - Hexagone MMA 39",
-    "date": "2026-02-06",
-    "methode": "TKO (Punches)"
   },
   {
     "combattant": "Arnaud Prigent",
@@ -1719,15 +1737,6 @@
     "methode": "KO (Head Kick)"
   },
   {
-    "combattant": "Manon Fiorot",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Valentina Shevchenko",
-    "evenement": "UFC 315 - Muhammad vs. Della Maddalena",
-    "date": "2025-05-10",
-    "methode": "Decision (Unanimous)"
-  },
-  {
     "combattant": "Laid Zerhouni",
     "drapeau": "fr",
     "resultat": "win",
@@ -2230,14 +2239,5 @@
     "evenement": "Bellator 280 - Bader vs. Kongo 2",
     "date": "2022-05-06",
     "methode": "TKO (Punches)"
-  },
-  {
-    "combattant": "Alan Baudot",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Parker Porter",
-    "evenement": "UFC Fight Night 201 - Walker vs. Hill",
-    "date": "2022-02-19",
-    "methode": "Decision (Unanimous)"
   }
 ]
