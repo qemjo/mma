@@ -177,7 +177,7 @@
     "record_suivi": "13-4-0 (WIN-LOSS-DRAW)",
     "titre": false,
     "categorie": "Featherweight",
-    "ordre": 990,
+    "ordre": 991,
     "drapeau_adversaire": "ca",
     "adversaire": "Taha Bendaoud",
     "record_adversaire": "5-2-0 (WIN-LOSS-DRAW)",
@@ -405,7 +405,7 @@
     "evenement": "Professional Fighters League",
     "date": "2026-12-12",
     "lieu": "LDLC Arena, Lyon, France",
-    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-114297"
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297"
   },
   {
     "combattant": "Boris Atangana",
@@ -422,6 +422,6 @@
     "evenement": "Professional Fighters League",
     "date": "2026-12-12",
     "lieu": "LDLC Arena, Lyon, France",
-    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-114297"
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297"
   }
 ]
