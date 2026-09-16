@@ -1,5 +1,14 @@
 [
   {
+    "combattant": "Hugo Guillon",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Luis Hernandez",
+    "evenement": "Dana White's Contender Series - Contender Series 2026: Week 6",
+    "date": "2026-09-15",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
     "combattant": "Manon Fiorot",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1726,15 +1735,6 @@
     "evenement": "Ares 30 - Chamsoudinov vs. Lima",
     "date": "2025-05-16",
     "methode": "TKO (Elbows)"
-  },
-  {
-    "combattant": "Hugo Guillon",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Vladislav Gutu",
-    "evenement": "Ares 30 - Chamsoudinov vs. Lima",
-    "date": "2025-05-16",
-    "methode": "KO (Head Kick)"
   },
   {
     "combattant": "Laid Zerhouni",
