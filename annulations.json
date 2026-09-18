@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "combattant": "Oualy Tandia",
+    "url_suivi": "https://www.sherdog.com/fighter/Oualy-Tandia-419548",
+    "url_adversaire": "https://www.sherdog.com/fighter/Kendly-St-Louis-274039",
+    "drapeau": "fr",
+    "record_suivi": "5-0-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Welterweight",
+    "ordre": 991,
+    "drapeau_adversaire": "us",
+    "adversaire": "Kendly St. Louis",
+    "record_adversaire": "11-6-0 (WIN-LOSS-DRAW)",
+    "evenement": "Professional Fighters League",
+    "date": "2026-10-16",
+    "lieu": "Chicago, Illinois, United States",
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Chicago-2-Carmouche-vs-Bishop-2-114222",
+    "type": "annule",
+    "detecte_le": "2026-09-18"
+  }
+]
