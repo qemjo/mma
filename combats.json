@@ -204,6 +204,23 @@
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Chicago-2-Carmouche-vs-Bishop-2-114222"
   },
   {
+    "combattant": "Losene Keita",
+    "url_suivi": "https://www.sherdog.com/fighter/Losene-Keita-287481",
+    "url_adversaire": "https://www.sherdog.com/fighter/Aaron-Pico-191127",
+    "drapeau": "be",
+    "record_suivi": "17-2-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Featherweight",
+    "ordre": 994,
+    "drapeau_adversaire": "us",
+    "adversaire": "Aaron Pico",
+    "record_adversaire": "14-5-0 (WIN-LOSS-DRAW)",
+    "evenement": "UFC 333",
+    "date": "2026-10-24",
+    "lieu": "Yas Island, Abu Dhabi, United Arab Emirates",
+    "lien_evenement": "https://www.sherdog.com/events/UFC-333-Volkanovski-vs-Evloev-113863"
+  },
+  {
     "combattant": "Turpal Younousov",
     "url_suivi": "https://www.sherdog.com/fighter/Turpal-Younousov-404566",
     "url_adversaire": "https://www.sherdog.com/fighter/Mikail-Bayram-321885",
