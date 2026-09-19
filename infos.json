@@ -1,9 +1,36 @@
 {
   "_aide": "Une entree par evenement, rangee par adresse de sa page Sherdog : deux soirees differentes portent parfois le meme nom. Repere-toi a la ligne _evenement, reecrite a chaque passage, ne la remplis pas. A saisir : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
+  "https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-5-113782": {
+    "_evenement": "12/09/2026 - Hexagone MMA (Le Grand-Quevilly)",
+    "heure": "19:00",
+    "chaine": "Winamax TV sur [Twitch](https://www.twitch.tv/winamaxsport) et [YouTube](https://www.youtube.com/@WinamaxSport)",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "https://www.sherdog.com/events/UFC-Fight-Night-288-Noche-UFC-4-113632": {
+    "_evenement": "12/09/2026 - UFC Fight Night 288 (Glendale, AZ)",
+    "heure": "23:00",
+    "chaine": "RMC Sport 1",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-6-112632": {
+    "_evenement": "15/09/2026 - Contender Series 2026 Week 6 (Las Vegas, NV)",
+    "heure": "01:00",
+    "chaine": "RMC Sport 1",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
   "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-7-112633": {
     "_evenement": "22/09/2026 - Contender Series 2026 Week 7 (Las Vegas, NV)",
-    "heure": "",
-    "chaine": "",
+    "heure": "01:00",
+    "chaine": "RMC Sport 1",
     "lien": "",
     "heure_prelim": "",
     "prelim": "",
@@ -11,8 +38,8 @@
   },
   "https://www.sherdog.com/events/Ares-43-OConnor-vs-Diatta-112452": {
     "_evenement": "25/09/2026 - Ares 43 (Paris)",
-    "heure": "",
-    "chaine": "",
+    "heure": "20:30",
+    "chaine": "CANAL+ SPORT 360",
     "lien": "",
     "heure_prelim": "",
     "prelim": "",
@@ -20,8 +47,8 @@
   },
   "https://www.sherdog.com/events/HXMMA-47-Hexagone-MMA-47-113523": {
     "_evenement": "25/09/2026 - Hexagone MMA 47 (Toulouse)",
-    "heure": "",
-    "chaine": "",
+    "heure": "21:00",
+    "chaine": "RMC Sport 1",
     "lien": "",
     "heure_prelim": "",
     "prelim": "",
@@ -108,7 +135,7 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297": {
+  "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-114297": {
     "_evenement": "12/12/2026 - PFL Lyon 2026 (Lyon)",
     "heure": "",
     "chaine": "",
