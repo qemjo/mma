@@ -4,17 +4,18 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-09-22-contender-series-2026-week-7@mmaradar.fr
-DTSTAMP:20260919T081938Z
-DTSTART;VALUE=DATE:20260922
-DTEND;VALUE=DATE:20260923
+DTSTAMP:20260919T172104Z
+DTSTART:20260922T230000Z
+DTEND:20260923T020000Z
 SUMMARY:Contender Series 2026 Week 7
 LOCATION:Las Vegas\, Nevada\, United States
-DESCRIPTION:Alvi Dasuyev vs Jaden Ortega\nhttps://www.sherdog.com/events/D
- ana-Whites-Contender-Series-Contender-Series-2026-Week-7-112633
+DESCRIPTION:Alvi Dasuyev vs Jaden Ortega\nDiffusion : RMC Sport 1\nhttps:/
+ /www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-202
+ 6-Week-7-112633
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:C'est aujourd'hui
-TRIGGER:PT9H
+DESCRIPTION:Le combat commence dans une heure
+TRIGGER:-PT1H
 END:VALARM
 END:VEVENT
 END:VCALENDAR
