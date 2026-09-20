@@ -17,5 +17,24 @@
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Chicago-2-Carmouche-vs-Bishop-2-114222",
     "type": "annule",
     "detecte_le": "2026-09-18"
+  },
+  {
+    "combattant": "Jimmy Vienot",
+    "url_suivi": "https://www.sherdog.com/fighter/Jimmy-Vienot-391216",
+    "url_adversaire": "https://www.sherdog.com/fighter/Jan-Stastny-321279",
+    "drapeau": "fr",
+    "record_suivi": "2-1-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Lightweight",
+    "ordre": 994,
+    "drapeau_adversaire": "cz",
+    "adversaire": "Jan Stastny",
+    "record_adversaire": "1-1-0 (WIN-LOSS-DRAW)",
+    "evenement": "Ares 43",
+    "date": "2026-09-25",
+    "lieu": "Adidas Arena, Paris, France",
+    "lien_evenement": "https://www.sherdog.com/events/Ares-43-OConnor-vs-Diatta-112452",
+    "type": "annule",
+    "detecte_le": "2026-09-20"
   }
 ]
