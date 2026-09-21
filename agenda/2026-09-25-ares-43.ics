@@ -4,15 +4,14 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-09-25-ares-43@mmaradar.fr
-DTSTAMP:20260920T085230Z
+DTSTAMP:20260921T092251Z
 DTSTART:20260925T183000Z
 DTEND:20260925T213000Z
 SUMMARY:Ares 43
 LOCATION:Adidas Arena\, Paris\, France
 DESCRIPTION:Fabacary Diatta vs Josh O'Connor\nAlexis Nicolas vs Ilyasse Dr
- abo\nJimmy Vienot vs Josenildo  Da Conceicao Pantoja\nDiffusion : CANAL+ 
- SPORT 360\nhttps://www.sherdog.com/events/Ares-43-OConnor-vs-Diatta-11245
- 2
+ abo\nJimmy Vienot vs Josenildo da Conceicao Pantoja\nDiffusion : CANAL+ S
+ PORT 360\nhttps://www.sherdog.com/events/Ares-43-OConnor-vs-Diatta-112452
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Le combat commence dans une heure
