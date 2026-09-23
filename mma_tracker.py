@@ -149,6 +149,7 @@ COMBATTANTS = [
     "Volkan Oezdemir",
     "Robert Valentin",
     "Hugo Guillon",
+    "David Sipra",
 ]
 
 # ---------------------------------------------------------------
