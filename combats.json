@@ -1,22 +1,5 @@
 [
   {
-    "combattant": "Alvi Dasuyev",
-    "url_suivi": "https://www.sherdog.com/fighter/Alvi-Dasuyev-390836",
-    "url_adversaire": "https://www.sherdog.com/fighter/Jaden-Ortega-410570",
-    "drapeau": "be",
-    "record_suivi": "9-0-0 (WIN-LOSS-DRAW)",
-    "titre": false,
-    "categorie": "Welterweight",
-    "ordre": 996,
-    "drapeau_adversaire": "us",
-    "adversaire": "Jaden Ortega",
-    "record_adversaire": "6-0-0 (WIN-LOSS-DRAW)",
-    "evenement": "Dana White's Contender Series",
-    "date": "2026-09-22",
-    "lieu": "Las Vegas, Nevada, United States",
-    "lien_evenement": "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-7-112633"
-  },
-  {
     "combattant": "Damien Lapilus",
     "url_suivi": "https://www.sherdog.com/fighter/Damien-Lapilus-87477",
     "url_adversaire": "https://www.sherdog.com/fighter/Nicolae-Bivol-397607",
@@ -442,6 +425,23 @@
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297"
   },
   {
+    "combattant": "Abdoul Abdouraguimov",
+    "url_suivi": "https://www.sherdog.com/fighter/Abdoul-Abdouraguimov-239869",
+    "url_adversaire": "https://www.sherdog.com/fighter/Andreeas-Binder-255189",
+    "drapeau": "fr",
+    "record_suivi": "20-1-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Welterweight",
+    "ordre": 999,
+    "drapeau_adversaire": "ro",
+    "adversaire": "Andreeas Binder",
+    "record_adversaire": "12-1-0 (WIN-LOSS-DRAW)",
+    "evenement": "Professional Fighters League",
+    "date": "2026-12-12",
+    "lieu": "LDLC Arena, Lyon, France",
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297"
+  },
+  {
     "combattant": "Boris Atangana",
     "url_suivi": "https://www.sherdog.com/fighter/Boris-Mbarga-Atangana-409019",
     "url_adversaire": "https://www.sherdog.com/fighter/Bryan-Battle-249825",
@@ -449,7 +449,7 @@
     "record_suivi": "9-0-0 (WIN-LOSS-DRAW)",
     "titre": false,
     "categorie": "Middleweight",
-    "ordre": 999,
+    "ordre": 998,
     "drapeau_adversaire": "us",
     "adversaire": "Bryan Battle",
     "record_adversaire": "13-3-0 (WIN-LOSS-DRAW)",

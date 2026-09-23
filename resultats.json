@@ -1,5 +1,14 @@
 [
   {
+    "combattant": "Alvi Dasuyev",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Jaden Ortega",
+    "evenement": "Dana White's Contender Series - Contender Series 2026: Week 7",
+    "date": "2026-09-22",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Hugo Guillon",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1249,15 +1258,6 @@
     "evenement": "FAF 3 - In Octogon",
     "date": "2025-11-29",
     "methode": "Decision (Split)"
-  },
-  {
-    "combattant": "Alvi Dasuyev",
-    "drapeau": "be",
-    "resultat": "win",
-    "adversaire": "Kevin Ruart",
-    "evenement": "AEC 16 - Arena Elite Championship 16",
-    "date": "2025-11-29",
-    "methode": "TKO (Punches)"
   },
   {
     "combattant": "Kevin Ruart",
