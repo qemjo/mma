@@ -691,6 +691,36 @@ def fusionner_duels(combats):
     return gardes
 
 
+def retirer_annules_remplaces(combats):
+    """Un combat annule ne reste affiche que si le suivi n'a plus rien.
+
+    Quand un suivi est reprogramme contre un autre adversaire sur la
+    meme soiree, l'ancienne ligne barree ferait doublon : on la retire.
+    Pour un duel entre deux suivis, elle ne part que si les deux ont
+    un autre combat sur la soiree.
+    """
+    def soiree(c):
+        return (c.get("date", ""), c.get("evenement", ""), c.get("lieu", ""))
+
+    def suivis(c):
+        return {normaliser(n) for n in (c.get("combattant"),
+                                        c.get("adversaire_suivi")) if n}
+
+    actifs = {}
+    for c in combats:
+        if not c.get("annule"):
+            actifs.setdefault(soiree(c), set()).update(suivis(c))
+
+    gardes = []
+    for c in combats:
+        if c.get("annule"):
+            noms = suivis(c)
+            if noms and noms <= actifs.get(soiree(c), set()):
+                continue
+        gardes.append(c)
+    return gardes
+
+
 def grouper(combats):
     evenements = {}
     for c in combats:
@@ -2523,7 +2553,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 83
+VERSION = 84
 
 
 def ecrire_manifeste():
@@ -2685,6 +2715,7 @@ def main():
                     c["reporte_depuis"] = m.get("ancienne_date", "")
 
     combats = fusionner_duels(combats)
+    combats = retirer_annules_remplaces(combats)
     mois_groupes = grouper(combats)
     evenements = [ev for _, evs in mois_groupes for ev in evs]
     infos = assurer_infos(evenements)
