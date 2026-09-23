@@ -4,18 +4,17 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-09-25-hexagone-mma-47@mmaradar.fr
-DTSTAMP:20260923T214210Z
-DTSTART:20260925T190000Z
-DTEND:20260925T220000Z
+DTSTAMP:20260923T232454Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
 SUMMARY:Hexagone MMA 47
 LOCATION:Zenith Toulouse Metropole\, Toulouse\, France
 DESCRIPTION:Damien Lapilus vs Nicolae Bivol\nDavid Sipra vs Azevedo Junior
- \nDiffusion : RMC Sport 1\nhttps://www.sherdog.com/events/HXMMA-47-Hexago
- ne-MMA-47-113523
+ \nhttps://www.sherdog.com/events/HXMMA-47-Hexagone-MMA-47-113523
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Le combat commence dans une heure
-TRIGGER:-PT1H
+DESCRIPTION:C'est aujourd'hui
+TRIGGER:PT9H
 END:VALARM
 END:VEVENT
 END:VCALENDAR
