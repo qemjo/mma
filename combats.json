@@ -68,6 +68,23 @@
     "lien_evenement": "https://www.sherdog.com/events/Ares-43-OConnor-vs-Diatta-112452"
   },
   {
+    "combattant": "David Sipra",
+    "url_suivi": "https://www.sherdog.com/fighter/David-Sipra-332915",
+    "url_adversaire": "https://www.sherdog.com/fighter/Azevedo-Junior-393747",
+    "drapeau": "fr",
+    "record_suivi": "5-1-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Lightweight",
+    "ordre": 990,
+    "drapeau_adversaire": "br",
+    "adversaire": "Azevedo Junior",
+    "record_adversaire": "6-1-0 (WIN-LOSS-DRAW)",
+    "evenement": "HXMMA 47",
+    "date": "2026-09-25",
+    "lieu": "Zenith Toulouse Metropole, Toulouse, France",
+    "lien_evenement": "https://www.sherdog.com/events/HXMMA-47-Hexagone-MMA-47-113523"
+  },
+  {
     "combattant": "Ylies Djiroun",
     "url_suivi": "https://www.sherdog.com/fighter/Ylies-Djiroun-86566",
     "url_adversaire": "https://www.sherdog.com/fighter/Basel-Ahmed-Shalaan-340377",

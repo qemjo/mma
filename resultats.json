@@ -1098,6 +1098,15 @@
     "methode": "Decision (Split)"
   },
   {
+    "combattant": "David Sipra",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Theo Ulrich",
+    "evenement": "HXMMA 37 - Hexagone MMA 37",
+    "date": "2026-01-09",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Jason Ponet",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1501,6 +1510,15 @@
     "evenement": "HXMMA 35 - Hexagone MMA 35",
     "date": "2025-09-26",
     "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "David Sipra",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Julian Schlouch",
+    "evenement": "HXMMA 35 - Hexagone MMA 35",
+    "date": "2025-09-26",
+    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Oualy Tandia",
