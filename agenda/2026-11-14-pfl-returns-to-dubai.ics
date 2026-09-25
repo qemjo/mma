@@ -4,14 +4,14 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-11-14-pfl-returns-to-dubai@mmaradar.fr
-DTSTAMP:20260924T084655Z
+DTSTAMP:20260925T001936Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:PFL Returns to Dubai
 LOCATION:Coca-Cola Arena\, Dubai\, United Arab Emirates
-DESCRIPTION:Patrick Habirora vs Omar El Dafrawy\nhttps://www.sherdog.com/e
- vents/Professional-Fighters-League-PFL-Returns-to-Dubai-Nemkov-vs-Biloste
- nniy-114296
+DESCRIPTION:Patrick Habirora vs Omar El Dafrawy\nAsael Adjoudj vs Movlid K
+ haybulaev\nhttps://www.sherdog.com/events/Professional-Fighters-League-PF
+ L-Returns-to-Dubai-Nemkov-vs-Bilostenniy-114296
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui
