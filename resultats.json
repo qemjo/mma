@@ -1,5 +1,41 @@
 [
   {
+    "combattant": "Alexis Nicolas",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ilyasse Drabo",
+    "evenement": "Ares 43 - O'Connor vs. Diatta",
+    "date": "2026-09-25",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Fabacary Diatta",
+    "drapeau": "fr",
+    "resultat": "draw",
+    "adversaire": "Josh O'Connor",
+    "evenement": "Ares 43 - O'Connor vs. Diatta",
+    "date": "2026-09-25",
+    "methode": "Draw (Majority)"
+  },
+  {
+    "combattant": "Jimmy Vienot",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Josenildo Pantoja",
+    "evenement": "Ares 43 - O'Connor vs. Diatta",
+    "date": "2026-09-25",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "David Sipra",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Nicolae Bivol",
+    "evenement": "HXMMA 47 - Hexagone MMA 47",
+    "date": "2026-09-25",
+    "methode": "TKO (Elbow and Punches)"
+  },
+  {
     "combattant": "Alvi Dasuyev",
     "drapeau": "be",
     "resultat": "win",
@@ -1179,15 +1215,6 @@
     "methode": "Submission (Rear-Naked Choke)"
   },
   {
-    "combattant": "Jimmy Vienot",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Alessio D'Auria",
-    "evenement": "Ares 36 - Jbalia vs. Sabirov",
-    "date": "2025-12-13",
-    "methode": "KO (Punch)"
-  },
-  {
     "combattant": "Delphine Benouaich",
     "drapeau": "fr",
     "resultat": "win",
@@ -1510,15 +1537,6 @@
     "evenement": "HXMMA 35 - Hexagone MMA 35",
     "date": "2025-09-26",
     "methode": "KO (Punches)"
-  },
-  {
-    "combattant": "David Sipra",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Julian Schlouch",
-    "evenement": "HXMMA 35 - Hexagone MMA 35",
-    "date": "2025-09-26",
-    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Oualy Tandia",
@@ -2194,15 +2212,6 @@
     "evenement": "Bellator 296 - Mousasi vs. Edwards",
     "date": "2023-05-12",
     "methode": "KO (Punch)"
-  },
-  {
-    "combattant": "Fabacary Diatta",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Keir Harvie",
-    "evenement": "Bellator 296 - Mousasi vs. Edwards",
-    "date": "2023-05-12",
-    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Anthony Salamone",
