@@ -150,6 +150,13 @@ COMBATTANTS = [
     "Robert Valentin",
     "Hugo Guillon",
     "David Sipra",
+    "Ugo-Antton Vidal",
+    "Vincent Yerly",
+    "Morgane Dehaye",
+    "Wael Kambouche",
+    "Akhmad Amaev",
+    "Mahamadou Soukouna",
+    "Elie Caille",
 ]
 
 # ---------------------------------------------------------------
@@ -208,6 +215,13 @@ FICHES_MANUELLES = {
     "Volkan Oezdemir": "https://www.sherdog.com/fighter/Volkan-Oezdemir-58503",
     "Robert Valentin": "https://www.sherdog.com/fighter/Robert-Valentin-241133",
     "Hugo Guillon": "https://www.sherdog.com/fighter/Hugo-Guillon-376012",
+    "Ugo-Antton Vidal": "https://www.sherdog.com/fighter/UgoAntton-Vidal-433684",
+    "Vincent Yerly": "https://www.sherdog.com/fighter/Vincent-Yerly-381095",
+    "Morgane Dehaye": "https://www.sherdog.com/fighter/Morgane-Dehaye-307669",
+    "Wael Kambouche": "https://www.sherdog.com/fighter/Wael-Kambouche-422666",
+    "Akhmad Amaev": "https://www.sherdog.com/fighter/Akhmad-Amaev-338675",
+    "Mahamadou Soukouna": "https://www.sherdog.com/fighter/Mahamadou-Soukouna-419767",
+    "Elie Caille": "https://www.sherdog.com/fighter/Elie-Caille-398905",
 }
 
 BASE = "https://www.sherdog.com"

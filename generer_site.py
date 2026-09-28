@@ -135,6 +135,7 @@ def charger_json(nom):
 NOMS_AFFICHES = {
     "Baysangur Chamsoudinov": "Baki",
     "Paul Denis Navero": "Paul Dena",
+    "Ugo-Antton Vidal": "Ugo Vidal",
 }
 
 
@@ -2553,7 +2554,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 84
+VERSION = 85
 
 
 def ecrire_manifeste():
