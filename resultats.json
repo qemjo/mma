@@ -36,6 +36,69 @@
     "methode": "TKO (Elbow and Punches)"
   },
   {
+    "combattant": "Ugo-Antton Vidal",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Morgan Thong",
+    "evenement": "HXMMA 47 - Hexagone MMA 47",
+    "date": "2026-09-25",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Vincent Yerly",
+    "drapeau": "ch",
+    "resultat": "win",
+    "adversaire": "Joelson Ferreira",
+    "evenement": "Ares 43 - O'Connor vs. Diatta",
+    "date": "2026-09-25",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Morgane Dehaye",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Alison Canot",
+    "evenement": "HXMMA 47 - Hexagone MMA 47",
+    "date": "2026-09-25",
+    "methode": "TKO (Body Kick and Punches)"
+  },
+  {
+    "combattant": "Wael Kambouche",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ulysse Obame Ndong",
+    "evenement": "Ares 43 - O'Connor vs. Diatta",
+    "date": "2026-09-25",
+    "methode": "Submission (Anaconda Choke)"
+  },
+  {
+    "combattant": "Akhmad Amaev",
+    "drapeau": "ru",
+    "resultat": "win",
+    "adversaire": "Luke Shanks",
+    "evenement": "Ares 43 - O'Connor vs. Diatta",
+    "date": "2026-09-25",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Mahamadou Soukouna",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Elie Caille",
+    "evenement": "HXMMA 47 - Hexagone MMA 47",
+    "date": "2026-09-25",
+    "methode": "Decision (Split)"
+  },
+  {
+    "combattant": "Elie Caille",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Mahamadou Soukouna",
+    "evenement": "HXMMA 47 - Hexagone MMA 47",
+    "date": "2026-09-25",
+    "methode": "Decision (Split)"
+  },
+  {
     "combattant": "Alvi Dasuyev",
     "drapeau": "be",
     "resultat": "win",
@@ -612,6 +675,15 @@
     "methode": "Technical Submission (Arm-Triangle Choke)"
   },
   {
+    "combattant": "Akhmad Amaev",
+    "drapeau": "ru",
+    "resultat": "win",
+    "adversaire": "Harles Cunha",
+    "evenement": "Lions FC 12 - Lions Fighting Championship 12",
+    "date": "2026-05-01",
+    "methode": "TKO (Knee to the Body and Elbows)"
+  },
+  {
     "combattant": "Romain Debienne",
     "drapeau": "fr",
     "resultat": "win",
@@ -635,6 +707,15 @@
     "resultat": "win",
     "adversaire": "Jenethzareth McTurk",
     "evenement": "HXMMA - Hexagone MMA Series 4",
+    "date": "2026-04-25",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Elie Caille",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Faudel Bentayeb",
+    "evenement": "One Punch Night - OPN 1",
     "date": "2026-04-25",
     "methode": "Decision (Unanimous)"
   },
@@ -1053,6 +1134,24 @@
     "methode": "Technical Submission (Anaconda Choke)"
   },
   {
+    "combattant": "Vincent Yerly",
+    "drapeau": "ch",
+    "resultat": "win",
+    "adversaire": "Mathieu Abbe",
+    "evenement": "Ares 38 - Zebo vs. Mustafaev",
+    "date": "2026-01-30",
+    "methode": "Submission (Arm-Triangle Choke)"
+  },
+  {
+    "combattant": "Mahamadou Soukouna",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ronaldo Oliveira Silva",
+    "evenement": "HXMMA 38 - Hexagone MMA 38",
+    "date": "2026-01-23",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Amaury Wako-Zabo",
     "drapeau": "fr",
     "resultat": "win",
@@ -1258,6 +1357,15 @@
     "evenement": "Ares 36 - Jbalia vs. Sabirov",
     "date": "2025-12-13",
     "methode": "TKO (Knee and Punches)"
+  },
+  {
+    "combattant": "Wael Kambouche",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Maike Garros",
+    "evenement": "Ares 36 - Jbalia vs. Sabirov",
+    "date": "2025-12-13",
+    "methode": "TKO (Elbows and Punches)"
   },
   {
     "combattant": "Nicolas Leblond",
@@ -1671,6 +1779,15 @@
     "adversaire": "Chequina Noso Pedro",
     "evenement": "Professional Fighters League - PFL Europe 2: 2025 First Round",
     "date": "2025-07-05",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Morgane Dehaye",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Kelley Hamming",
+    "evenement": "HXMMA 31 - Hexagone x Enfusion 16",
+    "date": "2025-06-21",
     "methode": "Decision (Unanimous)"
   },
   {
