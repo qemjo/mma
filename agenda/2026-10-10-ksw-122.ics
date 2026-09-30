@@ -4,13 +4,13 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-10-10-ksw-122@mmaradar.fr
-DTSTAMP:20260929T102358Z
+DTSTAMP:20260930T100245Z
 DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 SUMMARY:KSW 122
 LOCATION:Podpromie Hall\, Rzeszow\, Poland
-DESCRIPTION:Wilson Varela vs Marian Ziolkowski\nLaid Zerhouni vs Andrzej G
- rzebyk\nhttps://www.sherdog.com/events/KSW-122-Yakymenko-vs-Morelli-11386
+DESCRIPTION:Laid Zerhouni vs Andrzej Grzebyk\nWilson Varela vs Marian Ziol
+ kowski\nhttps://www.sherdog.com/events/KSW-122-Yakymenko-vs-Morelli-11386
  2
 BEGIN:VALARM
 ACTION:DISPLAY
