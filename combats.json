@@ -13,7 +13,7 @@
     "record_adversaire": "7-1-0 (WIN-LOSS-DRAW)",
     "evenement": "Professional Fighters League",
     "date": "2026-10-02",
-    "lieu": "Riyadh, Saudi Arabia",
+    "lieu": "Boulevard City, Riyadh, Saudi Arabia",
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-11-2026-Semifinals-113638"
   },
   {
@@ -30,7 +30,7 @@
     "record_adversaire": "5-0-0 (WIN-LOSS-DRAW)",
     "evenement": "Professional Fighters League",
     "date": "2026-10-02",
-    "lieu": "Riyadh, Saudi Arabia",
+    "lieu": "Boulevard City, Riyadh, Saudi Arabia",
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-11-2026-Semifinals-113638"
   },
   {
@@ -262,7 +262,7 @@
     "record_suivi": "5-0-0 (WIN-LOSS-DRAW)",
     "titre": false,
     "categorie": "Catchweight",
-    "ordre": 994,
+    "ordre": 993,
     "drapeau_adversaire": "fr",
     "adversaire": "Mohamed Soumah",
     "record_adversaire": "4-3-0 (WIN-LOSS-DRAW)",
@@ -385,6 +385,23 @@
     "drapeau_adversaire": "fr",
     "adversaire": "Davy Gallon",
     "record_adversaire": "24-10-2 (WIN-LOSS-DRAW)",
+    "evenement": "HXMMA 49",
+    "date": "2026-11-27",
+    "lieu": "Glaz Arena, Cesson-Sevigne, France",
+    "lien_evenement": "https://www.sherdog.com/events/HXMMA-49-Hexagone-MMA-49-114109"
+  },
+  {
+    "combattant": "Oceane Samson",
+    "url_suivi": "https://www.sherdog.com/fighter/Oceane-Samson-425132",
+    "url_adversaire": "https://www.sherdog.com/fighter/Lindsey-Payne-420699",
+    "drapeau": "fr",
+    "record_suivi": "3-1-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Strawweight",
+    "ordre": 999,
+    "drapeau_adversaire": "en",
+    "adversaire": "Lindsey Payne",
+    "record_adversaire": "4-3-0 (WIN-LOSS-DRAW)",
     "evenement": "HXMMA 49",
     "date": "2026-11-27",
     "lieu": "Glaz Arena, Cesson-Sevigne, France",

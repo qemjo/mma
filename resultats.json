@@ -1,5 +1,14 @@
 [
   {
+    "combattant": "Adama Diop",
+    "drapeau": "sn",
+    "resultat": "win",
+    "adversaire": "Zaurbek Sabanov",
+    "evenement": "Dana White's Contender Series - Contender Series 2026: Week 8",
+    "date": "2026-09-29",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Alexis Nicolas",
     "drapeau": "fr",
     "resultat": "win",
@@ -844,6 +853,15 @@
     "evenement": "Ares 40 - Begai vs. Diakhate 2",
     "date": "2026-04-10",
     "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Adama Diop",
+    "drapeau": "sn",
+    "resultat": "win",
+    "adversaire": "Matunga Djikasa",
+    "evenement": "EFC 132 - EFC Worldwide 132",
+    "date": "2026-04-09",
+    "methode": "TKO (Punches)"
   },
   {
     "combattant": "Jason Ponet",
