@@ -157,6 +157,7 @@ COMBATTANTS = [
     "Akhmad Amaev",
     "Mahamadou Soukouna",
     "Elie Caille",
+    "Adama Diop",
 ]
 
 # ---------------------------------------------------------------
