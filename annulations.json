@@ -36,5 +36,24 @@
     "lien_evenement": "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-9-112635",
     "type": "annule",
     "detecte_le": "2026-09-25"
+  },
+  {
+    "combattant": "Ylies Djiroun",
+    "url_suivi": "https://www.sherdog.com/fighter/Ylies-Djiroun-86566",
+    "url_adversaire": "https://www.sherdog.com/fighter/Basel-Ahmed-Shalaan-340377",
+    "drapeau": "fr",
+    "record_suivi": "25-9-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Lightweight",
+    "ordre": 993,
+    "drapeau_adversaire": "eg",
+    "adversaire": "Basel Ahmed Shalaan",
+    "record_adversaire": "7-1-0 (WIN-LOSS-DRAW)",
+    "evenement": "Professional Fighters League",
+    "date": "2026-10-02",
+    "lieu": "Boulevard City, Riyadh, Saudi Arabia",
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-11-2026-Semifinals-113638",
+    "type": "annule",
+    "detecte_le": "2026-10-02"
   }
 ]
