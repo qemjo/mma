@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MMA Radar//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-12-11-pfl-mena-12-mmas-most-wanted@mmaradar.fr
+DTSTAMP:20261003T092936Z
+DTSTART;VALUE=DATE:20261211
+DTEND;VALUE=DATE:20261212
+SUMMARY:PFL MENA 12 MMAs Most Wanted
+LOCATION:Dhahran Expo\, Khobar\, Saudi Arabia
+DESCRIPTION:Ylies Djiroun vs Mohammad Fahmi\nMehdi Saadi vs Elias Boudegzd
+ ame\nhttps://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA
+ -12-MMAs-Most-Wanted-114772
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:C'est aujourd'hui
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

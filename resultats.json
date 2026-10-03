@@ -1,5 +1,23 @@
 [
   {
+    "combattant": "Ylies Djiroun",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Assem Ghanem",
+    "evenement": "Professional Fighters League - PFL MENA 11: Last Man Standing",
+    "date": "2026-10-02",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Mehdi Saadi",
+    "drapeau": "tn",
+    "resultat": "win",
+    "adversaire": "Shadi Kabbani",
+    "evenement": "Professional Fighters League - PFL MENA 11: Last Man Standing",
+    "date": "2026-10-02",
+    "methode": "Decision (Split)"
+  },
+  {
     "combattant": "Adama Diop",
     "drapeau": "sn",
     "resultat": "win",
@@ -550,7 +568,7 @@
   },
   {
     "combattant": "Mehdi Saadi",
-    "drapeau": "fr",
+    "drapeau": "tn",
     "resultat": "win",
     "adversaire": "Mohammad Yahya",
     "evenement": "Professional Fighters League - PFL MENA 9: Pride of Arabia",
@@ -1186,15 +1204,6 @@
     "evenement": "HXMMA 37 - Hexagone MMA 37",
     "date": "2026-01-09",
     "methode": "KO (Punch)"
-  },
-  {
-    "combattant": "Ylies Djiroun",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Antonio Roberto",
-    "evenement": "Ares 37 - Augen vs. Shiguemoto 2",
-    "date": "2026-01-09",
-    "methode": "Submission (Guillotine Choke)"
   },
   {
     "combattant": "Moustapha Aida",
@@ -2266,15 +2275,6 @@
     "evenement": "HXMMA 13 - Hexagone MMA 13",
     "date": "2024-01-26",
     "methode": "Decision (Unanimous)"
-  },
-  {
-    "combattant": "Mehdi Saadi",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Jalal Al Daja",
-    "evenement": "UAE Warriors 47 - Arabia 13",
-    "date": "2024-01-21",
-    "methode": "KO (Punches)"
   },
   {
     "combattant": "Ramzan Jembiev",

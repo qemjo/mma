@@ -1,14 +1,5 @@
 {
   "_aide": "Une entree par evenement, rangee par adresse de sa page Sherdog : deux soirees differentes portent parfois le meme nom. Repere-toi a la ligne _evenement, reecrite a chaque passage, ne la remplis pas. A saisir : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
-  "https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-11-2026-Semifinals-113638": {
-    "_evenement": "02/10/2026 - PFL MENA 11 2026 Semifinals (Riyadh)",
-    "heure": "20:30",
-    "chaine": "RMC Sport 1",
-    "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
-  },
   "https://www.sherdog.com/events/Dana-Whites-Contender-Series-Contender-Series-2026-Week-9-112635": {
     "_evenement": "06/10/2026 - Contender Series 2026 Week 9 (Las Vegas, NV)",
     "heure": "01:00",
@@ -101,6 +92,24 @@
   },
   "https://www.sherdog.com/events/HXMMA-49-Hexagone-MMA-49-114109": {
     "_evenement": "27/11/2026 - Hexagone MMA 49 (Cesson-Sevigne)",
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "https://www.sherdog.com/events/UFC-Fight-Night-295-Riyadh-114777": {
+    "_evenement": "28/11/2026 - UFC Fight Night 295 (Riyadh)",
+    "heure": "",
+    "chaine": "",
+    "lien": "",
+    "heure_prelim": "",
+    "prelim": "",
+    "lien_prelim": ""
+  },
+  "https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-12-MMAs-Most-Wanted-114772": {
+    "_evenement": "11/12/2026 - PFL MENA 12 MMAs Most Wanted (Khobar)",
     "heure": "",
     "chaine": "",
     "lien": "",

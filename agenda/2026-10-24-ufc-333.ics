@@ -4,13 +4,14 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-10-24-ufc-333@mmaradar.fr
-DTSTAMP:20261002T100720Z
+DTSTAMP:20261003T092936Z
 DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:UFC 333
 LOCATION:Yas Island\, Abu Dhabi\, United Arab Emirates
-DESCRIPTION:Losene Keita vs Aaron Pico\nBolaji Oki vs Daniel Santos\nhttps
- ://www.sherdog.com/events/UFC-333-Volkanovski-vs-Evloev-113863
+DESCRIPTION:Losene Keita vs Aaron Pico\nBolaji Oki vs Daniel Santos\nNoah 
+ Gugnon vs Kody Steele\nhttps://www.sherdog.com/events/UFC-333-Volkanovski
+ -vs-Evloev-113863
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui
