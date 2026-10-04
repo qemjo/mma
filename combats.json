@@ -398,7 +398,7 @@
     "record_suivi": "11-3-0 (WIN-LOSS-DRAW)",
     "titre": false,
     "categorie": "Middleweight",
-    "ordre": 0,
+    "ordre": 999,
     "drapeau_adversaire": "br",
     "adversaire": "Modestino Rodrigues",
     "record_adversaire": "8-1-0 (WIN-LOSS-DRAW)",
