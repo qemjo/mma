@@ -4,13 +4,14 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-11-20-ares-45@mmaradar.fr
-DTSTAMP:20261004T100843Z
+DTSTAMP:20261005T105330Z
 DTSTART;VALUE=DATE:20261120
 DTEND;VALUE=DATE:20261121
 SUMMARY:Ares 45
 LOCATION:Adidas Arena\, Paris\, France
-DESCRIPTION:Baki vs Jordan Zebo\nDiffusion : Canal +\nhttps://www.sherdog.
- com/events/Ares-45-Zebo-vs-Baki-2-112453
+DESCRIPTION:Baki vs Jordan Zebo\nModibo Diakite vs Ghassen Jbalia\nDiffusi
+ on : Canal +\nhttps://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-11245
+ 3
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui
