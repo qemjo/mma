@@ -3,16 +3,17 @@ VERSION:2.0
 PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
-UID:2026-12-12-pfl-lyon-2026@mmaradar.fr
-DTSTAMP:20261007T131640Z
-DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261213
+UID:2026-12-19-pfl-lyon-2026@mmaradar.fr
+DTSTAMP:20261008T071347Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
 SUMMARY:PFL Lyon 2026
 LOCATION:LDLC Arena\, Lyon\, France
 DESCRIPTION:Taylor Lapilus vs Mitchell McKee\nBoris Atangana vs Bryan Batt
  le\nAbdoul Abdouraguimov vs Andreeas Binder\nIlian Bouafia vs Fabian Edwa
- rds\nBaris Adiguzel vs Liam Gittins\nhttps://www.sherdog.com/events/Profe
- ssional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297
+ rds\nBaris Adiguzel vs Liam Gittins\nAdam Meskini vs Brandon Brachet\nhtt
+ ps://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-La
+ pilus-vs-McKee-114297
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui

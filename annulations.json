@@ -17,5 +17,45 @@
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Chicago-2-Carmouche-vs-Bishop-2-114222",
     "type": "annule",
     "detecte_le": "2026-09-18"
+  },
+  {
+    "type": "reporte",
+    "combattant": "Taylor Lapilus",
+    "adversaire": "Mitchell McKee",
+    "ancienne_date": "2026-12-12",
+    "nouvelle_date": "2026-12-19",
+    "detecte_le": "2026-10-08"
+  },
+  {
+    "type": "reporte",
+    "combattant": "Abdoul Abdouraguimov",
+    "adversaire": "Andreeas Binder",
+    "ancienne_date": "2026-12-12",
+    "nouvelle_date": "2026-12-19",
+    "detecte_le": "2026-10-08"
+  },
+  {
+    "type": "reporte",
+    "combattant": "Ilian Bouafia",
+    "adversaire": "Fabian Edwards",
+    "ancienne_date": "2026-12-12",
+    "nouvelle_date": "2026-12-19",
+    "detecte_le": "2026-10-08"
+  },
+  {
+    "type": "reporte",
+    "combattant": "Baris Adiguzel",
+    "adversaire": "Liam Gittins",
+    "ancienne_date": "2026-12-12",
+    "nouvelle_date": "2026-12-19",
+    "detecte_le": "2026-10-08"
+  },
+  {
+    "type": "reporte",
+    "combattant": "Boris Atangana",
+    "adversaire": "Bryan Battle",
+    "ancienne_date": "2026-12-12",
+    "nouvelle_date": "2026-12-19",
+    "detecte_le": "2026-10-08"
   }
 ]
