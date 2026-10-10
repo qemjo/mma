@@ -158,6 +158,7 @@ COMBATTANTS = [
     "Mahamadou Soukouna",
     "Elie Caille",
     "Adama Diop",
+    "Salim El Ouassaidi
 ]
 
 # ---------------------------------------------------------------
