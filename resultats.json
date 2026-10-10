@@ -315,6 +315,15 @@
     "methode": "Submission (Guillotine Choke)"
   },
   {
+    "combattant": "Salim El Ouassaidi",
+    "drapeau": "ma",
+    "resultat": "win",
+    "adversaire": "Kaloyan Kolev",
+    "evenement": "Brave CF 107 - Brave Combat Federation 107",
+    "date": "2026-08-01",
+    "methode": "TKO (Punches and Elbows)"
+  },
+  {
     "combattant": "Moustapha Diakhate",
     "drapeau": "sn",
     "resultat": "win",
@@ -882,6 +891,15 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Abdoulaye Kane",
+    "drapeau": "sn",
+    "resultat": "loss",
+    "adversaire": "Justin Clarke",
+    "evenement": "Professional Fighters League  - PFL Africa 1: 2026 First Round",
+    "date": "2026-04-10",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Adama Diop",
     "drapeau": "sn",
     "resultat": "win",
@@ -1305,6 +1323,15 @@
     "methode": "TKO (Punches)"
   },
   {
+    "combattant": "Abdoulaye Kane",
+    "drapeau": "sn",
+    "resultat": "win",
+    "adversaire": "Jashell Ticha Awa",
+    "evenement": "Professional Fighters League - PFL Africa 4: 2025 Finals",
+    "date": "2025-12-20",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Morgan Charriere",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1600,6 +1627,15 @@
     "evenement": "WNC 3 - Warriors Night Championship 3",
     "date": "2025-10-18",
     "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Salim El Ouassaidi",
+    "drapeau": "ma",
+    "resultat": "loss",
+    "adversaire": "Laurynas Urbonavicius",
+    "evenement": "Brave CF 99 - Brave Combat Federation 99",
+    "date": "2025-10-18",
+    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Vincent del Guerra",

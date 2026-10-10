@@ -4,17 +4,18 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-10-10-pfl-africa-3-2026-playoffs@mmaradar.fr
-DTSTAMP:20261010T101441Z
-DTSTART;VALUE=DATE:20261010
-DTEND;VALUE=DATE:20261011
+DTSTAMP:20261010T162114Z
+DTSTART:20261010T183000Z
+DTEND:20261010T213000Z
 SUMMARY:PFL Africa 3 2026 Playoffs
 LOCATION:Mohammed V Sports Complex\, Casablanca\, Morocco
-DESCRIPTION:Yanis Ghemmouri vs Taha Bendaoud\nhttps://www.sherdog.com/even
- ts/Professional-Fighters-League-PFL-Africa-3-2026-Playoffs-113283
+DESCRIPTION:Abdoulaye Kane vs Badr Medkouri\nYanis Ghemmouri vs Taha Benda
+ oud\nDiffusion : RMC SPORT 2\nhttps://www.sherdog.com/events/Professional
+ -Fighters-League-PFL-Africa-3-2026-Playoffs-113283
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:C'est aujourd'hui
-TRIGGER:PT9H
+DESCRIPTION:Le combat commence dans une heure
+TRIGGER:-PT1H
 END:VALARM
 END:VEVENT
 END:VCALENDAR
