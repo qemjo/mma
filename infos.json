@@ -2,17 +2,17 @@
   "_aide": "Une entree par evenement, rangee par adresse de sa page Sherdog : deux soirees differentes portent parfois le meme nom. Repere-toi a la ligne _evenement, reecrite a chaque passage, ne la remplis pas. A saisir : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
   "https://www.sherdog.com/events/KSW-122-Yakymenko-vs-Morelli-113862": {
     "_evenement": "10/10/2026 - KSW 122 (Rzeszow)",
-    "heure": "",
-    "chaine": "",
+    "heure": "20:30",
+    "chaine": "RMC SPORT 1",
     "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
+    "heure_prelim": "19:00",
+    "prelim": "Prelims Twitch",
+    "lien_prelim": "https://www.twitch.tv/rmcsport"
   },
   "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Africa-3-2026-Playoffs-113283": {
     "_evenement": "10/10/2026 - PFL Africa 3 2026 Playoffs (Casablanca)",
-    "heure": "",
-    "chaine": "",
+    "heure": "20:30",
+    "chaine": "RMC SPORT 2",
     "lien": "",
     "heure_prelim": "",
     "prelim": "",
