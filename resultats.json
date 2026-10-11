@@ -1,5 +1,50 @@
 [
   {
+    "combattant": "Wilson Varela",
+    "drapeau": "cv",
+    "resultat": "win",
+    "adversaire": "Marian Ziolkowski",
+    "evenement": "KSW 122 - Yakymenko vs. Morelli",
+    "date": "2026-10-10",
+    "methode": "Submission (Armbar)"
+  },
+  {
+    "combattant": "Yanis Ghemmouri",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Taha Bendaoud",
+    "evenement": "Professional Fighters League - PFL Africa 3: 2026 Playoffs",
+    "date": "2026-10-10",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Laid Zerhouni",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Andrzej Grzebyk",
+    "evenement": "KSW 122 - Yakymenko vs. Morelli",
+    "date": "2026-10-10",
+    "methode": "Decision (Majority)"
+  },
+  {
+    "combattant": "Salim El Ouassaidi",
+    "drapeau": "ma",
+    "resultat": "loss",
+    "adversaire": "Sergiusz Zajac",
+    "evenement": "KSW 122 - Yakymenko vs. Morelli",
+    "date": "2026-10-10",
+    "methode": "KO (Elbows and Punches)"
+  },
+  {
+    "combattant": "Abdoulaye Kane",
+    "drapeau": "sn",
+    "resultat": "win",
+    "adversaire": "Badr Medkouri",
+    "evenement": "Professional Fighters League - PFL Africa 3: 2026 Playoffs",
+    "date": "2026-10-10",
+    "methode": "TKO (Elbows)"
+  },
+  {
     "combattant": "Nell Ariano",
     "drapeau": "fr",
     "resultat": "loss",
@@ -7,6 +52,24 @@
     "evenement": "Dana White's Contender Series - Contender Series 2026: Week 9",
     "date": "2026-10-06",
     "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Marvin Caperan",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Arnaud Muller",
+    "evenement": "One Punch Night - OPN 2",
+    "date": "2026-10-03",
+    "methode": "TKO (Body Kick and Punches)"
+  },
+  {
+    "combattant": "Nimo Djagbo",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Kevin Czernik",
+    "evenement": "One Punch Night - OPN 2",
+    "date": "2026-10-03",
+    "methode": "KO (Head Kick)"
   },
   {
     "combattant": "Ylies Djiroun",
@@ -1323,15 +1386,6 @@
     "methode": "TKO (Punches)"
   },
   {
-    "combattant": "Abdoulaye Kane",
-    "drapeau": "sn",
-    "resultat": "win",
-    "adversaire": "Jashell Ticha Awa",
-    "evenement": "Professional Fighters League - PFL Africa 4: 2025 Finals",
-    "date": "2025-12-20",
-    "methode": "TKO (Punches)"
-  },
-  {
     "combattant": "Morgan Charriere",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1485,15 +1539,6 @@
     "methode": "KO (Knee and Punches)"
   },
   {
-    "combattant": "Wilson Varela",
-    "drapeau": "cv",
-    "resultat": "loss",
-    "adversaire": "Valeriu Mircea",
-    "evenement": "KSW 112 - Kaczmarczyk vs. Soldaev",
-    "date": "2025-11-15",
-    "methode": "Decision (Unanimous)"
-  },
-  {
     "combattant": "Hugo Deux",
     "drapeau": "fr",
     "resultat": "win",
@@ -1629,15 +1674,6 @@
     "methode": "TKO (Punches)"
   },
   {
-    "combattant": "Salim El Ouassaidi",
-    "drapeau": "ma",
-    "resultat": "loss",
-    "adversaire": "Laurynas Urbonavicius",
-    "evenement": "Brave CF 99 - Brave Combat Federation 99",
-    "date": "2025-10-18",
-    "methode": "Decision (Unanimous)"
-  },
-  {
     "combattant": "Vincent del Guerra",
     "drapeau": "fr",
     "resultat": "win",
@@ -1663,15 +1699,6 @@
     "evenement": "Professional Fighters League - PFL Road to Dubai Champions Series 3: Nurmagomedov vs. Hughes 2",
     "date": "2025-10-03",
     "methode": "Decision (Split)"
-  },
-  {
-    "combattant": "Yanis Ghemmouri",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Izzeddine Al Derbani",
-    "evenement": "Professional Fighters League - PFL MENA 3: 2025 Semifinals",
-    "date": "2025-09-27",
-    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Moktar Benkaci",
@@ -1953,15 +1980,6 @@
     "methode": "TKO (Elbows)"
   },
   {
-    "combattant": "Laid Zerhouni",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Damian Janikowski",
-    "evenement": "KSW 106 - Parnasse vs. Ziolkowski",
-    "date": "2025-05-10",
-    "methode": "KO (Punches)"
-  },
-  {
     "combattant": "Amaury Wako-Zabo",
     "drapeau": "fr",
     "resultat": "win",
@@ -2014,15 +2032,6 @@
     "evenement": "HXMMA 26 - Hexagone MMA 26",
     "date": "2025-04-12",
     "methode": "No Contest (Overturned)"
-  },
-  {
-    "combattant": "Nimo Djagbo",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Rayanne Essaidi",
-    "evenement": "HFC 52 - Hard Fighting Championship 52",
-    "date": "2025-02-22",
-    "methode": "TKO"
   },
   {
     "combattant": "Alfan Rocher Labes",
@@ -2392,24 +2401,6 @@
     "evenement": "Professional Fighters League - PFL Europe 1: 2023 Regular Season",
     "date": "2023-03-25",
     "methode": "TKO (Punches)"
-  },
-  {
-    "combattant": "Marvin Caperan",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Benjamin  Donkerwolcke",
-    "evenement": "HFC 39 - Hard Fighting Championship 39",
-    "date": "2023-01-28",
-    "methode": "Decision (Split)"
-  },
-  {
-    "combattant": "Nimo Djagbo",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Lucas Derail",
-    "evenement": "HFC 39 - Hard Fighting Championship 39",
-    "date": "2023-01-28",
-    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Alan Baudot",
