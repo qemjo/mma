@@ -4,14 +4,14 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-10-24-hexagone-mma-48@mmaradar.fr
-DTSTAMP:20261014T090406Z
+DTSTAMP:20261015T072421Z
 DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:Hexagone MMA 48
 LOCATION:Zenith Paris\, Paris\, France
-DESCRIPTION:Samba Sima vs Leopold Goi\nTurpal Younousov vs Mikail Bayram\n
- Pierre Manzo vs Alex Hue\nArnaud Prigent vs Ibrahim Diallo\nPaul Dena vs 
- Bilal Labid\nhttps://www.sherdog.com/events/HXMMA-48-Hexagone-MMA-48-1136
+DESCRIPTION:Samba Sima vs Leopold Goi\nPaul Dena vs Bilal Labid\nTurpal Yo
+ unousov vs Mikail Bayram\nArnaud Prigent vs Ibrahim Diallo\nPierre Manzo 
+ vs Alex Hue\nhttps://www.sherdog.com/events/HXMMA-48-Hexagone-MMA-48-1136
  86
 BEGIN:VALARM
 ACTION:DISPLAY
