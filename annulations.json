@@ -57,5 +57,13 @@
     "ancienne_date": "2026-12-12",
     "nouvelle_date": "2026-12-19",
     "detecte_le": "2026-10-08"
+  },
+  {
+    "type": "reporte",
+    "combattant": "Matthieu Letho Duclos",
+    "adversaire": "Modestino Rodrigues",
+    "ancienne_date": "2026-11-28",
+    "nouvelle_date": "2026-12-05",
+    "detecte_le": "2026-10-16"
   }
 ]
