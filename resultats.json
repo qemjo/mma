@@ -1,5 +1,14 @@
 [
   {
+    "combattant": "Oualy Tandia",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "J.P. Saint Louis",
+    "evenement": "Professional Fighters League - PFL Chicago 2: Carmouche vs. Bishop 2",
+    "date": "2026-10-16",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Wilson Varela",
     "drapeau": "cv",
     "resultat": "win",
@@ -1735,15 +1744,6 @@
     "evenement": "HXMMA 35 - Hexagone MMA 35",
     "date": "2025-09-26",
     "methode": "KO (Punches)"
-  },
-  {
-    "combattant": "Oualy Tandia",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Alix Jeanguillaume",
-    "evenement": "HXMMA 34 - Hexagone MMA 34",
-    "date": "2025-09-19",
-    "methode": "KO (Knee and Punches)"
   },
   {
     "combattant": "Modibo Diakite",
