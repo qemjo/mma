@@ -323,6 +323,23 @@
     "lien_evenement": "https://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-112453"
   },
   {
+    "combattant": "Jason Ponet",
+    "url_suivi": "https://www.sherdog.com/fighter/Jason-Ponet-38455",
+    "url_adversaire": "https://www.sherdog.com/fighter/Tomasz-Mudroch-373792",
+    "drapeau": "fr",
+    "record_suivi": "26-20-1 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Lightweight",
+    "ordre": 993,
+    "drapeau_adversaire": "cz",
+    "adversaire": "Tomasz Mudroch",
+    "record_adversaire": "9-2-0 (WIN-LOSS-DRAW)",
+    "evenement": "Oktagon MMA",
+    "date": "2026-11-21",
+    "lieu": "Werk Arena, Třinec, Czech Republic",
+    "lien_evenement": "https://www.sherdog.com/events/Oktagon-MMA-Oktagon-98-Legierski-vs-Buchinger-114298"
+  },
+  {
     "combattant": "Davy Gallon",
     "url_suivi": "https://www.sherdog.com/fighter/Davy-Gallon-78731",
     "url_adversaire": "https://www.sherdog.com/fighter/Theo-Ulrich-397608",
@@ -508,6 +525,23 @@
     "date": "2026-12-19",
     "lieu": "LDLC Arena, Lyon, France",
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297"
+  },
+  {
+    "combattant": "Souheil Kaouchen",
+    "url_suivi": "https://www.sherdog.com/fighter/Souheil-Kaouchen-442299",
+    "url_adversaire": "",
+    "drapeau": "fr",
+    "record_suivi": "3-0-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Featherweight",
+    "ordre": 999,
+    "drapeau_adversaire": "",
+    "adversaire": "?",
+    "record_adversaire": "",
+    "evenement": "KSW 124",
+    "date": "2026-12-19",
+    "lieu": "PreZero Arena, Gliwice, Poland",
+    "lien_evenement": "https://www.sherdog.com/events/KSW-124-Pawlak-vs-Kuberski-114438"
   },
   {
     "combattant": "Baris Adiguzel",
