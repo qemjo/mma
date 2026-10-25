@@ -1,23 +1,5 @@
 {
   "_aide": "Une entree par evenement, rangee par adresse de sa page Sherdog : deux soirees differentes portent parfois le meme nom. Repere-toi a la ligne _evenement, reecrite a chaque passage, ne la remplis pas. A saisir : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
-  "https://www.sherdog.com/events/HXMMA-48-Hexagone-MMA-48-113686": {
-    "_evenement": "24/10/2026 - Hexagone MMA 48 (Paris)",
-    "heure": "",
-    "chaine": "",
-    "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
-  },
-  "https://www.sherdog.com/events/UFC-333-Volkanovski-vs-Evloev-113863": {
-    "_evenement": "24/10/2026 - UFC 333 (Abu Dhabi)",
-    "heure": "",
-    "chaine": "",
-    "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
-  },
   "https://www.sherdog.com/events/Ares-44-Younousov-vs-Nam-111977": {
     "_evenement": "31/10/2026 - Ares 44 (Strasbourg)",
     "heure": "",

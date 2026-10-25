@@ -1,5 +1,77 @@
 [
   {
+    "combattant": "Losene Keita",
+    "drapeau": "be",
+    "resultat": "loss",
+    "adversaire": "Aaron Pico",
+    "evenement": "UFC 333 - Volkanovski vs. Evloev",
+    "date": "2026-10-24",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Paul Denis Navero",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Bilal Labid",
+    "evenement": "HXMMA 48 - Hexagone MMA 48",
+    "date": "2026-10-24",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Noah Gugnon",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Kody Steele",
+    "evenement": "UFC 333 - Volkanovski vs. Evloev",
+    "date": "2026-10-24",
+    "methode": "KO (Punches)"
+  },
+  {
+    "combattant": "Bolaji Oki",
+    "drapeau": "be",
+    "resultat": "loss",
+    "adversaire": "Daniel Santos",
+    "evenement": "UFC 333 - Volkanovski vs. Evloev",
+    "date": "2026-10-24",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Pierre Manzo",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Alex Hue",
+    "evenement": "HXMMA 48 - Hexagone MMA 48",
+    "date": "2026-10-24",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Samba Sima",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Leopold Goi",
+    "evenement": "HXMMA 48 - Hexagone MMA 48",
+    "date": "2026-10-24",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Arnaud Prigent",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ibrahim Diallo",
+    "evenement": "HXMMA 48 - Hexagone MMA 48",
+    "date": "2026-10-24",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Leopold Goi",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Samba Sima",
+    "evenement": "HXMMA 48 - Hexagone MMA 48",
+    "date": "2026-10-24",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Oualy Tandia",
     "drapeau": "fr",
     "resultat": "win",
@@ -990,15 +1062,6 @@
     "methode": "Decision (Unanimous)"
   },
   {
-    "combattant": "Noah Gugnon",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Bruno Matos de Sousa",
-    "evenement": "Ares 39 - Jbalia vs. Diatta",
-    "date": "2026-04-03",
-    "methode": "TKO (Elbows and Punches)"
-  },
-  {
     "combattant": "Fabacary Diatta",
     "drapeau": "fr",
     "resultat": "win",
@@ -1051,15 +1114,6 @@
     "evenement": "HXMMA 42 - Hexagone MMA 42",
     "date": "2026-03-26",
     "methode": "TKO (Punches)"
-  },
-  {
-    "combattant": "Losene Keita",
-    "drapeau": "be",
-    "resultat": "loss",
-    "adversaire": "Nathaniel Wood",
-    "evenement": "UFC Fight Night 270 - Evloev vs. Murphy",
-    "date": "2026-03-21",
-    "methode": "Decision (Split)"
   },
   {
     "combattant": "Mathys Duragrin",
@@ -1206,15 +1260,6 @@
     "methode": "Submission (Rear-Naked Choke)"
   },
   {
-    "combattant": "Arnaud Prigent",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Magomed Abdulaev",
-    "evenement": "HXMMA 39 - Hexagone MMA 39",
-    "date": "2026-02-06",
-    "methode": "Decision (Unanimous)"
-  },
-  {
     "combattant": "Benoit Saint Denis",
     "drapeau": "fr",
     "resultat": "win",
@@ -1296,15 +1341,6 @@
     "methode": "Decision (Unanimous)"
   },
   {
-    "combattant": "Paul Denis Navero",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Leonardo Paulo Santos",
-    "evenement": "HXMMA 37 - Hexagone MMA 37",
-    "date": "2026-01-09",
-    "methode": "KO (Punch)"
-  },
-  {
     "combattant": "Moustapha Aida",
     "drapeau": "fr",
     "resultat": "win",
@@ -1318,15 +1354,6 @@
     "drapeau": "fr",
     "resultat": "win",
     "adversaire": "David Sipra",
-    "evenement": "HXMMA 37 - Hexagone MMA 37",
-    "date": "2026-01-09",
-    "methode": "TKO (Punches)"
-  },
-  {
-    "combattant": "Samba Sima",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Nikolai Makarenko",
     "evenement": "HXMMA 37 - Hexagone MMA 37",
     "date": "2026-01-09",
     "methode": "TKO (Punches)"
@@ -1665,15 +1692,6 @@
     "methode": "TKO (Punches)"
   },
   {
-    "combattant": "Pierre Manzo",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Alpha Ly",
-    "evenement": "Ares 35 - Baki vs. Zebo",
-    "date": "2025-10-18",
-    "methode": "Submission (Arm-Triangle Choke)"
-  },
-  {
     "combattant": "Kevin Ruart",
     "drapeau": "ch",
     "resultat": "win",
@@ -1791,15 +1809,6 @@
     "methode": "Decision (Unanimous)"
   },
   {
-    "combattant": "Bolaji Oki",
-    "drapeau": "be",
-    "resultat": "loss",
-    "adversaire": "Mason Jones",
-    "evenement": "UFC Fight Night 258 - Imavov vs. Borralho",
-    "date": "2025-09-06",
-    "methode": "TKO (Elbows)"
-  },
-  {
     "combattant": "Mathilde Aschenbrenner",
     "drapeau": "fr",
     "resultat": "win",
@@ -1915,15 +1924,6 @@
     "evenement": "HXMMA 30 - Hexagone MMA 30",
     "date": "2025-06-07",
     "methode": "Decision (Unanimous)"
-  },
-  {
-    "combattant": "Leopold Goi",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Ilie Meryacre",
-    "evenement": "HXMMA 30 - Hexagone MMA 30",
-    "date": "2025-06-07",
-    "methode": "KO (Knee to the Body)"
   },
   {
     "combattant": "Nicolas Leblond",
