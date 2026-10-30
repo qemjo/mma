@@ -11,10 +11,10 @@
     "drapeau_adversaire": "us",
     "adversaire": "Tyson Nam",
     "record_adversaire": "23-16-1 (WIN-LOSS-DRAW)",
-    "evenement": "Ares 44",
+    "evenement": "ARES 44",
     "date": "2026-10-31",
     "lieu": "Zenith of Strasbourg, Strasbourg, France",
-    "lien_evenement": "https://www.sherdog.com/events/Ares-44-Younousov-vs-Nam-111977"
+    "lien_evenement": "https://www.sherdog.com/events/ARES-44-Younousov-vs-Nam-111977"
   },
   {
     "combattant": "Youssef Boughanem",
@@ -28,10 +28,10 @@
     "drapeau_adversaire": "fr",
     "adversaire": "Mohamed Soumah",
     "record_adversaire": "4-3-0 (WIN-LOSS-DRAW)",
-    "evenement": "Ares 44",
+    "evenement": "ARES 44",
     "date": "2026-10-31",
     "lieu": "Zenith of Strasbourg, Strasbourg, France",
-    "lien_evenement": "https://www.sherdog.com/events/Ares-44-Younousov-vs-Nam-111977"
+    "lien_evenement": "https://www.sherdog.com/events/ARES-44-Younousov-vs-Nam-111977"
   },
   {
     "combattant": "Benoit Prigent",
@@ -45,10 +45,10 @@
     "drapeau_adversaire": "se",
     "adversaire": "Jafar Yousifi",
     "record_adversaire": "2-0-0 (WIN-LOSS-DRAW)",
-    "evenement": "Ares 44",
+    "evenement": "ARES 44",
     "date": "2026-10-31",
     "lieu": "Zenith of Strasbourg, Strasbourg, France",
-    "lien_evenement": "https://www.sherdog.com/events/Ares-44-Younousov-vs-Nam-111977"
+    "lien_evenement": "https://www.sherdog.com/events/ARES-44-Younousov-vs-Nam-111977"
   },
   {
     "combattant": "Ciryl Gane",
@@ -130,10 +130,10 @@
     "drapeau_adversaire": "fr",
     "adversaire": "Jordan Zebo",
     "record_adversaire": "11-1-0 (WIN-LOSS-DRAW)",
-    "evenement": "Ares 45",
+    "evenement": "ARES 45",
     "date": "2026-11-20",
     "lieu": "Adidas Arena, Paris, France",
-    "lien_evenement": "https://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-112453"
+    "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453"
   },
   {
     "combattant": "Jordan Zebo",
@@ -147,10 +147,10 @@
     "drapeau_adversaire": "fr",
     "adversaire": "Baissangour Chamsoudinov",
     "record_adversaire": "9-1-0 (WIN-LOSS-DRAW)",
-    "evenement": "Ares 45",
+    "evenement": "ARES 45",
     "date": "2026-11-20",
     "lieu": "Adidas Arena, Paris, France",
-    "lien_evenement": "https://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-112453"
+    "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453"
   },
   {
     "combattant": "Marvin Caperan",
@@ -164,10 +164,10 @@
     "drapeau_adversaire": "br",
     "adversaire": "Bruno Pudins",
     "record_adversaire": "0-1-0 (WIN-LOSS-DRAW)",
-    "evenement": "Ares 45",
+    "evenement": "ARES 45",
     "date": "2026-11-20",
     "lieu": "Adidas Arena, Paris, France",
-    "lien_evenement": "https://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-112453"
+    "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453"
   },
   {
     "combattant": "Nimo Djagbo",
@@ -181,10 +181,10 @@
     "drapeau_adversaire": "pl",
     "adversaire": "Nikodem Blazejewski",
     "record_adversaire": "0-1-0 (WIN-LOSS-DRAW)",
-    "evenement": "Ares 45",
+    "evenement": "ARES 45",
     "date": "2026-11-20",
     "lieu": "Adidas Arena, Paris, France",
-    "lien_evenement": "https://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-112453"
+    "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453"
   },
   {
     "combattant": "Modibo Diakite",
@@ -198,10 +198,10 @@
     "drapeau_adversaire": "fr",
     "adversaire": "Ghassen Jbalia",
     "record_adversaire": "6-1-0 (WIN-LOSS-DRAW)",
-    "evenement": "Ares 45",
+    "evenement": "ARES 45",
     "date": "2026-11-20",
     "lieu": "Adidas Arena, Paris, France",
-    "lien_evenement": "https://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-112453"
+    "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453"
   },
   {
     "combattant": "Jason Ponet",
@@ -340,6 +340,23 @@
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-12-MMAs-Most-Wanted-114772"
   },
   {
+    "combattant": "Jade Jorand",
+    "url_suivi": "https://www.sherdog.com/fighter/Jade-Jorand-375539",
+    "url_adversaire": "https://www.sherdog.com/fighter/Kinga-Jendrasik-214669",
+    "drapeau": "fr",
+    "record_suivi": "5-3-0 (WIN-LOSS-DRAW)",
+    "titre": true,
+    "categorie": "Strawweight",
+    "ordre": 0,
+    "drapeau_adversaire": "pl",
+    "adversaire": "Kinga Jendrasik",
+    "record_adversaire": "3-3-0 (WIN-LOSS-DRAW)",
+    "evenement": "ARES 46",
+    "date": "2026-12-11",
+    "lieu": "Adidas Arena, Paris, France",
+    "lien_evenement": "https://www.sherdog.com/events/ARES-46-TBD-vs-TBD-114552"
+  },
+  {
     "combattant": "Taylor Lapilus",
     "url_suivi": "https://www.sherdog.com/fighter/Taylor-Lapilus-97337",
     "url_adversaire": "https://www.sherdog.com/fighter/Mitchell-McKee-57183",
@@ -389,6 +406,23 @@
     "date": "2026-12-19",
     "lieu": "LDLC Arena, Lyon, France",
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297"
+  },
+  {
+    "combattant": "Hugo Deux",
+    "url_suivi": "https://www.sherdog.com/fighter/Hugo-Deux-408109",
+    "url_adversaire": "https://www.sherdog.com/fighter/Adam-Soldaev-189399",
+    "drapeau": "fr",
+    "record_suivi": "7-1-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Lightweight",
+    "ordre": 998,
+    "drapeau_adversaire": "pl",
+    "adversaire": "Adam Soldaev",
+    "record_adversaire": "11-3-0 (WIN-LOSS-DRAW)",
+    "evenement": "KSW 124",
+    "date": "2026-12-19",
+    "lieu": "PreZero Arena, Gliwice, Poland",
+    "lien_evenement": "https://www.sherdog.com/events/KSW-124-Pawlak-vs-Kuberski-114438"
   },
   {
     "combattant": "Adam Meskini",
@@ -491,23 +525,6 @@
     "date": "2026-12-19",
     "lieu": "LDLC Arena, Lyon, France",
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297"
-  },
-  {
-    "combattant": "Jade Jorand",
-    "url_suivi": "https://www.sherdog.com/fighter/Jade-Jorand-375539",
-    "url_adversaire": "https://www.sherdog.com/fighter/Kinga-Jendrasik-214669",
-    "drapeau": "fr",
-    "record_suivi": "5-3-0 (WIN-LOSS-DRAW)",
-    "titre": true,
-    "categorie": "Strawweight",
-    "ordre": 0,
-    "drapeau_adversaire": "pl",
-    "adversaire": "Kinga Jendrasik",
-    "record_adversaire": "3-3-0 (WIN-LOSS-DRAW)",
-    "evenement": "Ares 46",
-    "date": "2027-01-15",
-    "lieu": "Marseille Sports Palace, Marseille, France",
-    "lien_evenement": "https://www.sherdog.com/events/Ares-46-TBD-vs-TBD-114552"
   },
   {
     "combattant": "Benoit Saint Denis",

@@ -4,13 +4,13 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-12-19-ksw-124@mmaradar.fr
-DTSTAMP:20261029T102856Z
+DTSTAMP:20261030T081046Z
 DTSTART;VALUE=DATE:20261219
 DTEND;VALUE=DATE:20261220
 SUMMARY:KSW 124
 LOCATION:PreZero Arena\, Gliwice\, Poland
-DESCRIPTION:Souheil Kaouchen vs ?\nhttps://www.sherdog.com/events/KSW-124-
- Pawlak-vs-Kuberski-114438
+DESCRIPTION:Hugo Deux vs Adam Soldaev\nSouheil Kaouchen vs ?\nhttps://www.
+ sherdog.com/events/KSW-124-Pawlak-vs-Kuberski-114438
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui

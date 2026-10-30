@@ -44,5 +44,13 @@
     "lien_evenement": "https://www.sherdog.com/events/Ares-45-Zebo-vs-Baki-2-112453",
     "type": "annule",
     "detecte_le": "2026-10-28"
+  },
+  {
+    "type": "reporte",
+    "combattant": "Jade Jorand",
+    "adversaire": "Kinga Jendrasik",
+    "ancienne_date": "2027-01-15",
+    "nouvelle_date": "2026-12-11",
+    "detecte_le": "2026-10-30"
   }
 ]
