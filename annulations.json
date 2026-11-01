@@ -1,13 +1,5 @@
 [
   {
-    "type": "reporte",
-    "combattant": "Matthieu Letho Duclos",
-    "adversaire": "Modestino Rodrigues",
-    "ancienne_date": "2026-11-28",
-    "nouvelle_date": "2026-12-05",
-    "detecte_le": "2026-10-16"
-  },
-  {
     "combattant": "Marvin Caperan",
     "url_suivi": "https://www.sherdog.com/fighter/Marvin-Caperan-425239",
     "url_adversaire": "",

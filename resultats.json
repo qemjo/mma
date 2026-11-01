@@ -1,5 +1,32 @@
 [
   {
+    "combattant": "Aboubakar Younousov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Tyson Nam",
+    "evenement": "ARES 44 - Younousov vs. Nam",
+    "date": "2026-10-31",
+    "methode": "TKO (Doctor Stoppage)"
+  },
+  {
+    "combattant": "Youssef Boughanem",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Mohamed Soumah",
+    "evenement": "ARES 44 - Younousov vs. Nam",
+    "date": "2026-10-31",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Benoit Prigent",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Jafar Yousifi",
+    "evenement": "ARES 44 - Younousov vs. Nam",
+    "date": "2026-10-31",
+    "methode": "Decision (Majority)"
+  },
+  {
     "combattant": "Losene Keita",
     "drapeau": "be",
     "resultat": "loss",
@@ -1485,15 +1512,6 @@
     "methode": "TKO (Punches)"
   },
   {
-    "combattant": "Benoit Prigent",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Ulysse Obame Ndong",
-    "evenement": "ARES 36 - Jbalia vs. Sabirov",
-    "date": "2025-12-13",
-    "methode": "Decision (Unanimous)"
-  },
-  {
     "combattant": "Alou Camara",
     "drapeau": "fr",
     "resultat": "win",
@@ -1944,15 +1962,6 @@
     "methode": "TKO (Punches)"
   },
   {
-    "combattant": "Youssef Boughanem",
-    "drapeau": "be",
-    "resultat": "win",
-    "adversaire": "Dimitris  Moirotsos",
-    "evenement": "Brave CF 94 - Brave Combat Federation 94",
-    "date": "2025-05-17",
-    "methode": "TKO (Retirement)"
-  },
-  {
     "combattant": "Baysangur Chamsoudinov",
     "drapeau": "fr",
     "resultat": "win",
@@ -2041,15 +2050,6 @@
     "evenement": "KSW 103 - Brichta vs. Charzewski",
     "date": "2025-02-21",
     "methode": "Submission (Triangle Armbar)"
-  },
-  {
-    "combattant": "Aboubakar Younousov",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Maycon Alcino",
-    "evenement": "ARES 29 - Younousov vs. Alcino",
-    "date": "2025-02-14",
-    "methode": "KO (Spinning Back Elbow)"
   },
   {
     "combattant": "Kevin Jousset",
