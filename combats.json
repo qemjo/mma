@@ -102,6 +102,23 @@
     "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453"
   },
   {
+    "combattant": "Mathys Duragrin",
+    "url_suivi": "https://www.sherdog.com/fighter/Mathys-Duragrin-406849",
+    "url_adversaire": "https://www.sherdog.com/fighter/Tianlong-Luo-381061",
+    "drapeau": "fr",
+    "record_suivi": "5-3-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Featherweight",
+    "ordre": 995,
+    "drapeau_adversaire": "cn",
+    "adversaire": "Tianlong Luo",
+    "record_adversaire": "6-11-1 (WIN-LOSS-DRAW)",
+    "evenement": "RFS",
+    "date": "2026-11-20",
+    "lieu": "Baise, Guangxi, China",
+    "lien_evenement": "https://www.sherdog.com/events/RFS-Red-Fist-Strike-115182"
+  },
+  {
     "combattant": "Marvin Caperan",
     "url_suivi": "https://www.sherdog.com/fighter/Marvin-Caperan-425239",
     "url_adversaire": "https://www.sherdog.com/fighter/Bruno-Pudins-502169",
