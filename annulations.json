@@ -44,5 +44,24 @@
     "ancienne_date": "2027-01-15",
     "nouvelle_date": "2026-12-11",
     "detecte_le": "2026-10-30"
+  },
+  {
+    "combattant": "Souheil Kaouchen",
+    "url_suivi": "https://www.sherdog.com/fighter/Souheil-Kaouchen-442299",
+    "url_adversaire": "",
+    "drapeau": "fr",
+    "record_suivi": "3-0-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Featherweight",
+    "ordre": 999,
+    "drapeau_adversaire": "",
+    "adversaire": "?",
+    "record_adversaire": "",
+    "evenement": "KSW 124",
+    "date": "2026-12-19",
+    "lieu": "PreZero Arena, Gliwice, Poland",
+    "lien_evenement": "https://www.sherdog.com/events/KSW-124-Pawlak-vs-Kuberski-114438",
+    "type": "annule",
+    "detecte_le": "2026-11-03"
   }
 ]
