@@ -63,5 +63,24 @@
     "lien_evenement": "https://www.sherdog.com/events/KSW-124-Pawlak-vs-Kuberski-114438",
     "type": "annule",
     "detecte_le": "2026-11-03"
+  },
+  {
+    "combattant": "Alexis Nicolas",
+    "url_suivi": "https://www.sherdog.com/fighter/Alexis-Nicolas-441547",
+    "url_adversaire": "",
+    "drapeau": "fr",
+    "record_suivi": "2-0-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "",
+    "ordre": 997,
+    "drapeau_adversaire": "",
+    "adversaire": "?",
+    "record_adversaire": "",
+    "evenement": "ARES 46",
+    "date": "2026-12-11",
+    "lieu": "Adidas Arena, Paris, France",
+    "lien_evenement": "https://www.sherdog.com/events/ARES-46-Jorand-vs-Jendrasik-114552",
+    "type": "annule",
+    "detecte_le": "2026-11-06"
   }
 ]
