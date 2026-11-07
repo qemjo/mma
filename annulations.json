@@ -82,5 +82,24 @@
     "lien_evenement": "https://www.sherdog.com/events/ARES-46-Jorand-vs-Jendrasik-114552",
     "type": "annule",
     "detecte_le": "2026-11-06"
+  },
+  {
+    "combattant": "Asael Adjoudj",
+    "url_suivi": "https://www.sherdog.com/fighter/Asael-Adjoudj-315075",
+    "url_adversaire": "https://www.sherdog.com/fighter/Movlid-Khaybulaev-109571",
+    "drapeau": "fr",
+    "record_suivi": "11-1-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Featherweight",
+    "ordre": 992,
+    "drapeau_adversaire": "ru",
+    "adversaire": "Movlid Khaybulaev",
+    "record_adversaire": "23-0-1 (WIN-LOSS-DRAW)",
+    "evenement": "Professional Fighters League",
+    "date": "2026-11-14",
+    "lieu": "Coca-Cola Arena, Dubai, United Arab Emirates",
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Returns-to-Dubai-Nemkov-vs-Bilostenniy-114296",
+    "type": "annule",
+    "detecte_le": "2026-11-07"
   }
 ]
