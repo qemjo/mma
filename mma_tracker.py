@@ -160,6 +160,9 @@ COMBATTANTS = [
     "Adama Diop",
     "Salim El Ouassaidi",
     "Abdoulaye Kane",
+    "Jean Magny",
+    "Assita Ouattara",
+    "Bilal Bakhouche-Chareuf",
 ]
 
 # ---------------------------------------------------------------
@@ -225,6 +228,9 @@ FICHES_MANUELLES = {
     "Akhmad Amaev": "https://www.sherdog.com/fighter/Akhmad-Amaev-338675",
     "Mahamadou Soukouna": "https://www.sherdog.com/fighter/Mahamadou-Soukouna-419767",
     "Elie Caille": "https://www.sherdog.com/fighter/Elie-Caille-398905",
+    "Jean Magny": "https://www.sherdog.com/fighter/Jean-Magny-409015",
+    "Assita Ouattara": "https://www.sherdog.com/fighter/Assita-Ouattara-477781",
+    "Bilal Bakhouche-Chareuf": "https://www.sherdog.com/fighter/Bilal-BakhoucheChareuf-484183",
 }
 
 BASE = "https://www.sherdog.com"
