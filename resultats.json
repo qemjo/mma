@@ -27,6 +27,15 @@
     "methode": "Decision (Majority)"
   },
   {
+    "combattant": "Bilal Bakhouche-Chareuf",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Daniel Rodrigues",
+    "evenement": "ARES 44 - Younousov vs. Nam",
+    "date": "2026-10-31",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Losene Keita",
     "drapeau": "be",
     "resultat": "loss",
@@ -468,6 +477,15 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Bilal Bakhouche-Chareuf",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Rui Feng",
+    "evenement": "Jue Cheng King - JCK Kings 015",
+    "date": "2026-08-08",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Noah Gugnon",
     "drapeau": "fr",
     "resultat": "win",
@@ -601,6 +619,15 @@
     "evenement": "AEC 19 - Arena Elite Championship 19",
     "date": "2026-06-13",
     "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Assita Ouattara",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Nina Speciale",
+    "evenement": "AFC Grand Prix: Museum of Legends - Amiens Fighting Championship",
+    "date": "2026-06-13",
+    "methode": "TKO (Punches)"
   },
   {
     "combattant": "Paul Denis Navero",
@@ -882,6 +909,15 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Assita Ouattara",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Lisa Murtagh",
+    "evenement": "FMMAF - MMA League Elite 5: France vs. Ireland",
+    "date": "2026-05-09",
+    "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
     "combattant": "Alou Camara",
     "drapeau": "fr",
     "resultat": "win",
@@ -952,6 +988,15 @@
     "evenement": "UFC Fight Night 273 - Burns vs. Malott",
     "date": "2026-04-18",
     "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Jean Magny",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Shekina Bilolo",
+    "evenement": "Coliseum 4 - Coliseum Fighting Championship",
+    "date": "2026-04-18",
+    "methode": "Submission"
   },
   {
     "combattant": "Alex Lohore",
@@ -2057,6 +2102,15 @@
     "resultat": "loss",
     "adversaire": "Jonathan Micallef",
     "evenement": "UFC 312 - Du Plessis vs. Strickland 2",
+    "date": "2025-02-08",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Jean Magny",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Saba Saladze",
+    "evenement": "AEC 12 - Arena Elite Championship 12",
     "date": "2025-02-08",
     "methode": "Decision (Unanimous)"
   },
