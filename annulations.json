@@ -101,5 +101,24 @@
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Returns-to-Dubai-Nemkov-vs-Bilostenniy-114296",
     "type": "annule",
     "detecte_le": "2026-11-07"
+  },
+  {
+    "combattant": "Khamzat Abaev",
+    "url_suivi": "https://www.sherdog.com/fighter/Khamzat-Abaev-413927",
+    "url_adversaire": "https://www.sherdog.com/fighter/Leon-Hill-247943",
+    "drapeau": "be",
+    "record_suivi": "6-1-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Welterweight",
+    "ordre": 997,
+    "drapeau_adversaire": "ie",
+    "adversaire": "Leon Hill",
+    "record_adversaire": "9-2-0 (WIN-LOSS-DRAW)",
+    "evenement": "Professional Fighters League",
+    "date": "2026-11-14",
+    "lieu": "Coca-Cola Arena, Dubai, United Arab Emirates",
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Returns-to-Dubai-Nemkov-vs-Bilostenniy-114296",
+    "type": "annule",
+    "detecte_le": "2026-11-09"
   }
 ]
