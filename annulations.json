@@ -120,5 +120,24 @@
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Returns-to-Dubai-Nemkov-vs-Bilostenniy-114296",
     "type": "annule",
     "detecte_le": "2026-11-09"
+  },
+  {
+    "combattant": "Jean Magny",
+    "url_suivi": "https://www.sherdog.com/fighter/Jean-Magny-409015",
+    "url_adversaire": "",
+    "drapeau": "fr",
+    "record_suivi": "0-0-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "",
+    "ordre": 998,
+    "drapeau_adversaire": "",
+    "adversaire": "?",
+    "record_adversaire": "",
+    "evenement": "ARES 46",
+    "date": "2026-12-11",
+    "lieu": "Adidas Arena, Paris, France",
+    "lien_evenement": "https://www.sherdog.com/events/ARES-46-Jorand-vs-Jendrasik-114552",
+    "type": "annule",
+    "detecte_le": "2026-11-10"
   }
 ]
