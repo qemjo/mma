@@ -760,6 +760,45 @@ CHAMPS_INFOS = ("heure", "chaine", "lien",
 ORDRE_INFOS = ("_evenement",) + CHAMPS_INFOS
 
 
+def id_evenement(lien):
+    """Numero Sherdog d'une soiree, a la fin de son adresse.
+
+    Sherdog renomme parfois une page (ex. Ares-45-... devenu ARES-45-...)
+    sans changer ce numero : c'est lui qui identifie vraiment la soiree.
+    """
+    m = re.search(r"-(\d+)/?$", (lien or "").strip())
+    return m.group(1) if m else ""
+
+
+def aligner_soirees(combats):
+    """Range les combats annules sous la soiree telle que Sherdog l'ecrit
+    aujourd'hui.
+
+    Un combat annule garde le nom et l'adresse de la soiree au moment de
+    l'annulation. Si Sherdog les a modifies depuis, il formait une
+    seconde soiree en double. On reprend ceux des combats encore prevus
+    portant le meme numero Sherdog.
+    """
+    reference = {}
+    for c in combats:
+        if c.get("annule"):
+            continue
+        num = id_evenement(c.get("lien_evenement"))
+        if num and num not in reference:
+            reference[num] = c
+
+    for c in combats:
+        if not c.get("annule"):
+            continue
+        ref = reference.get(id_evenement(c.get("lien_evenement")))
+        if ref is None:
+            continue
+        for champ in ("date", "evenement", "lieu", "lien_evenement"):
+            if ref.get(champ):
+                c[champ] = ref[champ]
+    return combats
+
+
 def cle_repli(ev):
     """Cle de secours quand Sherdog ne donne pas l'adresse de la page."""
     return "|".join([ev.get("date", ""), ev.get("evenement", ""),
@@ -857,6 +896,13 @@ def assurer_infos(evenements):
         if libelle:
             par_libelle.setdefault(libelle, k)
 
+    # Meme soiree dont Sherdog a modifie l'adresse : meme numero.
+    par_numero = {}
+    for k in anciennes:
+        num = id_evenement(k)
+        if num:
+            par_numero.setdefault(num, k)
+
     prises = set()        # cles anciennes deja attribuees
     recuperes = []        # pour le compte rendu
     a_verifier = []       # homonymes : la saisie ne peut aller qu'a un seul
@@ -875,6 +921,8 @@ def assurer_infos(evenements):
         # l'evenement a perdu son lien Sherdog, ou vient d'en gagner un
         elif cle_repli(ev) in anciennes:
             source = cle_repli(ev)
+        elif par_numero.get(id_evenement(cle)) not in (None, *prises):
+            source = par_numero[id_evenement(cle)]
         elif par_libelle.get(libelle) not in (None, *prises):
             source = par_libelle[libelle]
         else:
@@ -2612,7 +2660,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 87
+VERSION = 88
 
 
 def ecrire_manifeste():
@@ -2824,6 +2872,7 @@ def main():
                         and c.get("date") == m.get("nouvelle_date")):
                     c["reporte_depuis"] = m.get("ancienne_date", "")
 
+    combats = aligner_soirees(combats)
     combats = ajouter_combats_manuels(combats, fiches)
     combats = fusionner_duels(combats)
     combats = retirer_annules_remplaces(combats)
