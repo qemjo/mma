@@ -71,6 +71,7 @@ ORGAS = [
     ("mvp", "mvp", "MVP"),
     ("bellator", "bellator", "BELLATOR"),
     ("rizin", "rizin", "RIZIN"),
+    ("one punch night", "opn", "OPN"),
     ("one championship", "one", "ONE"),
     ("one fc", "one", "ONE"),
     ("bkfc", "bkfc", "BKFC"),
@@ -523,6 +524,7 @@ RACCOURCIS = {
     "absolute championship akhmat": "ACA",
     "extreme fighting championship worldwide": "EFC",
     "rizin fighting federation": "RIZIN",
+    "one punch night - opn": "OPN",
     "hxmma": "Hexagone MMA",
     "hx mma": "Hexagone MMA",
 }
@@ -2082,6 +2084,61 @@ def barre_outils():
   </div>"""
 
 
+# Clics comptes par Umami (onglet Evenements de son tableau de bord).
+# Seuls les gestes du visiteur sont comptes : l'ouverture automatique
+# des volets par la recherche ne l'est pas. Sans Umami (bloqueur),
+# rien ne se passe.
+SUIVI_UMAMI = r"""
+<script>
+(function () {
+  function compter(nom, infos) {
+    if (window.umami && typeof window.umami.track === "function") {
+      try { window.umami.track(nom, infos); } catch (e) {}
+    }
+  }
+  function nomEvenement(el) {
+    var ev = el.closest("details.ev");
+    var n = ev && ev.querySelector(".ev__nom");
+    return n ? (n.getAttribute("data-complet") || n.textContent).trim() : "";
+  }
+  document.addEventListener("click", function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+    var bar = t.closest("summary.ev__bar");
+    if (bar) {
+      var ev = bar.parentElement;
+      if (ev && !ev.open) compter("Ouverture evenement", { evenement: nomEvenement(bar) });
+      return;
+    }
+    var recap = t.closest("summary.recap__bar");
+    if (recap) {
+      if (recap.parentElement && !recap.parentElement.open) compter("Ouverture resultats");
+      return;
+    }
+    var a = t.closest("a");
+    if (!a) return;
+    if (a.classList.contains("ev__ics")) {
+      compter("Ajout agenda", { evenement: nomEvenement(a) });
+    } else if (a.classList.contains("fight__nom--suivi")) {
+      compter("Fiche combattant", { combattant: a.textContent.trim() });
+    } else if (a.closest(".ev__diffusion")) {
+      compter("Lien diffusion", { evenement: nomEvenement(a) });
+    } else if (a.closest(".ev__actions")) {
+      compter("Carte complete", { evenement: nomEvenement(a) });
+    }
+  });
+  var champ = document.getElementById("recherche");
+  if (champ) {
+    champ.addEventListener("change", function () {
+      var q = champ.value.trim();
+      if (q.length >= 2) compter("Recherche", { terme: q.toLowerCase() });
+    });
+  }
+})();
+</script>
+"""
+
+
 JS = r"""
 <script>
 (function () {
@@ -2389,7 +2446,7 @@ def donnees_structurees(mois_groupes, infos):
                 if c.get("annule"):
                     continue
                 for n in (c.get("combattant"), c.get("adversaire")):
-                    if n and n not in noms:
+                    if n and n not in noms and n != ADVERSAIRE_INCONNU:
                         noms.append(n)
 
             interpretes = [{"@type": "Person", "name": n} for n in noms]
@@ -2543,6 +2600,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 
 </div>
 {JS}
+{SUIVI_UMAMI}
 </body>
 </html>
 """
@@ -2554,7 +2612,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 85
+VERSION = 87
 
 
 def ecrire_manifeste():
@@ -2672,6 +2730,57 @@ def ecrire_robots_et_sitemap():
                 "</urlset>\n")
 
 
+# Combats saisis a la main, pour les petites soirees que Sherdog tarde a
+# remplir. Des que Sherdog affiche un combat pour le meme combattant a la
+# meme date, l'entree manuelle est ignoree : pas de doublon, rien a
+# supprimer. Les entrees dont la date est passee ne s'affichent plus.
+ADVERSAIRE_INCONNU = "À déterminer"
+
+
+def ajouter_combats_manuels(combats, fiches):
+    donnees = charger_json("combats_manuels.json")
+    if donnees in (None, "ERREUR"):
+        return combats
+    liste = donnees.get("combats", []) if isinstance(donnees, dict) else donnees
+
+    aujourdhui = date.today().isoformat()
+    deja = {(normaliser(c.get("combattant", "")), c.get("date", ""))
+            for c in combats if not c.get("annule")}
+
+    for m in liste:
+        if not isinstance(m, dict):
+            continue
+        nom = (m.get("combattant") or "").strip()
+        jour = (m.get("date") or "").strip()
+        if not nom or len(jour) != 10 or jour < aujourdhui:
+            continue
+        if (normaliser(nom), jour) in deja:
+            print(f"   {nom} : Sherdog a pris le relais, saisie manuelle ignoree")
+            continue
+
+        combat = {
+            "combattant": nom,
+            "url_suivi": fiches.get(nom, ""),
+            "url_adversaire": "",
+            "drapeau": (m.get("drapeau") or "").strip().lower(),
+            "record_suivi": (m.get("record") or "").strip(),
+            "titre": bool(m.get("titre")),
+            "categorie": (m.get("categorie") or "").strip(),
+            "ordre": 500,
+            "drapeau_adversaire": (m.get("drapeau_adversaire") or "").strip().lower(),
+            "adversaire": (m.get("adversaire") or "").strip() or ADVERSAIRE_INCONNU,
+            "record_adversaire": "",
+            "evenement": (m.get("evenement") or "").strip(),
+            "date": jour,
+            "lieu": (m.get("lieu") or "").strip(),
+            "lien_evenement": (m.get("lien_evenement") or "").strip(),
+        }
+        combats.append(combat)
+        deja.add((normaliser(nom), jour))
+        print(f"   saisie manuelle : {nom}, {jour}")
+    return combats
+
+
 def main():
     print(f"generer_site v{VERSION}")
     ecrire_manifeste()
@@ -2715,6 +2824,7 @@ def main():
                         and c.get("date") == m.get("nouvelle_date")):
                     c["reporte_depuis"] = m.get("ancienne_date", "")
 
+    combats = ajouter_combats_manuels(combats, fiches)
     combats = fusionner_duels(combats)
     combats = retirer_annules_remplaces(combats)
     mois_groupes = grouper(combats)
