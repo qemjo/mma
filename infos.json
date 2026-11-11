@@ -2,8 +2,8 @@
   "_aide": "Une entree par evenement, rangee par adresse de sa page Sherdog : deux soirees differentes portent parfois le meme nom. Repere-toi a la ligne _evenement, reecrite a chaque passage, ne la remplis pas. A saisir : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
   "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Returns-to-Dubai-Nemkov-vs-Bilostenniy-114296": {
     "_evenement": "14/11/2026 - PFL Returns to Dubai (Dubai)",
-    "heure": "",
-    "chaine": "",
+    "heure": "20:30",
+    "chaine": "RMC SPORT 1",
     "lien": "",
     "heure_prelim": "",
     "prelim": "",
@@ -11,8 +11,8 @@
   },
   "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293": {
     "_evenement": "14/11/2026 - UFC 334 (New York City, NY)",
-    "heure": "",
-    "chaine": "",
+    "heure": "01:00",
+    "chaine": "RMC SPORT 1",
     "lien": "",
     "heure_prelim": "",
     "prelim": "",
