@@ -139,5 +139,24 @@
     "lien_evenement": "https://www.sherdog.com/events/ARES-46-Jorand-vs-Jendrasik-114552",
     "type": "annule",
     "detecte_le": "2026-11-10"
+  },
+  {
+    "combattant": "Baris Adiguzel",
+    "url_suivi": "https://www.sherdog.com/fighter/Baris-Adiguzel-303643",
+    "url_adversaire": "https://www.sherdog.com/fighter/Liam-Gittins-200545",
+    "drapeau": "fr",
+    "record_suivi": "10-2-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Bantamweight",
+    "ordre": 991,
+    "drapeau_adversaire": "en",
+    "adversaire": "Liam Gittins",
+    "record_adversaire": "13-6-0 (WIN-LOSS-DRAW)",
+    "evenement": "Professional Fighters League",
+    "date": "2026-12-19",
+    "lieu": "LDLC Arena, Lyon, France",
+    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297",
+    "type": "annule",
+    "detecte_le": "2026-11-11"
   }
 ]
