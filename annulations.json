@@ -158,5 +158,24 @@
     "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297",
     "type": "annule",
     "detecte_le": "2026-11-11"
+  },
+  {
+    "combattant": "Nimo Djagbo",
+    "url_suivi": "https://www.sherdog.com/fighter/Nimo-Djagbo-425229",
+    "url_adversaire": "https://www.sherdog.com/fighter/Nikodem-Blazejewski-509626",
+    "drapeau": "fr",
+    "record_suivi": "1-0-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Welterweight",
+    "ordre": 994,
+    "drapeau_adversaire": "pl",
+    "adversaire": "Nikodem Blazejewski",
+    "record_adversaire": "0-1-0 (WIN-LOSS-DRAW)",
+    "evenement": "ARES 45",
+    "date": "2026-11-20",
+    "lieu": "Adidas Arena, Paris, France",
+    "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453",
+    "type": "annule",
+    "detecte_le": "2026-11-13"
   }
 ]
