@@ -1,0 +1,93 @@
+{
+  "_aide": "Une entree par combattant qui doit avoir sa fiche. Le nom doit etre ecrit exactement comme dans COMBATTANTS (mma_tracker.py). Champs : naissance (AAAA-MM-JJ, ou juste l'annee AAAA si on ne connait que l'age), taille (ex: 1,84), surnom (si Sherdog n'en donne pas), nationalite (code pays, ex: fr ou fr, tn pour deux nationalites ; sinon celle de Sherdog), tapology (adresse de sa fiche ; sinon le bouton ouvre une recherche Tapology), instagram (adresse du compte), nom_complet (pas affiche, aide Google). Mets ? quand une info est introuvable : la fiche affichera ?. Ce que tu remplis passe avant ce que donne Sherdog. La bio est le texte libre de la fiche. Une fiche n'est creee que si la bio est remplie.",
+  "Nimo Djagbo": {
+    "naissance": "1998-08-17",
+    "taille": "1,88",
+    "surnom": "?",
+    "nationalite": "?",
+    "tapology": "?",
+    "instagram": "https://www.instagram.com/nim.o___/",
+    "nom_complet": "Eric Djagbo",
+    "bio": "Nimo Djagbo est indissociable de Marvin Capéran. Amis et partenaires d'entraînement, les deux Français ont fait leurs armes en muay-thaï, en partie en Thaïlande, avant de se faire un nom sur le circuit underground suédois King of the Streets, où l'on combat à mains nues et sans limite de temps. Ils y ont même disputé ensemble le premier combat en 2 contre 2 de l'histoire de l'organisation. Passés au MMA professionnel en 2026 sous les couleurs de la Bulgarian Top Team, ils ont signé ensemble à l'ARES et combattent le plus souvent sur la même carte. Djagbo a réussi ses débuts pros par KO sur un coup de pied à la tête."
+  },
+  "Marvin Caperan": {
+    "naissance": "2001-05-05",
+    "taille": "1,84",
+    "surnom": "?",
+    "nationalite": "?",
+    "tapology": "?",
+    "instagram": "https://www.instagram.com/tortvnk/",
+    "nom_complet": "?",
+    "bio": "Marvin Capéran avance rarement sans Nimo Djagbo. Les deux amis viennent du muay-thaï, travaillé en Thaïlande, et se sont révélés ensemble au King of the Streets, l'organisation suédoise de combats à mains nues, jusqu'à y former une équipe lors du premier duel en 2 contre 2 de son histoire. En 2026, ils ont franchi le pas du MMA professionnel avec la Bulgarian Top Team et signé tous les deux à l'ARES, où ils partagent souvent l'affiche. Capéran a lancé sa carrière pro par un TKO expédié en moins d'une minute et demie."
+  },
+  "Modibo Diakite": {
+    "naissance": "2003",
+    "taille": "1,79",
+    "surnom": "Silent King",
+    "nationalite": "?",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/367052-modibo-diakite",
+    "instagram": "https://www.instagram.com/modibo__diakite/",
+    "nom_complet": "Modibo Diakité",
+    "bio": "Surnommé « Silent King », Modibo Diakité est malentendant de naissance. Il ne perçoit que certains sons et lit sur les lèvres, ce qui ne l'a pas empêché de devenir le premier combattant de MMA professionnel malentendant en France. Originaire de Montreuil, il a commencé par le judo à 8 ans, dans les pas de ses grands frères, avant de basculer vers le MMA à 16 ans. Champion amateur de la PEF chez les moins de 77 kg, il a fait ses débuts professionnels à l'ARES en février 2025. Dans le coin, son entraîneur Malick Sylla communique avec lui grâce à un code de gestes qu'ils ont mis au point ensemble. Son rêve affiché : rejoindre un jour l'UFC, sur les traces de son idole Jon Jones."
+  },
+  "Anthony Morel": {
+    "naissance": "1992",
+    "taille": "1,84",
+    "surnom": "?",
+    "nationalite": "?",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/396904-anthony-morel",
+    "instagram": "https://www.instagram.com/big.morel/",
+    "nom_complet": "?",
+    "bio": "Anthony Morel, dit « Big », est le poids lourd réunionnais du MMA français. Avant la cage, il s'est construit sur les tapis, avec des titres de champion de France en lutte et en grappling et un passé de champion de jiu-jitsu brésilien. Passé professionnel en 2023 à l'Hexagone MMA, il a marqué les esprits dès son premier combat en mettant KO Adama Diop, futur champion de l'organisation. En juillet 2024, à Johannesburg, il est devenu champion du monde des poids lourds de l'EFC, l'organisation sud-africaine, un sacre qui lui a valu la médaille de la ville de Saint-Pierre. Éducateur sportif, il fait aussi grandir le MMA sur son île avec la Big Morel Académie, une association qui accompagne les jeunes Réunionnais par le sport."
+  },
+  "Oceane Samson": {
+    "naissance": "1997",
+    "taille": "?",
+    "surnom": "La Patronne",
+    "nationalite": "?",
+    "tapology": "?",
+    "instagram": "https://www.instagram.com/oceane.samson/",
+    "nom_complet": "Océane Samson",
+    "bio": "Surnommée « la Patronne », Océane Samson a grandi dans un village de Normandie. Elle a commencé par le taekwondo à 8 ans, jusqu'à la ceinture noire, avant de découvrir la boxe américaine full-contact, où elle a décroché deux titres mondiaux. Devenue policière et mutée à Lyon en 2019, elle s'y est mise au MMA et a rapidement intégré l'équipe de France amateur. En 2024, elle a été sacrée championne du monde amateur IMMAF chez les moins de 56,7 kg et a remporté l'émission MMA Academy sur M6+. Elle est passée professionnelle en 2025 à l'Hexagone MMA."
+  },
+  "Hugo Deux": {
+    "naissance": "1996-04-02",
+    "taille": "1,75",
+    "surnom": "Nemesis",
+    "nationalite": "?",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/341800-hugo-deux-nemesis",
+    "instagram": "https://www.instagram.com/hugonemesisdeux/",
+    "nom_complet": "?",
+    "bio": "Lyonnais installé en Pologne, Hugo Deux a commencé par le judo à 6 ans. En parallèle des tatamis, il a mené un double cursus en droit et en science politique et servi comme réserviste dans la gendarmerie, avec le GIGN en ligne de mire. Il a aussi monté sa propre activité de coaching avant de se consacrer pleinement à sa carrière. Passé professionnel en 2022, il a rejoint en 2024 la KSW, la grande organisation polonaise de MMA."
+  },
+  "Souheil Kaouchen": {
+    "naissance": "2007-03-16",
+    "taille": "1,73",
+    "surnom": "The One",
+    "nationalite": "?",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/423572-souheil-kaouchen",
+    "instagram": "https://www.instagram.com/souheil_kaouchen/",
+    "nom_complet": "?",
+    "bio": "Originaire de Sannois, dans le Val-d'Oise, Souheil Kaouchen a grandi dans les sports de combat. Ceinture noire de taekwondo, il a été cinq fois champion de France et champion du monde de muay-thaï avant de se tourner vers le MMA, où il a bouclé son parcours amateur sans la moindre défaite. Formé à l'Atch Academy, aux côtés de Salahdine Parnasse et sous la direction de Laïd Zerhouni, il a signé à la KSW dès ses débuts professionnels. En mai 2025, à 18 ans, il y est devenu le plus jeune vainqueur de l'histoire de l'organisation polonaise."
+  },
+  "Boris Atangana": {
+    "naissance": "1998",
+    "taille": "?",
+    "surnom": "Modern Gladiator",
+    "nationalite": "?",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/337528-alan-mbarga",
+    "instagram": "https://www.instagram.com/moderngladiator_/",
+    "nom_complet": "Boris Mbarga Atangana",
+    "bio": "Né au Cameroun, Boris Atangana est arrivé enfant en Belgique et a grandi à Bruxelles. Livré à lui-même dès 16 ans, il a dû mener de front ses études et des petits boulots, entre les cuisines d'un restaurant et l'entrée des boîtes de nuit, où il travaillait comme agent de sécurité. Il n'a découvert le MMA qu'au début des années 2020, mais sa progression a été fulgurante : passé professionnel en 2024, il a rejoint le PFL dès l'année suivante. Surnommé le « Gladiateur moderne », il s'entraîne aux côtés de Patrick Habirora, autre figure du MMA belge."
+  },
+  "Walid Masmoudi": {
+    "naissance": "2001-08-21",
+    "taille": "1,79",
+    "surnom": "?",
+    "nationalite": "fr, tn",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/339030-walid-masmoudi",
+    "instagram": "https://www.instagram.com/walidmasmoudi350/",
+    "nom_complet": "?",
+    "bio": "Originaire de Bagnolet, Walid Masmoudi est un Franco-Tunisien formé à l'ATCH Academy d'Aubervilliers, le club où s'entraînent aussi Salahdine Parnasse et Souheil Kaouchen. Pur striker, réputé pour la lourdeur de ses mains et sa boxe bâtie autour du jab, il est passé professionnel en 2025 et a rejoint l'ARES dans la foulée. En juin 2026, à 24 ans, il a conquis la ceinture vacante des poids légers de l'organisation à l'Adidas Arena, au terme d'un combat de cinq rounds face à un autre invaincu."
+  }
+}

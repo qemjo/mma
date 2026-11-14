@@ -17,6 +17,7 @@ import os
 import re
 import unicodedata
 from datetime import date, datetime, timedelta, timezone
+from urllib.parse import quote_plus
 
 # Identite du site pour Google et pour les partages sur les reseaux.
 # Le titre s'affiche dans les resultats de recherche : environ
@@ -326,6 +327,24 @@ CODES_DRAPEAU = {
     "en": "gb-eng",   # Angleterre
     "wa": "gb-wls",   # pays de Galles
 }
+
+
+# Combattants qui ont leur fiche sur le site (rempli dans main, d'apres
+# bios.json). Leur nom renvoie vers cette fiche plutot que vers Sherdog.
+PAGES_COMBATTANTS = {}
+
+
+def slug_combattant(nom):
+    """'Nimo Djagbo' -> 'nimo-djagbo'"""
+    return re.sub(r"[^a-z0-9]+", "-", normaliser(nom)).strip("-")
+
+
+def attributs_lien(nom, url_sherdog, prefixe=""):
+    """href (et ouverture dans un nouvel onglet pour Sherdog)."""
+    page = PAGES_COMBATTANTS.get(nom)
+    if page:
+        return f'href="{prefixe}{page}"'
+    return f'href="{url_sherdog}" target="_blank" rel="noopener"'
 
 
 def drapeau_html(iso, titre=""):
@@ -1907,9 +1926,10 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
         nom = echapper(nom_affiche(c["combattant"]))
         flag = drapeau_html(c.get("drapeau", ""))
         url = fiches.get(c["combattant"], "")
-        if url:
-            lien_nom = (f'<a class="fight__nom fight__nom--suivi" href="{url}" '
-                        f'target="_blank" rel="noopener" data-complet="{nom}">{nom}</a>')
+        if url or c["combattant"] in PAGES_COMBATTANTS:
+            lien_nom = (f'<a class="fight__nom fight__nom--suivi" '
+                        f'{attributs_lien(c["combattant"], url)} '
+                        f'data-complet="{nom}">{nom}</a>')
         else:
             lien_nom = (f'<span class="fight__nom fight__nom--suivi" '
                         f'data-complet="{nom}">{nom}</span>')
@@ -1927,12 +1947,15 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
         # son nom tel qu'on l'ecrit, son drapeau, et on le rend cliquable.
         nom_adv = (nom_affiche(c["adversaire_suivi"])
                    if c.get("adversaire_suivi") else c["adversaire"])
-        url_adv = fiches.get(c.get("adversaire_suivi", ""), "")
+        suivi_adv = c.get("adversaire_suivi", "")
+        url_adv = fiches.get(suivi_adv, "")
+        if suivi_adv in PAGES_COMBATTANTS and not url_adv:
+            url_adv = "#"
         flag_adv = drapeau_html(c.get("drapeau_adversaire", ""))
         classe_adv = "fight__nom fight__nom--suivi" if url_adv else "fight__nom"
         if url_adv:
-            bloc_adv = (f'<a class="{classe_adv}" href="{url_adv}" '
-                        f'target="_blank" rel="noopener" '
+            bloc_adv = (f'<a class="{classe_adv}" '
+                        f'{attributs_lien(suivi_adv, url_adv)} '
                         f'data-complet="{echapper(nom_adv)}">'
                         f'{echapper(nom_adv)}</a>')
         else:
@@ -2102,8 +2125,11 @@ def module_resultats(resultats, fiches):
             dtxt = ""
         nom = echapper(nom_affiche(r.get("combattant", "")))
         url = fiches.get(r.get("combattant", ""), "")
-        nom_html = (f'<a class="rl__lien" href="{url}" target="_blank" '
-                    f'rel="noopener">{nom}</a>') if url else nom
+        if r.get("combattant", "") in PAGES_COMBATTANTS and not url:
+            url = "#"
+        nom_html = (f'<a class="rl__lien" '
+                    f'{attributs_lien(r.get("combattant", ""), url)}>{nom}</a>'
+                    ) if url else nom
 
         lignes.append(f"""
       <div class="rl">
@@ -2660,7 +2686,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 88
+VERSION = 98
 
 
 def ecrire_manifeste():
@@ -2758,8 +2784,8 @@ self.addEventListener("fetch", function (e) {
         f.write(contenu)
 
 
-def ecrire_robots_et_sitemap():
-    """Autorise l'indexation et signale la page aux moteurs."""
+def ecrire_robots_et_sitemap(pages=()):
+    """Autorise l'indexation et signale les pages aux moteurs."""
     with open("robots.txt", "w", encoding="utf-8") as f:
         f.write("User-agent: *\n"
                 "Allow: /\n"
@@ -2774,8 +2800,517 @@ def ecrire_robots_et_sitemap():
                 f"    <lastmod>{date.today().isoformat()}</lastmod>\n"
                 "    <changefreq>daily</changefreq>\n"
                 "    <priority>1.0</priority>\n"
-                "  </url>\n"
-                "</urlset>\n")
+                "  </url>\n")
+        for page in pages:
+            f.write("  <url>\n"
+                    f"    <loc>{SITE_URL}/{page}</loc>\n"
+                    f"    <lastmod>{date.today().isoformat()}</lastmod>\n"
+                    "    <changefreq>weekly</changefreq>\n"
+                    "    <priority>0.6</priority>\n"
+                    "  </url>\n")
+        f.write("</urlset>\n")
+
+
+# ---------------------------------------------------------------------
+# Fiches combattants : une page par combattant qui a une bio dans
+# bios.json. Infos lues sur Sherdog par profils.py (profils.json), ce
+# qui est rempli a la main dans bios.json passe devant.
+# ---------------------------------------------------------------------
+
+NOMS_PAYS = {
+    "fr": "France", "be": "Belgique", "ch": "Suisse", "lu": "Luxembourg",
+    "ca": "Canada", "ma": "Maroc", "dz": "Algérie", "tn": "Tunisie",
+    "sn": "Sénégal", "cm": "Cameroun", "ci": "Côte d'Ivoire",
+    "cd": "RD Congo", "cg": "Congo", "ml": "Mali", "gn": "Guinée",
+    "ht": "Haïti", "mg": "Madagascar", "ga": "Gabon", "bj": "Bénin",
+    "tg": "Togo", "re": "La Réunion", "gp": "Guadeloupe", "mq": "Martinique",
+    "gf": "Guyane", "yt": "Mayotte", "nc": "Nouvelle-Calédonie", "pf": "Polynésie française", "bf": "Burkina Faso", "ru": "Russie", "us": "États-Unis",
+    "gb": "Royaume-Uni", "pt": "Portugal", "es": "Espagne", "it": "Italie",
+    "de": "Allemagne", "pl": "Pologne", "br": "Brésil",
+}
+
+# Blocs "prochain combat" et "dernier combat" sur les fiches. Retires
+# pour l'instant : passer a True pour les remettre.
+FICHE_AVEC_COMBATS = False
+
+RESULTATS_FR = {"win": "Victoire", "loss": "Défaite", "draw": "Match nul",
+                "nc": "Sans décision", "no contest": "Sans décision"}
+
+CSS_FICHE = """
+  :root {
+    color-scheme: dark;
+    --noir: #0a0a0c;
+    --bar: #1b1b21;
+    --bord: #34343d;
+    --or: #f2c14e;
+    --blanc: #f5f5f7;
+    --gris: #9a9aa4;
+  }
+  * { box-sizing: border-box; }
+  html { background-color: var(--noir); scrollbar-color: var(--bord) var(--noir); }
+  body {
+    margin: 0;
+    padding: 0 1.2rem 2.6rem;
+    padding-left: calc(1.2rem + env(safe-area-inset-left));
+    padding-right: calc(1.2rem + env(safe-area-inset-right));
+    padding-bottom: calc(2.6rem + env(safe-area-inset-bottom));
+    background-color: transparent;
+    background-image: repeating-linear-gradient(
+      135deg, rgba(255,255,255,0.016) 0 2px, transparent 2px 16px);
+    color: var(--blanc);
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  .haut { margin: 1.6rem 0 0; text-align: center; }
+  a { color: var(--blanc); text-decoration-color: rgba(242,193,78,0.6);
+      text-underline-offset: 3px; }
+  .retour {
+    display: inline-block; padding: 0.4rem 0;
+    color: var(--gris); font-size: 0.85rem; text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .retour:hover { color: var(--or); }
+  header.fiche { padding: 1.2rem 0 1.4rem; text-align: center; }
+  h1 {
+    font-family: Oswald, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.02em;
+    font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.05; margin: 0;
+  }
+  h1 .flag { height: 0.62em; width: auto; margin-left: 0.4rem;
+             vertical-align: 0.12em; border-radius: 2px; }
+  .surnom { margin: 0.35rem 0 0; color: var(--or); font-style: italic;
+            font-weight: 600; letter-spacing: 0.02em; }
+  .bloc {
+    background: var(--bar); border: 1px solid var(--bord);
+    border-radius: 12px; padding: 1rem 1.15rem; margin: 0 0 1rem;
+  }
+  h2 {
+    font-family: Oswald, sans-serif; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    font-size: 0.82rem; color: var(--or); margin: 0 0 0.6rem;
+    text-align: center;
+  }
+  .infos { display: grid; grid-template-columns: 1fr; gap: 0.75rem 0.8rem;
+           margin: 0; text-align: center; }
+  .infos dt { color: var(--gris); font-size: 0.72rem; text-transform: uppercase;
+              letter-spacing: 0.07em; margin-bottom: 0.1rem; }
+  .infos dd { margin: 0; font-size: 0.98rem; font-weight: 600; }
+  .nobr { white-space: nowrap; }
+  @media (max-width: 799px) {
+    /* fiche et bio l'une sous l'autre : la fiche passe sur deux colonnes */
+    .infos { grid-template-columns: 1fr 1fr; }
+    .info:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  }
+  .combat__ligne { font-family: Oswald, sans-serif; font-weight: 500;
+                   text-transform: uppercase; font-size: 1.15rem;
+                   letter-spacing: 0.02em; margin: 0; }
+  .combat__ligne .vs { color: var(--or); font-size: 0.8rem;
+                       margin: 0 0.45rem; vertical-align: 0.12em; }
+  .combat__meta { margin: 0.25rem 0 0; color: var(--gris); font-size: 0.88rem; }
+  .combat__res { font-weight: 700; }
+  .combat__res--v { color: #3ecf8e; }
+  .combat__res--d { color: #e5484d; }
+  .chip {
+    display: inline-block; margin-left: 0.5rem; padding: 0.05rem 0.5rem;
+    border-radius: 999px; background: var(--or); color: #14140f;
+    font-family: Oswald, sans-serif; font-size: 0.75rem; letter-spacing: 0.04em;
+    vertical-align: 0.15em;
+  }
+  .vide { color: var(--gris); margin: 0; }
+  .bio p { margin: 0; font-size: 1rem; line-height: 1.65; }
+  .colonnes { display: grid; gap: 1rem; align-items: stretch; }
+  .colonnes .bloc { margin: 0; }
+  @media (min-width: 800px) {
+    .colonnes { grid-template-columns: 300px 1fr; }
+    .bio p { text-align: justify; }
+  }
+  .boutons { display: flex; flex-wrap: wrap; justify-content: center;
+             gap: 0.6rem; margin: 0 0 1.4rem; }
+  .bouton {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.6rem 1.1rem; border: 1px solid var(--or); border-radius: 999px;
+    color: var(--or); text-decoration: none; font-family: Oswald, sans-serif;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;
+    font-size: 0.85rem;
+  }
+  .bouton:hover { background: var(--or); color: #14140f; }
+  .liens { display: flex; flex-wrap: wrap; justify-content: center;
+           gap: 0.6rem 1.4rem;
+           margin: 1.4rem 0 0; font-size: 0.9rem; }
+  footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--bord);
+           color: var(--gris); font-size: 0.8rem; text-align: center; }
+  footer p { margin: 0.3rem 0; }
+  @media (max-width: 520px) {
+    .boutons { gap: 0.4rem; margin-bottom: 1.1rem; }
+    .bouton { padding: 0.38rem 0.7rem; font-size: 0.74rem;
+              letter-spacing: 0.04em; gap: 0.25rem; }
+  }
+  @media (max-width: 400px) {
+    .bouton .fleche { display: none; }
+    .combat__ligne { font-size: 1.02rem; }
+  }
+"""
+
+
+def taille_affichee(valeur):
+    """'184', '1,84' ou '1.84' -> '1,84 m'"""
+    try:
+        v = float(str(valeur).replace(",", ".").replace("m", "").strip())
+    except ValueError:
+        return ""
+    if v < 3:
+        v *= 100
+    if v < 120 or v > 230:
+        return ""
+    return f"{v / 100:.2f} m".replace(".", ",")
+
+
+def lier_noms(texte, nom_courant):
+    """Rend cliquable, dans une bio, le nom des autres combattants qui ont
+    leur fiche (premiere mention seulement). Ne tient pas compte des
+    accents : 'Marvin Capéran' renvoie bien vers 'Marvin Caperan'."""
+    def sans_accent(t):
+        return "".join(unicodedata.normalize("NFKD", ch)[0] if ch else ch
+                       for ch in t).lower()
+
+    plat = sans_accent(texte)
+    reperes = []
+    for nom, chemin in PAGES_COMBATTANTS.items():
+        if nom == nom_courant:
+            continue
+        for forme in {nom, nom_affiche(nom)}:
+            i = plat.find(sans_accent(forme))
+            if i >= 0:
+                reperes.append((i, i + len(forme), chemin))
+                break
+    reperes.sort()
+    morceaux, pos = [], 0
+    for debut, fin, chemin in reperes:
+        if debut < pos:
+            continue
+        morceaux.append(echapper(texte[pos:debut]))
+        cible = "../" + chemin
+        morceaux.append(f'<a href="{cible}">{echapper(texte[debut:fin])}</a>')
+        pos = fin
+    morceaux.append(echapper(texte[pos:]))
+    return "".join(morceaux)
+
+
+def date_longue(iso):
+    try:
+        j = datetime.strptime(iso, "%Y-%m-%d").date()
+    except (TypeError, ValueError):
+        return ""
+    jour = "1er" if j.day == 1 else str(j.day)
+    return f"{jour} {MOIS_LONG[j.month - 1].lower()} {j.year}"
+
+
+def age_depuis(iso):
+    try:
+        n = datetime.strptime(iso, "%Y-%m-%d").date()
+    except (TypeError, ValueError):
+        return ""
+    t = date.today()
+    return str(t.year - n.year - ((t.month, t.day) < (n.month, n.day)))
+
+
+def prochain_combat_de(nom, combats):
+    aujourd_hui = date.today().isoformat()
+    candidats = []
+    for c in combats:
+        if c.get("annule") or (c.get("date") or "") < aujourd_hui:
+            continue
+        if c.get("combattant") == nom:
+            adv = c.get("adversaire_suivi") or c.get("adversaire", "")
+            rec_adv = c.get("record_adversaire", "")
+            if c.get("adversaire_suivi"):
+                rec_adv = ""
+            candidats.append((c["date"], c, adv, rec_adv))
+        elif c.get("adversaire_suivi") == nom:
+            candidats.append((c["date"], c, c.get("combattant", ""), ""))
+    if not candidats:
+        return None
+    candidats.sort(key=lambda x: x[0])
+    return candidats[0]
+
+
+def dernier_combat_de(nom, profil, resultats):
+    dc = profil.get("dernier_combat") if isinstance(profil, dict) else None
+    if isinstance(dc, dict) and dc.get("resultat"):
+        return dc
+    miens = [r for r in resultats if r.get("combattant") == nom]
+    miens.sort(key=lambda r: r.get("date", ""), reverse=True)
+    return miens[0] if miens else None
+
+
+def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
+    affichage = nom_affiche(nom)
+    profil = profil if isinstance(profil, dict) else {}
+    prochain = prochain_combat_de(nom, combats)
+
+    # infos : la saisie manuelle passe devant Sherdog ("?" = inconnu)
+    def saisie(champ):
+        v = str(bio.get(champ) or "").strip()
+        return "" if v == "?" else v
+
+    bio = dict(bio)
+    for champ in ("surnom", "naissance", "taille", "tapology", "instagram",
+                  "nom_complet", "nationalite"):
+        bio[champ] = saisie(champ)
+    surnom = (bio.get("surnom") or profil.get("surnom") or "").strip()
+    naissance = (bio.get("naissance") or profil.get("naissance") or "").strip()
+    drapeau = (profil.get("drapeau") or "").strip()
+    categorie = (profil.get("categorie") or "").strip()
+    record = nettoyer_record(profil.get("record") or "")
+    if prochain:
+        c = prochain[1]
+        if not drapeau and c.get("combattant") == nom:
+            drapeau = c.get("drapeau", "")
+        if not categorie:
+            categorie = c.get("categorie", "")
+        if not record and c.get("combattant") == nom:
+            record = nettoyer_record(c.get("record_suivi", ""))
+
+    lignes_infos = []
+
+    def info(etiquette, valeur):
+        # une info inconnue reste affichee, avec un point d'interrogation
+        lignes_infos.append(f'<div class="info"><dt>{etiquette}</dt>'
+                            f'<dd>{valeur or "?"}</dd></div>')
+
+    # ordre : la personne, puis le sportif
+    # nationalite saisie a la main (codes pays, ex: "fr, tn") ou Sherdog
+    pays = [p.strip().lower() for p in bio.get("nationalite", "").split(",")
+            if p.strip()] or ([drapeau] if drapeau else [])
+    info("Nationalité", " / ".join(
+        f'<span class="nobr">{drapeau_html(p)} '
+        f'{echapper(NOMS_PAYS.get(p, p.upper()))}</span>'
+        for p in pays))
+    if re.fullmatch(r"\d{4}", naissance):
+        # annee seule : age approximatif
+        age = date.today().year - int(naissance)
+        info("Naissance", f'<span class="nobr">{naissance}</span> '
+             f'<span class="nobr">(env. {age} ans)</span>')
+    elif naissance:
+        age = age_depuis(naissance)
+        info("Naissance", f'<span class="nobr">{date_longue(naissance)}</span>'
+             + (f' <span class="nobr">({age} ans)</span>' if age else ""))
+    else:
+        info("Naissance", "")
+    info("Taille", taille_affichee(bio.get("taille") or profil.get("taille_cm") or ""))
+    info("Catégorie", echapper(categorie))
+    info("Équipe", echapper(profil.get("equipe", "")))
+    info("Palmarès pro", echapper(record))
+
+    # prochain combat
+    if prochain:
+        _, c, adv, rec_adv = prochain
+        lien_ev = c.get("lien_evenement", "")
+        nom_ev = nom_evenement(c.get("evenement", ""), lien_ev)
+        lieu = ville_depuis_lieu(c.get("lieu", ""))
+        chip = chip_compte(c["date"])
+        ceinture = " · titre en jeu" if c.get("titre") else ""
+        adv_txt = echapper(nom_affiche(adv) if adv in PAGES_COMBATTANTS else adv)
+        if adv in PAGES_COMBATTANTS:
+            adv_txt = f'<a href="../{PAGES_COMBATTANTS[adv]}">{adv_txt}</a>'
+        rec_txt = f" ({echapper(nettoyer_record(rec_adv))})" if rec_adv else ""
+        bloc_prochain = f"""
+    <p class="combat__ligne">{echapper(affichage)}<span class="vs">VS</span>{adv_txt}{rec_txt}</p>
+    <p class="combat__meta">{echapper(nom_ev)} · {date_longue(c["date"])}{(" · " + echapper(lieu)) if lieu else ""}{ceinture}{f'<span class="chip">{chip}</span>' if chip else ""}</p>"""
+    else:
+        bloc_prochain = '\n    <p class="vide">Aucun combat annoncé pour le moment.</p>'
+
+    # dernier combat
+    dc = dernier_combat_de(nom, profil, resultats)
+    if dc:
+        res = (dc.get("resultat") or "").lower()
+        classe = {"win": " combat__res--v", "loss": " combat__res--d"}.get(res, "")
+        details = [echapper(dc.get("methode", ""))]
+        if dc.get("round"):
+            details.append(f'round {echapper(dc["round"])}')
+        details = ", ".join(d for d in details if d)
+        bloc_dernier = f"""
+    <p class="combat__ligne"><span class="combat__res{classe}">{RESULTATS_FR.get(res, res.upper())}</span><span class="vs">VS</span>{echapper(dc.get("adversaire", ""))}</p>
+    <p class="combat__meta">{details}{(" · " + echapper(nom_evenement(dc.get("evenement", "")))) if dc.get("evenement") else ""}{(" · " + date_longue(dc.get("date", ""))) if dc.get("date") else ""}</p>"""
+    elif profil:
+        bloc_dernier = '\n    <p class="vide">Pas encore de combat professionnel.</p>'
+    else:
+        bloc_dernier = ""   # pas de releve Sherdog : on ne sait pas
+
+    section_dernier = ""
+    if bloc_dernier:
+        section_dernier = ('\n  <section class="bloc">\n'
+                           '    <h2>Dernier combat</h2>' + bloc_dernier +
+                           '\n  </section>')
+
+    bloc_combats = ""
+    if FICHE_AVEC_COMBATS:
+        bloc_combats = ('\n  <section class="bloc">\n'
+                        '    <h2>Prochain combat</h2>' + bloc_prochain +
+                        '\n  </section>\n' + section_dernier + '\n')
+
+    texte_bio = lier_noms(bio.get("bio", "").strip(), nom)
+    chemin = PAGES_COMBATTANTS[nom]
+    url_page = f"{SITE_URL}/{chemin}"
+    if FICHE_AVEC_COMBATS:
+        titre = f"{affichage} : prochain combat, dernier résultat | MMA Radar"
+    else:
+        titre = f"{affichage} : fiche et parcours du combattant | MMA Radar"
+    desc = f"{affichage}"
+    if surnom:
+        desc += f" « {surnom} »"
+    if FICHE_AVEC_COMBATS:
+        desc += " : prochain combat, dernier résultat et parcours"
+    else:
+        desc += " : fiche et parcours du combattant de MMA"
+    morceaux = [m for m in (categorie, f"palmarès pro {record}" if record else "") if m]
+    if morceaux:
+        desc += ". " + ", ".join(morceaux)
+    desc += "."
+    desc = echapper(desc).replace('"', "&quot;")
+    titre_attr = echapper(titre).replace('"', "&quot;")
+
+    personne = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": affichage,
+        "url": url_page,
+        "jobTitle": "Combattant de MMA",
+    }
+    autres_noms = [n for n in (surnom, (bio.get("nom_complet") or "").strip())
+                   if n and n != affichage]
+    if autres_noms:
+        personne["alternateName"] = autres_noms
+    if naissance:
+        personne["birthDate"] = naissance
+    if drapeau and drapeau in NOMS_PAYS:
+        personne["nationality"] = {"@type": "Country", "name": NOMS_PAYS[drapeau]}
+    if url_sherdog:
+        personne["sameAs"] = [url_sherdog]
+    jsonld = json.dumps(personne, ensure_ascii=False).replace("</", "<\\/")
+
+    surnom_html = f'\n    <p class="surnom">« {echapper(surnom)} »</p>' if surnom else ""
+    flag_titre = ""   # le drapeau figure deja sur la ligne Nationalite
+    infos_html = "".join(lignes_infos)
+    bloc_infos = (f"""
+  <section class="bloc fiche-infos">
+    <h2>Fiche</h2>
+    <dl class="infos">{infos_html}</dl>
+  </section>""" if infos_html else "")
+    boutons = []
+    if url_sherdog:
+        boutons.append(
+            f'<a class="bouton" href="{url_sherdog}" target="_blank" '
+            f'rel="noopener" data-umami-event="Sherdog depuis fiche" '
+            f'data-umami-event-combattant="{echapper(affichage)}">'
+            f'Sherdog<span class="fleche"> &rarr;</span></a>')
+    url_tapology = (bio.get("tapology") or "").strip()
+    if url_tapology:
+        personne.setdefault("sameAs", []).append(url_tapology)
+        jsonld = json.dumps(personne, ensure_ascii=False).replace("</", "<\\/")
+    else:
+        # adresse exacte inconnue : on ouvre la recherche Tapology
+        url_tapology = ("https://www.tapology.com/search?term="
+                        + quote_plus(affichage) + "&mainSearchFilter=fighters")
+    boutons.append(
+        f'<a class="bouton" href="{echapper(url_tapology)}" target="_blank" '
+        f'rel="noopener" data-umami-event="Tapology depuis fiche" '
+        f'data-umami-event-combattant="{echapper(affichage)}">'
+        f'Tapology<span class="fleche"> &rarr;</span></a>')
+    url_insta = (bio.get("instagram") or "").strip().split("?")[0]
+    if url_insta:
+        boutons.append(
+            f'<a class="bouton" href="{echapper(url_insta)}" target="_blank" '
+            f'rel="noopener" data-umami-event="Instagram depuis fiche" '
+            f'data-umami-event-combattant="{echapper(affichage)}">'
+            f'Instagram<span class="fleche"> &rarr;</span></a>')
+        personne.setdefault("sameAs", []).append(url_insta)
+        jsonld = json.dumps(personne, ensure_ascii=False).replace("</", "<\\/")
+    bloc_boutons = '\n  <p class="boutons">' + "".join(boutons) + '</p>\n'
+    css_fond = (CSS_FOND.replace("url('fond.jpg')", "url('../fond.jpg')")
+                if os.path.exists("fond.jpg") else "")
+
+    return f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{echapper(titre)}</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="{url_page}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="MMA Radar">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="{titre_attr}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{url_page}">
+<meta property="og:image" content="{SITE_URL}/partage.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{titre_attr}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{SITE_URL}/partage.jpg">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../icones/icone.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../icones/icone-180.png">
+<meta name="theme-color" content="#0f0f13">
+<meta name="color-scheme" content="dark">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="20e687c1-5629-4138-9b0d-3255669e6390"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>{CSS_FICHE}{css_fond}</style>
+<script type="application/ld+json">{jsonld}</script>
+</head>
+<body>
+<div class="wrap">
+  <p class="haut"><a class="retour" href="../index.html">&larr; Tous les prochains combats</a></p>
+  <header class="fiche">
+    <h1>{echapper(affichage)}{flag_titre}</h1>{surnom_html}
+  </header>
+{bloc_boutons}{bloc_combats}
+  <div class="colonnes">{bloc_infos}
+  <section class="bloc bio">
+    <h2>Parcours</h2>
+    <p>{texte_bio}</p>
+  </section>
+  </div>
+
+  <p class="liens"><a href="../index.html">Calendrier des combats des francophones</a></p>
+
+  <footer>
+    <p>Données issues de Sherdog. Les cartes évoluent, vérifie avant de bloquer ta soirée.</p>
+    <p><a href="mailto:contact@mmaradar.fr">contact@mmaradar.fr</a></p>
+  </footer>
+</div>
+</body>
+</html>
+"""
+
+
+def ecrire_fiches(combats, bios, profils, fiches, resultats):
+    """Ecrit une page par combattant ayant une bio, et efface les autres."""
+    if not PAGES_COMBATTANTS and not os.path.isdir("combattants"):
+        return
+    os.makedirs("combattants", exist_ok=True)
+    voulues = {os.path.basename(p) for p in PAGES_COMBATTANTS.values()}
+    for f in os.listdir("combattants"):
+        if f.endswith(".html") and f not in voulues:
+            os.remove(os.path.join("combattants", f))
+
+    for nom, chemin in PAGES_COMBATTANTS.items():
+        html = page_fiche(nom, bios.get(nom, {}), profils.get(nom, {}),
+                          combats, resultats, fiches.get(nom, ""))
+        with open(chemin, "w", encoding="utf-8") as f:
+            f.write(html)
+    if PAGES_COMBATTANTS:
+        print(f"{len(PAGES_COMBATTANTS)} fiche(s) combattant ecrite(s) "
+              f"dans combattants/")
+        sans_profil = [n for n in PAGES_COMBATTANTS if n not in profils]
+        if sans_profil:
+            print("   sans releve Sherdog (lance profils.py) : "
+                  + ", ".join(sans_profil))
 
 
 # Combats saisis a la main, pour les petites soirees que Sherdog tarde a
@@ -2845,6 +3380,18 @@ def main():
     fiches = charger_json("fighters.json")
     fiches = {} if fiches in (None, "ERREUR") else fiches
 
+    bios = charger_json("bios.json")
+    if bios == "ERREUR":
+        print("bios.json illisible : fiches combattants non mises a jour.")
+    bios = {} if bios in (None, "ERREUR") else bios
+    profils = charger_json("profils.json")
+    profils = {} if profils in (None, "ERREUR") else profils
+    PAGES_COMBATTANTS.clear()
+    for nom, b in bios.items():
+        if (not nom.startswith("_") and isinstance(b, dict)
+                and (b.get("bio") or "").strip()):
+            PAGES_COMBATTANTS[nom] = f"combattants/{slug_combattant(nom)}.html"
+
     # on repart d'un dossier agenda propre : les evenements passes
     # ou renommes ne doivent pas y trainer
     if os.path.isdir("agenda"):
@@ -2886,6 +3433,9 @@ def main():
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html)
+
+    ecrire_fiches(combats, bios, profils, fiches, resultats_recents)
+    ecrire_robots_et_sitemap(sorted(PAGES_COMBATTANTS.values()))
 
     nb_ev = sum(len(evs) for _, evs in mois_groupes)
     print(f"index.html cree : {len(mois_groupes)} mois, {nb_ev} evenement(s), "

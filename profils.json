@@ -1,0 +1,182 @@
+{
+  "Nimo Djagbo": {
+    "url": "https://www.sherdog.com/fighter/Nimo-Djagbo-425229",
+    "surnom": "SilverBack",
+    "naissance": "",
+    "taille_cm": "",
+    "categorie": "Lightweight",
+    "equipe": "Bulgarian Top Team",
+    "drapeau": "fr",
+    "record": "1-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Kevin Czernik",
+      "evenement": "One Punch Night - OPN 2",
+      "lien_evenement": "https://www.sherdog.com/events/One-Punch-Night-OPN-2-114362",
+      "date": "2026-10-03",
+      "methode": "KO (Head Kick)",
+      "round": "3",
+      "temps": "2:40"
+    }
+  },
+  "Marvin Caperan": {
+    "url": "https://www.sherdog.com/fighter/Marvin-Caperan-425239",
+    "surnom": "Tortank",
+    "naissance": "",
+    "taille_cm": "",
+    "categorie": "Middleweight",
+    "equipe": "Bulgarian Top Team",
+    "drapeau": "fr",
+    "record": "1-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Arnaud Muller",
+      "evenement": "One Punch Night - OPN 2",
+      "lien_evenement": "https://www.sherdog.com/events/One-Punch-Night-OPN-2-114362",
+      "date": "2026-10-03",
+      "methode": "TKO (Body Kick and Punches)",
+      "round": "1",
+      "temps": "1:29"
+    }
+  },
+  "Modibo Diakite": {
+    "url": "https://www.sherdog.com/fighter/Modibo-Diakite-440031",
+    "surnom": "The Silent King",
+    "naissance": "",
+    "taille_cm": "178",
+    "categorie": "Welterweight",
+    "equipe": "Fighting Beat",
+    "drapeau": "fr",
+    "record": "4-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Rayan Lessa",
+      "evenement": "ARES 40 - Begai vs. Diakhate 2",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-40-Begai-vs-Diakhate-2-111558",
+      "date": "2026-04-10",
+      "methode": "TKO (Submission to Slam)",
+      "round": "1",
+      "temps": "4:11"
+    }
+  },
+  "Anthony Morel": {
+    "url": "https://www.sherdog.com/fighter/Anthony-Morel-430269",
+    "surnom": "Big",
+    "naissance": "",
+    "taille_cm": "183",
+    "categorie": "Heavyweight",
+    "equipe": "IOFCTV",
+    "drapeau": "re",
+    "record": "7-2-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Paul-Emmanuel Gnaze",
+      "evenement": "HXMMA 41 - Hexagone MMA 41",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-41-Hexagone-MMA-41-110652",
+      "date": "2026-03-06",
+      "methode": "KO (Punch)",
+      "round": "1",
+      "temps": "2:53"
+    }
+  },
+  "Oceane Samson": {
+    "url": "https://www.sherdog.com/fighter/Oceane-Samson-425132",
+    "surnom": "",
+    "naissance": "",
+    "taille_cm": "160",
+    "categorie": "Strawweight",
+    "equipe": "Ring Side Gym",
+    "drapeau": "fr",
+    "record": "3-1-0",
+    "dernier_combat": {
+      "resultat": "loss",
+      "adversaire": "Elene Loladze",
+      "evenement": "UAE Warriors 72 - Chopurov vs. McLaren",
+      "lien_evenement": "https://www.sherdog.com/events/UAE-Warriors-72-Chopurov-vs-McLaren-113233",
+      "date": "2026-07-23",
+      "methode": "Submission (Guillotine Choke)",
+      "round": "1",
+      "temps": "3:06"
+    }
+  },
+  "Hugo Deux": {
+    "url": "https://www.sherdog.com/fighter/Hugo-Deux-408109",
+    "surnom": "Nemesis",
+    "naissance": "1996-04-02",
+    "taille_cm": "175",
+    "categorie": "Lightweight",
+    "equipe": "Nemesis Pro Team",
+    "drapeau": "fr",
+    "record": "7-1-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Welisson Paiva",
+      "evenement": "KSW 117 - Pawlak vs. Khalidov",
+      "lien_evenement": "https://www.sherdog.com/events/KSW-117-Pawlak-vs-Khalidov-111743",
+      "date": "2026-04-18",
+      "methode": "TKO (Elbows)",
+      "round": "2",
+      "temps": "4:59"
+    }
+  },
+  "Souheil Kaouchen": {
+    "url": "https://www.sherdog.com/fighter/Souheil-Kaouchen-442299",
+    "surnom": "",
+    "naissance": "",
+    "taille_cm": "173",
+    "categorie": "Featherweight",
+    "equipe": "Atch Academy",
+    "drapeau": "fr",
+    "record": "3-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Kacper Wrobel",
+      "evenement": "KSW 119 - Kaczmarczyk vs. Brichta",
+      "lien_evenement": "https://www.sherdog.com/events/KSW-119-Kaczmarczyk-vs-Brichta-112611",
+      "date": "2026-06-20",
+      "methode": "TKO (Elbows and Punches)",
+      "round": "2",
+      "temps": "3:35"
+    }
+  },
+  "Boris Atangana": {
+    "url": "https://www.sherdog.com/fighter/Boris-Mbarga-Atangana-409019",
+    "surnom": "Alain / Modern Gladiator",
+    "naissance": "",
+    "taille_cm": "185",
+    "categorie": "Middleweight",
+    "equipe": "Team Sendo",
+    "drapeau": "be",
+    "record": "9-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Jared Gooden",
+      "evenement": "Professional Fighters League - PFL Brussels: Habirora vs. Henderson",
+      "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Brussels-Habirora-vs-Henderson-111953",
+      "date": "2026-05-23",
+      "methode": "KO (Punches)",
+      "round": "1",
+      "temps": "1:05"
+    }
+  },
+  "Walid Masmoudi": {
+    "url": "https://www.sherdog.com/fighter/Walid-Masmoudi-406848",
+    "surnom": "",
+    "naissance": "",
+    "taille_cm": "178",
+    "categorie": "Lightweight",
+    "equipe": "Atch Academy",
+    "drapeau": "tn",
+    "record": "5-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Magomed-Giri Umarkhadzhiev",
+      "evenement": "ARES 41 - Dasuyev vs. Soumah",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-41-Dasuyev-vs-Soumah-111976",
+      "date": "2026-06-06",
+      "methode": "Decision (Split)",
+      "round": "5",
+      "temps": "5:00"
+    }
+  }
+}
