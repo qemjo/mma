@@ -31,6 +31,11 @@ jobs:
       - name: Recuperer les combats sur Sherdog
         run: python mma_tracker.py
 
+      - name: Relever les profils des combattants (fiches)
+        # si Sherdog fait des siennes ici, la page d'accueil est quand meme mise a jour
+        continue-on-error: true
+        run: python profils.py
+
       - name: Fabriquer la page
         run: python generer_site.py
 
@@ -41,6 +46,8 @@ jobs:
           git add index.html combats.json resultats.json annulations.json fighters.json infos.json
           git add robots.txt sitemap.xml manifest.webmanifest sw.js
           git add -A agenda
+          git add -A -- combattants 2>/dev/null || true
+          git add -A -- profils.json bios.json 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "Aucun changement aujourd'hui."
           else
