@@ -1,23 +1,5 @@
 {
   "_aide": "Une entree par evenement, rangee par adresse de sa page Sherdog : deux soirees differentes portent parfois le meme nom. Repere-toi a la ligne _evenement, reecrite a chaque passage, ne la remplis pas. A saisir : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
-  "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Returns-to-Dubai-Nemkov-vs-Bilostenniy-114296": {
-    "_evenement": "14/11/2026 - PFL Returns to Dubai (Dubai)",
-    "heure": "20:30",
-    "chaine": "RMC SPORT 1",
-    "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
-  },
-  "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293": {
-    "_evenement": "14/11/2026 - UFC 334 (New York City, NY)",
-    "heure": "01:00",
-    "chaine": "RMC SPORT 1",
-    "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
-  },
   "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453": {
     "_evenement": "20/11/2026 - ARES 45 (Paris)",
     "heure": "",
@@ -117,7 +99,7 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "https://www.sherdog.com/events/UFC-Fight-Night-298-St-Denis-vs-Salkilld-115104": {
+  "https://www.sherdog.com/events/UFC-Fight-Night-298-Salkilld-vs-St-Denis-115104": {
     "_evenement": "07/02/2027 - UFC Fight Night 298 (Sydney, NSW)",
     "heure": "",
     "chaine": "",

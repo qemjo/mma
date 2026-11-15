@@ -38,14 +38,6 @@
     "detecte_le": "2026-10-28"
   },
   {
-    "type": "reporte",
-    "combattant": "Jade Jorand",
-    "adversaire": "Kinga Jendrasik",
-    "ancienne_date": "2027-01-15",
-    "nouvelle_date": "2026-12-11",
-    "detecte_le": "2026-10-30"
-  },
-  {
     "combattant": "Souheil Kaouchen",
     "url_suivi": "https://www.sherdog.com/fighter/Souheil-Kaouchen-442299",
     "url_adversaire": "",
@@ -82,44 +74,6 @@
     "lien_evenement": "https://www.sherdog.com/events/ARES-46-Jorand-vs-Jendrasik-114552",
     "type": "annule",
     "detecte_le": "2026-11-06"
-  },
-  {
-    "combattant": "Asael Adjoudj",
-    "url_suivi": "https://www.sherdog.com/fighter/Asael-Adjoudj-315075",
-    "url_adversaire": "https://www.sherdog.com/fighter/Movlid-Khaybulaev-109571",
-    "drapeau": "fr",
-    "record_suivi": "11-1-0 (WIN-LOSS-DRAW)",
-    "titre": false,
-    "categorie": "Featherweight",
-    "ordre": 992,
-    "drapeau_adversaire": "ru",
-    "adversaire": "Movlid Khaybulaev",
-    "record_adversaire": "23-0-1 (WIN-LOSS-DRAW)",
-    "evenement": "Professional Fighters League",
-    "date": "2026-11-14",
-    "lieu": "Coca-Cola Arena, Dubai, United Arab Emirates",
-    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Returns-to-Dubai-Nemkov-vs-Bilostenniy-114296",
-    "type": "annule",
-    "detecte_le": "2026-11-07"
-  },
-  {
-    "combattant": "Khamzat Abaev",
-    "url_suivi": "https://www.sherdog.com/fighter/Khamzat-Abaev-413927",
-    "url_adversaire": "https://www.sherdog.com/fighter/Leon-Hill-247943",
-    "drapeau": "be",
-    "record_suivi": "6-1-0 (WIN-LOSS-DRAW)",
-    "titre": false,
-    "categorie": "Welterweight",
-    "ordre": 997,
-    "drapeau_adversaire": "ie",
-    "adversaire": "Leon Hill",
-    "record_adversaire": "9-2-0 (WIN-LOSS-DRAW)",
-    "evenement": "Professional Fighters League",
-    "date": "2026-11-14",
-    "lieu": "Coca-Cola Arena, Dubai, United Arab Emirates",
-    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Returns-to-Dubai-Nemkov-vs-Bilostenniy-114296",
-    "type": "annule",
-    "detecte_le": "2026-11-09"
   },
   {
     "combattant": "Jean Magny",

@@ -1,5 +1,23 @@
 [
   {
+    "combattant": "Ciryl Gane",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Josh Hokit",
+    "evenement": "UFC 334 - Gane vs. Hokit",
+    "date": "2026-11-14",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Patrick Habirora",
+    "drapeau": "be",
+    "resultat": "win",
+    "adversaire": "Omar El Dafrawy",
+    "evenement": "Professional Fighters League - PFL Returns to Dubai: Nemkov vs. Bilostenniy",
+    "date": "2026-11-14",
+    "methode": "Technical Submission (Guillotine Choke)"
+  },
+  {
     "combattant": "Aboubakar Younousov",
     "drapeau": "fr",
     "resultat": "win",
@@ -1521,15 +1539,6 @@
     "methode": "TKO (Punches)"
   },
   {
-    "combattant": "Patrick Habirora",
-    "drapeau": "be",
-    "resultat": "win",
-    "adversaire": "Kevin Jousset",
-    "evenement": "Professional Fighters League - PFL Lyon - Europe 2025 Finals",
-    "date": "2025-12-13",
-    "methode": "KO (Punches)"
-  },
-  {
     "combattant": "Boris Atangana",
     "drapeau": "be",
     "resultat": "win",
@@ -1672,15 +1681,6 @@
     "evenement": "GFTC 004 - International",
     "date": "2025-11-08",
     "methode": "TKO (Punches)"
-  },
-  {
-    "combattant": "Ciryl Gane",
-    "drapeau": "fr",
-    "resultat": "nc",
-    "adversaire": "Tom Aspinall",
-    "evenement": "UFC 321 - Aspinall vs. Gane",
-    "date": "2025-10-25",
-    "methode": "No Contest (Accidental Eye Poke)"
   },
   {
     "combattant": "Sofiane Bouafia",

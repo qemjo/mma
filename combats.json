@@ -1,39 +1,5 @@
 [
   {
-    "combattant": "Ciryl Gane",
-    "url_suivi": "https://www.sherdog.com/fighter/Ciryl-Gane-293973",
-    "url_adversaire": "https://www.sherdog.com/fighter/Josh-Hokit-433441",
-    "drapeau": "fr",
-    "record_suivi": "14-2-0 (WIN-LOSS-DRAW)",
-    "titre": true,
-    "categorie": "Heavyweight",
-    "ordre": 0,
-    "drapeau_adversaire": "us",
-    "adversaire": "Josh Hokit",
-    "record_adversaire": "10-0-0 (WIN-LOSS-DRAW)",
-    "evenement": "UFC 334",
-    "date": "2026-11-14",
-    "lieu": "New York City, New York, United States",
-    "lien_evenement": "https://www.sherdog.com/events/UFC-334-Gane-vs-Hokit-114293"
-  },
-  {
-    "combattant": "Patrick Habirora",
-    "url_suivi": "https://www.sherdog.com/fighter/Patrick-Habirora-314503",
-    "url_adversaire": "https://www.sherdog.com/fighter/Omar-El-Dafrawy-257659",
-    "drapeau": "be",
-    "record_suivi": "9-0-0 (WIN-LOSS-DRAW)",
-    "titre": false,
-    "categorie": "Welterweight",
-    "ordre": 988,
-    "drapeau_adversaire": "eg",
-    "adversaire": "Omar El Dafrawy",
-    "record_adversaire": "16-6-0 (WIN-LOSS-DRAW)",
-    "evenement": "Professional Fighters League",
-    "date": "2026-11-14",
-    "lieu": "Coca-Cola Arena, Dubai, United Arab Emirates",
-    "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-Returns-to-Dubai-Nemkov-vs-Bilostenniy-114296"
-  },
-  {
     "combattant": "Baysangur Chamsoudinov",
     "url_suivi": "https://www.sherdog.com/fighter/Baissangour-Chamsoudinov-340851",
     "url_adversaire": "https://www.sherdog.com/fighter/Jordan-Zebo-353325",
@@ -279,7 +245,7 @@
     "record_suivi": "26-9-0 (WIN-LOSS-DRAW)",
     "titre": true,
     "categorie": "Lightweight",
-    "ordre": 995,
+    "ordre": 994,
     "drapeau_adversaire": "iq",
     "adversaire": "Mohammad Fahmi",
     "record_adversaire": "7-1-0 (WIN-LOSS-DRAW)",
@@ -313,7 +279,7 @@
     "record_suivi": "8-2-0 (WIN-LOSS-DRAW)",
     "titre": true,
     "categorie": "Featherweight",
-    "ordre": 996,
+    "ordre": 995,
     "drapeau_adversaire": "fr",
     "adversaire": "Elias Boudegzdame",
     "record_adversaire": "21-9-0 (WIN-LOSS-DRAW)",
@@ -660,6 +626,6 @@
     "evenement": "UFC Fight Night 298",
     "date": "2027-02-07",
     "lieu": "Sydney, New South Wales, Australia",
-    "lien_evenement": "https://www.sherdog.com/events/UFC-Fight-Night-298-St-Denis-vs-Salkilld-115104"
+    "lien_evenement": "https://www.sherdog.com/events/UFC-Fight-Night-298-Salkilld-vs-St-Denis-115104"
   }
 ]
