@@ -2,12 +2,12 @@
   "_aide": "Une entree par evenement, rangee par adresse de sa page Sherdog : deux soirees differentes portent parfois le meme nom. Repere-toi a la ligne _evenement, reecrite a chaque passage, ne la remplis pas. A saisir : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
   "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453": {
     "_evenement": "20/11/2026 - ARES 45 (Paris)",
-    "heure": "",
-    "chaine": "",
+    "heure": "20:30",
+    "chaine": "CANAL+ Sport 360",
     "lien": "",
-    "heure_prelim": "",
-    "prelim": "",
-    "lien_prelim": ""
+    "heure_prelim": "19:30",
+    "prelim": "Twitch CANAL+ Sport",
+    "lien_prelim": "https://www.twitch.tv/canalplus_sport"
   },
   "https://www.sherdog.com/events/RFS-Red-Fist-Strike-115182": {
     "_evenement": "20/11/2026 - RFS (Guangxi)",
