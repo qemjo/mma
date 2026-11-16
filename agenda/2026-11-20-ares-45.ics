@@ -4,19 +4,20 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-11-20-ares-45@mmaradar.fr
-DTSTAMP:20261115T113331Z
-DTSTART;VALUE=DATE:20261120
-DTEND;VALUE=DATE:20261121
+DTSTAMP:20261116T081034Z
+DTSTART:20261120T193000Z
+DTEND:20261120T223000Z
 SUMMARY:ARES 45
 LOCATION:Adidas Arena\, Paris\, France
 DESCRIPTION:Baki vs Jordan Zebo\nModibo Diakite vs Ghassen Jbalia\nNimo Dj
  agbo vs Sidney Aguero\nMarvin Caperan vs Bruno Pudins\nAlou Camara vs Gar
- cia Pinto Kinkela\nhttps://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-
- 112453
+ cia Pinto Kinkela\nDiffusion : CANAL+ Sport 360\nPrelims : Twitch CANAL+ 
+ Sport (19:30)\nhttps://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-1124
+ 53
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:C'est aujourd'hui
-TRIGGER:PT9H
+DESCRIPTION:Le combat commence dans une heure
+TRIGGER:-PT1H
 END:VALARM
 END:VEVENT
 END:VCALENDAR
