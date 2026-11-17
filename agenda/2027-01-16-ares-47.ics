@@ -4,13 +4,13 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2027-01-16-ares-47@mmaradar.fr
-DTSTAMP:20261116T120539Z
+DTSTAMP:20261117T081301Z
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
 SUMMARY:ARES 47
 LOCATION:Marseille Sports Palace\, Marseille\, France
-DESCRIPTION:Walid Masmoudi vs Ghiles Oudelha\nhttps://www.sherdog.com/even
- ts/ARES-47-Masmoudi-vs-Oudelha-115377
+DESCRIPTION:Walid Masmoudi vs Ghiles Oudelha\nAkhmad Amaev vs Sami Yahia\n
+ https://www.sherdog.com/events/ARES-47-Masmoudi-vs-Oudelha-115377
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui
