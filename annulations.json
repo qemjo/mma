@@ -131,5 +131,24 @@
     "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453",
     "type": "annule",
     "detecte_le": "2026-11-13"
+  },
+  {
+    "combattant": "Alou Camara",
+    "url_suivi": "https://www.sherdog.com/fighter/Alou-Camara-406862",
+    "url_adversaire": "https://www.sherdog.com/fighter/Garcia-Pinto-Kinkela-365601",
+    "drapeau": "fr",
+    "record_suivi": "4-0-0 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Middleweight",
+    "ordre": 996,
+    "drapeau_adversaire": "ao",
+    "adversaire": "Garcia Pinto Kinkela",
+    "record_adversaire": "2-0-0 (WIN-LOSS-DRAW)",
+    "evenement": "ARES 45",
+    "date": "2026-11-20",
+    "lieu": "Adidas Arena, Paris, France",
+    "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453",
+    "type": "annule",
+    "detecte_le": "2026-11-19"
   }
 ]
