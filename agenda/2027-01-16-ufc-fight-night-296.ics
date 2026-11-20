@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MMA Radar//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2027-01-16-ufc-fight-night-296@mmaradar.fr
+DTSTAMP:20261120T081646Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:UFC Fight Night 296
+LOCATION:Dallas\, Texas\, United States
+DESCRIPTION:Robert Valentin vs Gilbert Urbina\nMichael Aljarouj vs Alden C
+ oria\nhttps://www.sherdog.com/events/UFC-Fight-Night-296-Rodriguez-vs-Gar
+ cia-115357
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:C'est aujourd'hui
+TRIGGER:PT9H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
