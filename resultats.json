@@ -1,5 +1,50 @@
 [
   {
+    "combattant": "Baysangur Chamsoudinov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Jordan Zebo",
+    "evenement": "ARES 45 - Zebo vs. Baki 2",
+    "date": "2026-11-20",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Jordan Zebo",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Baissangour Chamsoudinov",
+    "evenement": "ARES 45 - Zebo vs. Baki 2",
+    "date": "2026-11-20",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Marvin Caperan",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Bruno Pudins",
+    "evenement": "ARES 45 - Zebo vs. Baki 2",
+    "date": "2026-11-20",
+    "methode": "TKO (Elbows and Punches)"
+  },
+  {
+    "combattant": "Nimo Djagbo",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Sidney Aguero",
+    "evenement": "ARES 45 - Zebo vs. Baki 2",
+    "date": "2026-11-20",
+    "methode": "TKO (Body Kick and Punches)"
+  },
+  {
+    "combattant": "Modibo Diakite",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Ghassen Jbalia",
+    "evenement": "ARES 45 - Zebo vs. Baki 2",
+    "date": "2026-11-20",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Ciryl Gane",
     "drapeau": "fr",
     "resultat": "win",
@@ -1377,15 +1422,6 @@
     "methode": "TKO (Knee and Punches)"
   },
   {
-    "combattant": "Jordan Zebo",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Ramazan Mustafaev",
-    "evenement": "ARES 38 - Zebo vs. Mustafaev",
-    "date": "2026-01-30",
-    "methode": "Decision (Split)"
-  },
-  {
     "combattant": "Zakaria Hamou",
     "drapeau": "fr",
     "resultat": "nc",
@@ -1827,15 +1863,6 @@
     "methode": "KO (Punches)"
   },
   {
-    "combattant": "Modibo Diakite",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Anatoliy Adzhamyan",
-    "evenement": "ARES 34 - Begai vs. Diakhate",
-    "date": "2025-09-13",
-    "methode": "Submission (Rear-Naked Choke)"
-  },
-  {
     "combattant": "Aboubacar Bathily",
     "drapeau": "fr",
     "resultat": "loss",
@@ -2005,15 +2032,6 @@
     "evenement": "Brave CF 94 - Brave Combat Federation 94",
     "date": "2025-05-17",
     "methode": "TKO (Punches)"
-  },
-  {
-    "combattant": "Baysangur Chamsoudinov",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Thiago Lima",
-    "evenement": "ARES 30 - Chamsoudinov vs. Lima",
-    "date": "2025-05-16",
-    "methode": "TKO (Submission to Punches)"
   },
   {
     "combattant": "Wissame Akhmouch",
