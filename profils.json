@@ -3,40 +3,40 @@
     "url": "https://www.sherdog.com/fighter/Nimo-Djagbo-425229",
     "surnom": "SilverBack",
     "naissance": "",
-    "taille_cm": "",
-    "categorie": "Lightweight",
+    "taille_cm": "188",
+    "categorie": "Middleweight",
     "equipe": "Bulgarian Top Team",
     "drapeau": "fr",
-    "record": "1-0-0",
+    "record": "2-0-0",
     "dernier_combat": {
       "resultat": "win",
-      "adversaire": "Kevin Czernik",
-      "evenement": "One Punch Night - OPN 2",
-      "lien_evenement": "https://www.sherdog.com/events/One-Punch-Night-OPN-2-114362",
-      "date": "2026-10-03",
-      "methode": "KO (Head Kick)",
-      "round": "3",
-      "temps": "2:40"
+      "adversaire": "Sidney Aguero",
+      "evenement": "ARES 45 - Zebo vs. Baki 2",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453",
+      "date": "2026-11-20",
+      "methode": "TKO (Body Kick and Punches)",
+      "round": "1",
+      "temps": "3:25"
     }
   },
   "Marvin Caperan": {
     "url": "https://www.sherdog.com/fighter/Marvin-Caperan-425239",
     "surnom": "Tortank",
     "naissance": "",
-    "taille_cm": "",
-    "categorie": "Middleweight",
+    "taille_cm": "183",
+    "categorie": "Welterweight",
     "equipe": "Bulgarian Top Team",
     "drapeau": "fr",
-    "record": "1-0-0",
+    "record": "2-0-0",
     "dernier_combat": {
       "resultat": "win",
-      "adversaire": "Arnaud Muller",
-      "evenement": "One Punch Night - OPN 2",
-      "lien_evenement": "https://www.sherdog.com/events/One-Punch-Night-OPN-2-114362",
-      "date": "2026-10-03",
-      "methode": "TKO (Body Kick and Punches)",
+      "adversaire": "Bruno Pudins",
+      "evenement": "ARES 45 - Zebo vs. Baki 2",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453",
+      "date": "2026-11-20",
+      "methode": "TKO (Elbows and Punches)",
       "round": "1",
-      "temps": "1:29"
+      "temps": "2:09"
     }
   },
   "Modibo Diakite": {
@@ -44,19 +44,19 @@
     "surnom": "The Silent King",
     "naissance": "",
     "taille_cm": "178",
-    "categorie": "Welterweight",
+    "categorie": "Featherweight",
     "equipe": "Fighting Beat",
     "drapeau": "fr",
-    "record": "4-0-0",
+    "record": "5-0-0",
     "dernier_combat": {
       "resultat": "win",
-      "adversaire": "Rayan Lessa",
-      "evenement": "ARES 40 - Begai vs. Diakhate 2",
-      "lien_evenement": "https://www.sherdog.com/events/ARES-40-Begai-vs-Diakhate-2-111558",
-      "date": "2026-04-10",
-      "methode": "TKO (Submission to Slam)",
-      "round": "1",
-      "temps": "4:11"
+      "adversaire": "Ghassen Jbalia",
+      "evenement": "ARES 45 - Zebo vs. Baki 2",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453",
+      "date": "2026-11-20",
+      "methode": "Decision (Unanimous)",
+      "round": "3",
+      "temps": "5:00"
     }
   },
   "Anthony Morel": {
@@ -176,6 +176,86 @@
       "date": "2026-06-06",
       "methode": "Decision (Split)",
       "round": "5",
+      "temps": "5:00"
+    }
+  },
+  "Mathys Duragrin": {
+    "url": "https://www.sherdog.com/fighter/Mathys-Duragrin-406849",
+    "surnom": "",
+    "naissance": "",
+    "taille_cm": "173",
+    "categorie": "Lightweight",
+    "equipe": "Old School Academy",
+    "drapeau": "fr",
+    "record": "5-3-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Heimo Gregorio",
+      "evenement": "HXMMA - Hexagone MMA Series 4",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-4-112314",
+      "date": "2026-04-25",
+      "methode": "Submission (Rear-Naked Choke)",
+      "round": "2",
+      "temps": "2:11"
+    }
+  },
+  "Baysangur Chamsoudinov": {
+    "url": "https://www.sherdog.com/fighter/Baissangour-Chamsoudinov-340851",
+    "surnom": "Baki",
+    "naissance": "2001-08-16",
+    "taille_cm": "178",
+    "categorie": "Welterweight",
+    "equipe": "MMA Factory",
+    "drapeau": "fr",
+    "record": "10-1-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Jordan Zebo",
+      "evenement": "ARES 45 - Zebo vs. Baki 2",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453",
+      "date": "2026-11-20",
+      "methode": "Decision (Unanimous)",
+      "round": "5",
+      "temps": "5:00"
+    }
+  },
+  "Jordan Zebo": {
+    "url": "https://www.sherdog.com/fighter/Jordan-Zebo-353325",
+    "surnom": "Le Fauve",
+    "naissance": "2000-09-16",
+    "taille_cm": "175",
+    "categorie": "Welterweight",
+    "equipe": "MMA Factory",
+    "drapeau": "fr",
+    "record": "11-2-0",
+    "dernier_combat": {
+      "resultat": "loss",
+      "adversaire": "Baissangour Chamsoudinov",
+      "evenement": "ARES 45 - Zebo vs. Baki 2",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-45-Zebo-vs-Baki-2-112453",
+      "date": "2026-11-20",
+      "methode": "Decision (Unanimous)",
+      "round": "5",
+      "temps": "5:00"
+    }
+  },
+  "Jason Ponet": {
+    "url": "https://www.sherdog.com/fighter/Jason-Ponet-38455",
+    "surnom": "Amazonian Samurai",
+    "naissance": "1988-12-11",
+    "taille_cm": "178",
+    "categorie": "Welterweight",
+    "equipe": "AKA Thailand",
+    "drapeau": "fr",
+    "record": "26-20-1",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Ibrahima Mane",
+      "evenement": "ARES 39 - Jbalia vs. Diatta",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-39-Jbalia-vs-Diatta-111468",
+      "date": "2026-04-03",
+      "methode": "Decision (Unanimous)",
+      "round": "3",
       "temps": "5:00"
     }
   }
