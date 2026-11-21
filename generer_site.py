@@ -2686,7 +2686,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 98
+VERSION = 100
 
 
 def ecrire_manifeste():
@@ -3056,9 +3056,16 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
 
     bio = dict(bio)
     for champ in ("surnom", "naissance", "taille", "tapology", "instagram",
-                  "nom_complet", "nationalite"):
+                  "nom_complet", "nationalite", "team"):
         bio[champ] = saisie(champ)
     surnom = (bio.get("surnom") or profil.get("surnom") or "").strip()
+    titre_fiche = affichage
+    if nom in NOMS_AFFICHES and bio.get("nom_complet"):
+        # ex. Baki : nom complet en titre, nom raccourci en pseudo
+        titre_fiche = bio["nom_complet"]
+        surnom = affichage
+    elif surnom.lower() == affichage.lower():
+        surnom = ""
     naissance = (bio.get("naissance") or profil.get("naissance") or "").strip()
     drapeau = (profil.get("drapeau") or "").strip()
     categorie = (profil.get("categorie") or "").strip()
@@ -3100,7 +3107,7 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
         info("Naissance", "")
     info("Taille", taille_affichee(bio.get("taille") or profil.get("taille_cm") or ""))
     info("Catégorie", echapper(categorie))
-    info("Équipe", echapper(profil.get("equipe", "")))
+    info("Team", echapper(bio.get("team") or profil.get("equipe", "")))
     info("Palmarès pro", echapper(record))
 
     # prochain combat
@@ -3157,7 +3164,7 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
         titre = f"{affichage} : prochain combat, dernier résultat | MMA Radar"
     else:
         titre = f"{affichage} : fiche et parcours du combattant | MMA Radar"
-    desc = f"{affichage}"
+    desc = f"{titre_fiche}"
     if surnom:
         desc += f" « {surnom} »"
     if FICHE_AVEC_COMBATS:
@@ -3174,12 +3181,14 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
     personne = {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": affichage,
+        "name": titre_fiche,
         "url": url_page,
         "jobTitle": "Combattant de MMA",
     }
-    autres_noms = [n for n in (surnom, (bio.get("nom_complet") or "").strip())
-                   if n and n != affichage]
+    autres_noms = []
+    for n in (surnom, affichage, (bio.get("nom_complet") or "").strip()):
+        if n and n != titre_fiche and n not in autres_noms:
+            autres_noms.append(n)
     if autres_noms:
         personne["alternateName"] = autres_noms
     if naissance:
@@ -3267,7 +3276,7 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
 <div class="wrap">
   <p class="haut"><a class="retour" href="../index.html">&larr; Tous les prochains combats</a></p>
   <header class="fiche">
-    <h1>{echapper(affichage)}{flag_titre}</h1>{surnom_html}
+    <h1>{echapper(titre_fiche)}{flag_titre}</h1>{surnom_html}
   </header>
 {bloc_boutons}{bloc_combats}
   <div class="colonnes">{bloc_infos}
