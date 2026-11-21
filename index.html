@@ -1666,6 +1666,10 @@
 
     window.addEventListener("appinstalled", function () {
       bandeau.hidden = true;
+      // compte dans Umami, onglet Evenements (installation confirmee)
+      if (window.umami && typeof window.umami.track === "function") {
+        try { window.umami.track("Installation"); } catch (e) {}
+      }
     });
   })();
 
