@@ -2327,6 +2327,10 @@ JS = r"""
 
     window.addEventListener("appinstalled", function () {
       bandeau.hidden = true;
+      // compte dans Umami, onglet Evenements (installation confirmee)
+      if (window.umami && typeof window.umami.track === "function") {
+        try { window.umami.track("Installation"); } catch (e) {}
+      }
     });
   })();
 
@@ -2686,7 +2690,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 100
+VERSION = 101
 
 
 def ecrire_manifeste():
