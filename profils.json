@@ -187,16 +187,16 @@
     "categorie": "Lightweight",
     "equipe": "Old School Academy",
     "drapeau": "fr",
-    "record": "5-3-0",
+    "record": "6-3-0",
     "dernier_combat": {
       "resultat": "win",
-      "adversaire": "Heimo Gregorio",
-      "evenement": "HXMMA - Hexagone MMA Series 4",
-      "lien_evenement": "https://www.sherdog.com/events/HXMMA-Hexagone-MMA-Series-4-112314",
-      "date": "2026-04-25",
-      "methode": "Submission (Rear-Naked Choke)",
-      "round": "2",
-      "temps": "2:11"
+      "adversaire": "Tianlong Luo",
+      "evenement": "RFS - Red Fist Strike",
+      "lien_evenement": "https://www.sherdog.com/events/RFS-Red-Fist-Strike-115182",
+      "date": "2026-11-20",
+      "methode": "Decision (Unanimous)",
+      "round": "3",
+      "temps": "5:00"
     }
   },
   "Baysangur Chamsoudinov": {
@@ -247,16 +247,16 @@
     "categorie": "Welterweight",
     "equipe": "AKA Thailand",
     "drapeau": "fr",
-    "record": "26-20-1",
+    "record": "26-21-1",
     "dernier_combat": {
-      "resultat": "win",
-      "adversaire": "Ibrahima Mane",
-      "evenement": "ARES 39 - Jbalia vs. Diatta",
-      "lien_evenement": "https://www.sherdog.com/events/ARES-39-Jbalia-vs-Diatta-111468",
-      "date": "2026-04-03",
-      "methode": "Decision (Unanimous)",
-      "round": "3",
-      "temps": "5:00"
+      "resultat": "loss",
+      "adversaire": "Tomasz Mudroch",
+      "evenement": "Oktagon MMA - Oktagon 98: Batfalsky vs. De Paepe",
+      "lien_evenement": "https://www.sherdog.com/events/Oktagon-MMA-Oktagon-98-Batfalsky-vs-De-Paepe-114298",
+      "date": "2026-11-21",
+      "methode": "Submission (Triangle Armbar)",
+      "round": "1",
+      "temps": "0:28"
     }
   }
 }

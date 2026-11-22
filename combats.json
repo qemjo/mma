@@ -1,22 +1,5 @@
 [
   {
-    "combattant": "Jason Ponet",
-    "url_suivi": "https://www.sherdog.com/fighter/Jason-Ponet-38455",
-    "url_adversaire": "https://www.sherdog.com/fighter/Tomasz-Mudroch-373792",
-    "drapeau": "fr",
-    "record_suivi": "26-20-1 (WIN-LOSS-DRAW)",
-    "titre": false,
-    "categorie": "Catchweight",
-    "ordre": 993,
-    "drapeau_adversaire": "cz",
-    "adversaire": "Tomasz Mudroch",
-    "record_adversaire": "9-2-0 (WIN-LOSS-DRAW)",
-    "evenement": "Oktagon MMA",
-    "date": "2026-11-21",
-    "lieu": "Werk Arena, Třinec, Czech Republic",
-    "lien_evenement": "https://www.sherdog.com/events/Oktagon-MMA-Oktagon-98-Legierski-vs-Buchinger-114298"
-  },
-  {
     "combattant": "Davy Gallon",
     "url_suivi": "https://www.sherdog.com/fighter/Davy-Gallon-78731",
     "url_adversaire": "https://www.sherdog.com/fighter/Theo-Ulrich-397608",

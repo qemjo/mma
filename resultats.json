@@ -1,5 +1,14 @@
 [
   {
+    "combattant": "Jason Ponet",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Tomasz Mudroch",
+    "evenement": "Oktagon MMA - Oktagon 98: Batfalsky vs. De Paepe",
+    "date": "2026-11-21",
+    "methode": "Submission (Triangle Armbar)"
+  },
+  {
     "combattant": "Baysangur Chamsoudinov",
     "drapeau": "fr",
     "resultat": "win",
@@ -14,6 +23,15 @@
     "resultat": "loss",
     "adversaire": "Baissangour Chamsoudinov",
     "evenement": "ARES 45 - Zebo vs. Baki 2",
+    "date": "2026-11-20",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Mathys Duragrin",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Tianlong Luo",
+    "evenement": "RFS - Red Fist Strike",
     "date": "2026-11-20",
     "methode": "Decision (Unanimous)"
   },
@@ -1251,15 +1269,6 @@
     "methode": "TKO (Punches)"
   },
   {
-    "combattant": "Mathys Duragrin",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Ignacio Campos",
-    "evenement": "Professional Fighters League - PFL Madrid: Van Steenis vs. Edwards 2",
-    "date": "2026-03-20",
-    "methode": "Decision (Unanimous)"
-  },
-  {
     "combattant": "Oumar Sy",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1519,15 +1528,6 @@
     "evenement": "HXMMA 37 - Hexagone MMA 37",
     "date": "2026-01-09",
     "methode": "TKO (Punches)"
-  },
-  {
-    "combattant": "Jason Ponet",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Zhenyang Zhang",
-    "evenement": "Zhenhua Hero - Fight League",
-    "date": "2025-12-27",
-    "methode": "Decision (Unanimous)"
   },
   {
     "combattant": "Laid Zerhouni",
