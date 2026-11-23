@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Test agenda</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #0a0a0c; color: #f5f5f7;
+         padding: 1.5rem; line-height: 1.5; }
+  a { display: block; margin: 0 0 1.2rem; padding: 0.9rem 1rem; border-radius: 12px;
+      background: #f2c14e; color: #14140f; text-decoration: none; font-weight: 600; }
+  small { display: block; color: #9a9aa4; font-weight: 400; margin-top: 0.2rem; }
+</style>
+</head>
+<body>
+<h1>Test abonnement Android</h1>
+<p>Calendrier de test : Theo Ulrich.</p>
+
+<a href="intent://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fmmaradar.fr%2Fagenda%2Fcombattants%2Ftheo-ulrich.ics#Intent;scheme=https;package=com.android.chrome;end">
+  Test A
+  <small>Ouvre Google Agenda dans Chrome au lieu de l'appli</small>
+</a>
+
+<a href="intent://calendar.google.com/calendar/u/0/r?cid=https%3A%2F%2Fmmaradar.fr%2Fagenda%2Fcombattants%2Ftheo-ulrich.ics#Intent;scheme=https;package=com.android.chrome;end">
+  Test B
+  <small>Pareil, avec une autre forme d'adresse</small>
+</a>
+
+<a href="webcal://mmaradar.fr/agenda/combattants/theo-ulrich.ics">
+  Test C
+  <small>Lien d'abonnement direct, comme sur iPhone</small>
+</a>
+</body>
+</html>
