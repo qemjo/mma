@@ -756,6 +756,15 @@
     "methode": "Decision (Unanimous)"
   },
   {
+    "combattant": "Tamerlan Albiekov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Samuele Di Guardo",
+    "evenement": "HXMMA 45 - Hexagone MMA 45",
+    "date": "2026-06-12",
+    "methode": "TKO (Punches)"
+  },
+  {
     "combattant": "Fares Ziam",
     "drapeau": "fr",
     "resultat": "loss",
@@ -2302,6 +2311,15 @@
     "evenement": "ARES 25 - Sola vs. Gagloev",
     "date": "2024-09-26",
     "methode": "Submission (Rear-Naked Choke)"
+  },
+  {
+    "combattant": "Tamerlan Albiekov",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Paul-Emmanuel Gnaze",
+    "evenement": "HXMMA 20 - Hexagone MMA 20",
+    "date": "2024-09-14",
+    "methode": "Decision (Split)"
   },
   {
     "combattant": "Youcef Ouabbas",

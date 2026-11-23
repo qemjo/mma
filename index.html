@@ -448,6 +448,12 @@
 
   .flag { height: 14px; border-radius: 2px; flex: none; }
 
+  /* texte lu par les lecteurs d'ecran, invisible a l'ecran */
+  .sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+
   .empty { color: var(--gris); text-align: center; margin: 3rem 0; }
 
   /* ---- invitation a installer l'application ---- */
@@ -929,12 +935,12 @@
 
   <header class="top">
     <h1>Prochains combats <em>des francophones</em></h1>
-    <p class="sub">28 combats annoncés &middot; mis à jour le 22 novembre 2026</p>
+    <p class="sub">28 combats annoncés &middot; mis à jour le 23 novembre 2026</p>
   </header>
 
   <details class="recap">
     <summary class="recap__bar">DERNIERS RÉSULTATS
-      <span class="recap__chev">&#9656;</span></summary>
+      <span class="recap__chev" aria-hidden="true">&#9656;</span></summary>
     <div class="recap__body">
       <div class="rl">
         <span class="rl__date">21 NOV</span>
@@ -1025,7 +1031,8 @@
 
   <div class="outils">
     <input id="recherche" class="outils__recherche" type="search"
-           placeholder="Rechercher un combattant...">
+           placeholder="Rechercher un combattant..."
+           aria-label="Rechercher un combattant">
   </div>
   <main>
   <section>
@@ -1040,37 +1047,37 @@
         <span class="ck"><img class="ev__logo" src="logos/hexagone.png" alt="Hexagone MMA" data-couleur="1" style="height:28px"></span>
         <span class="ck"><span class="ev__nom" data-complet="Hexagone MMA 49">Hexagone MMA 49</span></span>
         <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy" title="Glaz Arena, Cesson-Sevigne, France"><span class="ev__ville" title="Glaz Arena, Cesson-Sevigne, France">Cesson-Sevigne</span></span>
-        <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Davy Gallon, Theo Ulrich, Anthony Morel, Allan Landouzy, Oceane Samson">
+        <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Davy Gallon, Theo Ulrich, Anthony Morel, Tamerlan Albiekov, Allan Landouzy, Oceane Samson">
           <span class="ev__avec-label">AVEC&nbsp;: </span>
-          <span class="ev__avec-noms">Davy Gallon, Theo Ulrich, Anthony Morel, Allan Landouzy, Oceane Samson</span>
+          <span class="ev__avec-noms">Davy Gallon, Theo Ulrich, Anthony Morel, Tamerlan Albiekov, Allan Landouzy, Oceane Samson</span>
         </span></span>
-        <span class="ck"><span class="jchip jchip--hot">J-5</span></span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="jchip jchip--hot">J-4</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Lightweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
-          <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Davy-Gallon-78731" target="_blank" rel="noopener" data-complet="Davy Gallon">Davy Gallon</a><span class="fight__rec">24-10-2</span></span></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="sr">titre en jeu</span></span>
+          <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="combattants/davy-gallon.html" data-complet="Davy Gallon">Davy Gallon</a><span class="fight__rec">24-10-2</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
-          <span class="ck"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Theo-Ulrich-397608" target="_blank" rel="noopener" data-complet="Theo Ulrich">Theo Ulrich</a><span class="fight__rec">8-0-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
+          <span class="ck"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="combattants/theo-ulrich.html" data-complet="Theo Ulrich">Theo Ulrich</a><span class="fight__rec">8-0-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
         </div>
         </div>
         <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Heavyweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="sr">titre en jeu</span></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/re.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="combattants/anthony-morel.html" data-complet="Anthony Morel">Anthony Morel</a><span class="fight__rec">7-2-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
-          <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Tamerlan Albiekov">Tamerlan Albiekov</span><span class="fight__rec">5-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
+          <span class="ck"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="combattants/tamerlan-albiekov.html" data-complet="Tamerlan Albiekov">Tamerlan Albiekov</a><span class="fight__rec">5-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
         </div>
         </div>
         <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Bantamweight</span>
           <span class="ck fight__titre-bloc"></span>
-          <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Allan-Landouzy-408988" target="_blank" rel="noopener" data-complet="Allan Landouzy">Allan Landouzy</a><span class="fight__rec">2-0-0</span></span></span>
+          <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="combattants/allan-landouzy.html" data-complet="Allan Landouzy">Allan Landouzy</a><span class="fight__rec">2-0-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Benjamin Molnar">Benjamin Molnar</span><span class="fight__rec">14-12-0</span></span><img class="flag" src="https://flagcdn.com/h20/hu.png" alt="" loading="lazy"></span>
         </div>
@@ -1107,8 +1114,8 @@
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">Matthieu Letho Duclos</span>
         </span></span>
-        <span class="ck"><span class="jchip">J-13</span></span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="jchip">J-12</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="duel">
@@ -1136,14 +1143,14 @@
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">Jade Jorand, Alexis Nicolas, Bilal Bakhouche-Chareuf, Jean Magny</span>
         </span></span>
-        <span class="ck"><span class="jchip">J-19</span></span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="jchip">J-18</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Strawweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="sr">titre en jeu</span></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Jade-Jorand-375539" target="_blank" rel="noopener" data-complet="Jade Jorand">Jade Jorand</a><span class="fight__rec">5-3-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Kinga Jendrasik">Kinga Jendrasik</span><span class="fight__rec">3-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/pl.png" alt="" loading="lazy"></span>
@@ -1183,14 +1190,14 @@
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">Ylies Djiroun, Mehdi Saadi</span>
         </span></span>
-        <span class="ck"><span class="jchip">J-19</span></span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="jchip">J-18</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Lightweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="sr">titre en jeu</span></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Ylies-Djiroun-86566" target="_blank" rel="noopener" data-complet="Ylies Djiroun">Ylies Djiroun</a><span class="fight__rec">26-9-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Mohammad Fahmi">Mohammad Fahmi</span><span class="fight__rec">7-1-0</span></span><img class="flag" src="https://flagcdn.com/h20/iq.png" alt="" loading="lazy"></span>
@@ -1199,7 +1206,7 @@
         <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Featherweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="sr">titre en jeu</span></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/tn.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Mehdi-Saadi-263991" target="_blank" rel="noopener" data-complet="Mehdi Saadi">Mehdi Saadi</a><span class="fight__rec">8-2-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Elias Boudegzdame">Elias Boudegzdame</span><span class="fight__rec">21-9-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
@@ -1221,8 +1228,8 @@
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">Hugo Deux, Souheil Kaouchen</span>
         </span></span>
-        <span class="ck"><span class="jchip">J-27</span></span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="jchip">J-26</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="duel">
@@ -1259,14 +1266,14 @@
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">Taylor Lapilus, Boris Atangana, Abdoul Abdouraguimov, Alex Lohore, Oualy Tandia, Ilian Bouafia, Baris Adiguzel, Bafode Gassama, Adam Meskini, Zakaria Hamou, Mathilde Aschenbrenner</span>
         </span></span>
-        <span class="ck"><span class="jchip">J-27</span></span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="jchip">J-26</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Bantamweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="sr">titre en jeu</span></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Taylor-Lapilus-97337" target="_blank" rel="noopener" data-complet="Taylor Lapilus">Taylor Lapilus</a><span class="fight__rec">25-4-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Mitchell McKee">Mitchell McKee</span><span class="fight__rec">11-0-0</span></span><img class="flag" src="https://flagcdn.com/h20/us.png" alt="" loading="lazy"></span>
@@ -1376,14 +1383,14 @@
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">Damien Lapilus</span>
         </span></span>
-        <span class="ck"><span class="jchip">J-47</span></span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="jchip">J-46</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Featherweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="sr">titre en jeu</span></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Damien-Lapilus-87477" target="_blank" rel="noopener" data-complet="Damien Lapilus">Damien Lapilus</a><span class="fight__rec">23-15-3</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Nika Kobakhidze">Nika Kobakhidze</span><span class="fight__rec">8-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/ge.png" alt="" loading="lazy"></span>
@@ -1405,14 +1412,14 @@
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">Walid Masmoudi, Ghiles Oudelha, Akhmad Amaev</span>
         </span></span>
-        <span class="ck"><span class="jchip">J-55</span></span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="jchip">J-54</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="duel">
         <div class="fight">
           <span class="ck fight__cat">Lightweight</span>
-          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg></span>
+          <span class="ck fight__titre-bloc"><svg class="belt" viewBox="0 0 36 14" width="26" height="10" aria-hidden="true"><rect x="0" y="4" width="36" height="6" rx="3" fill="#f2c14e"/><circle cx="18" cy="7" r="6.5" fill="#f2c14e" stroke="#0a0a0c" stroke-width="1.5"/><circle cx="18" cy="7" r="3" fill="#fff3cf"/></svg><span class="sr">titre en jeu</span></span>
           <span class="ck"><img class="flag" src="https://flagcdn.com/h20/tn.png" alt="" loading="lazy"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="combattants/walid-masmoudi.html" data-complet="Walid Masmoudi">Walid Masmoudi</a><span class="fight__rec">5-0-0</span></span></span>
           <span class="ck"><span class="fight__vs">VS</span></span>
           <span class="ck"><span class="fight__col"><a class="fight__nom fight__nom--suivi" href="https://www.sherdog.com/fighter/Ghiles-Oudelha-191993" target="_blank" rel="noopener" data-complet="Ghiles Oudelha">Ghiles Oudelha</a><span class="fight__rec">16-8-0</span></span><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy"></span>
@@ -1443,8 +1450,8 @@
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">Robert Valentin, Michael Aljarouj</span>
         </span></span>
-        <span class="ck"><span class="jchip">J-55</span></span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="jchip">J-54</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="duel">
@@ -1488,8 +1495,8 @@
           <span class="ev__avec-label">AVEC&nbsp;: </span>
           <span class="ev__avec-noms">Benoit Saint Denis</span>
         </span></span>
-        <span class="ck"><span class="jchip">J-77</span></span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="jchip">J-76</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">
         <div class="duel">

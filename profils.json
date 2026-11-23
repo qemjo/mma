@@ -258,5 +258,85 @@
       "round": "1",
       "temps": "0:28"
     }
+  },
+  "Davy Gallon": {
+    "url": "https://www.sherdog.com/fighter/Davy-Gallon-78731",
+    "surnom": "",
+    "naissance": "1989-04-28",
+    "taille_cm": "173",
+    "categorie": "Lightweight",
+    "equipe": "Adrenaline Fight Team",
+    "drapeau": "fr",
+    "record": "24-10-2",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Wilson Varela",
+      "evenement": "HXMMA 44 - Hexagone MMA 44",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-44-Hexagone-MMA-44-111655",
+      "date": "2026-05-29",
+      "methode": "Decision (Unanimous)",
+      "round": "3",
+      "temps": "5:00"
+    }
+  },
+  "Theo Ulrich": {
+    "url": "https://www.sherdog.com/fighter/Theo-Ulrich-397608",
+    "surnom": "",
+    "naissance": "",
+    "taille_cm": "185",
+    "categorie": "Lightweight",
+    "equipe": "Old School Academy",
+    "drapeau": "fr",
+    "record": "8-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Nicolae Bivol",
+      "evenement": "HXMMA 44 - Hexagone MMA 44",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-44-Hexagone-MMA-44-111655",
+      "date": "2026-05-29",
+      "methode": "Decision (Unanimous)",
+      "round": "3",
+      "temps": "5:00"
+    }
+  },
+  "Allan Landouzy": {
+    "url": "https://www.sherdog.com/fighter/Allan-Landouzy-408988",
+    "surnom": "",
+    "naissance": "",
+    "taille_cm": "",
+    "categorie": "Bantamweight",
+    "equipe": "",
+    "drapeau": "fr",
+    "record": "2-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Abdul Hussainkhil",
+      "evenement": "HXMMA 45 - Hexagone MMA 45",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-45-Hexagone-MMA-45-111387",
+      "date": "2026-06-12",
+      "methode": "Decision (Unanimous)",
+      "round": "3",
+      "temps": "5:00"
+    }
+  },
+  "Tamerlan Albiekov": {
+    "url": "https://www.sherdog.com/fighter/Tamerlan-Albiekov-366417",
+    "surnom": "",
+    "naissance": "2000-08-08",
+    "taille_cm": "",
+    "categorie": "Heavyweight",
+    "equipe": "Chaos Squad",
+    "drapeau": "fr",
+    "record": "5-1-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Samuele Di Guardo",
+      "evenement": "HXMMA 45 - Hexagone MMA 45",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-45-Hexagone-MMA-45-111387",
+      "date": "2026-06-12",
+      "methode": "TKO (Punches)",
+      "round": "1",
+      "temps": "2:30"
+    }
   }
 }
