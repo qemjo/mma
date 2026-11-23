@@ -109,7 +109,7 @@
     "record_suivi": "11-3-0 (WIN-LOSS-DRAW)",
     "titre": false,
     "categorie": "Middleweight",
-    "ordre": 998,
+    "ordre": 997,
     "drapeau_adversaire": "br",
     "adversaire": "Modestino Rodrigues",
     "record_adversaire": "8-1-0 (WIN-LOSS-DRAW)",
@@ -457,6 +457,23 @@
     "date": "2027-01-08",
     "lieu": "Zenith Paris - La Villette, Paris, France",
     "lien_evenement": "https://www.sherdog.com/events/HXMMA-50-Hexagone-MMA-50-115351"
+  },
+  {
+    "combattant": "Vincent del Guerra",
+    "url_suivi": "https://www.sherdog.com/fighter/Vincent-del-Guerra-57907",
+    "url_adversaire": "https://www.sherdog.com/fighter/Chequina-Noso-Pedro-376091",
+    "drapeau": "fr",
+    "record_suivi": "35-22-1 (WIN-LOSS-DRAW)",
+    "titre": false,
+    "categorie": "Catchweight",
+    "ordre": 999,
+    "drapeau_adversaire": "ao",
+    "adversaire": "Chequina Noso Pedro",
+    "record_adversaire": "10-5-0 (WIN-LOSS-DRAW)",
+    "evenement": "ARES 47",
+    "date": "2027-01-16",
+    "lieu": "Marseille Sports Palace, Marseille, France",
+    "lien_evenement": "https://www.sherdog.com/events/ARES-47-Masmoudi-vs-Oudelha-115377"
   },
   {
     "combattant": "Walid Masmoudi",
