@@ -111,6 +111,35 @@ def texte_sans_liens(valeur):
     return MOTIF_LIEN.sub(lambda m: m.group(1), (valeur or "").strip())
 
 
+def lignes_diffusion(etiquette, texte, adresse="", heure=""):
+    """Lignes de diffusion pour la description d'un agenda.
+
+    Un agenda n'affiche que du texte : on y ecrit les adresses en entier,
+    que Google Agenda et l'iPhone rendent cliquables.
+    "[Twitch](https://...) et [YouTube](https://...)" ->
+        Prelims (19:00) :
+        Twitch https://...
+        YouTube https://...
+    """
+    texte = (texte or "").strip()
+    if not texte:
+        return []
+    moment = f" ({heure})" if heure else ""
+    liens = MOTIF_LIEN.findall(texte)
+    if not liens:
+        lignes = [f"{etiquette} : {texte}{moment}"]
+        adresse = (adresse or "").strip()
+        if adresse.startswith("http"):
+            lignes.append(adresse)
+        return lignes
+    reste = MOTIF_LIEN.sub("", texte)
+    if re.fullmatch(r"(?:[\s,;&+/]|\bet\b)*", reste):
+        lignes = [f"{etiquette}{moment} :"]       # que des liens
+    else:
+        lignes = [f"{etiquette} : {texte_sans_liens(texte)}{moment}"]
+    return lignes + [f"{nom} {url}" for nom, url in liens]
+
+
 def charger_json(nom):
     if not os.path.exists(nom):
         return None
@@ -271,12 +300,9 @@ def fichier_agenda(ev, infos, fiches):
             continue
         adv = c.get("adversaire_suivi") or c.get("adversaire", "")
         details.append(f"{nom_affiche(c['combattant'])} vs {nom_affiche(adv)}")
-    if diff.get("chaine"):
-        details.append("Diffusion : " + texte_sans_liens(diff["chaine"]))
-    if diff.get("prelim"):
-        avant = (diff.get("heure_prelim") or "").strip()
-        details.append("Prelims : " + texte_sans_liens(diff["prelim"])
-                       + (f" ({avant})" if avant else ""))
+    details += lignes_diffusion("Diffusion", diff.get("chaine"), diff.get("lien"))
+    details += lignes_diffusion("Prelims", diff.get("prelim"), diff.get("lien_prelim"),
+                                (diff.get("heure_prelim") or "").strip())
     if lien:
         details.append(lien)
     if details:
@@ -2699,7 +2725,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 105
+VERSION = 106
 
 
 def ecrire_manifeste():
@@ -3554,13 +3580,9 @@ def _evenement_suivi(nom, c, infos):
     if c.get("lieu"):
         lignes.append("LOCATION:" + _ics_echapper(c["lieu"]))
     details = []
-    if diff.get("chaine"):
-        details.append("Diffusion : " + texte_sans_liens(diff["chaine"])
-                       + (f" ({heure})" if heure else ""))
-    if diff.get("prelim"):
-        avant = (diff.get("heure_prelim") or "").strip()
-        details.append("Prelims : " + texte_sans_liens(diff["prelim"])
-                       + (f" ({avant})" if avant else ""))
+    details += lignes_diffusion("Diffusion", diff.get("chaine"), diff.get("lien"), heure)
+    details += lignes_diffusion("Prelims", diff.get("prelim"), diff.get("lien_prelim"),
+                                (diff.get("heure_prelim") or "").strip())
     details.append(f"{SITE_URL}/{PAGES_COMBATTANTS[nom]}")
     lignes.append("DESCRIPTION:" + _ics_echapper("\n".join(details)))
     lignes += ["BEGIN:VALARM", "ACTION:DISPLAY",
