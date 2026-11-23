@@ -1403,6 +1403,12 @@ CSS = """
     opacity: 0.72;
     transition: opacity 0.15s;
   }
+  /* icone agenda un peu plus grande, trait aussi fin qu'avant,
+     et zone de clic elargie sans pousser le reste */
+  .ev__foot a.ev__ics { padding: 0.35rem; margin: -0.35rem; }
+  .ev__foot a.ev__ics svg { width: 19px; height: 19px; }
+  .ev__foot a.ev__ics svg * { vector-effect: non-scaling-stroke;
+                              stroke-width: 1.3px; }
 
   .ev__foot a.ev__ics:hover,
   .ev__foot a.ev__ics:focus { color: var(--or); opacity: 1; }
@@ -1909,7 +1915,9 @@ CSS_FOND = """
 """
 
 
-def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
+def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda="",
+                   prefixe=""):
+    """prefixe : '../' quand la carte est affichee depuis une fiche."""
     try:
         jour = datetime.strptime(ev["date"], "%Y-%m-%d").date()
         date_txt = f"{jour.day:02d} {MOIS_COURT[jour.month - 1]}"
@@ -1960,7 +1968,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
         url = fiches.get(c["combattant"], "")
         if url or c["combattant"] in PAGES_COMBATTANTS:
             lien_nom = (f'<a class="fight__nom fight__nom--suivi" '
-                        f'{attributs_lien(c["combattant"], url)} '
+                        f'{attributs_lien(c["combattant"], url, prefixe)} '
                         f'data-complet="{nom}">{nom}</a>')
         else:
             lien_nom = (f'<span class="fight__nom fight__nom--suivi" '
@@ -1989,7 +1997,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
         classe_adv = "fight__nom fight__nom--suivi" if url_adv else "fight__nom"
         if url_adv:
             bloc_adv = (f'<a class="{classe_adv}" '
-                        f'{attributs_lien(suivi_adv, url_adv)} '
+                        f'{attributs_lien(suivi_adv, url_adv, prefixe)} '
                         f'data-complet="{echapper(nom_adv)}">'
                         f'{echapper(nom_adv)}</a>')
         else:
@@ -2113,7 +2121,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
     <details class="ev"{attr_ouvert} data-orga="{orga_cle}" data-noms="{noms_data}">
       <summary class="ev__bar">
         <span class="ck"><span class="ev__date">{date_txt}</span></span>
-        <span class="ck">{logo_orga(ev["evenement"])}</span>
+        <span class="ck">{logo_orga(ev["evenement"]).replace('src="logos/', f'src="{prefixe}logos/')}</span>
         <span class="ck"><span class="ev__nom" data-complet="{nom_ev}">{bloc_nom}</span></span>
         <span class="ck">{flag_event}<span class="ev__ville" title="{echapper(ev["lieu"])}">{ville}</span></span>
         <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="{noms_avec}">
@@ -2725,7 +2733,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 109
+VERSION = 110
 
 
 def ecrire_manifeste():
@@ -3059,6 +3067,56 @@ CSS_FICHE = """
   }
 """
 
+def css_carte(css, portee=".carte"):
+    """Extrait du CSS de l'accueil les regles des cartes d'evenement et
+    les limite a `portee` : la fiche reprend le meme rendu sans que le
+    reste de l'accueil (corps, titres, outils...) ne deteigne dessus."""
+    utile = re.compile(r"\.(ev|fight|duel|ck|jchip|chip|flag|belt|sr|"
+                       r"nom-court|nom-long)(?:__|--|(?![\w-]))|details|summary")
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+
+    def traiter(texte):
+        sortie, i = [], 0
+        while True:
+            a = texte.find("{", i)
+            if a < 0:
+                break
+            tete = texte[i:a].strip()
+            prof, b = 1, a + 1
+            while prof:
+                prof += {"{": 1, "}": -1}.get(texte[b], 0)
+                b += 1
+            corps = texte[a + 1:b - 1]
+            if tete.startswith("@"):
+                dedans = traiter(corps)
+                if dedans:
+                    sortie.append(f"{tete} {{{dedans}}}")
+            else:
+                parts = [f"{portee} {x.strip()}" for x in tete.split(",")
+                         if utile.search(x)]
+                if parts:
+                    sortie.append(f"{', '.join(parts)} {{{corps}}}")
+            i = b
+        return "\n".join(sortie)
+
+    return traiter(css) + f"""
+  {portee} {{ --bar-clair: #232329; --sombre: #14140f; margin: 0 0 1rem; }}
+  {portee} > h2 {{ margin-bottom: 0.5rem; }}
+  /* moins d'air entre le texte sous Suivre et le titre */
+  .suivre ~ {portee} {{ margin-top: -0.7rem; }}
+  {portee} details.ev {{ margin: 0; }}
+  /* sur la fiche on sait de qui et ou : ni ligne AVEC ni ville.
+     Sur ordinateur on garde leur place, sinon la grille se decale. */
+  {portee} .ev__avec, {portee} summary.ev__bar > .ck:nth-child(4) {{ visibility: hidden; }}
+  @media (max-width: 860px) {{
+    {portee} .ev__avec, {portee} summary.ev__bar > .ck:nth-child(4) {{ display: none; }}
+  }}
+"""
+
+
+CSS_CARTE_FICHE = css_carte(CSS)
+
+
 
 def taille_affichee(valeur):
     """'184', '1,84' ou '1.84' -> '1,84 m'"""
@@ -3151,7 +3209,7 @@ def dernier_combat_de(nom, profil, resultats):
     return miens[0] if miens else None
 
 
-def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
+def page_fiche(nom, bio, profil, combats, resultats, url_sherdog, infos=None):
     affichage = nom_affiche(nom)
     profil = profil if isinstance(profil, dict) else {}
     prochain = prochain_combat_de(nom, combats)
@@ -3264,6 +3322,17 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
                            '\n  </section>')
 
     bloc_combats = ""
+    if prochain:
+        # meme carte que sur l'accueil, avec ce seul combat, repliee.
+        # Les noms ne menent qu'aux fiches MMA Radar (pas a Sherdog).
+        c = prochain[1]
+        ev = {"date": c["date"], "evenement": c.get("evenement", ""),
+              "lieu": c.get("lieu", ""), "combats": [c]}
+        bloc_combats = ('\n  <section class="carte" aria-label="Prochain combat">'
+                        '\n    <h2>Prochain combat</h2>'
+                        + bloc_evenement(ev, {}, infos or {}, False, c["date"],
+                                         prefixe="../")
+                        + '\n  </section>\n')
     if FICHE_AVEC_COMBATS:
         bloc_combats = ('\n  <section class="bloc">\n'
                         '    <h2>Prochain combat</h2>' + bloc_prochain +
@@ -3399,7 +3468,7 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<style>{CSS_FICHE}{css_fond}</style>
+<style>{CSS_FICHE}{CSS_CARTE_FICHE}{css_fond}</style>
 <script type="application/ld+json">{jsonld}</script>
 </head>
 <body>
@@ -3681,9 +3750,11 @@ def ecrire_fiches(combats, bios, profils, fiches, resultats):
         if f.endswith(".html") and f not in voulues:
             os.remove(os.path.join("combattants", f))
 
+    infos = charger_json("infos.json")
+    infos = infos if isinstance(infos, dict) else {}
     for nom, chemin in PAGES_COMBATTANTS.items():
         html = page_fiche(nom, bios.get(nom, {}), profils.get(nom, {}),
-                          combats, resultats, fiches.get(nom, ""))
+                          combats, resultats, fiches.get(nom, ""), infos)
         with open(chemin, "w", encoding="utf-8") as f:
             f.write(html)
     if PAGES_COMBATTANTS:
