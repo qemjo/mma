@@ -184,6 +184,9 @@
   }
   .panneau__google:hover { filter: brightness(1.08); }
   .panneau__secours { margin-top: 0.2rem; }
+  .etapes { margin: 0.2rem 0 0.4rem; padding-left: 1.2rem; }
+  .etapes li { margin-bottom: 0.7rem; }
+  .etapes .panneau__google { margin: 0.3rem 0 0.4rem; }
   .panneau__secours .panneau__copier {
     margin: 0 0 0 0.3rem; background: none; border: 1px solid var(--bord);
     color: var(--blanc);
@@ -240,14 +243,23 @@
         <p><b>Calendrier de Mathys Duragrin</b></p>
         <p>Une fois l'abonnement accepté, ses combats apparaissent dans ton app
         Calendrier. L'heure et la chaîne s'ajoutent dès qu'elles sont connues.</p>
-        <p><b>Pour recevoir un rappel</b> : Réglages, puis Calendrier, Comptes,
-        Calendriers abonnés, choisis « Mathys Duragrin · MMA Radar » et désactive « Supprimer les alertes ».</p>
+        <p><b>Pour recevoir un rappel</b> : laisse « Supprimer les alertes » désactivé.</p>
+      </div>
+      <div class="panneau__android" hidden>
+        <p><b>Suivre Mathys Duragrin</b></p>
+        <ol class="etapes">
+          <li><a class="panneau__google panneau__google--android" href="https://calendar.google.com/calendar/u/0/r/settings/addbyurl" data-page="intent://calendar.google.com/calendar/u/0/r/settings/addbyurl#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fu%2F0%2Fr%2Fsettings%2Faddbyurl;end">Ajouter à Google Agenda</a>
+          L'adresse est copiée et Google Agenda s'ouvre.</li>
+          <li>Colle l'adresse dans « URL de l'agenda », puis appuie sur « Ajouter l'agenda ».</li>
+          <li>Dans l'appli Agenda : Paramètres, « Mathys Duragrin · MMA Radar », active Synchroniser.
+          Ajoute aussi une notification pour être prévenu.</li>
+        </ol>
       </div>
       <div class="panneau__autre" hidden>
         <p><b>Suivre Mathys Duragrin</b></p>
-        <a class="panneau__google" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fmmaradar.fr%2Fagenda%2Fcombattants%2Fmathys-duragrin.ics" data-android="intent://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fmmaradar.fr%2Fagenda%2Fcombattants%2Fmathys-duragrin.ics#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fr%3Fcid%3Dwebcal%253A%252F%252Fmmaradar.fr%252Fagenda%252Fcombattants%252Fmathys-duragrin.ics;end" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
-        <p class="panneau__petit">Ensuite, dans les paramètres de l'agenda « Mathys Duragrin · MMA Radar » :
-        active Synchroniser (Android) et ajoute une notification pour être prévenu.</p>
+        <a class="panneau__google" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fmmaradar.fr%2Fagenda%2Fcombattants%2Fmathys-duragrin.ics" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
+        <p class="panneau__petit">Pour être prévenu, ajoute une notification dans les paramètres
+        de l'agenda. Sur Android, active aussi Synchroniser.</p>
         <p class="panneau__petit panneau__secours">Autre agenda (Outlook…) :
         <button class="panneau__copier" type="button">Copier l'adresse</button></p>
       </div>
@@ -279,17 +291,37 @@
   if (!btn || !p) return;
   // iPhone, iPad et Mac savent s'abonner directement (lien webcal)
   var apple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+  var android = /Android/i.test(navigator.userAgent);
   btn.addEventListener("click", function (e) {
     if (!apple) e.preventDefault();
     p.querySelector(".panneau__apple").hidden = !apple;
-    p.querySelector(".panneau__autre").hidden = apple;
-    var g = p.querySelector(".panneau__google");
-    if (g && g.dataset.android && /Android/i.test(navigator.userAgent)) {
-      g.href = g.dataset.android;   // ouverture forcee dans Chrome
-      g.removeAttribute("target");
-    }
+    p.querySelector(".panneau__android").hidden = !android;
+    p.querySelector(".panneau__autre").hidden = apple || android;
     p.hidden = false;
   });
+  // Android : copie l'adresse, puis ouvre "Ajouter a partir de l'URL" dans Chrome
+  var ga = p.querySelector(".panneau__google--android");
+  if (ga) {
+    ga.addEventListener("click", function (e) {
+      e.preventDefault();
+      var page = ga.dataset.page;
+      function ouvrir() { window.location.href = page; }
+      function secours() {
+        var t = document.createElement("textarea");
+        t.value = btn.dataset.https;
+        document.body.appendChild(t);
+        t.select();
+        try { document.execCommand("copy"); } catch (err) {}
+        document.body.removeChild(t);
+        ouvrir();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(btn.dataset.https).then(ouvrir, secours);
+      } else {
+        secours();
+      }
+    });
+  }
   p.addEventListener("click", function (e) {
     if (e.target === p || e.target.closest(".panneau__fermer")) p.hidden = true;
   });
