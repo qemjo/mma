@@ -241,18 +241,16 @@
         <p>Une fois l'abonnement accepté, ses combats apparaissent dans ton app
         Calendrier. L'heure et la chaîne s'ajoutent dès qu'elles sont connues.</p>
         <p><b>Pour recevoir un rappel</b> : Réglages, puis Calendrier, Comptes,
-        Calendriers abonnés, choisis « Baki » et désactive « Supprimer les alertes ».</p>
+        Calendriers abonnés, choisis « Baki · MMA Radar » et désactive « Supprimer les alertes ».</p>
       </div>
       <div class="panneau__autre" hidden>
         <p><b>Suivre Baki</b></p>
-        <a class="panneau__google" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fmmaradar.fr%2Fagenda%2Fcombattants%2Fbaysangur-chamsoudinov.ics" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
-        <p class="panneau__petit">Pour être prévenu avant chaque combat : dans les paramètres
-        de cet agenda, ajoute une notification par défaut (par exemple 1 h avant).</p>
+        <a class="panneau__google" href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fmmaradar.fr%2Fagenda%2Fcombattants%2Fbaysangur-chamsoudinov.ics" data-android="intent://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Fmmaradar.fr%2Fagenda%2Fcombattants%2Fbaysangur-chamsoudinov.ics#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Fr%3Fcid%3Dwebcal%253A%252F%252Fmmaradar.fr%252Fagenda%252Fcombattants%252Fbaysangur-chamsoudinov.ics;end" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
+        <p class="panneau__petit">Ensuite, dans les paramètres de l'agenda « Baki · MMA Radar » :
+        active Synchroniser (Android) et ajoute une notification pour être prévenu.</p>
         <p class="panneau__petit panneau__secours">Autre agenda (Outlook…) :
         <button class="panneau__copier" type="button">Copier l'adresse</button></p>
       </div>
-      <p class="panneau__petit">Gratuit, sans compte. Pour arrêter, supprime ce
-      calendrier de ton agenda.</p>
     </div>
   </div>
 
@@ -285,6 +283,11 @@
     if (!apple) e.preventDefault();
     p.querySelector(".panneau__apple").hidden = !apple;
     p.querySelector(".panneau__autre").hidden = apple;
+    var g = p.querySelector(".panneau__google");
+    if (g && g.dataset.android && /Android/i.test(navigator.userAgent)) {
+      g.href = g.dataset.android;   // ouverture forcee dans Chrome
+      g.removeAttribute("target");
+    }
     p.hidden = false;
   });
   p.addEventListener("click", function (e) {
