@@ -2725,7 +2725,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 106
+VERSION = 108
 
 
 def ecrire_manifeste():
@@ -3448,6 +3448,12 @@ def bloc_suivi(chemin_fiche, affichage):
     webcal = "webcal://" + https.split("://", 1)[1]
     # Android et ordinateur : Google Agenda propose l'abonnement en un clic
     google = "https://calendar.google.com/calendar/r?cid=" + quote_plus(webcal)
+    # Android : l'appli Agenda intercepte ce lien et ouvre un evenement vide.
+    # On force Chrome, qui affiche la confirmation d'ajout ; sans Chrome,
+    # le telephone retombe sur le lien normal.
+    android = ("intent://" + google.split("://", 1)[1]
+               + "#Intent;scheme=https;package=com.android.chrome;"
+               + "S.browser_fallback_url=" + quote_plus(google) + ";end")
     nom = echapper(affichage)
     return f"""
   <div class="suivre"><div class="suivre__bloc">
@@ -3463,18 +3469,16 @@ def bloc_suivi(chemin_fiche, affichage):
         <p>Une fois l'abonnement accepté, ses combats apparaissent dans ton app
         Calendrier. L'heure et la chaîne s'ajoutent dès qu'elles sont connues.</p>
         <p><b>Pour recevoir un rappel</b> : Réglages, puis Calendrier, Comptes,
-        Calendriers abonnés, choisis « {nom} » et désactive « Supprimer les alertes ».</p>
+        Calendriers abonnés, choisis « {nom} · MMA Radar » et désactive « Supprimer les alertes ».</p>
       </div>
       <div class="panneau__autre" hidden>
         <p><b>Suivre {nom}</b></p>
-        <a class="panneau__google" href="{google}" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
-        <p class="panneau__petit">Pour être prévenu avant chaque combat : dans les paramètres
-        de cet agenda, ajoute une notification par défaut (par exemple 1 h avant).</p>
+        <a class="panneau__google" href="{google}" data-android="{android}" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
+        <p class="panneau__petit">Ensuite, dans les paramètres de l'agenda « {nom} · MMA Radar » :
+        active Synchroniser (Android) et ajoute une notification pour être prévenu.</p>
         <p class="panneau__petit panneau__secours">Autre agenda (Outlook…) :
         <button class="panneau__copier" type="button">Copier l'adresse</button></p>
       </div>
-      <p class="panneau__petit">Gratuit, sans compte. Pour arrêter, supprime ce
-      calendrier de ton agenda.</p>
     </div>
   </div>
 """
@@ -3491,6 +3495,11 @@ JS_SUIVI = r"""<script>
     if (!apple) e.preventDefault();
     p.querySelector(".panneau__apple").hidden = !apple;
     p.querySelector(".panneau__autre").hidden = apple;
+    var g = p.querySelector(".panneau__google");
+    if (g && g.dataset.android && /Android/i.test(navigator.userAgent)) {
+      g.href = g.dataset.android;   // ouverture forcee dans Chrome
+      g.removeAttribute("target");
+    }
     p.hidden = false;
   });
   p.addEventListener("click", function (e) {
@@ -3583,7 +3592,7 @@ def _evenement_suivi(nom, c, infos):
     details += lignes_diffusion("Diffusion", diff.get("chaine"), diff.get("lien"), heure)
     details += lignes_diffusion("Prelims", diff.get("prelim"), diff.get("lien_prelim"),
                                 (diff.get("heure_prelim") or "").strip())
-    details.append(f"{SITE_URL}/{PAGES_COMBATTANTS[nom]}")
+    details.append(f"Fiche du combattant : {SITE_URL}/{PAGES_COMBATTANTS[nom]}")
     lignes.append("DESCRIPTION:" + _ics_echapper("\n".join(details)))
     lignes += ["BEGIN:VALARM", "ACTION:DISPLAY",
                "DESCRIPTION:" + _ics_echapper(texte_rappel),
