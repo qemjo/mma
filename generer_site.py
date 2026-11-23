@@ -2725,7 +2725,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 108
+VERSION = 109
 
 
 def ecrire_manifeste():
@@ -3032,6 +3032,9 @@ CSS_FICHE = """
   }
   .panneau__google:hover { filter: brightness(1.08); }
   .panneau__secours { margin-top: 0.2rem; }
+  .etapes { margin: 0.2rem 0 0.4rem; padding-left: 1.2rem; }
+  .etapes li { margin-bottom: 0.7rem; }
+  .etapes .panneau__google { margin: 0.3rem 0 0.4rem; }
   .panneau__secours .panneau__copier {
     margin: 0 0 0 0.3rem; background: none; border: 1px solid var(--bord);
     color: var(--blanc);
@@ -3448,12 +3451,14 @@ def bloc_suivi(chemin_fiche, affichage):
     webcal = "webcal://" + https.split("://", 1)[1]
     # Android et ordinateur : Google Agenda propose l'abonnement en un clic
     google = "https://calendar.google.com/calendar/r?cid=" + quote_plus(webcal)
-    # Android : l'appli Agenda intercepte ce lien et ouvre un evenement vide.
-    # On force Chrome, qui affiche la confirmation d'ajout ; sans Chrome,
-    # le telephone retombe sur le lien normal.
-    android = ("intent://" + google.split("://", 1)[1]
+    # Android : Google n'accepte plus l'abonnement en un clic sur telephone
+    # (le lien ci-dessus affiche "ajoute" sans rien ajouter). Seule la page
+    # "Ajouter a partir de l'URL" marche : on copie l'adresse et on ouvre
+    # cette page dans Chrome, pour que l'appli Agenda ne l'intercepte pas.
+    page_url = "https://calendar.google.com/calendar/u/0/r/settings/addbyurl"
+    android = ("intent://" + page_url.split("://", 1)[1]
                + "#Intent;scheme=https;package=com.android.chrome;"
-               + "S.browser_fallback_url=" + quote_plus(google) + ";end")
+               + "S.browser_fallback_url=" + quote_plus(page_url) + ";end")
     nom = echapper(affichage)
     return f"""
   <div class="suivre"><div class="suivre__bloc">
@@ -3468,14 +3473,23 @@ def bloc_suivi(chemin_fiche, affichage):
         <p><b>Calendrier de {nom}</b></p>
         <p>Une fois l'abonnement accepté, ses combats apparaissent dans ton app
         Calendrier. L'heure et la chaîne s'ajoutent dès qu'elles sont connues.</p>
-        <p><b>Pour recevoir un rappel</b> : Réglages, puis Calendrier, Comptes,
-        Calendriers abonnés, choisis « {nom} · MMA Radar » et désactive « Supprimer les alertes ».</p>
+        <p><b>Pour recevoir un rappel</b> : laisse « Supprimer les alertes » désactivé.</p>
+      </div>
+      <div class="panneau__android" hidden>
+        <p><b>Suivre {nom}</b></p>
+        <ol class="etapes">
+          <li><a class="panneau__google panneau__google--android" href="{page_url}" data-page="{android}">Ajouter à Google Agenda</a>
+          L'adresse est copiée et Google Agenda s'ouvre.</li>
+          <li>Colle l'adresse dans « URL de l'agenda », puis appuie sur « Ajouter l'agenda ».</li>
+          <li>Dans l'appli Agenda : Paramètres, « {nom} · MMA Radar », active Synchroniser.
+          Ajoute aussi une notification pour être prévenu.</li>
+        </ol>
       </div>
       <div class="panneau__autre" hidden>
         <p><b>Suivre {nom}</b></p>
-        <a class="panneau__google" href="{google}" data-android="{android}" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
-        <p class="panneau__petit">Ensuite, dans les paramètres de l'agenda « {nom} · MMA Radar » :
-        active Synchroniser (Android) et ajoute une notification pour être prévenu.</p>
+        <a class="panneau__google" href="{google}" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
+        <p class="panneau__petit">Pour être prévenu, ajoute une notification dans les paramètres
+        de l'agenda. Sur Android, active aussi Synchroniser.</p>
         <p class="panneau__petit panneau__secours">Autre agenda (Outlook…) :
         <button class="panneau__copier" type="button">Copier l'adresse</button></p>
       </div>
@@ -3491,17 +3505,37 @@ JS_SUIVI = r"""<script>
   if (!btn || !p) return;
   // iPhone, iPad et Mac savent s'abonner directement (lien webcal)
   var apple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+  var android = /Android/i.test(navigator.userAgent);
   btn.addEventListener("click", function (e) {
     if (!apple) e.preventDefault();
     p.querySelector(".panneau__apple").hidden = !apple;
-    p.querySelector(".panneau__autre").hidden = apple;
-    var g = p.querySelector(".panneau__google");
-    if (g && g.dataset.android && /Android/i.test(navigator.userAgent)) {
-      g.href = g.dataset.android;   // ouverture forcee dans Chrome
-      g.removeAttribute("target");
-    }
+    p.querySelector(".panneau__android").hidden = !android;
+    p.querySelector(".panneau__autre").hidden = apple || android;
     p.hidden = false;
   });
+  // Android : copie l'adresse, puis ouvre "Ajouter a partir de l'URL" dans Chrome
+  var ga = p.querySelector(".panneau__google--android");
+  if (ga) {
+    ga.addEventListener("click", function (e) {
+      e.preventDefault();
+      var page = ga.dataset.page;
+      function ouvrir() { window.location.href = page; }
+      function secours() {
+        var t = document.createElement("textarea");
+        t.value = btn.dataset.https;
+        document.body.appendChild(t);
+        t.select();
+        try { document.execCommand("copy"); } catch (err) {}
+        document.body.removeChild(t);
+        ouvrir();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(btn.dataset.https).then(ouvrir, secours);
+      } else {
+        secours();
+      }
+    });
+  }
   p.addEventListener("click", function (e) {
     if (e.target === p || e.target.closest(".panneau__fermer")) p.hidden = true;
   });
