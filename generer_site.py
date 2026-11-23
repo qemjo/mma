@@ -2699,7 +2699,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 104
+VERSION = 105
 
 
 def ecrire_manifeste():
@@ -2997,10 +2997,18 @@ CSS_FICHE = """
     cursor: pointer;
   }
   .panneau__fermer:hover { color: var(--blanc); }
-  .panneau__adresse {
-    width: 100%; margin: 0.3rem 0; padding: 0.4rem 0.6rem; border-radius: 6px;
-    border: 1px solid var(--bord); background: #121216; color: var(--blanc);
-    font-size: 0.75rem;
+  .panneau__google {
+    display: block; margin: 0.4rem 0 0.8rem; padding: 0.6rem 1rem;
+    border-radius: 999px; background: var(--or); color: #14140f;
+    text-align: center; text-decoration: none; font-family: Oswald, sans-serif;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;
+    font-size: 0.85rem;
+  }
+  .panneau__google:hover { filter: brightness(1.08); }
+  .panneau__secours { margin-top: 0.2rem; }
+  .panneau__secours .panneau__copier {
+    margin: 0 0 0 0.3rem; background: none; border: 1px solid var(--bord);
+    color: var(--blanc);
   }
   .panneau__copier {
     display: inline-block; margin: 0.2rem 0 0.4rem; padding: 0.35rem 0.9rem;
@@ -3412,6 +3420,8 @@ def adresse_suivi(chemin_fiche):
 def bloc_suivi(chemin_fiche, affichage):
     https = adresse_suivi(chemin_fiche)
     webcal = "webcal://" + https.split("://", 1)[1]
+    # Android et ordinateur : Google Agenda propose l'abonnement en un clic
+    google = "https://calendar.google.com/calendar/r?cid=" + quote_plus(webcal)
     nom = echapper(affichage)
     return f"""
   <div class="suivre"><div class="suivre__bloc">
@@ -3430,22 +3440,12 @@ def bloc_suivi(chemin_fiche, affichage):
         Calendriers abonnés, choisis « {nom} » et désactive « Supprimer les alertes ».</p>
       </div>
       <div class="panneau__autre" hidden>
-        <p><b>Ajouter à Google Agenda</b></p>
-        <ol>
-          <li>Copie l'adresse :
-            <input class="panneau__adresse" type="text" readonly value="{https}">
-            <button class="panneau__copier" type="button">Copier l'adresse</button></li>
-          <li>Ouvre <a href="https://calendar.google.com" target="_blank" rel="noopener">calendar.google.com</a>
-          dans ton navigateur.</li>
-          <li>À côté de « Autres agendas », clique sur <b>+</b>, puis
-          <b>À partir de l'URL</b>.</li>
-          <li>Colle l'adresse, puis <b>Ajouter un agenda</b>.</li>
-        </ol>
-        <p>Le calendrier apparaît ensuite tout seul dans l'appli Google Agenda
-        du téléphone. <b>Pour un rappel</b> : dans les paramètres de cet agenda,
-        ajoute une notification par défaut, par exemple 1 h avant.</p>
-        <p class="panneau__petit">Outlook, Apple Calendar : utilise « S'abonner
-        à un calendrier » et colle la même adresse.</p>
+        <p><b>Suivre {nom}</b></p>
+        <a class="panneau__google" href="{google}" target="_blank" rel="noopener">Ajouter à Google Agenda</a>
+        <p class="panneau__petit">Pour être prévenu avant chaque combat : dans les paramètres
+        de cet agenda, ajoute une notification par défaut (par exemple 1 h avant).</p>
+        <p class="panneau__petit panneau__secours">Autre agenda (Outlook…) :
+        <button class="panneau__copier" type="button">Copier l'adresse</button></p>
       </div>
       <p class="panneau__petit">Gratuit, sans compte. Pour arrêter, supprime ce
       calendrier de ton agenda.</p>
@@ -3474,12 +3474,15 @@ JS_SUIVI = r"""<script>
     if (e.key === "Escape") p.hidden = true;
   });
   var copier = p.querySelector(".panneau__copier");
-  var champ = p.querySelector(".panneau__adresse");
   copier.addEventListener("click", function () {
     function ok() { copier.textContent = "Adresse copiée ✓"; }
     function secours() {
-      champ.select();
+      var t = document.createElement("textarea");
+      t.value = btn.dataset.https;
+      document.body.appendChild(t);
+      t.select();
       try { document.execCommand("copy"); ok(); } catch (err) {}
+      document.body.removeChild(t);
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(btn.dataset.https).then(ok, secours);
