@@ -1399,6 +1399,12 @@ CSS = """
 
   .flag { height: 14px; border-radius: 2px; flex: none; }
 
+  /* texte lu par les lecteurs d'ecran, invisible a l'ecran */
+  .sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+
   .empty { color: var(--gris); text-align: center; margin: 3rem 0; }
 
   /* ---- invitation a installer l'application ---- */
@@ -1940,7 +1946,9 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
         rec_adv_html = f'<span class="fight__rec">{rec_adv}</span>' if rec_adv else ""
 
         annule = bool(c.get("annule"))
-        belt = "" if annule else (CEINTURE if c.get("titre") else "")
+        belt = "" if annule else (
+            CEINTURE + '<span class="sr">titre en jeu</span>'
+            if c.get("titre") else "")
         titre_txt = ""   # l'icone ceinture parle d'elle-meme
 
         # Si l'adversaire fait aussi partie de la liste suivie, on affiche
@@ -2087,7 +2095,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda=""):
           <span class="ev__avec-noms">{noms_avec}</span>
         </span></span>
         <span class="ck">{chip_html}</span>
-        <span class="ck"><span class="ev__chev">&#9656;</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
       </summary>
       <div class="ev__body">{"".join(lignes)}
         <div class="ev__foot">
@@ -2143,7 +2151,7 @@ def module_resultats(resultats, fiches):
     return f"""
   <details class="recap">
     <summary class="recap__bar">DERNIERS RÉSULTATS
-      <span class="recap__chev">&#9656;</span></summary>
+      <span class="recap__chev" aria-hidden="true">&#9656;</span></summary>
     <div class="recap__body">{"".join(lignes)}
     </div>
   </details>"""
@@ -2154,7 +2162,8 @@ def barre_outils():
     return """
   <div class="outils">
     <input id="recherche" class="outils__recherche" type="search"
-           placeholder="Rechercher un combattant...">
+           placeholder="Rechercher un combattant..."
+           aria-label="Rechercher un combattant">
   </div>"""
 
 
@@ -2690,7 +2699,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 101
+VERSION = 104
 
 
 def ecrire_manifeste():
@@ -2900,11 +2909,17 @@ CSS_FICHE = """
   .infos dt { color: var(--gris); font-size: 0.72rem; text-transform: uppercase;
               letter-spacing: 0.07em; margin-bottom: 0.1rem; }
   .infos dd { margin: 0; font-size: 0.98rem; font-weight: 600; }
+  .infos .age, .infos .coach { display: block; font-size: 0.76rem; font-weight: 400;
+                               color: var(--gris); margin-top: 0.1rem; }
+  /* l'info en blanc, son intitule en gris */
+  .infos .age, .infos .coach__nom { color: var(--blanc); }
+  .infos .info--large { grid-column: 1 / -1; }
+  .surnom .record { font-style: normal; color: var(--blanc); }
+  .surnom .sep { font-style: normal; color: var(--gris); margin: 0 0.35rem; }
   .nobr { white-space: nowrap; }
   @media (max-width: 799px) {
     /* fiche et bio l'une sous l'autre : la fiche passe sur deux colonnes */
     .infos { grid-template-columns: 1fr 1fr; }
-    .info:last-child:nth-child(odd) { grid-column: 1 / -1; }
   }
   .combat__ligne { font-family: Oswald, sans-serif; font-weight: 500;
                    text-transform: uppercase; font-size: 1.15rem;
@@ -2945,10 +2960,61 @@ CSS_FICHE = """
   footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--bord);
            color: var(--gris); font-size: 0.8rem; text-align: center; }
   footer p { margin: 0.3rem 0; }
+  /* bouton Suivre : il prend la largeur de la petite phrase en dessous */
+  .suivre { display: flex; justify-content: center; margin: -0.5rem 0 1.4rem; }
+  .suivre__bloc { display: inline-flex; flex-direction: column;
+                  align-items: stretch; gap: 0.35rem; }
+  .suivre__btn {
+    display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    padding: 0.45rem 1rem; border-radius: 999px; background: var(--or);
+    color: #14140f; text-decoration: none; font-family: Oswald, sans-serif;
+    font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;
+    font-size: 0.8rem; white-space: nowrap; cursor: pointer;
+  }
+  .suivre__btn:hover { filter: brightness(1.08); }
+  .suivre__btn svg { width: 13px; height: 13px; flex: none; }
+  .suivre small { color: var(--gris); font-size: 0.74rem; text-align: center; }
+  /* encadre d'explication, affiche apres le clic */
+  .panneau {
+    position: fixed; inset: 0; z-index: 60; display: flex;
+    align-items: center; justify-content: center; padding: 1rem;
+    background: rgba(0, 0, 0, 0.65);
+  }
+  .panneau[hidden] { display: none; }
+  .panneau__boite {
+    position: relative; max-width: 430px; width: 100%;
+    background: var(--bar); border: 1px solid var(--or); border-radius: 12px;
+    padding: 1.1rem 1.2rem 1rem; font-size: 0.9rem; line-height: 1.5;
+  }
+  .panneau__boite p { margin: 0 0 0.6rem; }
+  .panneau__boite ol { margin: 0 0 0.6rem; padding-left: 1.2rem; }
+  .panneau__boite li { margin-bottom: 0.25rem; }
+  .panneau__boite b { color: var(--or); }
+  .panneau__petit { color: var(--gris); font-size: 0.8rem; }
+  .panneau__fermer {
+    position: absolute; top: 0.4rem; right: 0.6rem; background: none;
+    border: none; color: var(--gris); font-size: 1.4rem; line-height: 1;
+    cursor: pointer;
+  }
+  .panneau__fermer:hover { color: var(--blanc); }
+  .panneau__adresse {
+    width: 100%; margin: 0.3rem 0; padding: 0.4rem 0.6rem; border-radius: 6px;
+    border: 1px solid var(--bord); background: #121216; color: var(--blanc);
+    font-size: 0.75rem;
+  }
+  .panneau__copier {
+    display: inline-block; margin: 0.2rem 0 0.4rem; padding: 0.35rem 0.9rem;
+    border: none; border-radius: 999px; background: var(--or); color: #14140f;
+    font-family: Oswald, sans-serif; text-transform: uppercase;
+    letter-spacing: 0.05em; font-size: 0.75rem; cursor: pointer;
+  }
   @media (max-width: 520px) {
     .boutons { gap: 0.4rem; margin-bottom: 1.1rem; }
-    .bouton { padding: 0.38rem 0.7rem; font-size: 0.74rem;
-              letter-spacing: 0.04em; gap: 0.25rem; }
+    .bouton { padding: 0.36rem 0.6rem; font-size: 0.7rem;
+              letter-spacing: 0.03em; gap: 0.25rem; }
+    .suivre__btn { padding: 0.38rem 0.85rem; font-size: 0.74rem;
+                   letter-spacing: 0.04em; }
+    .suivre small { font-size: 0.72rem; }
   }
   @media (max-width: 400px) {
     .bouton .fleche { display: none; }
@@ -3060,7 +3126,7 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
 
     bio = dict(bio)
     for champ in ("surnom", "naissance", "taille", "tapology", "instagram",
-                  "nom_complet", "nationalite", "team"):
+                  "wikipedia", "nom_complet", "nationalite", "team", "coach"):
         bio[champ] = saisie(champ)
     surnom = (bio.get("surnom") or profil.get("surnom") or "").strip()
     titre_fiche = affichage
@@ -3101,18 +3167,23 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
     if re.fullmatch(r"\d{4}", naissance):
         # annee seule : age approximatif
         age = date.today().year - int(naissance)
-        info("Naissance", f'<span class="nobr">{naissance}</span> '
-             f'<span class="nobr">(env. {age} ans)</span>')
+        info("Naissance", f'<span class="nobr">{naissance}</span>'
+             f'<span class="age">env. {age} ans</span>')
     elif naissance:
         age = age_depuis(naissance)
         info("Naissance", f'<span class="nobr">{date_longue(naissance)}</span>'
-             + (f' <span class="nobr">({age} ans)</span>' if age else ""))
+             + (f'<span class="age">{age} ans</span>' if age else ""))
     else:
         info("Naissance", "")
     info("Taille", taille_affichee(bio.get("taille") or profil.get("taille_cm") or ""))
     info("Catégorie", echapper(categorie))
-    info("Team", echapper(bio.get("team") or profil.get("equipe", "")))
-    info("Palmarès pro", echapper(record))
+    # team sur toute la largeur, en dernier, avec le coach dessous s'il est connu
+    coach = bio.get("coach", "")
+    lignes_infos.append(
+        '<div class="info info--large"><dt>Team</dt><dd>'
+        + (echapper(bio.get("team") or profil.get("equipe", "")) or "?")
+        + (f'<span class="coach">Coach : <span class="coach__nom">{echapper(coach)}</span></span>' if coach else "")
+        + '</dd></div>')
 
     # prochain combat
     if prochain:
@@ -3203,7 +3274,15 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
         personne["sameAs"] = [url_sherdog]
     jsonld = json.dumps(personne, ensure_ascii=False).replace("</", "<\\/")
 
-    surnom_html = f'\n    <p class="surnom">« {echapper(surnom)} »</p>' if surnom else ""
+    # sous le nom : surnom et palmares pro
+    morceaux_titre = []
+    if surnom:
+        morceaux_titre.append(f"« {echapper(surnom)} »")
+    if record:
+        morceaux_titre.append(f'<span class="record">{echapper(record)}</span>')
+    surnom_html = ('\n    <p class="surnom">'
+                   + '<span class="sep">·</span>'.join(morceaux_titre) + "</p>"
+                   if morceaux_titre else "")
     flag_titre = ""   # le drapeau figure deja sur la ligne Nationalite
     infos_html = "".join(lignes_infos)
     bloc_infos = (f"""
@@ -3240,7 +3319,17 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
             f'Instagram<span class="fleche"> &rarr;</span></a>')
         personne.setdefault("sameAs", []).append(url_insta)
         jsonld = json.dumps(personne, ensure_ascii=False).replace("</", "<\\/")
+    url_wiki = (bio.get("wikipedia") or "").strip()
+    if url_wiki:
+        boutons.append(
+            f'<a class="bouton" href="{echapper(url_wiki)}" target="_blank" '
+            f'rel="noopener" data-umami-event="Wikipedia depuis fiche" '
+            f'data-umami-event-combattant="{echapper(affichage)}">'
+            f'Wikipédia<span class="fleche"> &rarr;</span></a>')
+        personne.setdefault("sameAs", []).append(url_wiki)
+        jsonld = json.dumps(personne, ensure_ascii=False).replace("</", "<\\/")
     bloc_boutons = '\n  <p class="boutons">' + "".join(boutons) + '</p>\n'
+    bloc_suivre = bloc_suivi(chemin, affichage)
     css_fond = (CSS_FOND.replace("url('fond.jpg')", "url('../fond.jpg')")
                 if os.path.exists("fond.jpg") else "")
 
@@ -3282,7 +3371,7 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
   <header class="fiche">
     <h1>{echapper(titre_fiche)}{flag_titre}</h1>{surnom_html}
   </header>
-{bloc_boutons}{bloc_combats}
+{bloc_boutons}{bloc_suivre}{bloc_combats}
   <div class="colonnes">{bloc_infos}
   <section class="bloc bio">
     <h2>Parcours</h2>
@@ -3297,9 +3386,221 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog):
     <p><a href="mailto:contact@mmaradar.fr">contact@mmaradar.fr</a></p>
   </footer>
 </div>
+{JS_SUIVI}
 </body>
 </html>
 """
+
+
+# ---------------------------------------------------------------------
+# Suivre un combattant : un calendrier par combattant, auquel on
+# s'abonne. L'agenda du visiteur revient le lire tout seul, donc les
+# nouveaux combats, l'heure et la chaine apparaissent sans rien faire.
+# Le fichier garde la meme adresse pour toujours et n'est jamais
+# supprime, sinon les abonnements casseraient.
+# ---------------------------------------------------------------------
+DOSSIER_SUIVI = "agenda/combattants"   # hors du nettoyage du dossier agenda
+JOURS_HISTORIQUE = 365                 # combats passes gardes un an
+
+
+def adresse_suivi(chemin_fiche):
+    """combattants/jordan-zebo.html -> https://mmaradar.fr/agenda/combattants/jordan-zebo.ics"""
+    slug = os.path.basename(chemin_fiche)[:-len(".html")]
+    return f"{SITE_URL}/{DOSSIER_SUIVI}/{slug}.ics"
+
+
+def bloc_suivi(chemin_fiche, affichage):
+    https = adresse_suivi(chemin_fiche)
+    webcal = "webcal://" + https.split("://", 1)[1]
+    nom = echapper(affichage)
+    return f"""
+  <div class="suivre"><div class="suivre__bloc">
+    <a class="suivre__btn" href="{webcal}" data-https="{https}"
+       data-umami-event="Suivre combattant" data-umami-event-combattant="{nom}">{ICONE_AGENDA}Suivre {nom}</a>
+    <small>Ses prochains combats s'ajoutent tout seuls à ton agenda</small>
+  </div></div>
+  <div class="panneau" id="panneau-suivi" hidden>
+    <div class="panneau__boite" role="dialog" aria-label="Suivre {nom}">
+      <button class="panneau__fermer" type="button" aria-label="Fermer">&times;</button>
+      <div class="panneau__apple" hidden>
+        <p><b>Calendrier de {nom}</b></p>
+        <p>Une fois l'abonnement accepté, ses combats apparaissent dans ton app
+        Calendrier. L'heure et la chaîne s'ajoutent dès qu'elles sont connues.</p>
+        <p><b>Pour recevoir un rappel</b> : Réglages, puis Calendrier, Comptes,
+        Calendriers abonnés, choisis « {nom} » et désactive « Supprimer les alertes ».</p>
+      </div>
+      <div class="panneau__autre" hidden>
+        <p><b>Ajouter à Google Agenda</b></p>
+        <ol>
+          <li>Copie l'adresse :
+            <input class="panneau__adresse" type="text" readonly value="{https}">
+            <button class="panneau__copier" type="button">Copier l'adresse</button></li>
+          <li>Ouvre <a href="https://calendar.google.com" target="_blank" rel="noopener">calendar.google.com</a>
+          dans ton navigateur.</li>
+          <li>À côté de « Autres agendas », clique sur <b>+</b>, puis
+          <b>À partir de l'URL</b>.</li>
+          <li>Colle l'adresse, puis <b>Ajouter un agenda</b>.</li>
+        </ol>
+        <p>Le calendrier apparaît ensuite tout seul dans l'appli Google Agenda
+        du téléphone. <b>Pour un rappel</b> : dans les paramètres de cet agenda,
+        ajoute une notification par défaut, par exemple 1 h avant.</p>
+        <p class="panneau__petit">Outlook, Apple Calendar : utilise « S'abonner
+        à un calendrier » et colle la même adresse.</p>
+      </div>
+      <p class="panneau__petit">Gratuit, sans compte. Pour arrêter, supprime ce
+      calendrier de ton agenda.</p>
+    </div>
+  </div>
+"""
+
+
+JS_SUIVI = r"""<script>
+(function () {
+  var btn = document.querySelector(".suivre__btn");
+  var p = document.getElementById("panneau-suivi");
+  if (!btn || !p) return;
+  // iPhone, iPad et Mac savent s'abonner directement (lien webcal)
+  var apple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+  btn.addEventListener("click", function (e) {
+    if (!apple) e.preventDefault();
+    p.querySelector(".panneau__apple").hidden = !apple;
+    p.querySelector(".panneau__autre").hidden = apple;
+    p.hidden = false;
+  });
+  p.addEventListener("click", function (e) {
+    if (e.target === p || e.target.closest(".panneau__fermer")) p.hidden = true;
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") p.hidden = true;
+  });
+  var copier = p.querySelector(".panneau__copier");
+  var champ = p.querySelector(".panneau__adresse");
+  copier.addEventListener("click", function () {
+    function ok() { copier.textContent = "Adresse copiée ✓"; }
+    function secours() {
+      champ.select();
+      try { document.execCommand("copy"); ok(); } catch (err) {}
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(btn.dataset.https).then(ok, secours);
+    } else {
+      secours();
+    }
+  });
+})();
+</script>"""
+
+
+def _infos_combat(c, infos):
+    """Heure et chaine saisies dans infos.json pour la soiree d'un combat."""
+    lien = (c.get("lien_evenement") or "").strip()
+    cle = (lien.rstrip("/") if lien else
+           "|".join([c.get("date", ""), c.get("evenement", ""), c.get("lieu", "")]))
+    d = infos.get(cle, {})
+    return d if isinstance(d, dict) else {}
+
+
+def _evenements_passes(chemin, limite):
+    """Combats deja passes du fichier precedent, gardes en memoire un an."""
+    try:
+        with open(chemin, encoding="utf-8", newline="") as f:
+            texte = f.read()
+    except OSError:
+        return []
+    texte = texte.replace("\r\n ", "").replace("\r\n", "\n")
+    aujourdhui = date.today().strftime("%Y%m%d")
+    gardes = []
+    for bloc in re.findall(r"BEGIN:VEVENT\n.*?END:VEVENT", texte, flags=re.S):
+        m = re.search(r"^DTSTART[^:\n]*:(\d{8})", bloc, flags=re.M)
+        if m and limite <= m.group(1) < aujourdhui:
+            gardes.append(bloc.split("\n"))
+    return gardes
+
+
+def _evenement_suivi(nom, c, infos):
+    """Lignes d'un combat a venir, pour le calendrier d'un combattant."""
+    try:
+        jour = datetime.strptime(c.get("date", ""), "%Y-%m-%d").date()
+    except ValueError:
+        return None
+    if c.get("combattant") == nom:
+        adv = c.get("adversaire_suivi") or c.get("adversaire", "")
+    else:
+        adv = c.get("combattant", "")
+    soiree = nom_evenement(c.get("evenement", ""), c.get("lien_evenement", ""))
+    diff = _infos_combat(c, infos)
+    heure = (diff.get("heure") or "").strip()
+
+    ident = re.sub(r"[^a-z0-9]+", "-", identifiant_combat(c).lower()).strip("-")
+    lignes = ["BEGIN:VEVENT",
+              f"UID:{ident}-{c['date']}@mmaradar.fr",
+              "DTSTAMP:" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")]
+    depart = instant_utc(c["date"], heure)
+    if depart is not None:
+        lignes.append("DTSTART:" + depart.strftime("%Y%m%dT%H%M%SZ"))
+        lignes.append("DTEND:" + (depart + timedelta(hours=3))
+                      .strftime("%Y%m%dT%H%M%SZ"))
+        rappel, texte_rappel = "-PT1H", "Le combat commence dans une heure"
+    else:
+        lignes.append("DTSTART;VALUE=DATE:" + jour.strftime("%Y%m%d"))
+        lignes.append("DTEND;VALUE=DATE:"
+                      + (jour + timedelta(days=1)).strftime("%Y%m%d"))
+        rappel, texte_rappel = "PT9H", "C'est aujourd'hui"
+    lignes.append("SUMMARY:" + _ics_echapper(
+        f"{nom_affiche(nom)} vs {nom_affiche(adv)} · {soiree}"))
+    if c.get("lieu"):
+        lignes.append("LOCATION:" + _ics_echapper(c["lieu"]))
+    details = []
+    if diff.get("chaine"):
+        details.append("Diffusion : " + texte_sans_liens(diff["chaine"])
+                       + (f" ({heure})" if heure else ""))
+    if diff.get("prelim"):
+        avant = (diff.get("heure_prelim") or "").strip()
+        details.append("Prelims : " + texte_sans_liens(diff["prelim"])
+                       + (f" ({avant})" if avant else ""))
+    details.append(f"{SITE_URL}/{PAGES_COMBATTANTS[nom]}")
+    lignes.append("DESCRIPTION:" + _ics_echapper("\n".join(details)))
+    lignes += ["BEGIN:VALARM", "ACTION:DISPLAY",
+               "DESCRIPTION:" + _ics_echapper(texte_rappel),
+               "TRIGGER:" + rappel, "END:VALARM", "END:VEVENT"]
+    return lignes
+
+
+def ecrire_agendas_suivi(combats):
+    """Un calendrier par combattant qui a une fiche (bouton Suivre)."""
+    if not PAGES_COMBATTANTS:
+        return
+    infos = charger_json("infos.json")
+    infos = infos if isinstance(infos, dict) else {}
+    os.makedirs(DOSSIER_SUIVI, exist_ok=True)
+    limite = (date.today() - timedelta(days=JOURS_HISTORIQUE)).strftime("%Y%m%d")
+    aujourdhui = date.today().isoformat()
+
+    for nom, chemin_fiche in PAGES_COMBATTANTS.items():
+        fichier = os.path.join(DOSSIER_SUIVI,
+                               os.path.basename(chemin_fiche)[:-len(".html")] + ".ics")
+        evenements = _evenements_passes(fichier, limite)
+        vus = {l for ev in evenements for l in ev if l.startswith("UID:")}
+        for c in combats:
+            if c.get("annule") or (c.get("date") or "") < aujourdhui:
+                continue
+            if nom not in (c.get("combattant"), c.get("adversaire_suivi")):
+                continue
+            ev = _evenement_suivi(nom, c, infos)
+            if ev and ev[1] not in vus:
+                vus.add(ev[1])
+                evenements.append(ev)
+
+        lignes = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//MMA Radar//FR",
+                  "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+                  "X-WR-CALNAME:" + _ics_echapper(f"{nom_affiche(nom)} · MMA Radar"),
+                  "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
+                  "X-PUBLISHED-TTL:PT6H"]
+        for ev in evenements:
+            lignes += ev
+        lignes.append("END:VCALENDAR")
+        with open(fichier, "w", encoding="utf-8", newline="") as f:
+            f.write("\r\n".join(_ics_plier(l) for l in lignes) + "\r\n")
 
 
 def ecrire_fiches(combats, bios, profils, fiches, resultats):
@@ -3448,6 +3749,7 @@ def main():
         f.write(html)
 
     ecrire_fiches(combats, bios, profils, fiches, resultats_recents)
+    ecrire_agendas_suivi(combats)
     ecrire_robots_et_sitemap(sorted(PAGES_COMBATTANTS.values()))
 
     nb_ev = sum(len(evs) for _, evs in mois_groupes)

@@ -163,6 +163,7 @@ COMBATTANTS = [
     "Jean Magny",
     "Assita Ouattara",
     "Bilal Bakhouche-Chareuf",
+    "Tamerlan Albiekov",
 ]
 
 # ---------------------------------------------------------------
@@ -231,6 +232,7 @@ FICHES_MANUELLES = {
     "Jean Magny": "https://www.sherdog.com/fighter/Jean-Magny-409015",
     "Assita Ouattara": "https://www.sherdog.com/fighter/Assita-Ouattara-477781",
     "Bilal Bakhouche-Chareuf": "https://www.sherdog.com/fighter/Bilal-BakhoucheChareuf-484183",
+    "Tamerlan Albiekov": "https://www.sherdog.com/fighter/Tamerlan-Albiekov-366417",
 }
 
 BASE = "https://www.sherdog.com"

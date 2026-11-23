@@ -1,24 +1,28 @@
 {
-  "_aide": "Une entree par combattant qui doit avoir sa fiche. Le nom doit etre ecrit exactement comme dans COMBATTANTS (mma_tracker.py). Champs : naissance (AAAA-MM-JJ, ou juste l'annee AAAA si on ne connait que l'age), taille (ex: 1,84), surnom (si Sherdog n'en donne pas), nationalite (code pays, ex: fr ou fr, tn pour deux nationalites ; sinon celle de Sherdog), team (club ou salle d'entrainement, avec la ville entre parentheses, ex: Team Sendo (Bruxelles) ; Paris pour toute la region parisienne ; sinon celle de Sherdog), tapology (adresse de sa fiche ; sinon le bouton ouvre une recherche Tapology), instagram (adresse du compte), nom_complet (pas affiche, aide Google). Mets ? quand une info est introuvable : la fiche affichera ?. Ce que tu remplis passe avant ce que donne Sherdog. La bio est le texte libre de la fiche. Une fiche n'est creee que si la bio est remplie.",
+  "_aide": "Une entree par combattant qui doit avoir sa fiche. Le nom doit etre ecrit exactement comme dans COMBATTANTS (mma_tracker.py). Champs : naissance (AAAA-MM-JJ, ou juste l'annee AAAA si on ne connait que l'age), taille (ex: 1,84), surnom (si Sherdog n'en donne pas), nationalite (code pays, ex: fr ou fr, tn pour deux nationalites ; sinon celle de Sherdog), team (club ou salle d'entrainement, avec la ville entre parentheses, ex: Team Sendo (Bruxelles) ; Paris pour toute la region parisienne ; sinon celle de Sherdog), coach (entraineur principal, affiche en petit sous la team ; a ajouter seulement si on le connait), tapology (adresse de sa fiche ; sinon le bouton ouvre une recherche Tapology), instagram (adresse du compte), wikipedia (adresse de l'article s'il existe, en français de préférence ; ajoute un bouton Wikipédia), nom_complet (pas affiche, aide Google). Mets ? quand une info est introuvable : la fiche affichera ?. Ce que tu remplis passe avant ce que donne Sherdog. La bio est le texte libre de la fiche. Une fiche n'est creee que si la bio est remplie.",
   "Nimo Djagbo": {
     "naissance": "1998-08-17",
     "taille": "1,88",
     "surnom": "?",
     "nationalite": "?",
     "team": "Team Sendo (Bruxelles)",
-    "tapology": "?",
+    "coach": "Tarek Sendo",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/372025-djabo-nimo",
     "instagram": "https://www.instagram.com/nim.o___/",
+    "wikipedia": "?",
     "nom_complet": "Eric Djagbo",
     "bio": "Nimo Djagbo est indissociable de Marvin Capéran. Amis et partenaires d'entraînement, les deux Français font leurs armes en muay-thaï en Thaïlande, avant de se faire un nom sur le circuit underground suédois King of the Streets, où l'on combat à mains nues et sans limite de temps. Ils y disputent même ensemble le premier combat en 2 contre 2 de l'histoire de l'organisation. Passés au MMA professionnel en 2026, ils signent ensemble à l'ARES et combattent le plus souvent sur la même carte. Ils s'entraînent à Bruxelles, à la Team Sendo, aux côtés de Patrick Habirora."
   },
   "Marvin Caperan": {
     "naissance": "2001-05-05",
     "taille": "1,84",
-    "surnom": "?",
+    "surnom": "Tortank",
     "nationalite": "?",
     "team": "Team Sendo (Bruxelles)",
-    "tapology": "?",
+    "coach": "Tarek Sendo",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/372034-marvin-caperan",
     "instagram": "https://www.instagram.com/tortvnk/",
+    "wikipedia": "?",
     "nom_complet": "?",
     "bio": "Marvin Capéran avance rarement sans Nimo Djagbo. Les deux amis viennent du muay-thaï, travaillé en Thaïlande, et se révèlent ensemble au King of the Streets, l'organisation suédoise de combats à mains nues, jusqu'à y former une équipe lors du premier duel en 2 contre 2 de son histoire. En 2026, ils franchissent le pas du MMA professionnel et signent tous les deux à l'ARES, où ils partagent souvent l'affiche. Au quotidien, ils s'entraînent à la Team Sendo, le club bruxellois où s'entraîne aussi Patrick Habirora."
   },
@@ -28,32 +32,37 @@
     "surnom": "Silent King",
     "nationalite": "?",
     "team": "Fighting Beat (Paris)",
+    "coach": "Malick Sylla",
     "tapology": "https://www.tapology.com/fightcenter/fighters/367052-modibo-diakite",
     "instagram": "https://www.instagram.com/modibo__diakite/",
+    "wikipedia": "?",
     "nom_complet": "Modibo Diakité",
     "bio": "Surnommé « Silent King », Modibo Diakité est malentendant de naissance. Il ne perçoit que certains sons et lit sur les lèvres, ce qui ne l'empêche pas de devenir le premier combattant de MMA professionnel malentendant en France. Originaire de Montreuil, il commence par le judo à 8 ans, dans les pas de ses grands frères, avant de basculer vers le MMA à 16 ans. Champion amateur du PEF chez les moins de 77 kg, il fait ses débuts professionnels à l'ARES en février 2025. Dans le coin, son entraîneur Malick Sylla communique avec lui grâce à un code de gestes qu'ils ont mis au point ensemble. Son rêve affiché : rejoindre un jour l'UFC, sur les traces de son idole Jon Jones."
   },
   "Anthony Morel": {
     "naissance": "1992",
     "taille": "1,84",
-    "surnom": "?",
+    "surnom": "Big",
     "nationalite": "?",
     "team": "?",
     "tapology": "https://www.tapology.com/fightcenter/fighters/396904-anthony-morel",
     "instagram": "https://www.instagram.com/big.morel/",
+    "wikipedia": "?",
     "nom_complet": "?",
-    "bio": "Anthony Morel est le poids lourd réunionnais du MMA français. Avant la cage, il se construit sur les tapis, avec des titres de champion de France en lutte et en grappling et un passé de champion de jiu-jitsu brésilien. Passé professionnel en 2023 à l'Hexagone MMA, il marque les esprits dès son premier combat en mettant KO Adama Diop, futur champion de l'organisation. En juillet 2024, il devient champion du monde des poids lourds de l'EFC, l'organisation sud-africaine, un sacre qui lui vaut la médaille de la ville de Saint-Pierre. Éducateur sportif, il fait aussi grandir le MMA sur son île avec la Big Morel Académie, une association qui accompagne les jeunes Réunionnais par le sport."
+    "bio": "Anthony Morel est le poids lourd réunionnais du MMA français. Avant la cage, il se construit sur les tapis, avec des titres de champion de France en lutte et en grappling et un passé de champion de jiu-jitsu brésilien. Passé professionnel en 2023 à l'Hexagone MMA, il marque les esprits dès son premier combat en mettant KO Adama Diop, futur champion de l'organisation. En juillet 2024, il devient champion du monde des poids lourds de l'EFC, l'organisation sud-africaine. Éducateur sportif, il fait aussi grandir le MMA sur son île avec la Big Morel Académie, une association qui accompagne les jeunes Réunionnais par le sport."
   },
   "Oceane Samson": {
     "naissance": "1997",
-    "taille": "?",
+    "taille": "1,61",
     "surnom": "La Patronne",
     "nationalite": "?",
-    "team": "Ring Side Gym (Lyon)",
-    "tapology": "?",
+    "team": "Ghost Arena (Lyon)",
+    "coach": "Fatah Menane",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/373570-oceane-samson",
     "instagram": "https://www.instagram.com/oceane.samson/",
+    "wikipedia": "?",
     "nom_complet": "Océane Samson",
-    "bio": "Océane Samson grandit dans un village de Normandie. Elle commence par le taekwondo à 8 ans, jusqu'à la ceinture noire, avant de découvrir la boxe américaine full-contact, où elle décroche deux titres mondiaux. Devenue policière et mutée à Lyon en 2019, elle s'y met au MMA et intègre rapidement l'équipe de France amateur. En 2024, elle est sacrée championne du monde amateur IMMAF chez les moins de 56,7 kg et remporte l'émission MMA Academy sur M6+. Elle passe professionnelle en 2025 à l'Hexagone MMA."
+    "bio": "Océane Samson grandit dans un village de Normandie. Elle commence par le taekwondo à 8 ans, jusqu'à la ceinture noire, avant de découvrir la boxe américaine full-contact, où elle décroche deux titres mondiaux. Devenue policière et mutée à Lyon en 2019, elle se met au MMA et intègre rapidement l'équipe de France amateur. En 2024, elle est sacrée championne du monde amateur IMMAF chez les moins de 56,7 kg et remporte l'émission MMA Academy sur M6+. Elle passe professionnelle en 2025 à l'Hexagone MMA."
   },
   "Hugo Deux": {
     "naissance": "1996-04-02",
@@ -63,6 +72,7 @@
     "team": "Nemesis Pro Team (Varsovie)",
     "tapology": "https://www.tapology.com/fightcenter/fighters/341800-hugo-deux-nemesis",
     "instagram": "https://www.instagram.com/hugonemesisdeux/",
+    "wikipedia": "https://en.wikipedia.org/wiki/Hugo_Deux",
     "nom_complet": "?",
     "bio": "Lyonnais installé en Pologne, Hugo Deux commence par le judo à 6 ans. En parallèle des tatamis, il mène un double cursus en droit et en science politique et sert comme réserviste dans la gendarmerie, avec le GIGN en ligne de mire. Il monte aussi sa propre activité de coaching avant de se consacrer pleinement à sa carrière. Passé professionnel en 2022, il rejoint en 2024 le KSW, la grande organisation polonaise de MMA."
   },
@@ -72,19 +82,23 @@
     "surnom": "The One",
     "nationalite": "?",
     "team": "Atch Academy (Paris)",
+    "coach": "Stéphane Atch",
     "tapology": "https://www.tapology.com/fightcenter/fighters/423572-souheil-kaouchen",
     "instagram": "https://www.instagram.com/souheil_kaouchen/",
+    "wikipedia": "?",
     "nom_complet": "?",
-    "bio": "Originaire de Sannois, dans le Val-d'Oise, Souheil Kaouchen grandit dans les sports de combat. Ceinture noire de taekwondo, il est cinq fois champion de France et champion du monde de muay-thaï avant de se tourner vers le MMA, où il boucle son parcours amateur sans la moindre défaite. Formé à l'Atch Academy, aux côtés de Salahdine Parnasse et sous la direction de Laïd Zerhouni, il signe au KSW dès ses débuts professionnels. En mai 2025, à 18 ans, il y devient le plus jeune vainqueur de l'histoire de l'organisation polonaise."
+    "bio": "Originaire de Sannois, dans le Val-d'Oise, Souheil Kaouchen grandit dans les sports de combat. Ceinture noire de taekwondo, il est cinq fois champion de France et champion du monde de muay-thaï avant de se tourner vers le MMA, où il boucle son parcours amateur sans la moindre défaite. Formé à l'Atch Academy, aux côtés de Salahdine Parnasse, il signe au KSW dès ses débuts professionnels. En mai 2025, à 18 ans, il y devient le plus jeune vainqueur de l'histoire de l'organisation polonaise."
   },
   "Boris Atangana": {
     "naissance": "1998",
-    "taille": "?",
+    "taille": "1,85",
     "surnom": "Modern Gladiator",
     "nationalite": "?",
     "team": "Team Sendo (Bruxelles)",
+    "coach": "Tarek Sendo",
     "tapology": "https://www.tapology.com/fightcenter/fighters/337528-alan-mbarga",
     "instagram": "https://www.instagram.com/moderngladiator_/",
+    "wikipedia": "?",
     "nom_complet": "Boris Mbarga Atangana",
     "bio": "Né au Cameroun, Boris Atangana arrive enfant en Belgique et grandit à Bruxelles. Livré à lui-même dès 16 ans, il doit mener de front ses études et des petits boulots, entre les cuisines d'un restaurant et l'entrée des boîtes de nuit, où il travaille comme agent de sécurité. Il ne découvre le MMA qu'au début des années 2020, mais sa progression est fulgurante : passé professionnel en 2024, il rejoint le PFL dès l'année suivante. Il s'entraîne aux côtés de Patrick Habirora, autre figure du MMA belge."
   },
@@ -94,8 +108,10 @@
     "surnom": "?",
     "nationalite": "fr, tn",
     "team": "Atch Academy (Paris)",
+    "coach": "Stéphane Atch",
     "tapology": "https://www.tapology.com/fightcenter/fighters/339030-walid-masmoudi",
     "instagram": "https://www.instagram.com/walidmasmoudi350/",
+    "wikipedia": "?",
     "nom_complet": "?",
     "bio": "Originaire de Bagnolet, Walid Masmoudi est un Franco-Tunisien formé à l'ATCH Academy d'Aubervilliers, le club où s'entraînent aussi Salahdine Parnasse et Souheil Kaouchen. Pur striker, réputé pour la lourdeur de ses mains et sa boxe bâtie autour du jab, il passe professionnel en 2025 et rejoint l'ARES dans la foulée. En juin 2026, à 24 ans, il conquiert la ceinture vacante des poids légers de l'organisation, au terme d'un combat de cinq rounds face à un autre invaincu."
   },
@@ -105,8 +121,10 @@
     "surnom": "Kong",
     "nationalite": "?",
     "team": "Old School Academy (Paris)",
+    "coach": "Gaëtan Hurtel",
     "tapology": "https://www.tapology.com/fightcenter/fighters/311074-mathys-duragrin",
     "instagram": "https://www.instagram.com/mathysduragrin/",
+    "wikipedia": "?",
     "nom_complet": "?",
     "bio": "Mathys Duragrin est originaire de Champigny-sur-Marne, dans le Val-de-Marne, et s'entraîne à l'Old School Academy de Villecresnes. Chez les amateurs, il décroche trois titres, dont la ceinture des poids légers de l'AEF, arrachée en 2023 au champion en titre. Passé professionnel en janvier 2024 à l'AEF, il rejoint le PFL à la fin de la même année et s'y impose dès sa première sortie, en décembre 2024. Réputé pour son contrôle au sol, il a l'occasion de tester son grappling face à Aljamain Sterling, ancien champion des poids coqs de l'UFC."
   },
@@ -116,8 +134,10 @@
     "surnom": "?",
     "nationalite": "?",
     "team": "MMA Performance Center (Paris)",
+    "coach": "Nicolas Ott",
     "tapology": "https://www.tapology.com/fightcenter/fighters/245988-chamsoudinov-baysangur",
     "instagram": "https://www.instagram.com/baysangur/",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Ba%C3%AFssangour_Chamsoudinov",
     "nom_complet": "Baïssangour Chamsoudinov",
     "bio": "Baïssangour Chamsoudinov, dit Baki, naît en 2001 à Ourous-Martan, en Tchétchénie, et arrive en France avec sa famille à l'âge de 4 ans. Il grandit à Haguenau, en Alsace, où il pratique le judo jusqu'à la ceinture noire avant de se tourner vers le MMA. Son surnom, donné par son coach, vient du héros du manga du même nom. Repéré par l'Old Dog Fight Team de Sarrebourg, il passe professionnel en 2019, à 18 ans, et se révèle à l'ARES. En mars 2024, il signe un contrat d'un combat au PFL pour affronter Cédric Doumbè. Il l'emporte au troisième round, quand l'arbitre arrête le combat après que Doumbè s'est plaint d'une écharde au pied, une issue très contestée. Revenu à l'ARES, il y devient champion des poids mi-moyens en mai 2025. Il perd sa ceinture face à Jordan Zébo en octobre 2025, avant de la reprendre lors de leur revanche, en novembre 2026."
   },
@@ -127,10 +147,12 @@
     "surnom": "Le Fauve",
     "nationalite": "?",
     "team": "MMA Factory (Paris)",
+    "coach": "Fernand Lopez",
     "tapology": "https://www.tapology.com/fightcenter/fighters/242335-jordan-zebo",
     "instagram": "https://www.instagram.com/jordanzebo_mma_official/",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Jordan_Z%C3%A9bo",
     "nom_complet": "Jordan Zébo",
-    "bio": "Jordan Zébo est originaire de Sainte-Marie, en Martinique. Enfant, il est gravement blessé dans un accident avec un bus : il doit subir plusieurs opérations, et on lui prédit qu'il ne pourra plus faire de sport. Il commence pourtant le MMA en 2015 à Fort-de-France, au club Antilles MMA de Christophe Violain, et dispute les championnats du monde juniors IMMAF en 2019. Arrivé en métropole, il rejoint le MMA Factory de Fernand Lopez, puis passe professionnel en 2022 et signe à l'ARES. En septembre 2023, au PFL Paris, il est mis KO en neuf secondes par Cédric Doumbè. Une défaite lourde à porter : il est longtemps pris à partie dans la rue et sur les réseaux sociaux. En octobre 2025, il crée la surprise en mettant KO Baki, jusque-là invaincu, et s'empare de la ceinture des poids mi-moyens de l'ARES. Il la défend deux fois en 2026, avant de la perdre à la décision face à Baki, qui prend sa revanche en novembre 2026."
+    "bio": "Jordan Zébo est originaire de Sainte-Marie, en Martinique. Enfant, il est gravement blessé dans un accident avec un bus : il doit subir plusieurs opérations, et on lui prédit qu'il ne pourra plus faire de sport. Il commence pourtant le MMA en 2015 et dispute les championnats du monde juniors IMMAF en 2019. Arrivé en métropole, il rejoint le MMA Factory de Fernand Lopez, puis passe professionnel en 2022 et signe à l'ARES. En septembre 2023, au PFL Paris, il est mis KO en neuf secondes par Cédric Doumbè. Une défaite lourde à porter : il est longtemps pris à partie dans la rue et sur les réseaux sociaux. En octobre 2025, il crée la surprise en mettant KO Baki, jusque-là invaincu, et s'empare de la ceinture des poids mi-moyens de l'ARES. Il la défend deux fois en 2026, avant de la perdre à la décision face à Baki, qui prend sa revanche en novembre 2026."
   },
   "Jason Ponet": {
     "naissance": "1988-12-11",
@@ -140,7 +162,57 @@
     "team": "AKA Thailand (Phuket)",
     "tapology": "https://www.tapology.com/fightcenter/fighters/16853-jason-ponet",
     "instagram": "https://www.instagram.com/jasonponet/",
+    "wikipedia": "?",
     "nom_complet": "?",
     "bio": "Jason Ponet est originaire de Cayenne, en Guyane, où il commence le karaté très jeune. À 10 ans, il quitte la Guyane pour la région bordelaise et découvre le MMA à 16 ans. La discipline étant alors interdite en France, il part combattre à l'étranger et dispute ses premiers combats professionnels en 2008 au M-1 Challenge, où il bat d'entrée un champion de sambo. Il construit ensuite une carrière de globe-trotter, du Cage Warriors au PFL, en passant par le ONE, le Brave CF et l'Oktagon, et s'entraîne régulièrement en Thaïlande, à l'AKA Thailand. En 2019, il rentre en Guyane et ouvre son propre club, la JAG Team, à Macouria."
+  },
+  "Davy Gallon": {
+    "naissance": "?",
+    "taille": "?",
+    "surnom": "Le Normand",
+    "nationalite": "?",
+    "team": "Adrenaline Fight Team (Caen)",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/50962-davy-gallon",
+    "instagram": "https://www.instagram.com/davygallon/",
+    "wikipedia": "https://fr.wikipedia.org/wiki/Davy_Gallon",
+    "nom_complet": "?",
+    "bio": "Originaire de Caen, Davy Gallon est un ancien judoka de niveau national. Il passe professionnel en MMA en 2011. En 2019, il met KO l'ancien combattant de l'UFC Ross Pearson d'un coup de pied retourné, un finish qui fait le tour du monde. Il passe ensuite par le Bellator de 2021 à 2023, puis par le KSW. En 2026, il atteint la finale du tournoi des poids légers à 100 000 € de l'Hexagone MMA, après avoir battu à la décision le champion de l'organisation, Wilson Varela."
+  },
+  "Theo Ulrich": {
+    "naissance": "2001",
+    "taille": "1,85",
+    "surnom": "?",
+    "nationalite": "?",
+    "team": "Old School Academy (Paris)",
+    "coach": "Gaëtan Hurtel",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/311067-theo-boudin",
+    "instagram": "https://www.instagram.com/ulrichtheo_/",
+    "wikipedia": "?",
+    "nom_complet": "Théo Ulrich",
+    "bio": "Originaire du Val-de-Marne, Théo Ulrich est bègue depuis l'enfance et trouve dans le sport un exutoire. Il pratique d'abord le football, avant que son ami d'enfance Mathys Duragrin ne lui fasse découvrir le MMA. Invaincu chez les amateurs, il passe professionnel en 2024 à l'Hexagone MMA et y enchaîne les victoires, la plupart par KO. En 2026, il atteint la finale du tournoi des poids légers à 100 000 € de l'organisation."
+  },
+  "Allan Landouzy": {
+    "naissance": "2004",
+    "taille": "1,71",
+    "surnom": "?",
+    "nationalite": "?",
+    "team": "Spiral Fight (Escautpont)",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/337538-allan-landouzy",
+    "instagram": "https://www.instagram.com/allan_lndz/",
+    "wikipedia": "?",
+    "nom_complet": "?",
+    "bio": "Originaire du Nord de la France, Allan Landouzy pratique la lutte et le karaté avant de se tourner vers le MMA. Après un brillant parcours amateur, marqué par une médaille d'argent aux championnats du monde IMMAF en 2024, puis un titre de champion d'Europe IMMAF en 2025, il passe professionnel en 2026 à l'Hexagone MMA."
+  },
+  "Tamerlan Albiekov": {
+    "naissance": "2000-08-08",
+    "taille": "1,80",
+    "surnom": "Tank",
+    "nationalite": "?",
+    "team": "Chaos Squad (Saint-Étienne)",
+    "tapology": "https://www.tapology.com/fightcenter/fighters/255799-tamerlan-albiekov",
+    "instagram": "https://www.instagram.com/mma.tam/",
+    "wikipedia": "?",
+    "nom_complet": "?",
+    "bio": "Ancien judoka, Tamerlan Albiekov devient combattant professionnel de MMA en 2021 et s'entraîne à Saint-Étienne, au Chaos Squad. Il rejoint l'Hexagone MMA en 2023 et s'y impose comme l'un des espoirs français chez les poids lourds. En novembre 2026, il affronte Anthony Morel pour la ceinture des poids lourds de l'organisation."
   }
 }
