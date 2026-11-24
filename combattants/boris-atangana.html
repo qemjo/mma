@@ -209,6 +209,442 @@
     .bouton .fleche { display: none; }
     .combat__ligne { font-size: 1.02rem; }
   }
+.carte details.ev { margin: 0 0 0.85rem; }
+.carte summary.ev__bar {
+    display: grid;
+    grid-template-columns: 78px 110px minmax(0, 250px) minmax(0, 180px) minmax(0, 1fr) 58px 16px;
+    align-items: center;
+    gap: 1.1rem;
+    background: linear-gradient(180deg, #17171c, #121216);
+    border: 1px solid #2a2a33;
+    border-radius: 12px;
+    padding: 0.55rem 1.3rem;
+    transform: skew(-8deg);
+    cursor: pointer;
+    list-style: none;
+    transition: border-color 0.15s, background 0.15s;
+    
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+.carte details[open] > summary.ev__bar {
+    background: linear-gradient(180deg, #2b2b34, #22222a);
+    border-color: rgba(242, 193, 78, 0.55);
+  }
+.carte details:not([open]) > summary.ev__bar .ev__logo { opacity: 0.62; }
+.carte details:not([open]) > summary.ev__bar .ev__date { background: #3a3a42; }
+.carte summary.ev__bar::-webkit-details-marker { display: none; }
+.carte summary.ev__bar:hover { border-color: var(--or); }
+.carte summary.ev__bar:focus-visible {
+    outline: 2px solid var(--or);
+    outline-offset: 2px;
+  }
+.carte .ck {
+    transform: skew(8deg);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+.carte .ev__date {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    background: #46464e;
+    color: var(--blanc);
+    border-radius: 7px;
+    padding: 0.3rem 0.4rem;
+    white-space: nowrap;
+  }
+.carte details[open] .ev__date { background: var(--or); color: var(--sombre); }
+.carte summary.ev__bar > .ck:nth-child(2) { justify-content: center; }
+.carte summary.ev__bar > .ck:nth-child(6) { justify-content: flex-end; }
+.carte .ev__logo {
+    width: auto;
+    max-width: 106px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.92;
+    transition: filter 0.18s, opacity 0.18s;
+  }
+.carte details[open] > summary.ev__bar .ev__logo[data-couleur="1"] {
+    filter: none;
+    opacity: 1;
+  }
+.carte .ev__badge {
+    font-family: Oswald, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+    color: #d6d6de;
+    border: 1px solid #4c4c55;
+    border-radius: 5px;
+    padding: 0.18rem 0.5rem;
+    white-space: nowrap;
+  }
+.carte .ev__nom {
+    font-family: Oswald, sans-serif;
+    font-weight: 500;
+    font-size: 1.02rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+.carte .nom-court { display: none; }
+.carte .ev__ville {
+    font-family: Oswald, sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--gris);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+.carte .ev__avec {
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 0.8rem;
+    min-width: 0;
+  }
+.carte .ev__avec-txt {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    padding-right: 0.22em;
+  }
+.carte .ev__avec-label { color: var(--or); font-weight: 700; }
+.carte .ev__avec-noms {
+    color: var(--blanc);
+    font-weight: 600;
+    font-style: italic;
+    text-transform: uppercase;
+    padding-right: 0.12em;
+  }
+.carte .ev__chev {
+    flex: none;
+    color: var(--or);
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: transform 0.15s;
+  }
+.carte details[open] .ev__chev { transform: rotate(90deg); }
+.carte .ev__body {
+    margin: 0.45rem 1.6rem 0;
+    padding: 0.8rem 1.1rem 0.45rem;
+    background: #24242c;
+    border: 1px solid #3a3a45;
+    border-left: 3px solid var(--or);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+  }
+.carte .fight {
+    display: grid;
+    
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #131318;
+    border: 1px solid #3a3a45;
+    border-radius: 10px;
+    padding: 0.5rem 168px;
+    margin: 0 0 0.55rem;
+    transform: skew(-8deg);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+.carte .fight > .ck:nth-child(1), .carte .fight > .ck:nth-child(2) {
+    position: absolute;
+    top: 50%;
+    transform: skew(8deg) translateY(-50%);
+  }
+.carte .fight > .ck:nth-child(1) { left: 1.1rem; max-width: 108px; }
+.carte .fight > .ck:nth-child(2) { left: 8.3rem; max-width: 34px; overflow: hidden; }
+.carte .fight > .ck:nth-child(3) { flex: 1 1 0; min-width: 0; }
+.carte .fight > .ck:nth-child(4) { flex: none; }
+.carte .fight > .ck:nth-child(5) { flex: 1 1 0; min-width: 0; }
+.carte .fight > .ck:nth-child(3) { justify-content: flex-end; text-align: right; }
+.carte .fight__col {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+    max-width: 100%;
+  }
+.carte .fight .ck:nth-child(3) .fight__col { text-align: right; }
+.carte .fight__nom {
+    display: block;
+    width: 100%;
+    font-family: Oswald, sans-serif;
+    font-weight: 500;
+    font-size: 0.98rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--blanc);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+.carte .fight__nom--suivi { font-weight: 700; }
+.carte a.fight__nom--suivi {
+    color: var(--blanc);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(242, 193, 78, 0.55);
+  }
+.carte a.fight__nom--suivi:hover, .carte a.fight__nom--suivi:focus {
+    color: var(--or);
+    border-bottom-color: var(--or);
+  }
+.carte .fight__rec {
+    font-size: 0.68rem;
+    color: #8a8a94;
+    letter-spacing: 0.03em;
+  }
+.carte .fight__vs {
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    color: var(--sombre);
+    background: var(--or);
+    border-radius: 999px;
+    padding: 0.22rem 0.5rem;
+    letter-spacing: 0.05em;
+  }
+.carte .belt { flex: none; }
+.carte .fight__titre {
+    font-family: Oswald, sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.09em;
+    color: var(--or);
+  }
+.carte .fight__titre-bloc {
+    justify-content: flex-start;
+    gap: 0.35rem;
+    min-width: 0;
+    white-space: nowrap;
+  }
+.carte .fight > .ck:nth-child(3) { padding-right: 0.55rem; }
+.carte .fight > .ck:nth-child(5) { padding-left: 0.55rem; }
+.carte .ev__foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.15rem 0.4rem 0.5rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6c6c76;
+  }
+.carte .ev__foot a { color: var(--gris); text-decoration: none; }
+.carte .ev__foot a:hover, .carte .ev__foot a:focus { color: var(--or); }
+.carte .ev__actions { display: flex; gap: 1.1rem; align-items: center; }
+.carte .ev__foot a.ev__ics {
+    display: flex;
+    align-items: center;
+    color: var(--or);
+    opacity: 0.72;
+    transition: opacity 0.15s;
+  }
+.carte .ev__foot a.ev__ics { padding: 0.35rem; margin: -0.35rem; }
+.carte .ev__foot a.ev__ics svg { width: 19px; height: 19px; }
+.carte .ev__foot a.ev__ics svg * { vector-effect: non-scaling-stroke;
+                              stroke-width: 1.3px; }
+.carte .ev__foot a.ev__ics:hover, .carte .ev__foot a.ev__ics:focus { color: var(--or); opacity: 1; }
+.carte .ev__gauche {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 0;
+  }
+.carte .ev__diffusion { color: var(--blanc); }
+.carte .ev__diffusion a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(242, 193, 78, 0.45);
+    text-underline-offset: 2px;
+  }
+.carte .flag { height: 14px; border-radius: 2px; flex: none; }
+.carte .sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+@media (max-width: 860px) {.carte summary.ev__bar, .carte .fight { transform: none; }
+.carte .ck { transform: none; }
+.carte summary.ev__bar {
+      grid-template-columns: auto auto 1fr auto;
+      gap: 0.6rem 0.9rem;
+      padding: 0.6rem 0.9rem;
+    }
+.carte .ev__nom { white-space: normal; }
+.carte .ev__ville { grid-column: 1 / -2; }
+.carte .ev__avec { grid-column: 1 / -1; justify-content: flex-start; text-align: left; }
+.carte .ev__avec-txt { white-space: normal; }
+.carte .ev__body { margin: 0.4rem 0 0; padding: 0.6rem 0.6rem 0.3rem; }
+.carte .fight { grid-template-columns: 1fr; gap: 0.35rem; padding: 0.6rem 0.9rem; }
+.carte .fight .ck:nth-child(2) { justify-content: flex-start; text-align: left; }
+.carte .fight .ck:nth-child(2) .fight__col { text-align: left; }
+.carte .fight__vs { justify-self: start; }
+.carte .fight__cat { flex-direction: row; }}
+.carte .jchip {
+    font-family: Oswald, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--gris);
+    border: 1px solid #3a3a45;
+    border-radius: 999px;
+    padding: 0.16rem 0.55rem;
+    white-space: nowrap;
+  }
+.carte .jchip--hot {
+    color: var(--sombre);
+    background: var(--or);
+    border-color: var(--or);
+  }
+.carte .fight__cat {
+    justify-content: flex-start;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    font-family: Oswald, sans-serif;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    color: #8a8a94;
+    text-transform: uppercase;
+  }
+.carte .fight--annule { opacity: 0.6; }
+.carte .fight--annule .fight__nom { text-decoration: line-through; }
+.carte .fight__vs--annule { background: #e5484d; color: #fff; }
+.carte .chip--reporte {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    color: #12120f;
+    background: #e8933a;
+    border-radius: 4px;
+    padding: 0.1rem 0.35rem;
+  }
+.carte details.recap { max-width: 800px; margin: 0.9rem auto 0; }
+.carte summary.recap__bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    list-style: none;
+    cursor: pointer;
+    font-family: Oswald, sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    color: var(--gris);
+    border: 1px solid var(--bord);
+    border-radius: 999px;
+    padding: 0.45rem 1.2rem;
+  }
+.carte summary.recap__bar::-webkit-details-marker { display: none; }
+.carte summary.recap__bar:hover { color: var(--blanc); border-color: var(--or); }
+.carte details[open] > .recap__bar .recap__chev { transform: rotate(90deg); }
+@media (max-width: 860px) {.carte details.ev { margin-bottom: 0.5rem; }
+.carte summary.ev__bar {
+      grid-template-columns: 62px minmax(0, 1fr) auto auto 14px;
+      gap: 0.3rem 0.55rem;
+      padding: 0.5rem 0.7rem;
+      border-radius: 9px;
+    }
+.carte summary.ev__bar > .ck:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
+.carte summary.ev__bar > .ck:nth-child(3) { grid-area: 1 / 2 / 2 / 3; }
+.carte summary.ev__bar > .ck:nth-child(2) { grid-area: 1 / 3 / 2 / 4;
+                                         display: flex;
+                                         justify-content: flex-start; }
+.carte summary.ev__bar > .ck:nth-child(6) { grid-area: 1 / 4 / 2 / 5;
+                                         display: flex; }
+.carte summary.ev__bar > .ck:nth-child(7) { grid-area: 1 / 5 / 2 / 6; }
+.carte summary.ev__bar > .ck:nth-child(4) { grid-area: 2 / 1 / 3 / 2; }
+.carte summary.ev__bar > .ck:nth-child(5) { grid-area: 2 / 2 / 3 / 6; }
+.carte .ev__logo { max-height: 15px; max-width: 50px; }
+.carte .ev__badge { font-size: 0.55rem; padding: 0.1rem 0.3rem; }
+.carte .nom-long { display: none; }
+.carte .nom-court { display: inline; }
+.carte .jchip { display: inline-block; font-size: 0.6rem; padding: 0.12rem 0.4rem; }
+.carte .ev__date { font-size: 0.78rem; padding: 0.24rem 0.3rem; border-radius: 6px; }
+.carte .ev__nom {
+      font-size: 0.92rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+.carte .ev__ville { font-size: 0.68rem; }
+.carte .ev__chev { font-size: 0.8rem; }
+.carte .ev__avec { font-size: 0.7rem; }
+.carte .ev__avec-txt {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+.carte .ev__body { padding: 0.5rem 0.55rem 0.3rem; border-radius: 8px; }
+.carte .duel { margin-bottom: 0.45rem; }
+.carte .fight {
+      padding: 1.85rem 0.6rem 0.55rem;
+    }
+.carte .fight > .ck:nth-child(1) {
+      top: 0.5rem;
+      left: 0.6rem;
+      transform: none;
+      max-width: 45%;
+    }
+.carte .fight > .ck:nth-child(2) {
+      top: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+.carte .fight > .ck:nth-child(3) { padding-right: 0.35rem; }
+.carte .fight > .ck:nth-child(5) { padding-left: 0.35rem; }
+.carte .fight__cat { font-size: 0.58rem; gap: 0.3rem; }
+.carte .fight__titre { font-size: 0.53rem; }
+.carte .fight__nom {
+      font-size: 0.76rem;
+      letter-spacing: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+.carte .fight__col { max-width: 100%; }
+.carte .fight__rec { font-size: 0.6rem; }
+.carte .fight__vs { font-size: 0.55rem; padding: 0.14rem 0.32rem; }
+.carte .flag { height: 11px; }
+.carte .belt { width: 20px; height: 8px; }
+.carte .ev__foot {
+      padding: 0.1rem 0.2rem 0.35rem;
+      font-size: 0.62rem;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+.carte .ev__actions { gap: 0.8rem; }
+.carte summary.recap__bar { font-size: 0.74rem; padding: 0.4rem 1rem; }}
+@media (max-width: 400px) {.carte .fight__nom { font-size: 0.7rem; }
+.carte .fight__rec { font-size: 0.56rem; }
+.carte .ev__nom { font-size: 0.86rem; }}
+  .carte { --bar-clair: #232329; --sombre: #14140f; margin: 0 0 1rem; }
+  .carte > h2 { margin-bottom: 0.5rem; }
+  /* moins d'air entre le texte sous Suivre et le titre */
+  .suivre ~ .carte { margin-top: -0.7rem; }
+  .carte details.ev { margin: 0; }
+  /* sur la fiche on sait de qui et ou : ni ligne AVEC ni ville.
+     Sur ordinateur on garde leur place, sinon la grille se decale. */
+  .carte .ev__avec, .carte summary.ev__bar > .ck:nth-child(4) { visibility: hidden; }
+  @media (max-width: 860px) {
+    .carte .ev__avec, .carte summary.ev__bar > .ck:nth-child(4) { display: none; }
+  }
 
   body::before {
     content: "";
@@ -265,6 +701,39 @@
       </div>
     </div>
   </div>
+
+  <section class="carte" aria-label="Prochain combat">
+    <h2>Prochain combat</h2>
+    <details class="ev" data-orga="pfl" data-noms="boris atangana|boris atangana|bryan battle|bryan battle">
+      <summary class="ev__bar">
+        <span class="ck"><span class="ev__date">19 DEC</span></span>
+        <span class="ck"><img class="ev__logo" src="../logos/pfl.png" alt="PFL" data-couleur="1" style="height:18.5px"></span>
+        <span class="ck"><span class="ev__nom" data-complet="PFL Lyon 2026"><span class="nom-long">PFL Lyon 2026</span><span class="nom-court">PFL Lyon</span></span></span>
+        <span class="ck"><img class="flag" src="https://flagcdn.com/h20/fr.png" alt="" loading="lazy" title="LDLC Arena, Lyon, France"><span class="ev__ville" title="LDLC Arena, Lyon, France">Lyon</span></span>
+        <span class="ck ev__avec"><span class="ev__avec-txt" data-complet="Boris Atangana">
+          <span class="ev__avec-label">AVEC&nbsp;: </span>
+          <span class="ev__avec-noms">Boris Atangana</span>
+        </span></span>
+        <span class="ck"><span class="jchip jchip--hot">J-25</span></span>
+        <span class="ck"><span class="ev__chev" aria-hidden="true">&#9656;</span></span>
+      </summary>
+      <div class="ev__body">
+        <div class="duel">
+        <div class="fight">
+          <span class="ck fight__cat">Middleweight</span>
+          <span class="ck fight__titre-bloc"></span>
+          <span class="ck"><img class="flag" src="https://flagcdn.com/h20/be.png" alt="" loading="lazy"><span class="fight__col"><span class="fight__nom fight__nom--suivi" data-complet="Boris Atangana">Boris Atangana</span><span class="fight__rec">9-0-0</span></span></span>
+          <span class="ck"><span class="fight__vs">VS</span></span>
+          <span class="ck"><span class="fight__col"><span class="fight__nom" data-complet="Bryan Battle">Bryan Battle</span><span class="fight__rec">13-3-0</span></span><img class="flag" src="https://flagcdn.com/h20/us.png" alt="" loading="lazy"></span>
+        </div>
+        </div>
+        <div class="ev__foot">
+          <span class="ev__gauche"></span>
+          <span class="ev__actions"><a href="https://www.sherdog.com/events/Professional-Fighters-League-PFL-Lyon-2026-Lapilus-vs-McKee-114297" target="_blank" rel="noopener">Carte complète &rarr;</a></span>
+        </div>
+      </div>
+    </details>
+  </section>
 
   <div class="colonnes">
   <section class="bloc fiche-infos">
