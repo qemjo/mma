@@ -1916,8 +1916,10 @@ CSS_FOND = """
 
 
 def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda="",
-                   prefixe=""):
-    """prefixe : '../' quand la carte est affichee depuis une fiche."""
+                   prefixe="", nom_courant=""):
+    """prefixe : '../' quand la carte est affichee depuis une fiche.
+    nom_courant : le combattant de cette fiche, dont le nom n'est pas
+    un lien (on est deja sur sa page)."""
     try:
         jour = datetime.strptime(ev["date"], "%Y-%m-%d").date()
         date_txt = f"{jour.day:02d} {MOIS_COURT[jour.month - 1]}"
@@ -1966,7 +1968,8 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda="",
         nom = echapper(nom_affiche(c["combattant"]))
         flag = drapeau_html(c.get("drapeau", ""))
         url = fiches.get(c["combattant"], "")
-        if url or c["combattant"] in PAGES_COMBATTANTS:
+        if c["combattant"] != nom_courant and (
+                url or c["combattant"] in PAGES_COMBATTANTS):
             lien_nom = (f'<a class="fight__nom fight__nom--suivi" '
                         f'{attributs_lien(c["combattant"], url, prefixe)} '
                         f'data-complet="{nom}">{nom}</a>')
@@ -1995,7 +1998,7 @@ def bloc_evenement(ev, fiches, infos, ouvert, prochaine_date, agenda="",
             url_adv = "#"
         flag_adv = drapeau_html(c.get("drapeau_adversaire", ""))
         classe_adv = "fight__nom fight__nom--suivi" if url_adv else "fight__nom"
-        if url_adv:
+        if url_adv and suivi_adv != nom_courant:
             bloc_adv = (f'<a class="{classe_adv}" '
                         f'{attributs_lien(suivi_adv, url_adv, prefixe)} '
                         f'data-complet="{echapper(nom_adv)}">'
@@ -2733,7 +2736,7 @@ def construire_html(mois_groupes, fiches, infos, total, resultats):
 VOTES_ACTIFS = False
 VOTES_DEMO = True
 
-VERSION = 110
+VERSION = 112
 
 
 def ecrire_manifeste():
@@ -3326,12 +3329,21 @@ def page_fiche(nom, bio, profil, combats, resultats, url_sherdog, infos=None):
         # meme carte que sur l'accueil, avec ce seul combat, repliee.
         # Les noms ne menent qu'aux fiches MMA Radar (pas a Sherdog).
         c = prochain[1]
+        if c.get("adversaire_suivi") == nom:
+            # le combattant de la fiche passe en premier nom
+            c = dict(c)
+            c["combattant"], c["adversaire_suivi"] = nom, c["combattant"]
+            c["adversaire"] = c["adversaire_suivi"]
+            for g, d in (("drapeau", "drapeau_adversaire"),
+                         ("record_suivi", "record_adversaire"),
+                         ("url_suivi", "url_adversaire")):
+                c[g], c[d] = c.get(d, ""), c.get(g, "")
         ev = {"date": c["date"], "evenement": c.get("evenement", ""),
               "lieu": c.get("lieu", ""), "combats": [c]}
         bloc_combats = ('\n  <section class="carte" aria-label="Prochain combat">'
                         '\n    <h2>Prochain combat</h2>'
                         + bloc_evenement(ev, {}, infos or {}, False, c["date"],
-                                         prefixe="../")
+                                         prefixe="../", nom_courant=nom)
                         + '\n  </section>\n')
     if FICHE_AVEC_COMBATS:
         bloc_combats = ('\n  <section class="bloc">\n'
