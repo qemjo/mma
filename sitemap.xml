@@ -7,6 +7,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://mmaradar.fr/combattants/alexis-nicolas.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mmaradar.fr/combattants/allan-landouzy.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -19,7 +25,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://mmaradar.fr/combattants/assita-ouattara.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mmaradar.fr/combattants/baysangur-chamsoudinov.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mmaradar.fr/combattants/bilal-bakhouche-chareuf.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -43,7 +61,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://mmaradar.fr/combattants/jade-jorand.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mmaradar.fr/combattants/jason-ponet.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mmaradar.fr/combattants/jean-magny.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -62,6 +92,12 @@
   </url>
   <url>
     <loc>https://mmaradar.fr/combattants/mathys-duragrin.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mmaradar.fr/combattants/matthieu-letho-duclos.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

@@ -338,5 +338,125 @@
       "round": "1",
       "temps": "2:30"
     }
+  },
+  "Matthieu Letho Duclos": {
+    "url": "https://www.sherdog.com/fighter/Matthieu-Letho-Duclos-350789",
+    "surnom": "",
+    "naissance": "1995-04-04",
+    "taille_cm": "190",
+    "categorie": "Middleweight",
+    "equipe": "Venum Training Camp Paris",
+    "drapeau": "fr",
+    "record": "11-3-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Luis Felipe Dias",
+      "evenement": "UFC Fight Night 287 - Hooker vs. Parnasse",
+      "lien_evenement": "https://www.sherdog.com/events/UFC-Fight-Night-287-Hooker-vs-Parnasse-113189",
+      "date": "2026-09-05",
+      "methode": "KO (Punches)",
+      "round": "1",
+      "temps": "4:35"
+    }
+  },
+  "Jade Jorand": {
+    "url": "https://www.sherdog.com/fighter/Jade-Jorand-375539",
+    "surnom": "The Princess",
+    "naissance": "2000-10-10",
+    "taille_cm": "163",
+    "categorie": "Strawweight",
+    "equipe": "Werdum Training Center Bordeaux",
+    "drapeau": "fr",
+    "record": "5-3-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Adriana Fusini",
+      "evenement": "ARES 39 - Jbalia vs. Diatta",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-39-Jbalia-vs-Diatta-111468",
+      "date": "2026-04-03",
+      "methode": "TKO (Head Kick and Punches)",
+      "round": "1",
+      "temps": "3:47"
+    }
+  },
+  "Alexis Nicolas": {
+    "url": "https://www.sherdog.com/fighter/Alexis-Nicolas-441547",
+    "surnom": "Barboza",
+    "naissance": "1998-07-14",
+    "taille_cm": "183",
+    "categorie": "Welterweight",
+    "equipe": "Mahmoudi Gym",
+    "drapeau": "fr",
+    "record": "2-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Ilyasse Drabo",
+      "evenement": "ARES 43 - O'Connor vs. Diatta",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-43-OConnor-vs-Diatta-112452",
+      "date": "2026-09-25",
+      "methode": "TKO (Punches)",
+      "round": "1",
+      "temps": "2:52"
+    }
+  },
+  "Bilal Bakhouche-Chareuf": {
+    "url": "https://www.sherdog.com/fighter/Bilal-BakhoucheChareuf-484183",
+    "surnom": "Dhalsim",
+    "naissance": "1995-03-22",
+    "taille_cm": "190",
+    "categorie": "Middleweight",
+    "equipe": "Wfight Strasbourg",
+    "drapeau": "fr",
+    "record": "4-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Daniel Rodrigues",
+      "evenement": "ARES 44 - Younousov vs. Nam",
+      "lien_evenement": "https://www.sherdog.com/events/ARES-44-Younousov-vs-Nam-111977",
+      "date": "2026-10-31",
+      "methode": "TKO (Punches)",
+      "round": "1",
+      "temps": "3:22"
+    }
+  },
+  "Jean Magny": {
+    "url": "https://www.sherdog.com/fighter/Jean-Magny-409015",
+    "surnom": "Captain France",
+    "naissance": "",
+    "taille_cm": "178",
+    "categorie": "Welterweight",
+    "equipe": "",
+    "drapeau": "fr",
+    "record": "12-3-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Shekina Bilolo",
+      "evenement": "Coliseum 4 - Coliseum Fighting Championship",
+      "lien_evenement": "https://www.sherdog.com/events/Coliseum-4-Coliseum-Fighting-Championship-112303",
+      "date": "2026-04-18",
+      "methode": "Submission",
+      "round": "2",
+      "temps": "2:52"
+    }
+  },
+  "Assita Ouattara": {
+    "url": "https://www.sherdog.com/fighter/Assita-Ouattara-477781",
+    "surnom": "",
+    "naissance": "",
+    "taille_cm": "",
+    "categorie": "Strawweight",
+    "equipe": "",
+    "drapeau": "fr",
+    "record": "9-0-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Nina Speciale",
+      "evenement": "AFC Grand Prix: Museum of Legends - Amiens Fighting Championship",
+      "lien_evenement": "https://www.sherdog.com/events/AFC-Grand-Prix-Museum-of-Legends-Amiens-Fighting-Championship-113584",
+      "date": "2026-06-13",
+      "methode": "TKO (Punches)",
+      "round": "1",
+      "temps": "2:54"
+    }
   }
 }
