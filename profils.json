@@ -458,5 +458,45 @@
       "round": "1",
       "temps": "2:54"
     }
+  },
+  "Ylies Djiroun": {
+    "url": "https://www.sherdog.com/fighter/Ylies-Djiroun-86566",
+    "surnom": "Broly",
+    "naissance": "1992-05-17",
+    "taille_cm": "178",
+    "categorie": "Lightweight",
+    "equipe": "Marseille Fight Club",
+    "drapeau": "fr",
+    "record": "26-9-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Assem Ghanem",
+      "evenement": "Professional Fighters League - PFL MENA 11: Last Man Standing",
+      "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-11-Last-Man-Standing-113638",
+      "date": "2026-10-02",
+      "methode": "TKO (Punches)",
+      "round": "1",
+      "temps": "3:06"
+    }
+  },
+  "Mehdi Saadi": {
+    "url": "https://www.sherdog.com/fighter/Mehdi-Saadi-263991",
+    "surnom": "",
+    "naissance": "1993-03-08",
+    "taille_cm": "170",
+    "categorie": "Featherweight",
+    "equipe": "",
+    "drapeau": "tn",
+    "record": "8-2-0",
+    "dernier_combat": {
+      "resultat": "win",
+      "adversaire": "Shadi Kabbani",
+      "evenement": "Professional Fighters League - PFL MENA 11: Last Man Standing",
+      "lien_evenement": "https://www.sherdog.com/events/Professional-Fighters-League-PFL-MENA-11-Last-Man-Standing-113638",
+      "date": "2026-10-02",
+      "methode": "Decision (Split)",
+      "round": "3",
+      "temps": "5:00"
+    }
   }
 }
