@@ -1,5 +1,59 @@
 [
   {
+    "combattant": "Davy Gallon",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Theo Ulrich",
+    "evenement": "HXMMA 49 - Hexagone MMA 49",
+    "date": "2026-11-27",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Anthony Morel",
+    "drapeau": "re",
+    "resultat": "loss",
+    "adversaire": "Tamerlan Albiekov",
+    "evenement": "HXMMA 49 - Hexagone MMA 49",
+    "date": "2026-11-27",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Theo Ulrich",
+    "drapeau": "fr",
+    "resultat": "loss",
+    "adversaire": "Davy Gallon",
+    "evenement": "HXMMA 49 - Hexagone MMA 49",
+    "date": "2026-11-27",
+    "methode": "Decision (Unanimous)"
+  },
+  {
+    "combattant": "Allan Landouzy",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Benjamin Molnar",
+    "evenement": "HXMMA 49 - Hexagone MMA 49",
+    "date": "2026-11-27",
+    "methode": "Submission (Anaconda Choke)"
+  },
+  {
+    "combattant": "Oceane Samson",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Laetitia Gallardo",
+    "evenement": "HXMMA 49 - Hexagone MMA 49",
+    "date": "2026-11-27",
+    "methode": "TKO (Punches)"
+  },
+  {
+    "combattant": "Tamerlan Albiekov",
+    "drapeau": "fr",
+    "resultat": "win",
+    "adversaire": "Anthony Morel",
+    "evenement": "HXMMA 49 - Hexagone MMA 49",
+    "date": "2026-11-27",
+    "methode": "Decision (Unanimous)"
+  },
+  {
     "combattant": "Jason Ponet",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1269,15 +1323,6 @@
     "methode": "Decision (Unanimous)"
   },
   {
-    "combattant": "Oceane Samson",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Maria Rodriguez",
-    "evenement": "HXMMA 42 - Hexagone MMA 42",
-    "date": "2026-03-26",
-    "methode": "TKO (Punches)"
-  },
-  {
     "combattant": "Oumar Sy",
     "drapeau": "fr",
     "resultat": "loss",
@@ -1321,24 +1366,6 @@
     "evenement": "HXMMA 41 - Hexagone MMA 41",
     "date": "2026-03-06",
     "methode": "Submission (Peruvian Necktie)"
-  },
-  {
-    "combattant": "Allan Landouzy",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Anass Mehraz",
-    "evenement": "HXMMA 41 - Hexagone MMA 41",
-    "date": "2026-03-06",
-    "methode": "Submission (Rear-Naked Choke)"
-  },
-  {
-    "combattant": "Davy Gallon",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "Mathias Poiron",
-    "evenement": "HXMMA 40 - Hexagone MMA 40",
-    "date": "2026-02-28",
-    "methode": "Decision (Split)"
   },
   {
     "combattant": "Leopold Goi",
@@ -1492,15 +1519,6 @@
     "evenement": "ARES 37 - Augen vs. Shiguemoto 2",
     "date": "2026-01-09",
     "methode": "TKO (Foot Injury)"
-  },
-  {
-    "combattant": "Theo Ulrich",
-    "drapeau": "fr",
-    "resultat": "win",
-    "adversaire": "David Sipra",
-    "evenement": "HXMMA 37 - Hexagone MMA 37",
-    "date": "2026-01-09",
-    "methode": "TKO (Punches)"
   },
   {
     "combattant": "Alexandra Tekenah",
@@ -1717,15 +1735,6 @@
     "evenement": "Brave CF 101 - Brave Combat Federation 101",
     "date": "2025-11-09",
     "methode": "TKO (Knee to the Body)"
-  },
-  {
-    "combattant": "Anthony Morel",
-    "drapeau": "re",
-    "resultat": "win",
-    "adversaire": "Wade Henderson",
-    "evenement": "GFTC 004 - International",
-    "date": "2025-11-08",
-    "methode": "TKO (Punches)"
   },
   {
     "combattant": "Sofiane Bouafia",
@@ -2311,15 +2320,6 @@
     "evenement": "ARES 25 - Sola vs. Gagloev",
     "date": "2024-09-26",
     "methode": "Submission (Rear-Naked Choke)"
-  },
-  {
-    "combattant": "Tamerlan Albiekov",
-    "drapeau": "fr",
-    "resultat": "loss",
-    "adversaire": "Paul-Emmanuel Gnaze",
-    "evenement": "HXMMA 20 - Hexagone MMA 20",
-    "date": "2024-09-14",
-    "methode": "Decision (Split)"
   },
   {
     "combattant": "Youcef Ouabbas",

@@ -4,14 +4,15 @@ PRODID:-//MMA Radar//FR
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:2026-12-11-ares-46@mmaradar.fr
-DTSTAMP:20261127T130757Z
+DTSTAMP:20261128T081009Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:ARES 46
 LOCATION:Adidas Arena\, Paris\, France
-DESCRIPTION:Jade Jorand vs Kinga Jendrasik\nAlexis Nicolas vs Bilal Bakhou
- che-Chareuf\nJean Magny vs Kevin Cadoni\nAssita Ouattara vs Ghita Chafik\
- nhttps://www.sherdog.com/events/ARES-46-Jorand-vs-Jendrasik-114552
+DESCRIPTION:Alexis Nicolas vs Bilal Bakhouche-Chareuf\nJade Jorand vs King
+ a Jendrasik\nJean Magny vs Kevin Cadoni\nAssita Ouattara vs Ghita Chafik\
+ nhttps://www.sherdog.com/events/ARES-46-Barboza-vs-BakhoucheChareuf-11455
+ 2
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:C'est aujourd'hui

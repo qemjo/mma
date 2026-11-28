@@ -67,16 +67,16 @@
     "categorie": "Heavyweight",
     "equipe": "IOFCTV",
     "drapeau": "re",
-    "record": "7-2-0",
+    "record": "7-3-0",
     "dernier_combat": {
-      "resultat": "win",
-      "adversaire": "Paul-Emmanuel Gnaze",
-      "evenement": "HXMMA 41 - Hexagone MMA 41",
-      "lien_evenement": "https://www.sherdog.com/events/HXMMA-41-Hexagone-MMA-41-110652",
-      "date": "2026-03-06",
-      "methode": "KO (Punch)",
-      "round": "1",
-      "temps": "2:53"
+      "resultat": "loss",
+      "adversaire": "Tamerlan Albiekov",
+      "evenement": "HXMMA 49 - Hexagone MMA 49",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-49-Hexagone-MMA-49-114109",
+      "date": "2026-11-27",
+      "methode": "Decision (Unanimous)",
+      "round": "5",
+      "temps": "5:00"
     }
   },
   "Oceane Samson": {
@@ -87,16 +87,16 @@
     "categorie": "Strawweight",
     "equipe": "Ring Side Gym",
     "drapeau": "fr",
-    "record": "3-1-0",
+    "record": "4-1-0",
     "dernier_combat": {
-      "resultat": "loss",
-      "adversaire": "Elene Loladze",
-      "evenement": "UAE Warriors 72 - Chopurov vs. McLaren",
-      "lien_evenement": "https://www.sherdog.com/events/UAE-Warriors-72-Chopurov-vs-McLaren-113233",
-      "date": "2026-07-23",
-      "methode": "Submission (Guillotine Choke)",
+      "resultat": "win",
+      "adversaire": "Laetitia Gallardo",
+      "evenement": "HXMMA 49 - Hexagone MMA 49",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-49-Hexagone-MMA-49-114109",
+      "date": "2026-11-27",
+      "methode": "TKO (Punches)",
       "round": "1",
-      "temps": "3:06"
+      "temps": "3:10"
     }
   },
   "Hugo Deux": {
@@ -267,15 +267,15 @@
     "categorie": "Lightweight",
     "equipe": "Adrenaline Fight Team",
     "drapeau": "fr",
-    "record": "24-10-2",
+    "record": "25-10-2",
     "dernier_combat": {
       "resultat": "win",
-      "adversaire": "Wilson Varela",
-      "evenement": "HXMMA 44 - Hexagone MMA 44",
-      "lien_evenement": "https://www.sherdog.com/events/HXMMA-44-Hexagone-MMA-44-111655",
-      "date": "2026-05-29",
+      "adversaire": "Theo Ulrich",
+      "evenement": "HXMMA 49 - Hexagone MMA 49",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-49-Hexagone-MMA-49-114109",
+      "date": "2026-11-27",
       "methode": "Decision (Unanimous)",
-      "round": "3",
+      "round": "5",
       "temps": "5:00"
     }
   },
@@ -287,15 +287,15 @@
     "categorie": "Lightweight",
     "equipe": "Old School Academy",
     "drapeau": "fr",
-    "record": "8-0-0",
+    "record": "8-1-0",
     "dernier_combat": {
-      "resultat": "win",
-      "adversaire": "Nicolae Bivol",
-      "evenement": "HXMMA 44 - Hexagone MMA 44",
-      "lien_evenement": "https://www.sherdog.com/events/HXMMA-44-Hexagone-MMA-44-111655",
-      "date": "2026-05-29",
+      "resultat": "loss",
+      "adversaire": "Davy Gallon",
+      "evenement": "HXMMA 49 - Hexagone MMA 49",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-49-Hexagone-MMA-49-114109",
+      "date": "2026-11-27",
       "methode": "Decision (Unanimous)",
-      "round": "3",
+      "round": "5",
       "temps": "5:00"
     }
   },
@@ -307,16 +307,16 @@
     "categorie": "Bantamweight",
     "equipe": "",
     "drapeau": "fr",
-    "record": "2-0-0",
+    "record": "3-0-0",
     "dernier_combat": {
       "resultat": "win",
-      "adversaire": "Abdul Hussainkhil",
-      "evenement": "HXMMA 45 - Hexagone MMA 45",
-      "lien_evenement": "https://www.sherdog.com/events/HXMMA-45-Hexagone-MMA-45-111387",
-      "date": "2026-06-12",
-      "methode": "Decision (Unanimous)",
+      "adversaire": "Benjamin Molnar",
+      "evenement": "HXMMA 49 - Hexagone MMA 49",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-49-Hexagone-MMA-49-114109",
+      "date": "2026-11-27",
+      "methode": "Submission (Anaconda Choke)",
       "round": "3",
-      "temps": "5:00"
+      "temps": "1:46"
     }
   },
   "Tamerlan Albiekov": {
@@ -327,16 +327,16 @@
     "categorie": "Heavyweight",
     "equipe": "Chaos Squad",
     "drapeau": "fr",
-    "record": "5-1-0",
+    "record": "6-1-0",
     "dernier_combat": {
       "resultat": "win",
-      "adversaire": "Samuele Di Guardo",
-      "evenement": "HXMMA 45 - Hexagone MMA 45",
-      "lien_evenement": "https://www.sherdog.com/events/HXMMA-45-Hexagone-MMA-45-111387",
-      "date": "2026-06-12",
-      "methode": "TKO (Punches)",
-      "round": "1",
-      "temps": "2:30"
+      "adversaire": "Anthony Morel",
+      "evenement": "HXMMA 49 - Hexagone MMA 49",
+      "lien_evenement": "https://www.sherdog.com/events/HXMMA-49-Hexagone-MMA-49-114109",
+      "date": "2026-11-27",
+      "methode": "Decision (Unanimous)",
+      "round": "5",
+      "temps": "5:00"
     }
   },
   "Matthieu Letho Duclos": {

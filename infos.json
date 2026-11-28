@@ -1,14 +1,5 @@
 {
   "_aide": "Une entree par evenement, rangee par adresse de sa page Sherdog : deux soirees differentes portent parfois le meme nom. Repere-toi a la ligne _evenement, reecrite a chaque passage, ne la remplis pas. A saisir : heure (ex: 21:00, garde ce format, il alimente aussi l'agenda et Google), chaine (ex: RMC Sport 1), lien (adresse de la page de diffusion, facultatif). Seconde ligne pour les prelims : heure_prelim (ex: 19:30), prelim (ex: Prelims Twitch) et lien_prelim. Laisse vide si inconnu, puis relance generer_site.py.",
-  "https://www.sherdog.com/events/HXMMA-49-Hexagone-MMA-49-114109": {
-    "_evenement": "27/11/2026 - Hexagone MMA 49 (Cesson-Sevigne)",
-    "heure": "20:30",
-    "chaine": "RMC Sport 1",
-    "lien": "",
-    "heure_prelim": "19:00",
-    "prelim": "[Twitch](https://www.twitch.tv/rmcsport) et [YouTube](https://www.youtube.com/@rmcsportcombat)",
-    "lien_prelim": ""
-  },
   "https://www.sherdog.com/events/UFC-Fight-Night-295-Adesanya-vs-Magomedov-114777": {
     "_evenement": "05/12/2026 - UFC Fight Night 295 (Riyadh)",
     "heure": "",
@@ -18,7 +9,7 @@
     "prelim": "",
     "lien_prelim": ""
   },
-  "https://www.sherdog.com/events/ARES-46-Jorand-vs-Jendrasik-114552": {
+  "https://www.sherdog.com/events/ARES-46-Barboza-vs-BakhoucheChareuf-114552": {
     "_evenement": "11/12/2026 - ARES 46 (Paris)",
     "heure": "",
     "chaine": "",
